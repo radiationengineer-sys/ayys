@@ -319,6 +319,10 @@
     .mb-item:hover{border-color:rgba(29,158,117,0.3);background:rgba(29,158,117,0.04)}
     .cert:hover{box-shadow:0 6px 18px rgba(29,158,117,0.07)}
     .vimg{will-change:transform}
+
+    .contact-mail{color:var(--g);font-weight:600;text-decoration:none;opacity:1;word-break:break-word}
+    .contact-mail:hover{text-decoration:underline;color:var(--gd)}
+    .entity-card p,.cinfo-item a,.cinfo-item p{opacity:1}
 </style>
 </head>
 <body>
@@ -352,7 +356,7 @@
         </div>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
-      <a class="ncta" href="ayys-platform.html">
+      <a class="ncta" href="#contact">
         <span class="cdot"></span><span data-i18n="nav_platform">Request a sourcing mandate</span>
       </a>
       <button class="hamburger" id="ham" onclick="toggleMenu()" aria-label="Menu">
@@ -368,7 +372,7 @@
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
     <div class="mobile-menu-bottom">
-      <a href="ayys-platform.html" class="ncta" style="font-size:13px">
+      <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
       </a>
     </div>
@@ -608,11 +612,11 @@
     <div class="cinfo reveal-left">
       <div class="cinfo-item">
         <h4 data-i18n="ci1h">General enquiries</h4>
-        <a href="/cdn-cgi/l/email-protection#8eede1e0faefedfaceeff7f7fda3e9fce1fbfea0ede1e3" style="color:var(--g)"><span class="__cf_email__" data-cfemail="f4979b9a80959780b4958d8d87d993869b8184da979b99">[email&#160;protected]</span></a>
+        <a href="mailto:contact@ayys-group.com" style="color:var(--g);font-weight:600">contact@ayys-group.com</a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci2h">Trading desk</h4>
-        <a href="/cdn-cgi/l/email-protection#0f7b7d6e6b6661684f6e76767c22687d607a7f216c6062" style="color:var(--g)"><span class="__cf_email__" data-cfemail="deaaacbfbab7b0b99ebfa7a7adf3b9acb1abaef0bdb1b3">[email&#160;protected]</span></a>
+        <a href="mailto:trading@ayys-group.com" style="color:var(--g);font-weight:600">trading@ayys-group.com</a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci3h">Availability</h4>
@@ -629,16 +633,16 @@
       <div class="entity-grid">
         <div class="entity-card">
           <h4>Commercial contact</h4>
-          <p>Name to publish before go-live<br>Role: Head of Origination</p>
+          <p>Commercial desk<br><a href="mailto:contact@ayys-group.com" class="contact-mail">contact@ayys-group.com</a></p>
         </div>
         <div class="entity-card">
           <h4>Compliance contact</h4>
-          <p>Name to publish before go-live<br>Role: Compliance Officer</p>
+          <p>Compliance desk<br><a href="mailto:contact@ayys-group.com" class="contact-mail">contact@ayys-group.com</a></p>
         </div>
       </div>
     </div>
     <div class="reveal-right">
-      <div class="cform" id="cform">
+      <form class="cform" id="cform">
         <div class="form-row">
           <input type="text" id="fname" data-i18n-ph="ph_name" placeholder="Full name" required/>
           <input type="text" id="fco" data-i18n-ph="ph_co" placeholder="Company"/>
@@ -655,19 +659,19 @@
           <option>Other</option>
         </select>
         <div class="form-row">
-          <input type="text" id="fmetal" placeholder="Metal / product"/>
-          <input type="text" id="fvolume" placeholder="Estimated volume"/>
+          <input type="text" id="fmetal" data-field="metal" placeholder="Metal / product"/>
+          <input type="text" id="fvolume" data-field="volume" placeholder="Estimated volume"/>
         </div>
         <div class="form-row">
-          <input type="text" id="fdestination" placeholder="Destination / delivery point"/>
-          <input type="text" id="ftimeline" placeholder="Target timeline"/>
+          <input type="text" id="fdestination" data-field="destination" placeholder="Destination / delivery point"/>
+          <input type="text" id="ftimeline" data-field="timeline" placeholder="Target timeline"/>
         </div>
         <textarea id="fmsg" placeholder="Describe your mandate: origin preference, Incoterm, contract structure, payment instrument and any compliance constraints..." data-i18n-ph="ph_msg" required></textarea>
-        <button class="cform-submit" onclick="submitForm()">
+        <button type="submit" class="cform-submit">
           <span class="cdot"></span><span data-i18n="ct_btn">Send request</span>
         </button>
-        <div class="cform-note">Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.</div>
-      </div>
+        <div class="cform-note" data-note="form_note">Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.</div>
+      </form>
       <div class="form-success" id="form-success">
         ✓ &nbsp; Thank you — your sourcing mandate request has been received.<br>Our team will review the submission and respond within 24 business hours.
       </div>
@@ -703,7 +707,7 @@
       <a href="#intel">Intelligence</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="ayys-platform.html">Apply for supply partnership</a>
+      <a href="#contact">Apply for supply partnership</a>
     </div>
     <div class="fcerts">
       <div class="fcert"><span class="fcert-badge">OECD</span><span class="fcert-label">Due Diligence aligned</span></div>
@@ -724,7 +728,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ===== REAL MARKET DATA — April 2026 ===== */
 /* Sources:
    Cu: LME spot $12,138/t (MacroMicro, Apr 3 2026) — +42% YoY
@@ -878,101 +882,102 @@ async function submitForm() {
 </script>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════════════════
-   AYYS COMMODITIES — Site public v2.0
-   Module I : Internationalisation — 5 langues (EN/FR/DE/AR/ZH)
-   Vérifié ×3 avant livraison : clés, cohérence, RTL
-   ═══════════════════════════════════════════════════════════════════════════ */
-const T={
-EN:{nav_services:'Services',nav_markets:'Markets',nav_intel:'Intelligence',nav_about:'About',nav_contact:'Contact',nav_platform:'Request a sourcing mandate',badge:'EUROPEAN OFFTAKE FOCUS · KYC / AML / SANCTIONS CONTROLLED',h1:'We source and structure <em>strategic metal flows</em><br>for European industrial offtakers',hp:'We originate upstream supply, structure contracts, coordinate logistics and manage settlement for battery manufacturers, EPC contractors and strategic buyers that need bankable metal flows — not generic market access.',hb1:'Request a sourcing mandate',hb2:'See operating model',stat1:'Commodities traded',stat2:'Countries covered',stat3:'Trading desk',stat4:'Market expertise',mb_label:'Spot · Apr 2026',sv_ey:'What we do',sv_t:'End-to-end commodity solutions',sv_s:'From origin sourcing to final delivery, AYYS structures every transaction with precision — adapting to market volatility, regulatory complexity and logistical disruption.',s1h:'Sourcing & Trading',s1p:'Direct access to mine-gate production in Sub-Saharan Africa, Latin America and Southeast Asia. We structure offtake agreements, spot purchases and long-term supply contracts on competitive terms.',s2h:'Trade Finance',s2p:'Documentary letters of credit, bank guarantees and structured payment instruments. We navigate the full range of trade finance tools to secure transactions for buyers and sellers alike.',s3h:'Logistics & Shipping',s3p:'Multimodal freight coordination across FCL, bulk and air cargo. Port handling, customs clearance and real-time tracking from origin to discharge port — across 50+ routing combinations.',s4h:'Advisory & Intelligence',s4p:'Market analysis, price benchmarking and geopolitical risk monitoring. We provide independent insight to help clients navigate the commodity cycle.',mt_ey:'Priority supply corridors',mt_t:'Reference prices, corridor risk and delivery focus',mt_src:'Indicative reference prices. Contact our trading desk for live quotes. Prices updated April 2026.',pt_label:'Operating framework disclosure',wy_ey:'Why AYYS',wy_t:'Execution discipline for qualified buyers',wy_p:'AYYS is built for buyers who need an execution partner, not a brochure. We qualify counterparties, structure the transaction stack and keep documentation, logistics and payment aligned from first mandate to final settlement.',v1:'Counterparty onboarding with KYC, AML, sanctions and beneficial-owner screening before execution',v2:'Structured execution path: sourcing upstream → contract → logistics → delivery → settlement',v3:'Transaction support for battery manufacturers, EPC contractors and strategic industrial buyers',v4:'Shipment and document control with issue escalation across corridor, customs and payment milestones',ab_ey:'About / Entity',ab_t:'Legal entity, compliance perimeter and identified contacts',ab_p1:'AYYS Commodities operates as a France-registered commodities business serving upstream producers, refiners and European industrial offtakers. The commercial model is execution-led: origin sourcing, contract structuring, logistics coordination, delivery management and settlement support.',ab_p2:'Every transaction is subject to counterparty onboarding, KYC/AML review, sanctions screening and documentary controls adapted to the corridor, product and payment instrument. Public market data displayed on this site is indicative only and should never be interpreted as a firm quote or offer.',ab_q:'"The world\'s transition to clean energy runs on cobalt, lithium and copper. AYYS exists to make that supply chain more resilient, more transparent and more accessible."',ab_qc:'— Executive Management, AYYS Commodities',in_ey:'Market Intelligence',in_t:'Publish insight, not noise',ap_ey:'Our approach',ap_t:'Transaction workflow',ap_p:'A visible execution path improves conversion: buyers should immediately understand how a mandate moves from sourcing to contract, logistics, delivery and settlement — and what documentation is required at each stage.',a1:'Visible sourcing path for each mandate: upstream source, contract status, logistics milestone, delivery target, settlement stage',a2:'Qualified CTA: Request a sourcing mandate or Apply for supply partnership',a3:'Use a structured onboarding form with buyer type, metal, estimated volume, destination and timeline',ct_ey:'Contact',ct_t:"Request a sourcing mandate",ct_s:'Qualified buyers and upstream partners receive a response within 24 business hours once the mandate fields below are completed.',ci1h:'General enquiries',ci2h:'Trading desk',ci3h:'Availability',ci3p:'Mon – Fri, 8am – 8pm (CET)<br>Trading emergencies: 24/7',ct_btn:'Send request',ct_note:'Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.',ct_h:'Need a qualified supply partner for strategic metals?',ct_b:'Request a mandate →',ph_name:'Full name',ph_co:'Company',ph_email:'Professional email',ph_country:'Country / region',ph_msg:'Describe your project: metal type, estimated volume, origin or destination, timeline...',form_type:'Type of enquiry',opt1:'Buy metals / minerals',opt2:'Sell / sourcing',opt3:'Logistics & transport',opt4:'Advisory & expertise',opt5:'Financial partnership',opt6:'Other',form_ok:'✓ Thank you — your sourcing mandate request has been received.<br>Our team will review the submission and respond within 24 business hours.',ft_tag:'Strategic metal sourcing, contract structuring,<br>logistics and settlement support.',ft_copy:'© 2026 AYYS Commodities. All rights reserved.',ft_disc:'Indicative reference prices based on public market sources (LME, Fastmarkets, Trading Economics) as of April 2026. They do not constitute a binding offer. Contact our trading desk for firm quotes.'},
-
-FR:{nav_services:'Services',nav_markets:'Marchés',nav_intel:'Intelligence',nav_about:'À propos',nav_contact:'Contact',nav_platform:'Demander un mandat d'approvisionnement',badge:'MAISON DE NÉGOCE INDÉPENDANTE · FONDÉE EN 2020',h1:'Les <em>métaux</em> qui<br>alimentent le futur',hp:'AYYS source, structure et livre des minéraux stratégiques sur les marchés mondiaux — cuivre, cobalt, lithium, terres rares et plus de 65 commodités. De la mine à la raffinerie, nous acheminons ce que la transition énergétique exige.',hb1:'Initier une conversation',hb2:'Nos services',stat1:'Commodités négociées',stat2:'Pays couverts',stat3:'Desk de trading',stat4:'Expertise marché',mb_label:'Spot · Avr. 2026',sv_ey:'Ce que nous faisons',sv_t:'Solutions commodités de bout en bout',sv_s:"Du sourcing à l'origine jusqu'à la livraison finale, AYYS structure chaque transaction avec précision — s'adaptant à la volatilité des marchés, à la complexité réglementaire et aux perturbations logistiques.",s1h:'Sourcing & Trading',s1p:"Accès direct à la production en Afrique subsaharienne, Amérique latine et Asie du Sud-Est. Nous structurons des accords d'offtake, des achats spot et des contrats d'approvisionnement à long terme.",s2h:'Trade Finance',s2p:'Lettres de crédit documentaires, garanties bancaires et instruments de paiement structurés. Nous maîtrisons l\'ensemble des outils de trade finance pour sécuriser les transactions.',s3h:'Logistique & Fret',s3p:'Coordination multimodale FCL, vrac et fret aérien. Gestion portuaire, dédouanement et tracking en temps réel sur plus de 50 combinaisons de routing.',s4h:'Conseil & Intelligence',s4p:'Analyse de marché, benchmarking des prix et surveillance des risques géopolitiques. Nous fournissons des insights indépendants pour naviguer dans le cycle des commodités.',mt_ey:'Marchés couverts',mt_t:'Prix de référence en temps réel',mt_src:"Prix indicatifs de référence. Contactez notre desk de trading pour des cotations en temps réel. Données mises à jour en avril 2026.",pt_label:'Cadre opérationnel publié',wy_ey:'Pourquoi AYYS',wy_t:"L'agilité à l'échelle mondiale",wy_p:"Sur un marché dominé par quelques géants, AYYS apporte ce que les majors ne peuvent offrir : proximité, rapidité et engagement personnel sur chaque transaction.",v1:'Conformité KYC/AML — traçabilité complète de la chaîne de possession sur chaque dossier',v2:'Réseau actif en Afrique subsaharienne, Asie du Sud-Est, Amérique latine & Europe',v3:'Maîtrise du trade finance — LC documentaires, garanties bancaires, instruments structurés',v4:'Suivi opérationnel 24h/7j et reporting sur toutes les transactions actives',ab_ey:"À propos d'AYYS",ab_t:'Indépendant. Engagé. Global.',ab_p1:"AYYS est une maison de négoce indépendante de matières premières opérant sur l'ensemble du spectre des marchés de métaux et minéraux. Fondée sur le principe que agilité et intégrité ne sont pas incompatibles, nous servons producteurs, raffineurs et acheteurs industriels sur cinq continents.",ab_p2:"Contrairement aux grands conglomérats, notre structure agile nous permet d'évoluer à la vitesse du marché — nous adaptant en temps réel aux fluctuations de prix, aux évolutions réglementaires et aux perturbations logistiques.",ab_q:"\"La transition mondiale vers l'énergie propre repose sur le cobalt, le lithium et le cuivre. AYYS existe pour rendre cette chaîne d'approvisionnement plus résiliente, transparente et accessible.\"",ab_qc:'— Direction générale, AYYS Commodities',in_ey:'Intelligence marché',in_t:'Signaux géopolitiques — Avril 2026',ap_ey:'Notre approche',ap_t:'Rigueur à chaque étape',ap_p:"Chaque transaction chez AYYS suit un processus structuré en quatre étapes : qualification, structuration, exécution et suivi post-transaction. La conformité ESG est intégrée dès le premier jour — car l'approvisionnement responsable est un avantage concurrentiel.",a1:'Directives OCDE de diligence raisonnée alignées sur toutes les origines minérales',a2:'Lettres de crédit documentaires et garanties bancaires sur toutes les grandes transactions',a3:'Suivi logistique en temps réel et reporting dédié aux clients',ct_ey:'Contact',ct_t:'Demander un mandat d'approvisionnement',ct_s:'Producteur, acheteur ou partenaire financier — notre équipe répond sous 24h ouvrées.',ci1h:'Demandes générales',ci2h:'Département trading',ci3h:'Disponibilité',ci3p:'Lun – Ven, 8h – 20h (CET)<br>Urgences trading : 24h/7j',ct_btn:'Envoyer la demande',ct_note:'Vos informations restent strictement confidentielles et ne seront pas partagées avec des tiers.',ct_h:'Besoin d'un partenaire qualifié pour vos métaux stratégiques ?',ct_b:'Prendre contact →',ph_name:'Prénom & nom',ph_co:'Société',ph_email:'Email professionnel',ph_country:'Pays / région',ph_msg:'Décrivez votre projet : type de métal, volume estimé, origine ou destination, délai...',form_type:'Type de demande',opt1:'Achat de métaux / minéraux',opt2:'Vente / sourcing',opt3:'Logistique & transport',opt4:'Conseil & expertise',opt5:'Partenariat financier',opt6:'Autre',form_ok:'✓ Merci — votre demande a bien été reçue.<br>Notre équipe vous contactera sous 24 heures ouvrées.',ft_tag:'Sourcer les métaux &<br>minéraux qui font bouger le monde.',ft_copy:'© 2026 AYYS Commodities. Tous droits réservés.',ft_disc:"Prix indicatifs basés sur des sources de marché publiques (LME, Fastmarkets, Trading Economics) au mois d'avril 2026. Ils ne constituent pas une offre ferme. Contactez notre desk de trading pour des cotations fermes."},
-
-DE:{nav_services:'Leistungen',nav_markets:'Märkte',nav_intel:'Marktanalyse',nav_about:'Über uns',nav_contact:'Kontakt',nav_platform:'Plattformzugang',badge:'UNABHÄNGIGES HANDELSHAUS · GEGRÜNDET 2020',h1:'Die <em>Metalle</em>, die<br>die Zukunft antreiben',hp:'AYYS beschafft, strukturiert und liefert strategische Mineralien auf globalen Märkten — Kupfer, Kobalt, Lithium, Seltene Erden und 65+ Rohstoffe. Von der Mine zur Raffinerie bewegen wir, was die Energiewende braucht.',hb1:'Gespräch beginnen',hb2:'Unsere Leistungen',stat1:'Gehandelte Rohstoffe',stat2:'Abgedeckte Länder',stat3:'Trading Desk',stat4:'Marktexpertise',mb_label:'Spot · Apr. 2026',sv_ey:'Was wir tun',sv_t:'End-to-End Rohstofflösungen',sv_s:'Von der Herkunftsbeschaffung bis zur Endlieferung strukturiert AYYS jede Transaktion präzise — angepasst an Marktvolatilität, regulatorische Komplexität und logistische Störungen.',s1h:'Beschaffung & Handel',s1p:'Direkter Zugang zur Minenproduktion in Subsahara-Afrika, Lateinamerika und Südostasien. Wir strukturieren Abnahmeabkommen, Spot-Käufe und langfristige Lieferverträge.',s2h:'Handelsfinanzierung',s2p:'Dokumentenakkreditive, Bankgarantien und strukturierte Zahlungsinstrumente zur Absicherung aller Transaktionen.',s3h:'Logistik & Schifffahrt',s3p:'Multimodale Frachtkoordination über FCL, Schüttgut und Luftfracht. Zollabfertigung und Echtzeit-Tracking auf 50+ Routen.',s4h:'Beratung & Marktintelligenz',s4p:'Marktanalyse, Preisbenchmarking und geopolitische Risikoüberwachung für fundierte Beschaffungsentscheidungen.',mt_ey:'Märkte die wir abdecken',mt_t:'Echtzeit-Preisreferenzen',mt_src:'Indikative Referenzpreise. Kontaktieren Sie unseren Trading Desk für Live-Notierungen. Daten aktualisiert April 2026.',pt_label:'Kontrahenten & Marktteilnehmer',wy_ey:'Warum AYYS',wy_t:'Agilität trifft globale Reichweite',wy_p:'In einem Markt, der von wenigen Großen dominiert wird, bietet AYYS, was die Marktführer nicht bieten können: Nähe, Schnelligkeit und persönliches Engagement bei jeder Transaktion.',v1:'KYC/AML-konform — vollständige Rückverfolgbarkeit der Lieferkette bei jedem Geschäft',v2:'Aktives Netzwerk in Subsahara-Afrika, Südostasien, Lateinamerika & Europa',v3:'Handelsfinanzierungs-Know-how — Dokumentenakkreditive, Bankgarantien, strukturierte Instrumente',v4:'24/7 Betriebsüberwachung und Berichterstattung über alle aktiven Transaktionen',ab_ey:'Über AYYS',ab_t:'Unabhängig. Engagiert. Global.',ab_p1:'AYYS ist ein unabhängiges Rohstoffhandelshaus, das über das gesamte Spektrum der Metall- und Mineralmärkte tätig ist, mit Produzenten, Raffinerien und Industriekäufern auf fünf Kontinenten.',ab_p2:'Im Gegensatz zu großen Konzernen ermöglicht unsere schlanke Struktur, mit Marktgeschwindigkeit zu agieren — in Echtzeit auf Preisverschiebungen, regulatorische Änderungen und logistische Störungen zu reagieren.',ab_q:'"Der weltweite Übergang zu sauberer Energie basiert auf Kobalt, Lithium und Kupfer. AYYS existiert, um diese Lieferkette widerstandsfähiger, transparenter und zugänglicher zu machen."',ab_qc:'— Geschäftsführung, AYYS Commodities',in_ey:'Marktanalyse',in_t:'Geopolitische Signale — April 2026',ap_ey:'Unser Ansatz',ap_t:'Präzision auf jedem Schritt',ap_p:'Jede Transaktion bei AYYS folgt einem strukturierten Vier-Stufen-Prozess: Qualifikation, Strukturierung, Ausführung und Post-Trade-Monitoring. ESG-Compliance ist vom ersten Tag an integriert.',a1:'OECD-Sorgfaltspflichtleitlinien bei allen mineralischen Ursprüngen',a2:'Dokumentenakkreditive und Bankgarantien bei allen Großtransaktionen',a3:'Echtzeit-Logistikverfolgung und dediziertes Client-Reporting',ct_ey:'Kontakt',ct_t:'Lassen Sie uns Chancen erkunden',ct_s:'Produzent, Käufer oder Finanzpartner — unser Team antwortet innerhalb von 24 Geschäftsstunden.',ci1h:'Allgemeine Anfragen',ci2h:'Trading Desk',ci3h:'Verfügbarkeit',ci3p:'Mo – Fr, 8–20 Uhr (MEZ)<br>Trading-Notfälle: 24/7',ct_btn:'Anfrage senden',ct_note:'Ihre Informationen werden streng vertraulich behandelt und nicht an Dritte weitergegeben.',ct_h:'Bereit, eine Partnerschaft mit AYYS zu erkunden?',ct_b:'Jetzt Kontakt aufnehmen →',ph_name:'Vollständiger Name',ph_co:'Unternehmen',ph_email:'Geschäftliche E-Mail',ph_country:'Land / Region',ph_msg:'Beschreiben Sie Ihr Projekt: Metallart, geschätztes Volumen, Herkunft oder Ziel, Zeitplan...',form_type:'Art der Anfrage',opt1:'Metalle / Mineralien kaufen',opt2:'Verkaufen / Beschaffung',opt3:'Logistik & Transport',opt4:'Beratung & Expertise',opt5:'Finanzpartnerschaft',opt6:'Sonstiges',form_ok:'✓ Vielen Dank — Ihre Anfrage ist eingegangen.<br>Unser Team meldet sich innerhalb von 24 Geschäftsstunden.',ft_tag:'Beschaffung der Metalle &<br>Mineralien, die die Welt bewegen.',ft_copy:'© 2026 AYYS Commodities. Alle Rechte vorbehalten.',ft_disc:'Indikative Referenzpreise basierend auf öffentlichen Marktquellen (LME, Fastmarkets, Trading Economics) vom April 2026. Kein bindendes Angebot.'},
-
-AR:{nav_services:'الخدمات',nav_markets:'الأسواق',nav_intel:'التحليلات',nav_about:'من نحن',nav_contact:'اتصل بنا',nav_platform:'الوصول للمنصة',badge:'دار تداول مستقلة · تأسست 2020',h1:'<em>المعادن</em> التي<br>تُشغّل المستقبل',hp:'تعمل AYYS على تحديد مصادر المعادن الاستراتيجية وهيكلتها وتسليمها في الأسواق العالمية — النحاس والكوبالت والليثيوم والعناصر النادرة و+65 سلعة. من المنجم إلى المصفاة.',hb1:'ابدأ محادثة',hb2:'خدماتنا',stat1:'السلع المتداولة',stat2:'الدول المشمولة',stat3:'مكتب التداول',stat4:'الخبرة في السوق',mb_label:'سعر فوري · أبريل 2026',sv_ey:'ما نفعله',sv_t:'حلول شاملة للسلع',sv_s:'من تحديد المصادر إلى التسليم النهائي، تهيكل AYYS كل معاملة بدقة مع التكيف مع تقلبات السوق والتعقيدات التنظيمية.',s1h:'التوريد والتجارة',s1p:'وصول مباشر إلى إنتاج المناجم في أفريقيا جنوب الصحراء وأمريكا اللاتينية وجنوب شرق آسيا. نهيكل اتفاقيات الشراء والعقود طويلة الأجل.',s2h:'تمويل التجارة',s2p:'خطابات اعتماد وثائقية وضمانات مصرفية وأدوات دفع منظمة لتأمين المعاملات للمشترين والبائعين.',s3h:'الخدمات اللوجستية والشحن',s3p:'تنسيق الشحن متعدد الوسائط عبر الحاويات الكاملة والبضائع السائبة والشحن الجوي على أكثر من 50 مسار.',s4h:'الاستشارات والتحليلات',s4p:'تحليل السوق ومعيار الأسعار ومراقبة المخاطر الجيوسياسية لمساعدة العملاء على التنقل في دورة السلع.',mt_ey:'الأسواق التي نغطيها',mt_t:'أسعار مرجعية في الوقت الفعلي',mt_src:'أسعار مرجعية استرشادية. تواصل مع مكتب التداول للحصول على عروض أسعار مباشرة. بيانات أبريل 2026.',pt_label:'الأطراف المقابلة والمشاركون في السوق',wy_ey:'لماذا AYYS',wy_t:'الرشاقة على المستوى العالمي',wy_p:'في سوق يهيمن عليه عدد قليل من العمالقة، تقدم AYYS ما لا تستطيع الكبرى تقديمه: القرب والسرعة والالتزام الشخصي في كل معاملة.',v1:'متوافقة مع KYC/AML — تتبع كامل لسلسلة الحيازة في كل صفقة',v2:'شبكة نشطة في أفريقيا جنوب الصحراء وجنوب شرق آسيا وأمريكا اللاتينية وأوروبا',v3:'إتقان تمويل التجارة — خطابات اعتماد وضمانات مصرفية وأدوات هيكلية',v4:'مراقبة تشغيلية على مدار الساعة وتقارير عن جميع المعاملات النشطة',ab_ey:'من نحن',ab_t:'مستقلون. ملتزمون. عالميون.',ab_p1:'AYYS هي دار تداول مستقلة للسلع تعمل عبر الطيف الكامل لأسواق المعادن، تخدم المنتجين والمصافي والمشترين الصناعيين في خمس قارات.',ab_p2:'على عكس التكتلات الكبرى، هيكلنا المرن يمكّننا من العمل بسرعة السوق والتكيف في الوقت الفعلي.',ab_q:'"التحول العالمي نحو الطاقة النظيفة يعتمد على الكوبالت والليثيوم والنحاس. AYYS موجودة لجعل هذه السلسلة أكثر مرونة وشفافية وإتاحة."',ab_qc:'— الإدارة التنفيذية، AYYS Commodities',in_ey:'تحليلات السوق',in_t:'الإشارات الجيوسياسية — أبريل 2026',ap_ey:'نهجنا',ap_t:'الدقة في كل خطوة',ap_p:'كل معاملة تتبع عملية منظمة من أربع مراحل: التأهيل والهيكلة والتنفيذ والمتابعة. الامتثال البيئي والاجتماعي مدمج منذ اليوم الأول.',a1:'مبادئ توجيهية للعناية الواجبة وفق منظمة OECD على جميع الأصول المعدنية',a2:'خطابات اعتماد وثائقية وضمانات مصرفية على جميع الصفقات الكبرى',a3:'تتبع لوجستي في الوقت الفعلي ولوحة تقارير مخصصة للعملاء',ct_ey:'اتصل بنا',ct_t:'لنستكشف الفرص معاً',ct_s:'منتج أو مشترٍ أو شريك مالي — يردّ فريقنا خلال 24 ساعة عمل.',ci1h:'الاستفسارات العامة',ci2h:'مكتب التداول',ci3h:'أوقات العمل',ci3p:'الإثنين – الجمعة، 8 ص – 8 م (CET)<br>حوادث التداول الطارئة: 24/7',ct_btn:'إرسال الطلب',ct_note:'تُحفظ معلوماتك بسرية تامة ولن تُشارك مع أطراف ثالثة.',ct_h:'هل أنت مستعد لاستكشاف شراكة مع AYYS؟',ct_b:'تواصل معنا →',ph_name:'الاسم الكامل',ph_co:'الشركة',ph_email:'البريد الإلكتروني المهني',ph_country:'الدولة / المنطقة',ph_msg:'صف مشروعك: نوع المعدن والحجم المقدر والمصدر أو الوجهة والجدول الزمني...',form_type:'نوع الاستفسار',opt1:'شراء معادن',opt2:'بيع / توريد',opt3:'لوجستيات ونقل',opt4:'استشارات وخبرة',opt5:'شراكة مالية',opt6:'أخرى',form_ok:'✓ شكراً — لقد تم استلام طلبك.<br>سيتواصل معك فريقنا خلال 24 ساعة عمل.',ft_tag:'تحديد مصادر المعادن &<br>التي تحرك العالم.',ft_copy:'© 2026 AYYS Commodities. جميع الحقوق محفوظة.',ft_disc:'أسعار مرجعية استرشادية. لا تشكل عرضاً ملزماً.'},
-
-ZH:{nav_services:'服务',nav_markets:'市场',nav_intel:'市场情报',nav_about:'关于我们',nav_contact:'联系我们',nav_platform:'平台访问',badge:'独立大宗商品交易商 · 成立于2020年',h1:'驱动未来的<br><em>战略性金属</em>',hp:'AYYS在全球市场采购、构建和交付战略性矿产——铜、钴、锂、稀土及65+大宗商品。从矿山到精炼厂，我们输送能源转型所需的一切。',hb1:'开始对话',hb2:'我们的服务',stat1:'交易大宗商品',stat2:'覆盖国家',stat3:'交易台',stat4:'市场专业知识',mb_label:'现货 · 2026年4月',sv_ey:'我们的业务',sv_t:'端到端大宗商品解决方案',sv_s:'从原产地采购到最终交付，AYYS以精准方式构建每一笔交易——适应市场波动、监管复杂性和物流中断。',s1h:'采购与交易',s1p:'直接获取撒哈拉以南非洲、拉丁美洲和东南亚的矿山产量。我们构建包购协议、现货采购和长期供应合同。',s2h:'贸易融资',s2p:'跟单信用证、银行担保和结构性支付工具，为买卖双方的交易提供保障。',s3h:'物流与航运',s3p:'整箱、散货和空运的多式联运协调。港口装卸、清关和全程实时跟踪。',s4h:'咨询与情报',s4p:'市场分析、价格基准测试和地缘政治风险监测，帮助客户驾驭大宗商品周期。',mt_ey:'我们覆盖的市场',mt_t:'实时价格参考',mt_src:'参考指导价格。请联系交易台获取实时报价。数据更新于2026年4月。',pt_label:'交易对手方及市场参与者',wy_ey:'为何选择AYYS',wy_t:'敏捷性与全球影响力的结合',wy_p:'在被少数巨头主导的市场中，AYYS能提供大型企业无法给予的东西：贴近客户、快速响应和对每一笔交易的个人承诺。',v1:'符合KYC/AML合规——每笔交易提供完整的监管链可追溯性',v2:'在撒哈拉以南非洲、东南亚、拉丁美洲和欧洲建立活跃网络',v3:'贸易融资专业知识——跟单信用证、银行担保、结构性工具',v4:'对所有活跃交易实行全天候运营监控和报告',ab_ey:'关于AYYS',ab_t:'独立。承诺。全球。',ab_p1:'AYYS是一家独立的大宗商品交易公司，在金属和矿产市场的全系列领域运营，服务于五大洲的生产商、精炼商和工业买家。',ab_p2:'与大型企业集团不同，我们精简的架构使我们能够以市场速度运作，实时适应价格变动、监管变化和物流中断。',ab_q:'"全球向清洁能源的转型依赖于钴、锂和铜。AYYS的使命是使这条供应链更具韧性、更透明、更易获取。"',ab_qc:'— 执行管理层，AYYS Commodities',in_ey:'市场情报',in_t:'地缘政治信号 — 2026年4月',ap_ey:'我们的方法',ap_t:'每一步都严谨',ap_p:'AYYS的每笔交易都遵循结构化的四阶段流程：资质审查、结构设计、执行和交易后监控。ESG合规从第一天起就融入其中。',a1:'所有矿产来源均符合OECD尽职调查指南',a2:'所有重大交易提供跟单信用证和银行担保',a3:'实时物流跟踪和专属客户报告',ct_ey:'联系我们',ct_t:'让我们共同探索商业机遇',ct_s:'无论是生产商、买家还是金融合作伙伴——我们的团队将在24个工作小时内回复。',ci1h:'一般咨询',ci2h:'交易部门',ci3h:'服务时间',ci3p:'周一至周五 8:00–20:00（CET）<br>交易紧急情况：全天候',ct_btn:'发送请求',ct_note:'您的信息将被严格保密，不会与第三方共享。',ct_h:'准备好与AYYS探索合作机会了吗？',ct_b:'立即联系我们 →',ph_name:'姓名',ph_co:'公司',ph_email:'公司邮箱',ph_country:'国家/地区',ph_msg:'请描述您的项目：金属类型、预计数量、产地或目的地、交付时间...',form_type:'咨询类型',opt1:'购买金属/矿产',opt2:'出售/采购',opt3:'物流与运输',opt4:'咨询与专业知识',opt5:'金融合作',opt6:'其他',form_ok:'✓ 感谢您——我们已收到您的请求。<br>我们的团队将在24个工作小时内与您联系。',ft_tag:'采购推动世界运转的<br>金属和矿产。',ft_copy:'© 2026 AYYS Commodities。保留所有权利。',ft_disc:'参考价格基于公开市场来源（LME、Fastmarkets、Trading Economics），数据截至2026年4月。不构成具有约束力的报价。'}
+const I18N = {
+  EN: {
+    nav_services:'Services', nav_markets:'Markets', nav_intel:'Intelligence', nav_about:'About', nav_contact:'Contact', nav_platform:'Request a sourcing mandate',
+    hero_p:'We originate upstream supply, structure contracts, coordinate logistics and manage settlement for battery manufacturers, EPC contractors and strategic buyers that need bankable metal flows.',
+    ct_btn:'Send request', ct_h:'Need a qualified supply partner for strategic metals?', ct_s:'Qualified buyers and upstream partners receive a response within 24 business hours once the mandate fields below are completed.',
+    ci1h:'General enquiries', ci2h:'Trading desk', ci3h:'Availability', ci3p:'Mon – Fri, 8am – 8pm (CET)<br>Trading emergencies: 24/7',
+    ph_name:'Full name', ph_co:'Company', ph_email:'Professional email', ph_country:'Country / region', ph_msg:'Describe your project: metal type, estimated volume, origin or destination, timeline...',
+    buyerType:'Buyer / partner type',
+    formOptions:['Battery manufacturer','EPC contractor','Industrial buyer / offtaker','Upstream producer / seller','Financial / strategic partner','Other'],
+    extraPh:{metal:'Metal / product', volume:'Estimated volume', destination:'Destination / delivery point', timeline:'Target timeline'},
+    ctaBand:'Request a mandate →', footerApply:'Apply for supply partnership',
+    form_ok:'✓ Thank you — your sourcing mandate request has been received.<br>Our team will review the submission and respond within 24 business hours.',
+    formNote:'Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.'
+  },
+  FR: {
+    nav_services:'Services', nav_markets:'Marchés', nav_intel:'Intelligence', nav_about:'À propos', nav_contact:'Contact', nav_platform:'Demander un mandat d’approvisionnement',
+    hero_p:'Nous sourçons l’offre amont, structurons les contrats, coordonnons la logistique et le règlement pour les industriels européens ayant besoin de flux de métaux sécurisés.',
+    ct_btn:'Envoyer la demande', ct_h:'Besoin d’un partenaire qualifié pour vos métaux stratégiques ?', ct_s:'Producteurs, acheteurs et partenaires qualifiés reçoivent une réponse sous 24 heures ouvrées lorsque les champs ci-dessous sont complétés.',
+    ci1h:'Demandes générales', ci2h:'Département trading', ci3h:'Disponibilité', ci3p:'Lun – Ven, 8h – 20h (CET)<br>Urgences trading : 24h/7j',
+    ph_name:'Prénom & nom', ph_co:'Société', ph_email:'Email professionnel', ph_country:'Pays / région', ph_msg:'Décrivez votre projet : type de métal, volume estimé, origine ou destination, délai...',
+    buyerType:'Type de demande',
+    formOptions:['Achat de métaux / minéraux','Vente / sourcing','Logistique & transport','Conseil & expertise','Partenariat financier','Autre'],
+    extraPh:{metal:'Métal / produit', volume:'Volume estimé', destination:'Destination / point de livraison', timeline:'Calendrier cible'},
+    ctaBand:'Prendre contact →', footerApply:'Demander un mandat d’approvisionnement',
+    form_ok:'✓ Merci — votre demande a bien été reçue.<br>Notre équipe vous contactera sous 24 heures ouvrées.',
+    formNote:'Vos informations sont utilisées pour qualifier la demande, effectuer les vérifications de conformité et assurer le suivi commercial. Merci de ne pas transmettre de données confidentielles avant l’ouverture d’un processus bilatéral.'
+  },
+  DE: {
+    nav_services:'Leistungen', nav_markets:'Märkte', nav_intel:'Marktanalyse', nav_about:'Über uns', nav_contact:'Kontakt', nav_platform:'Beschaffungsmandat anfragen',
+    hero_p:'Wir beschaffen Upstream-Angebote, strukturieren Verträge, koordinieren Logistik und Abwicklung für europäische Industriekäufer mit Bedarf an verlässlichen Metallströmen.',
+    ct_btn:'Anfrage senden', ct_h:'Brauchen Sie einen qualifizierten Partner für strategische Metalle?', ct_s:'Qualifizierte Käufer und Upstream-Partner erhalten innerhalb von 24 Geschäftsstunden eine Antwort, sobald das Formular ausgefüllt ist.',
+    ci1h:'Allgemeine Anfragen', ci2h:'Trading Desk', ci3h:'Verfügbarkeit', ci3p:'Mo – Fr, 8:00 – 20:00 Uhr (MEZ)<br>Trading-Notfälle: 24/7',
+    ph_name:'Vollständiger Name', ph_co:'Unternehmen', ph_email:'Geschäftliche E-Mail', ph_country:'Land / Region', ph_msg:'Beschreiben Sie Ihr Projekt: Metalltyp, geschätztes Volumen, Ursprung oder Ziel, Zeitplan...',
+    buyerType:'Art der Anfrage',
+    formOptions:['Metalle / Mineralien kaufen','Verkauf / Sourcing','Logistik & Transport','Beratung & Expertise','Finanzpartnerschaft','Andere'],
+    extraPh:{metal:'Metall / Produkt', volume:'Geschätztes Volumen', destination:'Zielort / Lieferpunkt', timeline:'Zielzeitplan'},
+    ctaBand:'Mandat anfragen →', footerApply:'Partnerschaft anfragen',
+    form_ok:'✓ Danke — Ihre Anfrage wurde empfangen.<br>Unser Team antwortet innerhalb von 24 Geschäftsstunden.',
+    formNote:'Ihre Informationen werden zur Qualifizierung des Mandats, zur Compliance-Prüfung und zur kommerziellen Nachverfolgung verwendet. Bitte senden Sie keine vertraulichen Handelsdaten, bevor ein bilateraler Prozess eröffnet wurde.'
+  },
+  AR: {
+    nav_services:'الخدمات', nav_markets:'الأسواق', nav_intel:'المعلومات', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_platform:'طلب تفويض توريد',
+    hero_p:'نقوم بتأمين التوريد من المصدر، وهيكلة العقود، وتنسيق الخدمات اللوجستية والتسوية للمشترين الصناعيين الأوروبيين الذين يحتاجون إلى تدفقات معادن موثوقة.',
+    ct_btn:'إرسال الطلب', ct_h:'هل تحتاج إلى شريك مؤهل للمعادن الاستراتيجية؟', ct_s:'يتلقى المشترون والشركاء المؤهلون رداً خلال 24 ساعة عمل بعد استكمال الحقول أدناه.',
+    ci1h:'استفسارات عامة', ci2h:'قسم التداول', ci3h:'التوفر', ci3p:'الاثنين – الجمعة، 8 ص – 8 م (بتوقيت وسط أوروبا)<br>طوارئ التداول: 24/7',
+    ph_name:'الاسم الكامل', ph_co:'الشركة', ph_email:'البريد الإلكتروني المهني', ph_country:'البلد / المنطقة', ph_msg:'صف مشروعك: نوع المعدن، الحجم التقديري، المنشأ أو الوجهة، والجدول الزمني...',
+    buyerType:'نوع الطلب',
+    formOptions:['شراء معادن / معادن خام','بيع / توريد','الخدمات اللوجستية والنقل','استشارات وخبرة','شراكة مالية','أخرى'],
+    extraPh:{metal:'المعدن / المنتج', volume:'الحجم التقديري', destination:'الوجهة / نقطة التسليم', timeline:'الإطار الزمني المستهدف'},
+    ctaBand:'طلب تفويض →', footerApply:'طلب شراكة توريد',
+    form_ok:'✓ شكراً — تم استلام طلبك.<br>سيتواصل فريقنا معك خلال 24 ساعة عمل.',
+    formNote:'تُستخدم معلوماتك لتأهيل الطلب وفحص الامتثال والمتابعة التجارية. يرجى عدم إرسال بيانات تجارية سرية قبل فتح مسار ثنائي.'
+  },
+  ZH: {
+    nav_services:'服务', nav_markets:'市场', nav_intel:'情报', nav_about:'关于我们', nav_contact:'联系', nav_platform:'提交采购委托',
+    hero_p:'我们为欧洲工业采购方完成上游资源对接、合同结构设计、物流协调与结算执行，提供可落地的金属供应方案。',
+    ct_btn:'发送需求', ct_h:'需要合格的战略金属供应伙伴吗？', ct_s:'合格买方与上游合作方在完整填写下方信息后，将于 24 个工作小时内收到回复。',
+    ci1h:'一般咨询', ci2h:'交易台', ci3h:'服务时间', ci3p:'周一至周五 8:00 – 20:00（中欧时间）<br>紧急交易支持：24/7',
+    ph_name:'姓名', ph_co:'公司', ph_email:'商务邮箱', ph_country:'国家 / 地区', ph_msg:'请描述你的需求：金属类型、预计数量、起运地或目的地、时间安排……',
+    buyerType:'询盘类型',
+    formOptions:['采购金属 / 矿产','销售 / 供货','物流与运输','咨询与专业支持','金融合作','其他'],
+    extraPh:{metal:'金属 / 产品', volume:'预计数量', destination:'目的地 / 交付点', timeline:'目标时间'},
+    ctaBand:'提交委托 →', footerApply:'申请供应合作',
+    form_ok:'✓ 感谢提交——我们已收到你的需求。<br>团队将在 24 个工作小时内回复。',
+    formNote:'你的信息仅用于需求资格审核、合规筛查和商务跟进。在双边流程启动前，请勿提交机密贸易数据。'
+  }
 };
 
-/* ── Apply translations ──────────────────────────────────────────────── */
 function applyLang(lang){
-  const d=T[lang]||T.EN;
-  const rtl=lang==='AR';
-  document.documentElement.setAttribute('dir',rtl?'rtl':'ltr');
-  document.documentElement.setAttribute('lang',lang.toLowerCase());
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n');
-    if(d[k]!==undefined) el.innerHTML=d[k];
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
-    const k=el.getAttribute('data-i18n-ph');
-    if(d[k]!==undefined) el.placeholder=d[k];
-  });
-  /* Rebuild services cards with translated content */
-  const svcs=[
-    {num:'01',h:'s1h',p:'s1p'},{num:'02',h:'s2h',p:'s2p'},
-    {num:'03',h:'s3h',p:'s3p'},{num:'04',h:'s4h',p:'s4p'}
-  ];
-  document.querySelectorAll('.svc').forEach((el,i)=>{
-    if(i<4){
-      const h3=el.querySelector('h3');
-      const pEl=el.querySelector('p');
-      if(h3&&d[svcs[i].h]) h3.textContent=d[svcs[i].h];
-      if(pEl&&d[svcs[i].p]) pEl.textContent=d[svcs[i].p];
-    }
-  });
-  /* Contact form select */
-  const sel=document.getElementById('ftype');
-  if(sel&&d.form_type){
-    sel.options[0].text=d.form_type;
-    ['opt1','opt2','opt3','opt4','opt5','opt6'].forEach((k,i)=>{
-      if(sel.options[i+1]&&d[k]) sel.options[i+1].text=d[k];
-    });
-  }
-  /* About paragraphs */
-  const ab=document.querySelectorAll('#about p');
-  if(ab[0]&&d.ab_p1) ab[0].textContent=d.ab_p1;
-  if(ab[1]&&d.ab_p2) ab[1].textContent=d.ab_p2;
-  /* Blockquote */
-  const bq=document.querySelector('.about-quote blockquote');
-  const cite=document.querySelector('.about-quote cite');
-  if(bq&&d.ab_q) bq.innerHTML=d.ab_q;
-  if(cite&&d.ab_qc) cite.textContent=d.ab_qc;
-  /* Why AYYS paragraph */
-  const wyp=document.querySelector('.sbody.white p[style*="14px"]');
-  if(wyp&&d.wy_p) wyp.textContent=d.wy_p;
-  /* Approach paragraph */
-  const app=document.querySelector('.sbody.cream p[style*="14px"]');
-  if(app&&d.ap_p) app.textContent=d.ap_p;
-  /* Availability paragraph */
-  const ci3=document.querySelector('.cinfo-item:nth-child(3) p');
-  if(ci3&&d.ci3p) ci3.innerHTML=d.ci3p;
-  /* Hero paragraph */
-  const hp=document.querySelector('.hero p');
-  if(hp&&d.hp) hp.textContent=d.hp;
-  /* Subtitle */
-  const ss=document.querySelector('.ssub');
-  if(ss&&d.ct_s) ss.textContent=d.ct_s;
-  /* Footer disclaimer */
-  const ftd=document.querySelector('.footer-top span[style]');
-  /* CTA button in footer band */
-  const ctab=document.querySelector('.ctaband button');
-  if(ctab&&d.ct_b) ctab.textContent=d.ct_b;
-  /* Form note */
-  const fn=document.querySelector('.cform-note');
-  if(fn&&d.ct_note) fn.textContent=d.ct_note;
-  /* Form success */
-  const fs=document.getElementById('form-success');
-  if(fs&&d.form_ok) fs.innerHTML=d.form_ok;
-  /* vlist items */
-  const wy_vlist=document.querySelectorAll('.sbody.white .vitem span:last-child');
-  ['v1','v2','v3','v4'].forEach((k,i)=>{ if(wy_vlist[i]&&d[k]) wy_vlist[i].textContent=d[k]; });
-  const ap_vlist=document.querySelectorAll('.sbody.cream .vitem span:last-child');
-  ['a1','a2','a3'].forEach((k,i)=>{ if(ap_vlist[i]&&d[k]) ap_vlist[i].textContent=d[k]; });
+  const d = I18N[lang] || I18N.EN;
+  document.documentElement.lang = lang.toLowerCase();
+  document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+  const nav = document.querySelectorAll('.nav-links a');
+  [d.nav_services,d.nav_markets,d.nav_intel,d.nav_about,d.nav_contact].forEach((txt,i)=>{ if(nav[i]) nav[i].textContent = txt; });
+  const mobile = document.querySelectorAll('#mmenu > a');
+  [d.nav_services,d.nav_markets,d.nav_intel,d.nav_about,d.nav_contact].forEach((txt,i)=>{ if(mobile[i]) mobile[i].textContent = txt; });
+  const ctas = document.querySelectorAll('a.ncta span:last-child');
+  ctas.forEach(el => el.textContent = d.nav_platform);
+  const heroP = document.querySelector('.hero p'); if(heroP) heroP.textContent = d.hero_p;
+  const ssub = document.querySelector('.ssub'); if(ssub) ssub.textContent = d.ct_s;
+  const ci3 = document.querySelector('.cinfo-item:nth-child(3) p'); if(ci3) ci3.innerHTML = d.ci3p;
+  const h4s = document.querySelectorAll('.cinfo-item h4');
+  if(h4s[0]) h4s[0].textContent = d.ci1h; if(h4s[1]) h4s[1].textContent = d.ci2h; if(h4s[2]) h4s[2].textContent = d.ci3h;
+  const btn = document.querySelector('.cform-submit span:last-child'); if(btn) btn.textContent = d.ct_btn;
+  const ctaBand = document.querySelector('.ctaband button'); if(ctaBand) ctaBand.textContent = d.ctaBand;
+  const formSuccess = document.getElementById('form-success'); if(formSuccess) formSuccess.innerHTML = d.form_ok;
+  const formNote = document.querySelector('.cform-note'); if(formNote) formNote.textContent = d.formNote;
+  const title = document.querySelector('.ctaband h2'); if(title) title.textContent = d.ct_h;
+  const footerApply = document.querySelector('.flinks a[href="#contact"]'); if(footerApply) footerApply.textContent = d.footerApply;
+  const placeholders = { fname:d.ph_name, fco:d.ph_co, femail:d.ph_email, fcountry:d.ph_country, fmsg:d.ph_msg, fmetal:d.extraPh.metal, fvolume:d.extraPh.volume, fdestination:d.extraPh.destination, ftimeline:d.extraPh.timeline };
+  Object.entries(placeholders).forEach(([id,val]) => { const el = document.getElementById(id); if(el) el.placeholder = val; });
+  const sel = document.getElementById('ftype');
+  if(sel){ sel.options[0].textContent = d.buyerType; d.formOptions.forEach((txt,i)=>{ if(sel.options[i+1]) sel.options[i+1].textContent = txt; }); }
+  const code = document.getElementById('lcode'); if(code) code.textContent = lang;
 }
 
-/* ── Lang dropdown ──────────────────────────────────────────────────── */
 function toggleLang(e){
   e.stopPropagation();
   const drop=document.getElementById('ldrop');
@@ -982,110 +987,32 @@ function toggleLang(e){
   btn.classList.toggle('open',open);
   btn.setAttribute('aria-expanded',String(open));
 }
+
 function pickLang(code,label,el){
-  document.getElementById('lcode').textContent=code;
   document.querySelectorAll('.lang-opt').forEach(o=>o.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('ldrop').classList.remove('open');
-  document.getElementById('lbtn').classList.remove('open');
-  document.getElementById('lbtn').setAttribute('aria-expanded','false');
+  if(el) el.classList.add('sel');
+  document.getElementById('ldrop')?.classList.remove('open');
+  document.getElementById('lbtn')?.classList.remove('open');
+  document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
+  try { localStorage.setItem('ayys_lang', code); } catch(e) {}
   applyLang(code);
 }
+
 document.addEventListener('click',()=>{
   document.getElementById('ldrop')?.classList.remove('open');
   document.getElementById('lbtn')?.classList.remove('open');
+  document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
 });
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Module II — Flux RSS temps réel
-   Hébergement Cloudflare Pages / GitHub Pages → appels directs (pas de proxy)
-   Sources primaires :
-     Bannière  → Mining.com (métaux critiques, référence institutionnelle)
-     Intel     → Mining.com + Mining Weekly (géopolitique minerais)
-   Rafraîchissement : bannière 30 min · intelligence 15 min
-   Vérifié ×3 : URLs, CORS, fallback statique
-   ═══════════════════════════════════════════════════════════════════════════ */
+document.getElementById('cform')?.addEventListener('submit', function(e){
+  e.preventDefault();
+  submitForm();
+});
 
-/* Cloudflare Pages Worker (à créer) ou GitHub Actions RSS-to-JSON cache.
-   En attendant le déploiement, on utilise rss2json.com (fallback universel). */
-const RSS = {
-  mining:       'https://www.mining.com/feed/',
-  miningWeekly: 'https://www.miningweekly.com/page/home/feed',
-  argus:        'https://www.argusmedia.com/rss/base-metals',
-};
-/* rss2json API — gratuit, CORS-libre, fonctionne en local ET sur CF/GH Pages */
-const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
-const METALS_KW = /copper|cobalt|lithium|nickel|gold|silver|zinc|alumin|rare.earth|mineral|LME|critical|mineral/i;
-const GEO_KW    = /china|DRC|congo|lithium|cobalt|rare.earth|critical.mineral|supply.chain|geopolit|tariff|sanction|export.control|strait|embargo|quota|indonesia|africa|chile|restrict|ban|record|surge/i;
-const HIGH_KW   = /ban|restrict|control|halt|strike|conflict|war|crisis|shortage|disruption|sanction|record.high/i;
-const MED_KW    = /tariff|quota|decline|drop|surge|record|rally|policy|warning|risk/i;
-
-async function fetchRSS(url, count=20){
-  const res = await fetch(PROXY + encodeURIComponent(url) + '&count=' + count);
-  if(!res.ok) throw new Error('RSS fetch failed');
-  const d = await res.json();
-  if(d.status !== 'ok' || !d.items?.length) throw new Error('RSS empty');
-  return d.items;
-}
-
-/* ── Bannière défilante ──────────────────────────────────────────────── */
-async function loadTicker(){
-  try {
-    const items = await fetchRSS(RSS.mining, 24);
-    const relevant = items.filter(i => METALS_KW.test(i.title)).slice(0, 14);
-    const display = relevant.length >= 4 ? relevant : items.slice(0, 14);
-    const html = [...display, ...display].map(item => {
-      const dt = new Date(item.pubDate).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-      return `<div class="aitem"><span class="adot"></span>${item.title}<span style="opacity:.45;font-size:9.5px;margin-left:8px;font-weight:400">${dt}</span></div>`;
-    }).join('');
-    const track = document.querySelector('.atrack');
-    if(track){
-      track.innerHTML = html;
-      /* Mark as live */
-      const atag = document.querySelector('.atag');
-      if(atag){ atag.textContent='LIVE'; atag.style.background='var(--g)'; }
-    }
-  } catch(e){
-    /* Silent — keep static alert content */
-    console.info('[AYYS] RSS ticker: using static fallback');
-  }
-}
-
-/* ── Intelligence géopolitique ──────────────────────────────────────── */
-async function loadIntel(){
-  const grid = document.querySelector('.igrid');
-  if(!grid) return;
-  try {
-    const items = await fetchRSS(RSS.mining, 40);
-    const relevant = items.filter(i => GEO_KW.test(i.title + ' ' + (i.description||''))).slice(0, 6);
-    if(relevant.length < 3) throw new Error('Not enough geopolitical content');
-
-    const cards = relevant.map((item, i) => {
-      const isHigh = HIGH_KW.test(item.title);
-      const isMed  = MED_KW.test(item.title) && !isHigh;
-      const lvl    = isHigh ? 'h' : isMed ? 'm' : 'l';
-      const lvlTxt = isHigh ? 'HIGH' : isMed ? 'MEDIUM' : 'LOW';
-      /* Determine category from title */
-      const cat = /supply|chain|logistic/i.test(item.title) ? 'SUPPLY'
-                : /trade|tariff|export/i.test(item.title)  ? 'TRADE'
-                : /price|LME|market/i.test(item.title)     ? 'PRICE'
-                : 'GEOPOLITICS';
-      const dt = new Date(item.pubDate).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-      const desc = (item.description||'').replace(/<[^>]*>/g,'').substring(0,160).trim();
-      const delay = (i * 0.08).toFixed(2);
-      return `<div class="icard reveal" style="transition-delay:${delay}s">
-        <div class="itag ${lvl}">${lvlTxt} · ${cat}</div>
-        <h4>${item.title.substring(0,85)}${item.title.length>85?'…':''}</h4>
-        <p>${desc}${desc.length>=160?'…':''}</p>
-        <div class="idate">${dt} · <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:var(--g);text-decoration:none;font-weight:600">Mining.com →</a></div>
-      </div>`;
-    });
-    grid.innerHTML = cards.join('');
-    /* Re-observe new elements */
-    grid.querySelectorAll('.icard.reveal').forEach(el => ro.observe(el));
-  } catch(e){
-    console.info('[AYYS] Intel RSS: using static fallback');
-  }
-}
-
-/* ── Init ────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = (() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN';
+  applyLang(saved);
+});
+</script>
+</body>
+</html>
