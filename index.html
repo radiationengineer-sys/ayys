@@ -608,11 +608,11 @@
     <div class="cinfo reveal-left">
       <div class="cinfo-item">
         <h4 data-i18n="ci1h">General enquiries</h4>
-        <a href="mailto:contact@ayys-group.com" style="color:var(--g)">contact@ayys-group.com</a>
+        <a href="/cdn-cgi/l/email-protection#8eede1e0faefedfaceeff7f7fda3e9fce1fbfea0ede1e3" style="color:var(--g)"><span class="__cf_email__" data-cfemail="f4979b9a80959780b4958d8d87d993869b8184da979b99">[email&#160;protected]</span></a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci2h">Trading desk</h4>
-        <a href="mailto:trading@ayys-group.com" style="color:var(--g)">trading@ayys-group.com</a>
+        <a href="/cdn-cgi/l/email-protection#0f7b7d6e6b6661684f6e76767c22687d607a7f216c6062" style="color:var(--g)"><span class="__cf_email__" data-cfemail="deaaacbfbab7b0b99ebfa7a7adf3b9acb1abaef0bdb1b3">[email&#160;protected]</span></a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci3h">Availability</h4>
@@ -724,7 +724,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ===== REAL MARKET DATA — April 2026 ===== */
 /* Sources:
    Cu: LME spot $12,138/t (MacroMicro, Apr 3 2026) — +42% YoY
@@ -824,10 +824,18 @@ function closeMenu() {
 }
 
 /* ===== CONTACT FORM ===== */
-function submitForm() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const msg = document.getElementById('fmsg').value.trim();
+async function submitForm() {
+  const name    = document.getElementById('fname').value.trim();
+  const co      = document.getElementById('fco').value.trim();
+  const email   = document.getElementById('femail').value.trim();
+  const country = document.getElementById('fcountry').value.trim();
+  const type    = document.getElementById('ftype').value;
+  const metal   = document.getElementById('fmetal').value.trim();
+  const volume  = document.getElementById('fvolume').value.trim();
+  const dest    = document.getElementById('fdestination').value.trim();
+  const timeline= document.getElementById('ftimeline').value.trim();
+  const msg     = document.getElementById('fmsg').value.trim();
+
   if (!name || !email || !msg) {
     alert('Please fill in your name, email and message.');
     return;
@@ -836,8 +844,35 @@ function submitForm() {
     alert('Please enter a valid email address.');
     return;
   }
-  document.getElementById('cform').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
+
+  const btn = document.querySelector('.cform-submit');
+  btn.disabled = true;
+  btn.querySelector('span:last-child').textContent = 'Sending…';
+
+  try {
+    const res = await fetch('https://formspree.io/f/xkoknbea', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name, company: co, email, country,
+        enquiry_type: type, metal, volume,
+        destination: dest, timeline, message: msg,
+        _replyto: email,
+        _subject: 'AYYS — New mandate request from ' + name
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('cform').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.querySelector('span:last-child').textContent = 'Send request';
+    alert('An error occurred. Please try again or contact us directly at ayysgroup01@gmail.com');
+  }
 }
 
 </script>
@@ -1053,14 +1088,4 @@ async function loadIntel(){
   }
 }
 
-/* ── Init ────────────────────────────────────────────────────────────── */
-window.addEventListener('DOMContentLoaded', () => {
-  applyLang('EN');
-  loadTicker();
-  loadIntel();
-  setInterval(loadTicker, 30 * 60 * 1000);   /* 30 min */
-  setInterval(loadIntel,  15 * 60 * 1000);   /* 15 min */
-});
-</script>
-</body>
-</html>
+/* ── Init ────────────────
