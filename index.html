@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="AYYS Commodities structures strategic metal flows for European industrial offtakers, from upstream sourcing to delivery and settlement, with KYC/AML and sanctions controls."/>
+  <meta name="description" content="AYYS Commodities structures strategic metal flows for industrial buyers across international markets, from upstream sourcing to delivery and settlement, with KYC/AML and sanctions controls."/>
   <meta name="keywords" content="commodities trading, metals sourcing, copper, cobalt, lithium, nickel, minerals, AYYS"/>
   <meta property="og:title" content="AYYS Commodities — The metals that move the world"/>
-  <meta property="og:description" content="We source and structure strategic metal flows for European industrial offtakers — directly from upstream producers, with execution from contract to delivery."/>
+  <meta property="og:description" content="We source and structure strategic metal flows for industrial buyers across international markets — directly from upstream producers, with execution from contract to delivery."/>
   <meta property="og:type" content="website"/>
-  <title>AYYS Commodities — Strategic metal sourcing for European industrial offtakers</title>
+  <title>AYYS Commodities — Strategic metal sourcing for international industrial offtakers</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -205,6 +205,46 @@
     .cert-val{font-size:13px;color:var(--dark);font-weight:600}
     .cert-sub{font-size:11px;color:var(--light);margin-top:3px}
 
+
+    /* ===== GLOBAL LOGISTICS ===== */
+    .global-sec{background:radial-gradient(circle at top left,rgba(29,158,117,0.12),transparent 32%),linear-gradient(180deg,#f7f3eb 0%,#f2eee7 100%)}
+    .global-wrap{display:grid;grid-template-columns:minmax(280px,1fr) minmax(420px,1.2fr);gap:34px;align-items:center}
+    .global-copy{max-width:520px}
+    .global-copy p{font-size:14px;color:var(--mid);line-height:1.88;margin-bottom:18px}
+    .global-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .global-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(255,253,249,0.84);border:1px solid rgba(29,158,117,0.14);font-size:11px;color:var(--mid);box-shadow:0 12px 30px rgba(26,34,31,0.05)}
+    .global-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,rgba(29,158,117,0.95),rgba(204,176,122,0.9));box-shadow:0 0 0 6px rgba(29,158,117,0.08)}
+    .global-stage{position:relative;min-height:540px;border-radius:30px;overflow:hidden;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.68),rgba(255,255,255,0.18) 28%,transparent 58%),linear-gradient(160deg,rgba(50,56,52,0.98),rgba(36,43,40,0.98));border:1px solid rgba(255,255,255,0.10);box-shadow:0 34px 90px rgba(24,29,27,0.16)}
+    .global-stage::before{content:'';position:absolute;inset:-12%;background:radial-gradient(circle at 20% 20%,rgba(29,158,117,0.14),transparent 32%),radial-gradient(circle at 80% 25%,rgba(204,176,122,0.16),transparent 26%),radial-gradient(circle at 70% 70%,rgba(255,255,255,0.08),transparent 30%);filter:blur(16px);pointer-events:none}
+    .global-stage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.05),transparent 24%,transparent 76%,rgba(0,0,0,0.10));pointer-events:none}
+    .globe-shell{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px}
+    .glow-ring{position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(255,255,255,0.08);box-shadow:0 0 0 18px rgba(29,158,117,0.04),0 0 80px rgba(29,158,117,0.14)}
+    .globe{position:relative;width:min(100%,520px);aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.22),rgba(29,158,117,0.08) 26%,rgba(7,16,14,0.22) 58%,rgba(6,10,9,0.82) 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12),inset -30px -34px 80px rgba(0,0,0,0.32),0 24px 80px rgba(0,0,0,0.34);overflow:hidden}
+    .globe svg{position:absolute;inset:0;width:100%;height:100%}
+    .globe-atmo{position:absolute;inset:-2%;border-radius:50%;background:radial-gradient(circle at 50% 50%,transparent 56%,rgba(69,196,152,0.08) 72%,rgba(255,255,255,0.12) 82%,transparent 88%);mix-blend-mode:screen;pointer-events:none}
+    .route-line{fill:none;stroke:rgba(225,245,238,0.72);stroke-width:1.9;stroke-linecap:round;stroke-dasharray:8 10;filter:drop-shadow(0 0 9px rgba(29,158,117,0.45));animation:routeFlow 7.2s linear infinite}
+    .route-line.alt{stroke:rgba(230,212,170,0.72);animation-duration:9.4s}
+    .route-line.soft{stroke:rgba(255,255,255,0.44);animation-duration:10.5s}
+    .route-node{fill:#f7f3eb;stroke:rgba(29,158,117,0.85);stroke-width:2;filter:drop-shadow(0 0 10px rgba(29,158,117,0.46))}
+    .route-node.pulse{animation:nodePulse 2.8s ease-in-out infinite}
+    .route-label{font-size:10px;fill:rgba(255,255,255,0.76);letter-spacing:1.2px;text-transform:uppercase}
+    .geo-line{fill:none;stroke:rgba(255,255,255,0.12);stroke-width:1}
+    .geo-line.light{stroke:rgba(255,255,255,0.08)}
+    .continent{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.10);stroke-width:1}
+    .global-panel{position:absolute;right:24px;top:24px;display:grid;gap:10px;z-index:2;max-width:220px}
+    .flow-chip{padding:11px 14px;border-radius:16px;background:rgba(255,253,249,0.10);border:1px solid rgba(255,255,255,0.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 28px rgba(9,16,14,0.14)}
+    .flow-chip strong{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#ccb07a;margin-bottom:6px}
+    .flow-chip span{display:block;font-size:12px;line-height:1.65;color:rgba(255,255,255,0.78)}
+    .global-footer{position:absolute;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;z-index:2}
+    .global-note{max-width:340px;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.56)}
+    .global-legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .global-legend span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.66)}
+    .global-legend i{display:inline-block;width:18px;height:1.8px;border-radius:999px;background:rgba(225,245,238,0.78)}
+    .global-legend span:nth-child(2) i{background:rgba(230,212,170,0.74)}
+    .global-legend span:nth-child(3) i{background:rgba(255,255,255,0.42)}
+    @keyframes routeFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-180}}
+    @keyframes nodePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.24);opacity:.72}}
+
     /* ===== INTELLIGENCE ===== */
     .igrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
     .icard{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:16px;padding:24px;cursor:pointer;transition:border-color .22s,transform .22s,box-shadow .22s}
@@ -314,6 +354,10 @@
       .partners-row{padding:16px 24px 32px}
       .market-banner{padding:10px 24px}
       .process-strip,.entity-grid,.seg-grid{grid-template-columns:1fr}
+      .global-wrap{grid-template-columns:1fr}
+      .global-stage{min-height:460px}
+      .global-panel{position:static;max-width:none;padding:20px 20px 0}
+      .global-footer{position:static;padding:0 20px 22px;display:grid}
     }
   
     /* ===== PREMIUM ADDITIONS ===== */
@@ -452,7 +496,7 @@
     <div class="aitem"><span class="adot"></span>Lithium carbonate rebounds sharply: $26,278/t — Zimbabwe export ban on concentrates accelerates supply tightening</div>
     <div class="aitem"><span class="adot"></span>Strait of Hormuz partial blockade — freight costs elevated on Asia–Europe routes, Gulf mineral flows impacted</div>
   </div>
-  <a class="amore" href="#intel">View all →</a>
+  <a class="amore" href="#intel" id="alert-more">View all →</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -465,12 +509,12 @@
   <div class="hero-shell">
     <div class="hero-copy">
       <div class="hero-meta">
-        <div class="hero-kicker"><span class="hero-kicker-dot"></span><span data-i18n="badge">European offtake · Compliance-led execution</span></div>
-        <div class="hero-access">Market access for strategic materials</div>
+        <div class="hero-kicker"><span class="hero-kicker-dot"></span><span data-i18n="badge">Global reach · Compliance-led execution</span></div>
+        <div class="hero-access" id="hero-access">Market access for strategic materials</div>
       </div>
 
-      <h1 data-i18n="h1">Strategic metals,<br>structured for European industry</h1>
-      <p class="hero-lead">AYYS structures critical mineral flows from upstream producers to controlled delivery, combining sourcing discipline, transaction oversight and execution precision across complex cross-border commodity chains.</p>
+      <h1 data-i18n="h1">Strategic metals,<br>structured for industries worldwide</h1>
+      <p class="hero-lead">AYYS structures critical mineral flows from upstream producers to controlled delivery, combining sourcing discipline, transaction oversight and execution precision across international commodity chains.</p>
 
       <div class="hero-actions hbtns">
         <a class="btn-p btn-primary" href="#contact" data-i18n="hb1">Request a sourcing mandate</a>
@@ -488,16 +532,16 @@
       <div class="hero-card-top">
         <div>
           <div class="hero-card-label">Structured commodity flows</div>
-          <div class="hero-card-title">Strategic metal sourcing for industrial offtake</div>
+          <div class="hero-card-title">Strategic metal sourcing for international industrial offtake</div>
         </div>
-        <div class="hero-card-badge">Europe focus</div>
+        <div class="hero-card-badge">International reach</div>
       </div>
 
-      <div class="hero-card-text">Copper, cobalt, lithium, nickel and rare earth exposures structured for industrial buyers requiring disciplined sourcing, controlled documentation and reliable delivery execution.</div>
+      <div class="hero-card-text">Copper, cobalt, lithium, nickel and rare earth exposures structured for industrial buyers operating across global markets, with disciplined sourcing, controlled documentation and reliable delivery execution.</div>
 
       <div class="hero-card-grid">
         <div><strong>Coverage</strong><span>50+ countries</span></div>
-        <div><strong>Buyer profile</strong><span>European industrial counterparties</span></div>
+        <div><strong>Buyer profile</strong><span>International industrial counterparties</span></div>
         <div><strong>Scope</strong><span>Upstream origin to delivered material</span></div>
         <div><strong>Controls</strong><span>KYC / AML / sanctions lens</span></div>
       </div>
@@ -509,7 +553,7 @@
     </aside>
   </div>
 
-  <div class="hero-scroll">Scroll for market overview</div>
+  <div class="hero-scroll" id="hero-scroll">Scroll for market overview</div>
 </div>
 
 <!-- ===== MARKET DATA BANNER — Real prices April 2026 ===== -->
@@ -550,18 +594,104 @@
   </div>
 </div>
 
+
+<!-- ===== GLOBAL LOGISTICS ===== -->
+<section class="sec global-sec" id="global-network">
+  <div class="global-wrap">
+    <div class="global-copy reveal-left">
+      <div class="eyebrow" id="global-ey">International logistics</div>
+      <div class="stitle" id="global-title">A global operating footprint for strategic metal flows</div>
+      <p id="global-p1">AYYS coordinates international logistics across supplier basins, export corridors, port interfaces and final delivery points. The model is built to connect origin markets in Africa, Latin America, Asia and the Middle East with industrial demand centres in Europe and beyond.</p>
+      <p id="global-p2">The visual below is intentionally designed as a premium network cue: a static globe, transparent route overlays and animated shipment lines illustrating how sourcing, documentation and port logistics can converge across multiple continents.</p>
+      <div class="global-tags">
+        <span class="global-tag" id="global-tag-1">Upstream suppliers on every continent</span>
+        <span class="global-tag" id="global-tag-2">Port-to-port and inland multimodal execution</span>
+        <span class="global-tag" id="global-tag-3">Traceable documentary control across routes</span>
+      </div>
+    </div>
+    <div class="global-stage reveal-right" aria-label="Animated globe showing international logistics flows">
+      <div class="global-panel">
+        <div class="flow-chip" id="flow-chip-1"><strong>Origin hubs</strong><span>Latin America, Sub-Saharan Africa, Gulf corridors, South Asia and East Asia.</span></div>
+        <div class="flow-chip" id="flow-chip-2"><strong>Port interfaces</strong><span>Bulk, containerised and specialised mineral routing through major transshipment and discharge ports.</span></div>
+        <div class="flow-chip" id="flow-chip-3"><strong>Delivery logic</strong><span>Routing adapts to cargo profile, Incoterms, customs constraints and buyer timetable.</span></div>
+      </div>
+      <div class="globe-shell">
+        <div class="glow-ring"></div>
+        <div class="globe">
+          <div class="globe-atmo"></div>
+          <svg viewBox="0 0 600 600" role="img" aria-hidden="true">
+            <defs>
+              <clipPath id="globeClip"><circle cx="300" cy="300" r="286"/></clipPath>
+            </defs>
+            <g clip-path="url(#globeClip)">
+              <ellipse class="geo-line" cx="300" cy="300" rx="244" ry="244"/>
+              <ellipse class="geo-line light" cx="300" cy="300" rx="202" ry="244"/>
+              <ellipse class="geo-line light" cx="300" cy="300" rx="154" ry="244"/>
+              <ellipse class="geo-line light" cx="300" cy="300" rx="98" ry="244"/>
+              <ellipse class="geo-line light" cx="300" cy="300" rx="42" ry="244"/>
+              <ellipse class="geo-line" cx="300" cy="300" rx="244" ry="72"/>
+              <ellipse class="geo-line light" cx="300" cy="230" rx="224" ry="52"/>
+              <ellipse class="geo-line light" cx="300" cy="370" rx="224" ry="52"/>
+              <ellipse class="geo-line light" cx="300" cy="164" rx="182" ry="32"/>
+              <ellipse class="geo-line light" cx="300" cy="436" rx="182" ry="32"/>
+              <path class="continent" d="M116 204c34-33 73-50 112-48 24 1 41 8 55 18 17 13 27 30 34 51 6 18 4 37-6 50-13 17-34 25-58 27-27 2-52-2-77-7-31-5-58-20-72-48-10-20-6-31 12-43z"/>
+              <path class="continent" d="M188 320c24 4 44 16 58 34 13 16 20 36 16 57-4 23-18 41-35 57-17 15-35 22-52 15-19-8-22-28-18-49 5-23 13-45 15-68 2-17 0-34 16-46z"/>
+              <path class="continent" d="M316 190c26-10 56-12 88-6 32 5 60 18 86 36 22 15 37 36 48 60 7 16 3 26-16 33-20 7-38 4-55-4-16-7-30-18-45-26-19-10-41-12-61-10-27 3-53 10-76 27-15 11-30 14-42 1-12-13-10-34 1-51 15-25 39-46 72-60z"/>
+              <path class="continent" d="M400 318c24-3 47 5 67 20 21 16 34 38 34 65 0 23-12 36-36 39-26 3-50-6-70-22-17-13-25-31-23-52 2-21 9-40 28-50z"/>
+              <path class="route-line" d="M150 258 C 228 182, 356 170, 446 226"/>
+              <path class="route-line alt" d="M242 382 C 288 292, 386 254, 458 278"/>
+              <path class="route-line" d="M206 420 C 246 330, 304 286, 362 250"/>
+              <path class="route-line soft" d="M456 278 C 424 220, 402 184, 356 160"/>
+              <path class="route-line alt" d="M132 248 C 182 292, 214 334, 232 392"/>
+              <path class="route-line soft" d="M446 230 C 486 228, 510 246, 520 286"/>
+              <path class="route-line" d="M318 164 C 348 184, 374 220, 386 258"/>
+              <path class="route-line alt" d="M520 286 C 470 314, 426 330, 374 336"/>
+              <circle class="route-node pulse" cx="150" cy="258" r="5.8"/>
+              <circle class="route-node pulse" cx="206" cy="420" r="5.8" style="animation-delay:.4s"/>
+              <circle class="route-node pulse" cx="242" cy="382" r="5.8" style="animation-delay:.8s"/>
+              <circle class="route-node pulse" cx="318" cy="164" r="5.8" style="animation-delay:1.1s"/>
+              <circle class="route-node pulse" cx="356" cy="160" r="5.8" style="animation-delay:1.6s"/>
+              <circle class="route-node pulse" cx="386" cy="258" r="5.8" style="animation-delay:.6s"/>
+              <circle class="route-node pulse" cx="446" cy="230" r="5.8" style="animation-delay:1.4s"/>
+              <circle class="route-node pulse" cx="458" cy="278" r="5.8" style="animation-delay:1.9s"/>
+              <circle class="route-node pulse" cx="520" cy="286" r="5.8" style="animation-delay:2.1s"/>
+              <text class="route-label" x="114" y="244">LATAM</text>
+              <text class="route-label" x="160" y="446">SOUTH ATLANTIC</text>
+              <text class="route-label" x="198" y="404">WEST AFRICA</text>
+              <text class="route-label" x="292" y="148">MEDITERRANEAN</text>
+              <text class="route-label" x="338" y="146">GULF</text>
+              <text class="route-label" x="370" y="252">INDIA</text>
+              <text class="route-label" x="422" y="216">SINGAPORE</text>
+              <text class="route-label" x="432" y="302">EAST ASIA</text>
+              <text class="route-label" x="486" y="306">PACIFIC</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="global-footer">
+        <div class="global-note" id="global-note">Illustrative network view of international supplier-to-port and port-to-buyer routing logic. The visual is designed as a brand and operating signal rather than a literal shipment tracker.</div>
+        <div class="global-legend">
+          <span><i></i> Primary corridors</span>
+          <span><i></i> Port relays</span>
+          <span><i></i> Extended flows</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SERVICES ===== -->
 <section class="sec white" id="services">
   <div class="reveal">
     <div class="eyebrow" data-i18n="sv_ey">What we do</div>
     <div class="stitle" data-i18n="sv_t">End-to-end commodity solutions</div>
-    <div class="ssub">From origin sourcing to final delivery, AYYS structures every transaction with precision — adapting to market volatility, regulatory complexity and logistical disruption.</div>
+    <div class="ssub" id="services-sub">From origin sourcing to final delivery, AYYS structures every transaction with precision — adapting to market volatility, regulatory complexity and logistical disruption.</div>
   </div>
   <div class="svc-grid">
-    <div class="svc reveal"><div class="svc-top"></div><div class="svc-num">01</div><h3>Sourcing & Trading</h3><p>Direct access to mine-gate production in Sub-Saharan Africa, Latin America and Southeast Asia. We structure offtake agreements, spot purchases and long-term supply contracts on competitive terms.</p><div class="svc-arr">→</div></div>
-    <div class="svc reveal" style="transition-delay:.08s"><div class="svc-top"></div><div class="svc-num">02</div><h3>Trade Finance</h3><p>Documentary letters of credit, bank guarantees and structured payment instruments. We navigate the full range of trade finance tools to secure transactions for buyers and sellers alike.</p><div class="svc-arr">→</div></div>
-    <div class="svc reveal" style="transition-delay:.16s"><div class="svc-top"></div><div class="svc-num">03</div><h3>Logistics & Shipping</h3><p>Multimodal freight coordination across FCL, bulk and air cargo. Port handling, customs clearance and real-time tracking from origin to discharge port — across 50+ routing combinations.</p><div class="svc-arr">→</div></div>
-    <div class="svc reveal" style="transition-delay:.24s"><div class="svc-top"></div><div class="svc-num">04</div><h3>Advisory & Intelligence</h3><p>Market analysis, price benchmarking and geopolitical risk monitoring. We provide independent insight to help clients navigate the commodity cycle — from procurement strategy to contract negotiation.</p><div class="svc-arr">→</div></div>
+    <div class="svc reveal"><div class="svc-top"></div><div class="svc-num">01</div><h3 id="svc-h-1">Sourcing & Trading</h3><p id="svc-p-1">Direct access to mine-gate production in Sub-Saharan Africa, Latin America and Southeast Asia. We structure offtake agreements, spot purchases and long-term supply contracts on competitive terms.</p><div class="svc-arr">→</div></div>
+    <div class="svc reveal" style="transition-delay:.08s"><div class="svc-top"></div><div class="svc-num">02</div><h3 id="svc-h-2">Trade Finance</h3><p id="svc-p-2">Documentary letters of credit, bank guarantees and structured payment instruments. We navigate the full range of trade finance tools to secure transactions for buyers and sellers alike.</p><div class="svc-arr">→</div></div>
+    <div class="svc reveal" style="transition-delay:.16s"><div class="svc-top"></div><div class="svc-num">03</div><h3 id="svc-h-3">Logistics & Shipping</h3><p id="svc-p-3">Multimodal freight coordination across FCL, bulk and air cargo. Port handling, customs clearance and real-time tracking from origin to discharge port — across 50+ routing combinations.</p><div class="svc-arr">→</div></div>
+    <div class="svc reveal" style="transition-delay:.24s"><div class="svc-top"></div><div class="svc-num">04</div><h3 id="svc-h-4">Advisory & Intelligence</h3><p id="svc-p-4">Market analysis, price benchmarking and geopolitical risk monitoring. We provide independent insight to help clients navigate the commodity cycle — from procurement strategy to contract negotiation.</p><div class="svc-arr">→</div></div>
   </div>
 </section>
 
@@ -569,21 +699,21 @@
 <section class="sec cream" id="metals">
   <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px">
     <div>
-      <div class="price-tag"><span class="ptdot"></span>Indicative data · source stamped</div>
+      <div class="price-tag" id="price-tag"><span class="ptdot"></span>Indicative data · source stamped</div>
       <div class="eyebrow" data-i18n="mt_ey">Priority supply corridors</div>
       <div class="stitle" style="margin-bottom:0" data-i18n="mt_t">Reference prices, corridor risk and delivery focus</div>
     </div>
-    <div style="font-size:11px;color:var(--light);text-align:right;line-height:1.7">Sources cited on-page: LME, Fastmarkets, USGS<br>Indicative only · not for trading purposes</div>
+    <div style="font-size:11px;color:var(--light);text-align:right;line-height:1.7" id="metals-side-note">Sources cited on-page: LME, Fastmarkets, USGS<br>Indicative only · not for trading purposes</div>
   </div>
   <div class="mgrid" id="metals-grid"></div>
-  <p style="font-size:11px;color:var(--light);margin-top:18px;text-align:center">Indicative reference prices only, displayed for market context and not for trading purposes. Timestamp and public source must be shown with every published figure.</p>
+  <p style="font-size:11px;color:var(--light);margin-top:18px;text-align:center" id="metals-foot-note">Indicative reference prices only, displayed for market context and not for trading purposes. Timestamp and public source must be shown with every published figure.</p>
 </section>
 
 <!-- ===== OPERATING FRAMEWORK ===== -->
 <div class="partners-label" data-i18n="pt_label">Operating framework disclosure</div>
 <div class="partners-row">
-  <div class="partner" style="opacity:.7"><div class="partner-name">BANKING PARTNER</div><div class="partner-type">Disclosed during onboarding</div></div>
-  <div class="partner" style="opacity:.7"><div class="partner-name">FREIGHT FORWARDER</div><div class="partner-type">Route-specific appointment</div></div>
+  <div class="partner" style="opacity:.7" id="partner-1"><div class="partner-name">BANKING PARTNER</div><div class="partner-type">Disclosed during onboarding</div></div>
+  <div class="partner" style="opacity:.7" id="partner-2"><div class="partner-name">FREIGHT FORWARDER</div><div class="partner-type">Route-specific appointment</div></div>
   <div class="partner" style="opacity:.7"><div class="partner-name">REFINER / OFFTAKER</div><div class="partner-type">Counterparty verified per mandate</div></div>
 </div>
 
@@ -596,12 +726,12 @@
   <div class="sbody white reveal-right">
     <div class="eyebrow" data-i18n="wy_ey">Why AYYS</div>
     <div class="stitle" style="font-size:26px" data-i18n="wy_t">Execution discipline for qualified buyers</div>
-    <p style="font-size:14px;color:#777;line-height:1.78">AYYS is built for buyers who need an execution partner, not a brochure. We qualify counterparties, structure the transaction stack and keep documentation, logistics and payment aligned from first mandate to final settlement.</p>
+    <p style="font-size:14px;color:#777;line-height:1.78" id="why-p">AYYS is built for buyers who need an execution partner, not a brochure. We qualify counterparties, structure the transaction stack and keep documentation, logistics and payment aligned from first mandate to final settlement.</p>
     <ul class="vlist">
-      <li class="vitem"><span class="vdot"></span><span>Counterparty onboarding with KYC, AML, sanctions and beneficial-owner screening before execution</span></li>
-      <li class="vitem"><span class="vdot"></span><span>Structured execution path: sourcing upstream → contract → logistics → delivery → settlement</span></li>
-      <li class="vitem"><span class="vdot"></span><span>Transaction support for battery manufacturers, EPC contractors and strategic industrial buyers</span></li>
-      <li class="vitem"><span class="vdot"></span><span>Shipment and document control with issue escalation across corridor, customs and payment milestones</span></li>
+      <li class="vitem"><span class="vdot"></span><span id="why-li-1">Counterparty onboarding with KYC, AML, sanctions and beneficial-owner screening before execution</span></li>
+      <li class="vitem"><span class="vdot"></span><span id="why-li-2">Structured execution path: sourcing upstream → contract → logistics → delivery → settlement</span></li>
+      <li class="vitem"><span class="vdot"></span><span id="why-li-3">Transaction support for battery manufacturers, EPC contractors and strategic industrial buyers</span></li>
+      <li class="vitem"><span class="vdot"></span><span id="why-li-4">Shipment and document control with issue escalation across corridor, customs and payment milestones</span></li>
     </ul>
   </div>
 </div>
@@ -614,8 +744,8 @@
   </div>
   <div class="about-grid">
     <div class="reveal-left">
-      <p style="font-size:14px;color:#666;line-height:1.85;margin-bottom:18px">AYYS Commodities operates as a France-registered commodities business serving upstream producers, refiners and European industrial offtakers. The commercial model is execution-led: origin sourcing, contract structuring, logistics coordination, delivery management and settlement support.</p>
-      <p style="font-size:14px;color:#666;line-height:1.85">Every transaction is subject to counterparty onboarding, KYC/AML review, sanctions screening and documentary controls adapted to the corridor, product and payment instrument. Public market data displayed on this site is indicative only and should never be interpreted as a firm quote or offer.</p>
+      <p style="font-size:14px;color:#666;line-height:1.85;margin-bottom:18px" id="about-p1">AYYS Commodities operates as a France-registered commodities business serving upstream producers, refiners and industrial offtakers across Europe, the Middle East, Asia and the Americas. The commercial model is execution-led: origin sourcing, contract structuring, logistics coordination, delivery management and settlement support.</p>
+      <p style="font-size:14px;color:#666;line-height:1.85" id="about-p2">Every transaction is subject to counterparty onboarding, KYC/AML review, sanctions screening and documentary controls adapted to the corridor, product and payment instrument. Public market data displayed on this site is indicative only and should never be interpreted as a firm quote or offer.</p>
       <div class="process-strip">
         <div class="process-step"><strong>01 · Sourcing</strong><span>Upstream producer qualification and mandate scoping.</span></div>
         <div class="process-step"><strong>02 · Contract</strong><span>Term sheet, payment security and documentary package.</span></div>
@@ -705,11 +835,11 @@
     <div class="cinfo reveal-left">
       <div class="cinfo-item">
         <h4 data-i18n="ci1h">General enquiries</h4>
-        <a href="mailto:contact@ayys-group.com" style="color:var(--g);font-weight:600">contact@ayys-group.com</a>
+        <a href="mailto:contact@ayys-group.fr" style="color:var(--g);font-weight:600">contact@ayys-group.fr</a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci2h">Trading desk</h4>
-        <a href="mailto:trading@ayys-group.com" style="color:var(--g);font-weight:600">trading@ayys-group.com</a>
+        <a href="mailto:trading@ayys-group.fr" style="color:var(--g);font-weight:600">trading@ayys-group.fr</a>
       </div>
       <div class="cinfo-item">
         <h4 data-i18n="ci3h">Availability</h4>
@@ -725,17 +855,17 @@
       </div>
       <div class="entity-grid">
         <div class="entity-card">
-          <h4>Commercial contact</h4>
-          <p>Commercial desk<br><a href="mailto:contact@ayys-group.com" class="contact-mail">contact@ayys-group.com</a></p>
+          <h4 id="commercial-label">Commercial contact</h4>
+          <p id="commercial-text">Commercial desk<br><a href="mailto:e.martel@ayys-group.fr" class="contact-mail">Elise MARTEL</a></p>
         </div>
         <div class="entity-card">
-          <h4>Compliance contact</h4>
-          <p>Compliance desk<br><a href="mailto:contact@ayys-group.com" class="contact-mail">contact@ayys-group.com</a></p>
+          <h4 id="compliance-label">Compliance contact</h4>
+          <p id="compliance-text">Compliance desk<br><a href="mailto:e.strand@ayys-group.fr" class="contact-mail">Erik STRAND</a></p>
         </div>
       </div>
     </div>
     <div class="reveal-right">
-      <form class="cform" id="cform">
+      <form class="cform" id="cform" action="mailto:contact@ayys-group.fr" method="post" enctype="text/plain">
         <div class="form-row">
           <input type="text" id="fname" data-i18n-ph="ph_name" placeholder="Full name" required/>
           <input type="text" id="fco" data-i18n-ph="ph_co" placeholder="Company"/>
@@ -766,7 +896,7 @@
         <div class="cform-note" data-note="form_note">Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.</div>
       </form>
       <div class="form-success" id="form-success">
-        ✓ &nbsp; Thank you — your sourcing mandate request has been received.<br>Our team will review the submission and respond within 24 business hours.
+        ✓ &nbsp; Your message draft is ready for contact@ayys-group.fr.<br>Please review it in your email client and send when ready.
       </div>
     </div>
   </div>
@@ -921,7 +1051,7 @@ function closeMenu() {
 }
 
 /* ===== CONTACT FORM ===== */
-async function submitForm() {
+function submitForm() {
   const name    = document.getElementById('fname').value.trim();
   const co      = document.getElementById('fco').value.trim();
   const email   = document.getElementById('femail').value.trim();
@@ -944,33 +1074,36 @@ async function submitForm() {
 
   const btn = document.querySelector('.cform-submit');
   btn.disabled = true;
-  btn.querySelector('span:last-child').textContent = 'Sending…';
+  btn.querySelector('span:last-child').textContent = 'Opening your email client…';
 
-  try {
-    const res = await fetch('https://formspree.io/f/xkoknbea', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        name, company: co, email, country,
-        enquiry_type: type, metal, volume,
-        destination: dest, timeline, message: msg,
-        _replyto: email,
-        _subject: 'AYYS — New mandate request from ' + name
-      })
-    });
+  const lines = [
+    'Name: ' + name,
+    'Company: ' + (co || '—'),
+    'Email: ' + email,
+    'Country / region: ' + (country || '—'),
+    'Buyer / partner type: ' + (type || '—'),
+    'Metal / product: ' + (metal || '—'),
+    'Estimated volume: ' + (volume || '—'),
+    'Destination / delivery point: ' + (dest || '—'),
+    'Target timeline: ' + (timeline || '—'),
+    '',
+    'Message:',
+    msg
+  ];
 
-    if (res.ok) {
-      document.getElementById('cform').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else {
-      throw new Error('Server error');
-    }
-  } catch(e) {
+  const subject = encodeURIComponent('AYYS — New contact request from ' + name);
+  const body = encodeURIComponent(lines.join('\n'));
+  window.location.href = 'mailto:contact@ayys-group.fr?subject=' + subject + '&body=' + body;
+
+  document.getElementById('cform').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  setTimeout(() => {
     btn.disabled = false;
-    btn.querySelector('span:last-child').textContent = 'Send request';
-    alert('An error occurred. Please try again or contact us directly at ayysgroup01@gmail.com');
-  }
+    const lang = (document.getElementById('lcode')?.textContent || 'EN').trim();
+    btn.querySelector('span:last-child').textContent = (I18N[lang] || I18N.EN).ct_btn;
+  }, 800);
 }
+
 
 </script>
 
@@ -978,7 +1111,7 @@ async function submitForm() {
 const I18N = {
   EN: {
     nav_services:'Services', nav_markets:'Markets', nav_intel:'Intelligence', nav_about:'About', nav_contact:'Contact', nav_platform:'Request a sourcing mandate',
-    hero_p:'We originate upstream supply, structure contracts, coordinate logistics and manage settlement for battery manufacturers, EPC contractors and strategic buyers that need bankable metal flows.',
+    badge:'Global reach · Compliance-led execution', h1:'Strategic metals,<br>structured for industries worldwide', hero_p:'We originate upstream supply, structure contracts, coordinate logistics and manage settlement for battery manufacturers, EPC contractors and strategic buyers across international markets that need bankable metal flows.',
     ct_btn:'Send request', ct_h:'Need a qualified supply partner for strategic metals?', ct_s:'Qualified buyers and upstream partners receive a response within 24 business hours once the mandate fields below are completed.',
     ci1h:'General enquiries', ci2h:'Trading desk', ci3h:'Availability', ci3p:'Mon – Fri, 8am – 8pm (CET)<br>Trading emergencies: 24/7',
     ph_name:'Full name', ph_co:'Company', ph_email:'Professional email', ph_country:'Country / region', ph_msg:'Describe your project: metal type, estimated volume, origin or destination, timeline...',
@@ -991,7 +1124,7 @@ const I18N = {
   },
   FR: {
     nav_services:'Services', nav_markets:'Marchés', nav_intel:'Intelligence', nav_about:'À propos', nav_contact:'Contact', nav_platform:'Demander un mandat d’approvisionnement',
-    hero_p:'Nous sourçons l’offre amont, structurons les contrats, coordonnons la logistique et le règlement pour les industriels européens ayant besoin de flux de métaux sécurisés.',
+    badge:'Portée internationale · Exécution pilotée par la conformité', h1:'Métaux stratégiques,<br>structurés pour les industries du monde', hero_p:'Nous sourçons l’offre amont, structurons les contrats, coordonnons la logistique et le règlement pour des industriels actifs sur les marchés internationaux ayant besoin de flux de métaux sécurisés.',
     ct_btn:'Envoyer la demande', ct_h:'Besoin d’un partenaire qualifié pour vos métaux stratégiques ?', ct_s:'Producteurs, acheteurs et partenaires qualifiés reçoivent une réponse sous 24 heures ouvrées lorsque les champs ci-dessous sont complétés.',
     ci1h:'Demandes générales', ci2h:'Département trading', ci3h:'Disponibilité', ci3p:'Lun – Ven, 8h – 20h (CET)<br>Urgences trading : 24h/7j',
     ph_name:'Prénom & nom', ph_co:'Société', ph_email:'Email professionnel', ph_country:'Pays / région', ph_msg:'Décrivez votre projet : type de métal, volume estimé, origine ou destination, délai...',
@@ -1004,7 +1137,7 @@ const I18N = {
   },
   DE: {
     nav_services:'Leistungen', nav_markets:'Märkte', nav_intel:'Marktanalyse', nav_about:'Über uns', nav_contact:'Kontakt', nav_platform:'Beschaffungsmandat anfragen',
-    hero_p:'Wir beschaffen Upstream-Angebote, strukturieren Verträge, koordinieren Logistik und Abwicklung für europäische Industriekäufer mit Bedarf an verlässlichen Metallströmen.',
+    badge:'Internationale Reichweite · Compliance-geführte Ausführung', h1:'Strategische Metalle,<br>strukturiert für Industrien weltweit', hero_p:'Wir beschaffen Upstream-Angebote, strukturieren Verträge, koordinieren Logistik und Abwicklung für Industriekäufer auf internationalen Märkten mit Bedarf an verlässlichen Metallströmen.',
     ct_btn:'Anfrage senden', ct_h:'Brauchen Sie einen qualifizierten Partner für strategische Metalle?', ct_s:'Qualifizierte Käufer und Upstream-Partner erhalten innerhalb von 24 Geschäftsstunden eine Antwort, sobald das Formular ausgefüllt ist.',
     ci1h:'Allgemeine Anfragen', ci2h:'Trading Desk', ci3h:'Verfügbarkeit', ci3p:'Mo – Fr, 8:00 – 20:00 Uhr (MEZ)<br>Trading-Notfälle: 24/7',
     ph_name:'Vollständiger Name', ph_co:'Unternehmen', ph_email:'Geschäftliche E-Mail', ph_country:'Land / Region', ph_msg:'Beschreiben Sie Ihr Projekt: Metalltyp, geschätztes Volumen, Ursprung oder Ziel, Zeitplan...',
@@ -1017,7 +1150,7 @@ const I18N = {
   },
   AR: {
     nav_services:'الخدمات', nav_markets:'الأسواق', nav_intel:'المعلومات', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_platform:'طلب تفويض توريد',
-    hero_p:'نقوم بتأمين التوريد من المصدر، وهيكلة العقود، وتنسيق الخدمات اللوجستية والتسوية للمشترين الصناعيين الأوروبيين الذين يحتاجون إلى تدفقات معادن موثوقة.',
+    badge:'انتشار دولي · تنفيذ تقوده الامتثال', h1:'معادن استراتيجية،<br>مهيكلة لصناعات العالم', hero_p:'نقوم بتأمين التوريد من المصدر، وهيكلة العقود، وتنسيق الخدمات اللوجستية والتسوية للمشترين الصناعيين عبر الأسواق الدولية الذين يحتاجون إلى تدفقات معادن موثوقة.',
     ct_btn:'إرسال الطلب', ct_h:'هل تحتاج إلى شريك مؤهل للمعادن الاستراتيجية؟', ct_s:'يتلقى المشترون والشركاء المؤهلون رداً خلال 24 ساعة عمل بعد استكمال الحقول أدناه.',
     ci1h:'استفسارات عامة', ci2h:'قسم التداول', ci3h:'التوفر', ci3p:'الاثنين – الجمعة، 8 ص – 8 م (بتوقيت وسط أوروبا)<br>طوارئ التداول: 24/7',
     ph_name:'الاسم الكامل', ph_co:'الشركة', ph_email:'البريد الإلكتروني المهني', ph_country:'البلد / المنطقة', ph_msg:'صف مشروعك: نوع المعدن، الحجم التقديري، المنشأ أو الوجهة، والجدول الزمني...',
@@ -1030,7 +1163,7 @@ const I18N = {
   },
   ZH: {
     nav_services:'服务', nav_markets:'市场', nav_intel:'情报', nav_about:'关于我们', nav_contact:'联系', nav_platform:'提交采购委托',
-    hero_p:'我们为欧洲工业采购方完成上游资源对接、合同结构设计、物流协调与结算执行，提供可落地的金属供应方案。',
+    badge:'国际覆盖 · 合规驱动执行', h1:'战略金属，<br>面向全球产业完成结构化配置', hero_p:'我们为国际市场中的工业采购方完成上游资源对接、合同结构设计、物流协调与结算执行，提供可落地的金属供应方案。',
     ct_btn:'发送需求', ct_h:'需要合格的战略金属供应伙伴吗？', ct_s:'合格买方与上游合作方在完整填写下方信息后，将于 24 个工作小时内收到回复。',
     ci1h:'一般咨询', ci2h:'交易台', ci3h:'服务时间', ci3p:'周一至周五 8:00 – 20:00（中欧时间）<br>紧急交易支持：24/7',
     ph_name:'姓名', ph_co:'公司', ph_email:'商务邮箱', ph_country:'国家 / 地区', ph_msg:'请描述你的需求：金属类型、预计数量、起运地或目的地、时间安排……',
@@ -1043,8 +1176,17 @@ const I18N = {
   }
 };
 
+const EXTRA_I18N = {
+  EN: {alertMore:'View all →', heroAccess:'Market access for strategic materials', heroScroll:'Scroll for market overview', servicesSub:'From origin sourcing to final delivery, AYYS structures every transaction with precision — adapting to market volatility, regulatory complexity and logistical disruption.', globalEy:'International logistics', globalTitle:'A global operating footprint for strategic metal flows', globalP1:'AYYS coordinates international logistics across supplier basins, export corridors, port interfaces and final delivery points. The model is built to connect origin markets in Africa, Latin America, Asia and the Middle East with industrial demand centres in Europe and beyond.', globalP2:'The visual below is intentionally designed as a premium network cue: a static globe, transparent route overlays and animated shipment lines illustrating how sourcing, documentation and port logistics can converge across multiple continents.', globalTags:['Upstream suppliers on every continent','Port-to-port and inland multimodal execution','Traceable documentary control across routes'], flowChips:[['Origin hubs','Latin America, Sub-Saharan Africa, Gulf corridors, South Asia and East Asia.'],['Port interfaces','Bulk, containerised and specialised mineral routing through major transshipment and discharge ports.'],['Delivery logic','Routing adapts to cargo profile, Incoterms, customs constraints and buyer timetable.']], globalNote:'Illustrative network view of international supplier-to-port and port-to-buyer routing logic. The visual is designed as a brand and operating signal rather than a literal shipment tracker.', whyP:'AYYS is built for buyers who need an execution partner, not a brochure. We qualify counterparties, structure the transaction stack and keep documentation, logistics and payment aligned from first mandate to final settlement.', whyLis:['Counterparty onboarding with KYC, AML, sanctions and beneficial-owner screening before execution','Structured execution path: sourcing upstream → contract → logistics → delivery → settlement','Transaction support for battery manufacturers, EPC contractors and strategic industrial buyers','Shipment and document control with issue escalation across corridor, customs and payment milestones'], aboutP1:'AYYS Commodities operates as a France-registered commodities business serving upstream producers, refiners and industrial offtakers across Europe, the Middle East, Asia and the Americas. The commercial model is execution-led: origin sourcing, contract structuring, logistics coordination, delivery management and settlement support.', aboutP2:'Every transaction is subject to counterparty onboarding, KYC/AML review, sanctions screening and documentary controls adapted to the corridor, product and payment instrument. Public market data displayed on this site is indicative only and should never be interpreted as a firm quote or offer.', commercialLabel:'Commercial contact', commercialText:'Commercial desk', complianceLabel:'Compliance contact', complianceText:'Compliance desk', priceTag:'Indicative data · source stamped', metalsSideNote:'Sources cited on-page: LME, Fastmarkets, USGS<br>Indicative only · not for trading purposes', metalsFootNote:'Indicative reference prices only, displayed for market context and not for trading purposes. Timestamp and public source must be shown with every published figure.', serviceHeads:['Sourcing & Trading','Trade Finance','Logistics & Shipping','Advisory & Intelligence'], serviceBodies:['Direct access to mine-gate production in Sub-Saharan Africa, Latin America and Southeast Asia. We structure offtake agreements, spot purchases and long-term supply contracts on competitive terms.','Documentary letters of credit, bank guarantees and structured payment instruments. We navigate the full range of trade finance tools to secure transactions for buyers and sellers alike.','Multimodal freight coordination across FCL, bulk and air cargo. Port handling, customs clearance and real-time tracking from origin to discharge port — across 50+ routing combinations.','Market analysis, price benchmarking and geopolitical risk monitoring. We provide independent insight to help clients navigate the commodity cycle — from procurement strategy to contract negotiation.'], partners:[['BANKING PARTNER','Disclosed during onboarding'],['FREIGHT FORWARDER','Route-specific appointment'],['INSPECTION','Independent surveyor when required'],['LEGAL COUNSEL','Transaction-dependent support'],['COMPLIANCE','KYC / AML / sanctions checks']]},
+  FR: {alertMore:'Voir tout →', heroAccess:'Accès marché pour les matières stratégiques', heroScroll:'Faire défiler pour voir l’aperçu marché', servicesSub:'Du sourcing à l’origine jusqu’à la livraison finale, AYYS structure chaque transaction avec précision en s’adaptant à la volatilité des marchés, à la complexité réglementaire et aux ruptures logistiques.', globalEy:'Logistique internationale', globalTitle:'Une empreinte opérationnelle mondiale pour les flux de métaux stratégiques', globalP1:'AYYS coordonne la logistique internationale entre bassins fournisseurs, corridors d’exportation, interfaces portuaires et points de livraison finaux. Le modèle relie les marchés d’origine en Afrique, en Amérique latine, en Asie et au Moyen-Orient avec les centres de demande industrielle en Europe et au-delà.', globalP2:'Le visuel ci-dessous a été conçu comme un signal premium de réseau : un globe statique, des superpositions de routes en transparence et des flux animés illustrant la convergence possible entre sourcing, documentation et logistique portuaire sur plusieurs continents.', globalTags:['Fournisseurs amont sur tous les continents','Exécution multimodale port-à-port et terrestre','Contrôle documentaire traçable sur l’ensemble des routes'], flowChips:[['Hubs d’origine','Amérique latine, Afrique subsaharienne, corridors du Golfe, Asie du Sud et Asie de l’Est.'],['Interfaces portuaires','Flux vrac, conteneurisés et spécialisés via les grands ports de transbordement et de déchargement.'],['Logique de livraison','Le routage s’adapte au profil cargo, aux Incoterms, aux contraintes douanières et au calendrier acheteur.']], globalNote:'Vue illustrative du réseau international reliant fournisseurs, ports et acheteurs. Le visuel est conçu comme un signal de marque et d’exploitation, non comme un tracker littéral des expéditions.', whyP:'AYYS est conçu pour des acheteurs qui attendent un partenaire d’exécution, pas une brochure. Nous qualifions les contreparties, structurons la transaction et maintenons l’alignement entre documents, logistique et paiement du premier mandat jusqu’au règlement final.', whyLis:['Onboarding des contreparties avec contrôles KYC, AML, sanctions et bénéficiaires effectifs avant exécution','Parcours structuré : sourcing amont → contrat → logistique → livraison → règlement','Accompagnement transactionnel pour fabricants de batteries, EPC et acheteurs industriels stratégiques','Contrôle des expéditions et des documents avec escalade sur corridor, douane et jalons de paiement'], aboutP1:'AYYS Commodities opère comme société de négoce de matières premières enregistrée en France au service de producteurs amont, affineurs et industriels offtakers en Europe, au Moyen-Orient, en Asie et dans les Amériques. Le modèle commercial est piloté par l’exécution : sourcing d’origine, structuration contractuelle, coordination logistique, gestion de la livraison et support au règlement.', aboutP2:'Chaque transaction fait l’objet d’un onboarding contrepartie, d’une revue KYC/AML, d’un screening sanctions et de contrôles documentaires adaptés au corridor, au produit et à l’instrument de paiement. Les données de marché publiques affichées sur ce site sont purement indicatives et ne constituent jamais une offre ferme ni une cotation.', commercialLabel:'Contact commercial', commercialText:'Responsable commerciale', complianceLabel:'Contact conformité', complianceText:'Responsable conformité', priceTag:'Données indicatives · source horodatée', metalsSideNote:'Sources citées sur la page : LME, Fastmarkets, USGS<br>Données indicatives · non destinées au trading', metalsFootNote:'Prix de référence strictement indicatifs, affichés pour le contexte de marché et non pour une utilisation de trading. Chaque publication doit mentionner son horodatage et sa source publique.', serviceHeads:['Sourcing & trading','Trade finance','Logistique & shipping','Conseil & intelligence'], serviceBodies:['Accès direct à la production minière en Afrique subsaharienne, en Amérique latine et en Asie du Sud-Est. Nous structurons des accords d’offtake, achats spot et contrats d’approvisionnement long terme dans des conditions compétitives.','Crédits documentaires, garanties bancaires et instruments de paiement structurés. Nous mobilisons l’ensemble des outils de trade finance pour sécuriser les transactions des acheteurs comme des vendeurs.','Coordination de fret multimodal en FCL, vrac et aérien. Manutention portuaire, dédouanement et suivi temps réel depuis l’origine jusqu’au port de déchargement, sur plus de 50 combinaisons de routage.','Analyse de marché, benchmarking de prix et veille géopolitique. Nous apportons un éclairage indépendant pour aider nos clients à naviguer dans le cycle matières premières, de la stratégie d’achat à la négociation contractuelle.'], partners:[['PARTENAIRE BANCAIRE','Divulgué pendant l’onboarding'],['TRANSITAIRE','Nomination selon la route'],['INSPECTION','Surveyor indépendant si nécessaire'],['CONSEIL JURIDIQUE','Support selon la transaction'],['CONFORMITÉ','Contrôles KYC / AML / sanctions']]},
+  DE: {alertMore:'Alles anzeigen →', heroAccess:'Marktzugang für strategische Materialien', heroScroll:'Zum Marktüberblick scrollen', servicesSub:'Von der Beschaffung am Ursprung bis zur Endlieferung strukturiert AYYS jede Transaktion präzise und passt sich Marktvolatilität, regulatorischer Komplexität und logistischen Störungen an.', globalEy:'Internationale Logistik', globalTitle:'Eine globale operative Präsenz für strategische Metallströme', globalP1:'AYYS koordiniert internationale Logistik über Lieferregionen, Exportkorridore, Hafeninterfaces und finale Lieferpunkte. Das Modell verbindet Ursprungsmärkte in Afrika, Lateinamerika, Asien und dem Nahen Osten mit industriellen Nachfragezentren in Europa und darüber hinaus.', globalP2:'Die folgende Visualisierung ist als hochwertiges Netzwerksignal konzipiert: ein statischer Globus, transparente Routenebenen und animierte Flusslinien zeigen, wie Beschaffung, Dokumentation und Hafenlogistik über mehrere Kontinente zusammenlaufen können.', globalTags:['Upstream-Lieferanten auf allen Kontinenten','Multimodale Port-zu-Port- und Inland-Ausführung','Nachverfolgbare Dokumentenkontrolle über alle Routen'], flowChips:[['Ursprungshubs','Lateinamerika, Subsahara-Afrika, Golfkorridore, Südasien und Ostasien.'],['Hafeninterfaces','Bulk-, Container- und spezialisierte Mineralrouten über wichtige Umschlag- und Entladehäfen.'],['Lieferlogik','Routing passt sich Cargo-Profil, Incoterms, Zollanforderungen und Zeitplan des Käufers an.']], globalNote:'Illustrative Netzwerkansicht der internationalen Routinglogik von Lieferant zu Hafen und von Hafen zu Käufer. Die Visualisierung ist als Marken- und Betriebssignal gedacht, nicht als buchstäblicher Shipment-Tracker.', whyP:'AYYS ist für Käufer aufgebaut, die einen Ausführungspartner und keine Broschüre benötigen. Wir qualifizieren Gegenparteien, strukturieren die Transaktion und halten Dokumentation, Logistik und Zahlung vom ersten Mandat bis zur Endabrechnung in Einklang.', whyLis:['Onboarding der Gegenpartei mit KYC-, AML-, Sanktions- und wirtschaftlich-Berechtigten-Prüfung vor Ausführung','Strukturierter Ablauf: Upstream-Sourcing → Vertrag → Logistik → Lieferung → Abwicklung','Transaktionsunterstützung für Batteriehersteller, EPC-Auftragnehmer und strategische Industriekäufer','Sendungs- und Dokumentenkontrolle mit Eskalation entlang von Korridor-, Zoll- und Zahlungsmeilensteinen'], aboutP1:'AYYS Commodities agiert als in Frankreich registriertes Rohstoffunternehmen für Upstream-Produzenten, Raffinerien und industrielle Abnehmer in Europa, dem Nahen Osten, Asien und den Amerikas. Das kommerzielle Modell ist execution-led: Ursprungssourcing, Vertragsstrukturierung, Logistikkoordination, Liefermanagement und Settlement-Support.', aboutP2:'Jede Transaktion unterliegt einem Gegenparteien-Onboarding, einer KYC/AML-Prüfung, Sanktionsscreenings und Dokumentenkontrollen, die an Korridor, Produkt und Zahlungsinstrument angepasst sind. Die auf dieser Website dargestellten öffentlichen Marktdaten sind rein indikativ und dürfen niemals als verbindliches Angebot oder Preisstellung verstanden werden.', commercialLabel:'Kommerzieller Kontakt', commercialText:'Vertriebsansprechpartnerin', complianceLabel:'Compliance-Kontakt', complianceText:'Compliance-Ansprechpartner', priceTag:'Indikative Daten · Quelle gestempelt', metalsSideNote:'Quellen auf dieser Seite: LME, Fastmarkets, USGS<br>Nur indikativ · nicht für Handelszwecke', metalsFootNote:'Nur indikative Referenzpreise, dargestellt für Marktkontext und nicht für Handelszwecke. Zeitstempel und öffentliche Quelle müssen bei jeder veröffentlichten Zahl angegeben werden.', serviceHeads:['Beschaffung & Handel','Trade Finance','Logistik & Versand','Beratung & Marktanalyse'], serviceBodies:['Direkter Zugang zur Produktion am Minenausgang in Subsahara-Afrika, Lateinamerika und Südostasien. Wir strukturieren Offtake-Vereinbarungen, Spotkäufe und langfristige Lieferverträge zu wettbewerbsfähigen Bedingungen.','Dokumentenakkreditive, Bankgarantien und strukturierte Zahlungsinstrumente. Wir steuern das gesamte Spektrum der Trade-Finance-Instrumente zur Absicherung von Käufer- und Verkäufertransaktionen.','Multimodale Frachtkoordination über FCL, Bulk und Luftfracht. Hafenabwicklung, Zollfreigabe und Echtzeit-Tracking vom Ursprung bis zum Löschhafen über mehr als 50 Routenkombinationen.','Marktanalyse, Preis-Benchmarking und geopolitisches Risikomonitoring. Wir liefern unabhängige Einblicke von der Beschaffungsstrategie bis zur Vertragsverhandlung.'], partners:[['BANKPARTNER','Offenlegung beim Onboarding'],['SPEDITEUR','Routenspezifische Beauftragung'],['INSPEKTION','Unabhängiger Surveyor bei Bedarf'],['RECHTSBERATUNG','Transaktionsabhängige Unterstützung'],['COMPLIANCE','KYC / AML / Sanktionsprüfungen']]},
+  AR: {alertMore:'عرض الكل →', heroAccess:'نفاذ إلى السوق للمواد الاستراتيجية', heroScroll:'مرر لرؤية نظرة السوق', servicesSub:'من التوريد عند المنشأ إلى التسليم النهائي، تقوم AYYS بهيكلة كل معاملة بدقة مع التكيف مع تقلبات السوق وتعقيد المتطلبات التنظيمية والاضطرابات اللوجستية.', globalEy:'اللوجستيات الدولية', globalTitle:'حضور تشغيلي عالمي لتدفقات المعادن الاستراتيجية', globalP1:'تنسق AYYS اللوجستيات الدولية عبر أحواض الموردين وممرات التصدير والواجهات المينائية ونقاط التسليم النهائية. وقد بُني النموذج لربط أسواق المنشأ في أفريقيا وأمريكا اللاتينية وآسيا والشرق الأوسط بمراكز الطلب الصناعي في أوروبا وخارجها.', globalP2:'تم تصميم هذا العرض البصري كإشارة شبكية راقية: كرة أرضية ثابتة، ومسارات شفافة، وتدفقات شحن متحركة توضح كيف يمكن أن تتقاطع عمليات التوريد والتوثيق واللوجستيات المينائية عبر قارات متعددة.', globalTags:['موردون في جميع القارات','تنفيذ متعدد الوسائط بين الموانئ وداخل اليابسة','رقابة وثائقية قابلة للتتبع عبر المسارات'], flowChips:[['مراكز المنشأ','أمريكا اللاتينية، أفريقيا جنوب الصحراء، ممرات الخليج، جنوب آسيا وشرق آسيا.'],['واجهات الموانئ','مسارات للمواد المعدنية السائبة والحاويات والشحنات المتخصصة عبر موانئ إعادة الشحن والتفريغ الرئيسية.'],['منطق التسليم','يتكيف المسار مع نوع الشحنة وشروط Incoterms والقيود الجمركية وجدول المشتري.']], globalNote:'عرض توضيحي لمنطق الربط الدولي بين الموردين والموانئ والمشترين. وقد صُمم هذا المشهد كإشارة تشغيلية وبصرية للعلامة وليس كأداة تتبع حرفية للشحنات.', whyP:'تم بناء AYYS للمشترين الذين يحتاجون إلى شريك تنفيذ لا إلى كتيب دعائي. نحن نؤهل الأطراف المقابلة، ونهيكل المعاملة، ونحافظ على اتساق الوثائق واللوجستيات والدفع من أول تفويض حتى التسوية النهائية.', whyLis:['تهيئة الطرف المقابل مع فحوص KYC وAML والعقوبات والمستفيد الحقيقي قبل التنفيذ','مسار تنفيذ منظم: التوريد الأولي ← العقد ← اللوجستيات ← التسليم ← التسوية','دعم للمعاملات لصنّاع البطاريات ومقاولي EPC والمشترين الصناعيين الاستراتيجيين','التحكم في الشحنات والوثائق مع التصعيد عبر الممرات والجمارك ومحطات الدفع'], aboutP1:'تعمل AYYS Commodities كشركة سلع مسجلة في فرنسا وتخدم المنتجين الأوّليين والمصافي والمشترين الصناعيين في أوروبا والشرق الأوسط وآسيا والأمريكيتين. ويقود التنفيذ نموذجها التجاري: التوريد من المصدر، وهيكلة العقود، وتنسيق اللوجستيات، وإدارة التسليم، ودعم التسوية.', aboutP2:'تخضع كل معاملة لتهيئة الطرف المقابل ومراجعة KYC/AML وفحص العقوبات وضوابط وثائقية تتناسب مع الممر والمنتج وأداة الدفع. بيانات السوق العامة المعروضة على هذا الموقع إرشادية فقط ولا ينبغي اعتبارها سعراً ملزماً أو عرضاً نهائياً.', commercialLabel:'جهة الاتصال التجارية', commercialText:'المسؤولة التجارية', complianceLabel:'جهة اتصال الامتثال', complianceText:'مسؤول الامتثال', priceTag:'بيانات إرشادية · مصدر موثق', metalsSideNote:'المصادر المذكورة في الصفحة: LME وFastmarkets وUSGS<br>للاسترشاد فقط · ليست لأغراض التداول', metalsFootNote:'الأسعار المرجعية المعروضة إرشادية فقط لسياق السوق وليست لأغراض التداول. يجب إظهار الطابع الزمني والمصدر العام مع كل رقم منشور.', serviceHeads:['التوريد والتداول','تمويل التجارة','اللوجستيات والشحن','الاستشارات والمعلومات'], serviceBodies:['وصول مباشر إلى الإنتاج عند المنجم في أفريقيا جنوب الصحراء وأمريكا اللاتينية وجنوب شرق آسيا. نقوم بهيكلة اتفاقيات الاستلام والشراء الفوري وعقود التوريد طويلة الأجل بشروط تنافسية.','اعتمادات مستندية وضمانات مصرفية وأدوات دفع مهيكلة. نحن ندير كامل أدوات تمويل التجارة لتأمين المعاملات للمشترين والبائعين.','تنسيق شحن متعدد الوسائط عبر الحاويات الكاملة والبضائع السائبة والشحن الجوي. مناولة الموانئ والتخليص الجمركي والتتبع الفوري من المنشأ إلى ميناء التفريغ عبر أكثر من 50 مساراً.','تحليل السوق ومقارنة الأسعار ومراقبة المخاطر الجيوسياسية. نقدم رؤية مستقلة تساعد العملاء على التنقل في دورة السلع من استراتيجية الشراء إلى التفاوض التعاقدي.'], partners:[['شريك مصرفي','يُكشف عنه أثناء التهيئة'],['وكيل شحن','تعيين بحسب المسار'],['فحص','مسّاح مستقل عند الحاجة'],['مستشار قانوني','دعم بحسب المعاملة'],['امتثال','فحوص KYC / AML / العقوبات']]},
+  ZH: {alertMore:'查看全部 →', heroAccess:'战略材料的市场准入', heroScroll:'向下滚动查看市场概览', servicesSub:'从原产地采购到最终交付，AYYS 以高精度组织每一笔交易，并针对市场波动、监管复杂性和物流扰动进行适配。', globalEy:'国际物流', globalTitle:'面向战略金属流转的全球运营网络', globalP1:'AYYS 协调跨供应产地、出口走廊、港口接口和最终交付点的国际物流。该模式旨在把非洲、拉丁美洲、亚洲和中东的原产市场连接到欧洲及其他地区的工业需求中心。', globalP2:'下方视觉被设计为高端网络信号：静态地球、透明航线叠层以及动画流线，用于展示采购、单证与港口物流如何在多个大陆之间协同。', globalTags:['覆盖各大洲的上游供应商','港到港与内陆多式联运执行','全路线可追溯单证控制'], flowChips:[['起源枢纽','拉丁美洲、撒哈拉以南非洲、海湾走廊、南亚和东亚。'],['港口接口','通过主要中转港和卸港进行散货、集装箱及专业矿物流转。'],['交付逻辑','路线根据货物属性、Incoterms、海关限制和买方时间表进行调整。']], globalNote:'这是一幅国际供应商—港口—买方路径逻辑的示意网络图。该视觉旨在传达品牌与运营能力，而不是实际货运追踪器。', whyP:'AYYS 面向需要执行伙伴而非宣传册的买方而建立。我们完成交易对手准入、交易结构设计，并确保从首次委托到最终结算期间，单证、物流与付款始终保持一致。', whyLis:['执行前进行交易对手准入，并完成 KYC、AML、制裁及受益所有人筛查','结构化执行路径：上游采购 → 合同 → 物流 → 交付 → 结算','为电池制造商、EPC 承包商和战略工业买方提供交易支持','围绕运输通道、海关节点和付款里程碑进行货运与单证控制及升级处理'], aboutP1:'AYYS Commodities 是一家在法国注册的商品贸易企业，服务于欧洲、中东、亚洲和美洲的上游生产商、精炼商和工业承购方。其商业模式以执行为核心：原产采购、合同结构设计、物流协调、交付管理与结算支持。', aboutP2:'每笔交易都需经过交易对手准入、KYC/AML 审查、制裁筛查以及针对运输通道、产品和付款工具定制的单证控制。网站展示的公开市场数据仅供参考，不应被视为正式报价或要约。', commercialLabel:'商务联系人', commercialText:'商务负责人', complianceLabel:'合规联系人', complianceText:'合规负责人', priceTag:'指示性数据 · 已标注来源', metalsSideNote:'页面引用来源：LME、Fastmarkets、USGS<br>仅供参考 · 不用于交易', metalsFootNote:'页面展示的参考价格仅用于市场背景说明，不构成交易用途。每个公开数字都应附带时间戳和公共来源。', serviceHeads:['采购与贸易','贸易融资','物流与运输','咨询与情报'], serviceBodies:['直接覆盖撒哈拉以南非洲、拉丁美洲和东南亚的矿山端产出。我们可组织承购协议、现货采购和长期供应合同，并保持有竞争力的条款。','包括信用证、银行保函和结构化付款工具。我们运用完整的贸易融资工具体系，为买卖双方交易提供保障。','覆盖整箱、散货和空运的多式联运协调。提供港口操作、清关以及从起运地到卸港的实时跟踪，支持 50 多种路径组合。','提供市场分析、价格基准和地缘政治风险监测。我们以独立视角帮助客户应对商品周期，从采购策略到合同谈判。'], partners:[['银行合作方','在准入阶段披露'],['货运代理','按路线指定'],['检验机构','必要时启用独立检验'],['法律顾问','按交易需要提供支持'],['合规','KYC / AML / 制裁检查']]}
+};
+
 function applyLang(lang){
   const d = I18N[lang] || I18N.EN;
+  const x = EXTRA_I18N[lang] || EXTRA_I18N.EN;
   document.documentElement.lang = lang.toLowerCase();
   document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
   const nav = document.querySelectorAll('.nav-links a');
@@ -1053,8 +1195,10 @@ function applyLang(lang){
   [d.nav_services,d.nav_markets,d.nav_intel,d.nav_about,d.nav_contact].forEach((txt,i)=>{ if(mobile[i]) mobile[i].textContent = txt; });
   const ctas = document.querySelectorAll('a.ncta span:last-child');
   ctas.forEach(el => el.textContent = d.nav_platform);
+  const heroBadge = document.querySelector('[data-i18n="badge"]'); if(heroBadge && d.badge) heroBadge.textContent = d.badge;
+  const heroH1 = document.querySelector('[data-i18n="h1"]'); if(heroH1 && d.h1) heroH1.innerHTML = d.h1;
   const heroP = document.querySelector('.hero p'); if(heroP) heroP.textContent = d.hero_p;
-  const ssub = document.querySelector('.ssub'); if(ssub) ssub.textContent = d.ct_s;
+  const contactSub = document.querySelector('#contact .ssub'); if(contactSub) contactSub.textContent = d.ct_s;
   const ci3 = document.querySelector('.cinfo-item:nth-child(3) p'); if(ci3) ci3.innerHTML = d.ci3p;
   const h4s = document.querySelectorAll('.cinfo-item h4');
   if(h4s[0]) h4s[0].textContent = d.ci1h; if(h4s[1]) h4s[1].textContent = d.ci2h; if(h4s[2]) h4s[2].textContent = d.ci3h;
@@ -1064,6 +1208,19 @@ function applyLang(lang){
   const formNote = document.querySelector('.cform-note'); if(formNote) formNote.textContent = d.formNote;
   const title = document.querySelector('.ctaband h2'); if(title) title.textContent = d.ct_h;
   const footerApply = document.querySelector('.flinks a[href="#contact"]'); if(footerApply) footerApply.textContent = d.footerApply;
+  const byIdText = { 'alert-more':x.alertMore, 'hero-access':x.heroAccess, 'hero-scroll':x.heroScroll, 'services-sub':x.servicesSub, 'global-ey':x.globalEy, 'global-title':x.globalTitle, 'global-p1':x.globalP1, 'global-p2':x.globalP2, 'global-note':x.globalNote, 'why-p':x.whyP, 'about-p1':x.aboutP1, 'about-p2':x.aboutP2, 'commercial-label':x.commercialLabel, 'compliance-label':x.complianceLabel };
+  Object.entries(byIdText).forEach(([id,val]) => { const el = document.getElementById(id); if(el && val) el.textContent = val; });
+  ['global-tag-1','global-tag-2','global-tag-3'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.globalTags && x.globalTags[i]) el.textContent = x.globalTags[i]; });
+  ['why-li-1','why-li-2','why-li-3','why-li-4'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.whyLis && x.whyLis[i]) el.textContent = x.whyLis[i]; });
+  ['svc-h-1','svc-h-2','svc-h-3','svc-h-4'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.serviceHeads && x.serviceHeads[i]) el.textContent = x.serviceHeads[i]; });
+  ['svc-p-1','svc-p-2','svc-p-3','svc-p-4'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.serviceBodies && x.serviceBodies[i]) el.textContent = x.serviceBodies[i]; });
+  const priceTag=document.getElementById('price-tag'); if(priceTag && x.priceTag){ const txt=priceTag.querySelector('span:last-child'); if(txt) txt.textContent=x.priceTag; else priceTag.textContent=x.priceTag; }
+  const metalsSideNote=document.getElementById('metals-side-note'); if(metalsSideNote && x.metalsSideNote) metalsSideNote.innerHTML=x.metalsSideNote;
+  const metalsFootNote=document.getElementById('metals-foot-note'); if(metalsFootNote && x.metalsFootNote) metalsFootNote.textContent=x.metalsFootNote;
+  ['partner-1','partner-2','partner-3','partner-4','partner-5'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.partners && x.partners[i]){ const n=el.querySelector('.partner-name'); const t=el.querySelector('.partner-type'); if(n) n.textContent=x.partners[i][0]; if(t) t.textContent=x.partners[i][1]; } });
+  ['flow-chip-1','flow-chip-2','flow-chip-3'].forEach((id,i)=>{ const el=document.getElementById(id); if(el && x.flowChips && x.flowChips[i]){ const strong=el.querySelector('strong'); const span=el.querySelector('span'); if(strong) strong.textContent=x.flowChips[i][0]; if(span) span.textContent=x.flowChips[i][1]; } });
+  const commercialText=document.getElementById('commercial-text'); if(commercialText){ const a=commercialText.querySelector('a'); commercialText.childNodes[0].textContent = (x.commercialText || 'Commercial desk'); if(a) a.textContent='Elise MARTEL'; }
+  const complianceText=document.getElementById('compliance-text'); if(complianceText){ const a=complianceText.querySelector('a'); complianceText.childNodes[0].textContent = (x.complianceText || 'Compliance desk'); if(a) a.textContent='Erik STRAND'; }
   const placeholders = { fname:d.ph_name, fco:d.ph_co, femail:d.ph_email, fcountry:d.ph_country, fmsg:d.ph_msg, fmetal:d.extraPh.metal, fvolume:d.extraPh.volume, fdestination:d.extraPh.destination, ftimeline:d.extraPh.timeline };
   Object.entries(placeholders).forEach(([id,val]) => { const el = document.getElementById(id); if(el) el.placeholder = val; });
   const sel = document.getElementById('ftype');
