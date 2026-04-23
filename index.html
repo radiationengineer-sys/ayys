@@ -214,11 +214,62 @@
     .global-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
     .global-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(255,253,249,0.84);border:1px solid rgba(29,158,117,0.14);font-size:11px;color:var(--mid);box-shadow:0 12px 30px rgba(26,34,31,0.05)}
     .global-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,rgba(29,158,117,0.95),rgba(204,176,122,0.9));box-shadow:0 0 0 6px rgba(29,158,117,0.08)}
-    .global-stage{position:relative;min-height:540px;border-radius:30px;overflow:hidden;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.68),rgba(255,255,255,0.18) 28%,transparent 58%),linear-gradient(160deg,rgba(50,56,52,0.98),rgba(36,43,40,0.98));border:1px solid rgba(255,255,255,0.10);box-shadow:0 34px 90px rgba(24,29,27,0.16)}
-    .global-stage::before{content:'';position:absolute;inset:-12%;background:radial-gradient(circle at 20% 20%,rgba(29,158,117,0.14),transparent 32%),radial-gradient(circle at 80% 25%,rgba(204,176,122,0.16),transparent 26%),radial-gradient(circle at 70% 70%,rgba(255,255,255,0.08),transparent 30%);filter:blur(16px);pointer-events:none}
-    .global-stage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.05),transparent 24%,transparent 76%,rgba(0,0,0,0.10));pointer-events:none}
+    .global-stage{
+      position:relative;min-height:540px;border-radius:30px;overflow:hidden;
+      background:#f5f2ec;
+      border:1px solid rgba(0,0,0,0.07);
+      box-shadow:0 34px 90px rgba(24,29,27,0.10)
+    }
+    /* Couche 1 — trame tissée SVG, forte côté droit */
+    .global-stage::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E%3Crect x='0' y='.6' width='5' height='1.6' fill='rgba(160,172,168,.65)' rx='.4'/%3E%3Crect x='0' y='3.2' width='5' height='1.5' fill='rgba(148,162,158,.55)' rx='.4'/%3E%3Crect x='.6' y='0' width='1.5' height='5' fill='rgba(178,188,185,.48)' rx='.4'/%3E%3Crect x='3.2' y='0' width='1.5' height='5' fill='rgba(165,178,174,.40)' rx='.4'/%3E%3Crect x='.6' y='.6' width='1.5' height='1.6' fill='rgba(210,218,216,.70)' rx='.3'/%3E%3Crect x='3.2' y='3.2' width='1.5' height='1.5' fill='rgba(205,214,212,.62)' rx='.3'/%3E%3Crect x='3.2' y='.6' width='1.5' height='1.6' fill='rgba(100,118,114,.38)' rx='.3'/%3E%3Crect x='.6' y='3.2' width='1.5' height='1.5' fill='rgba(95,112,108,.32)' rx='.3'/%3E%3C/svg%3E");
+      background-repeat:repeat;
+      opacity:0.90;
+      mask-image:linear-gradient(118deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.05) 14%,
+        rgba(0,0,0,0.22) 28%,
+        rgba(0,0,0,0.52) 44%,
+        rgba(0,0,0,0.80) 62%,
+        rgba(0,0,0,0.95) 80%,
+        rgba(0,0,0,0.92) 100%
+      );
+      -webkit-mask-image:linear-gradient(118deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.05) 14%,
+        rgba(0,0,0,0.22) 28%,
+        rgba(0,0,0,0.52) 44%,
+        rgba(0,0,0,0.80) 62%,
+        rgba(0,0,0,0.95) 80%,
+        rgba(0,0,0,0.92) 100%
+      );
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Couche 2 — shimmer diagonal argent, asymétrique vers le bas-droit */
+    .global-stage::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse 60% 55% at 82% 65%, rgba(215,222,218,0.38) 0%, rgba(195,208,204,0.16) 42%, transparent 68%),
+        radial-gradient(ellipse 30% 40% at 95% 88%, rgba(230,236,234,0.28) 0%, transparent 55%),
+        linear-gradient(145deg,
+          rgba(255,252,248,0) 0%,
+          rgba(255,252,248,0) 30%,
+          rgba(240,245,242,0.12) 48%,
+          rgba(250,254,252,0.20) 54%,
+          rgba(240,245,242,0.10) 60%,
+          rgba(255,252,248,0) 75%
+        );
+      pointer-events:none;
+      z-index:0;
+    }
     .globe-shell{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px}
-    .glow-ring{position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(255,255,255,0.08);box-shadow:0 0 0 18px rgba(29,158,117,0.04),0 0 80px rgba(29,158,117,0.14)}
+    .glow-ring{position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(0,0,0,0.06);box-shadow:0 0 0 18px rgba(29,158,117,0.03),0 0 60px rgba(160,195,220,0.18)}
     .globe{position:relative;width:min(100%,520px);aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.22),rgba(29,158,117,0.08) 26%,rgba(7,16,14,0.22) 58%,rgba(6,10,9,0.82) 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12),inset -30px -34px 80px rgba(0,0,0,0.32),0 24px 80px rgba(0,0,0,0.34);overflow:hidden}
     .globe svg{position:absolute;inset:0;width:100%;height:100%}
     .globe-atmo{position:absolute;inset:-2%;border-radius:50%;background:radial-gradient(circle at 50% 50%,transparent 56%,rgba(69,196,152,0.08) 72%,rgba(255,255,255,0.12) 82%,transparent 88%);mix-blend-mode:screen;pointer-events:none}
@@ -232,16 +283,16 @@
     .geo-line.light{stroke:rgba(255,255,255,0.08)}
     .continent{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.10);stroke-width:1}
     .global-panel{position:absolute;right:24px;top:24px;display:grid;gap:10px;z-index:2;max-width:220px}
-    .flow-chip{padding:11px 14px;border-radius:16px;background:rgba(255,253,249,0.10);border:1px solid rgba(255,255,255,0.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 28px rgba(9,16,14,0.14)}
-    .flow-chip strong{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#ccb07a;margin-bottom:6px}
-    .flow-chip span{display:block;font-size:12px;line-height:1.65;color:rgba(255,255,255,0.78)}
+    .flow-chip{padding:11px 14px;border-radius:16px;background:rgba(245,242,236,0.88);border:1px solid rgba(0,0,0,0.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+    .flow-chip strong{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#8e6e38;margin-bottom:6px}
+    .flow-chip span{display:block;font-size:12px;line-height:1.65;color:rgba(40,48,44,0.78)}
     .global-footer{position:absolute;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;z-index:2}
-    .global-note{max-width:340px;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.56)}
+    .global-note{max-width:340px;font-size:11px;line-height:1.7;color:rgba(40,48,44,0.52)}
     .global-legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .global-legend span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.66)}
-    .global-legend i{display:inline-block;width:18px;height:1.8px;border-radius:999px;background:rgba(225,245,238,0.78)}
-    .global-legend span:nth-child(2) i{background:rgba(230,212,170,0.74)}
-    .global-legend span:nth-child(3) i{background:rgba(255,255,255,0.42)}
+    .global-legend span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(255,252,248,0.72);border:1px solid rgba(0,0,0,0.10);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(40,48,44,0.68)}
+    .global-legend i{display:inline-block;width:18px;height:1.8px;border-radius:999px;background:rgba(29,158,117,0.70)}
+    .global-legend span:nth-child(2) i{background:rgba(176,138,73,0.70)}
+    .global-legend span:nth-child(3) i{background:rgba(100,120,115,0.50)}
     @keyframes routeFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-180}}
     @keyframes nodePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.24);opacity:.72}}
 
@@ -996,22 +1047,22 @@ let tooltipTimeout = null;
 function drawGlobe() {
   ctx.clearRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
 
-  // Fond du globe — océan bleu profond réaliste
+  // Fond du globe — tons blancs nacrés / ivoire
   const grd = ctx.createRadialGradient(CX-70, CY-70, 20, CX, CY, R);
-  grd.addColorStop(0,'rgba(38,90,140,0.98)');
-  grd.addColorStop(0.4,'rgba(22,62,110,0.99)');
-  grd.addColorStop(0.75,'rgba(12,40,78,0.99)');
-  grd.addColorStop(1,'rgba(6,22,48,1.0)');
+  grd.addColorStop(0,'rgba(255,253,250,0.99)');
+  grd.addColorStop(0.35,'rgba(240,245,248,0.99)');
+  grd.addColorStop(0.70,'rgba(220,232,242,0.99)');
+  grd.addColorStop(1,'rgba(195,215,232,1.0)');
   ctx.beginPath();
   ctx.arc(CX, CY, R, 0, Math.PI*2);
   ctx.fillStyle = grd;
   ctx.fill();
 
-  // Halo atmosphérique — bleu océanique
+  // Halo atmosphérique — bleu ciel pâle
   const atmo = ctx.createRadialGradient(CX, CY, R*0.88, CX, CY, R*1.06);
-  atmo.addColorStop(0,'rgba(40,100,180,0.0)');
-  atmo.addColorStop(0.7,'rgba(40,100,200,0.09)');
-  atmo.addColorStop(1,'rgba(80,150,255,0.15)');
+  atmo.addColorStop(0,'rgba(200,220,240,0.0)');
+  atmo.addColorStop(0.7,'rgba(180,210,235,0.10)');
+  atmo.addColorStop(1,'rgba(160,200,230,0.18)');
   ctx.beginPath();
   ctx.arc(CX, CY, R*1.06, 0, Math.PI*2);
   ctx.fillStyle = atmo;
@@ -1024,7 +1075,7 @@ function drawGlobe() {
   ctx.clip();
 
   // ── Grille géodésique ──
-  ctx.strokeStyle = 'rgba(100,160,230,0.10)';
+  ctx.strokeStyle = 'rgba(160,195,220,0.28)';
   ctx.lineWidth = 0.6;
 
   // Méridiens (toutes les 30°)
@@ -1069,10 +1120,10 @@ function drawGlobe() {
 
   ctx.restore();
 
-  // Reflet surface
+  // Reflet surface doux
   const shine = ctx.createRadialGradient(CX-90, CY-90, 0, CX-60, CY-80, R*0.55);
-  shine.addColorStop(0,'rgba(255,255,255,0.10)');
-  shine.addColorStop(0.5,'rgba(255,255,255,0.02)');
+  shine.addColorStop(0,'rgba(255,255,255,0.22)');
+  shine.addColorStop(0.5,'rgba(255,255,255,0.06)');
   shine.addColorStop(1,'rgba(255,255,255,0)');
   ctx.save();
   ctx.beginPath();
@@ -1082,12 +1133,12 @@ function drawGlobe() {
   ctx.fill();
   ctx.restore();
 
-  // Ombre bord
+  // Ombre bord légère
   ctx.save();
   ctx.beginPath();
   ctx.arc(CX, CY, R, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(0,0,0,0.5)';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+  ctx.lineWidth = 1.5;
   ctx.stroke();
   ctx.restore();
 }
@@ -1109,8 +1160,8 @@ function drawContinents() {
     [[-20,115],[-15,129],[-12,136],[-14,141],[-22,150],[-32,152],[-38,145],[-38,140],[-30,115],[-20,115]],
   ];
 
-  ctx.fillStyle = 'rgba(112,148,88,0.72)';    // vert-brun terreux
-  ctx.strokeStyle = 'rgba(140,175,100,0.55)';
+  ctx.fillStyle = 'rgba(120,160,90,0.78)';     // vert terreux chaud
+  ctx.strokeStyle = 'rgba(90,130,65,0.60)';
   ctx.lineWidth = 0.9;
 
   shapes.forEach(pts => {
@@ -1136,9 +1187,9 @@ function drawContinents() {
 // ── Routes maritimes ──────────────────────────────────────────
 function drawRoutes() {
   const colors = [
-    'rgba(225,245,238,0.55)', // vert primaire
-    'rgba(230,212,170,0.52)', // or feeder
-    'rgba(255,255,255,0.30)', // blanc soft
+    'rgba(29,120,88,0.70)',   // vert primaire — lisible sur fond clair
+    'rgba(150,100,30,0.60)',  // or/brun feeder
+    'rgba(80,110,130,0.38)',  // bleu-gris soft
   ];
   const widths = [1.6, 1.2, 0.8];
   const dash = [[6,8],[4,6],[3,5]];
@@ -1181,20 +1232,20 @@ function drawPorts() {
     if (isNear) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, 12, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(29,158,117,0.18)';
+      ctx.fillStyle = 'rgba(29,120,88,0.14)';
       ctx.fill();
     }
 
     // Point port
     ctx.beginPath();
     ctx.arc(p.x, p.y, isNear ? 5 : 3.5, 0, Math.PI*2);
-    ctx.fillStyle = isNear ? '#ccb07a' : `rgba(204,176,122,${0.5 + brightness*0.5})`;
+    ctx.fillStyle = isNear ? '#9a6a18' : `rgba(154,106,24,${0.55 + brightness*0.45})`;
     ctx.fill();
 
     // Anneau
     ctx.beginPath();
     ctx.arc(p.x, p.y, isNear ? 7 : 5.5, 0, Math.PI*2);
-    ctx.strokeStyle = isNear ? 'rgba(29,158,117,0.9)' : `rgba(29,158,117,${0.35 + brightness*0.35})`;
+    ctx.strokeStyle = isNear ? 'rgba(29,120,88,0.95)' : `rgba(29,120,88,${0.40 + brightness*0.40})`;
     ctx.lineWidth = isNear ? 1.5 : 1;
     ctx.stroke();
   });
@@ -1235,7 +1286,7 @@ function drawShip() {
       if (first) { ctx.moveTo(pp.x, pp.y); first = false; }
       else ctx.lineTo(pp.x, pp.y);
     }
-    ctx.strokeStyle = 'rgba(29,158,117,0.45)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.50)';
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.restore();
@@ -1258,9 +1309,9 @@ function drawShip() {
     ctx.lineTo(-4, 0);
     ctx.lineTo(-6, -5);
     ctx.closePath();
-    ctx.fillStyle = '#f7f3eb';
+    ctx.fillStyle = '#2a3830';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(29,158,117,0.9)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.85)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -1268,7 +1319,7 @@ function drawShip() {
     ctx.beginPath();
     ctx.moveTo(2, 0);
     ctx.lineTo(2, -8);
-    ctx.strokeStyle = '#ccb07a';
+    ctx.strokeStyle = '#9a6a18';
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
@@ -1277,7 +1328,7 @@ function drawShip() {
     // Halo navire
     ctx.beginPath();
     ctx.arc(p.x, p.y, 13, 0, Math.PI*2);
-    ctx.strokeStyle = 'rgba(29,158,117,0.30)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.22)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
