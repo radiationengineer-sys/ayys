@@ -492,6 +492,69 @@
       .global-panel{position:static;max-width:none;padding:20px 20px 0}
       .global-footer{position:static;padding:0 20px 22px;display:grid}
     }
+
+    /* ===== MOBILE OPTIMISATION FINAL ===== */
+    @media(max-width:768px){
+      html,body{overflow-x:hidden}
+      .nav{height:58px;padding:0 16px}
+      .nav-wrap{position:fixed}
+      .logo-mark{font-size:16px;letter-spacing:4px}
+      .logo-sub{display:none}
+      .nav-right{gap:6px}
+      .mobile-menu{display:flex;position:fixed;top:60px;left:0;right:0;z-index:99;box-shadow:0 18px 45px rgba(0,0,0,.12)}
+      .mobile-menu.open{max-height:520px}
+      .mobile-menu a{font-size:14px;padding:14px 22px}
+      .mobile-menu-bottom{display:flex;padding:16px 22px 18px;border-top:.5px solid rgba(0,0,0,.06)}
+      .mobile-menu-bottom .ncta{display:flex!important;width:100%;justify-content:center;border-radius:12px;padding:13px 16px}
+      .mobile-brochure-link{font-weight:700;color:var(--gd)!important;background:rgba(29,158,117,.06);border-bottom:.5px solid rgba(29,158,117,.12)!important}
+      .ticker{margin-top:60px!important}
+      .tupdate{display:none}
+      .tlive{font-size:8px;padding:0 10px}
+      .ttrack{padding-left:48px}
+      .hero.hero-premium{min-height:auto}
+      .hero-shell{padding:104px 22px 42px;grid-template-columns:1fr;gap:24px;align-items:start}
+      .hero-premium h1{font-size:clamp(34px,11vw,46px);line-height:1.03;letter-spacing:-1.3px}
+      .hero-lead{font-size:15.5px;line-height:1.72;margin-bottom:24px}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
+      .btn-primary,.btn-secondary{width:100%;min-height:48px;text-align:center}
+      .brochure-btn{order:3}
+      .hero-points{grid-template-columns:1fr;gap:10px}
+      .hero-card{display:none}
+      .market-banner{gap:8px;align-items:flex-start}
+      .mb-label,.mb-date{width:100%;margin:0}
+      .mb-item{flex:1 1 calc(50% - 8px);justify-content:space-between}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat{padding:20px 18px}
+      .vmain{height:260px}
+      .vside{height:170px}
+      .sec{padding:46px 22px}
+      .stitle{font-size:28px}
+      .ssub{font-size:14px;line-height:1.7;margin-bottom:26px}
+      .global-stage{min-height:auto;border-radius:20px}
+      .globe-shell{position:relative;min-height:330px;padding:18px}
+      .global-panel{position:relative;right:auto;top:auto;max-width:none;padding:18px}
+      .global-footer{position:relative;left:auto;right:auto;bottom:auto;padding:0 18px 20px}
+      .contact-grid{gap:28px}
+      .form-row{grid-template-columns:1fr}
+      .footer-top{padding:42px 22px;gap:28px}
+      .footer-bottom{padding:18px 22px;display:grid;gap:14px}
+      .flegal{flex-wrap:wrap;gap:12px}
+    }
+
+    @media(max-width:480px){
+      .lang-btn{gap:6px;padding:0 8px}
+      .lcap{display:none}
+      .hero-meta{gap:10px;margin-bottom:18px}
+      .hero-access{display:none}
+      .hero-kicker{font-size:9px;letter-spacing:1.4px;padding:7px 10px}
+      .mb-item{flex-basis:100%}
+      .stats{grid-template-columns:1fr}
+      .mgrid{grid-template-columns:1fr}
+      .partners-row{justify-content:flex-start}
+      .ctaband{padding:56px 22px}
+      .ctaband h2{font-size:25px}
+    }
+
   
     /* ===== PREMIUM ADDITIONS ===== */
     .hero-img{object-position:center 40%;will-change:transform}
@@ -559,6 +622,8 @@
     .btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(20,86,66,.32)}
     .btn-secondary{background:rgba(255,253,249,.07);color:#fff;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
     .btn-secondary:hover{background:rgba(255,255,255,.10);transform:translateY(-1px)}
+    .brochure-btn{border-color:rgba(204,176,122,.38);color:#fff;background:rgba(176,138,73,.12)}
+    .brochure-btn:hover{background:rgba(176,138,73,.20);color:#fff;border-color:rgba(204,176,122,.55)}
     .hero-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:760px;margin-top:8px}
     .hero-point{padding:16px 16px 14px;border-top:1px solid rgba(204,176,122,.38);background:linear-gradient(180deg,rgba(255,253,249,.07),rgba(255,253,249,.015));border-radius:2px}
     .hero-point strong{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ccb07a;margin-bottom:7px}
@@ -587,12 +652,12 @@
     .entity-card p,.cinfo-item a,.cinfo-item p{opacity:1}
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- ===== NAV ===== -->
 <div class="nav-wrap" id="nav-wrap">
   <div class="nav" id="nav">
-    <a class="logo" href="#">
+    <a class="logo" href="#top" aria-label="AYYS Commodities — back to top">
       <div class="logo-mark">AY<span>Y</span>S</div>
       <div class="logo-sub">Commodities</div>
     </a>
@@ -612,7 +677,7 @@
         <div class="lang-drop" id="ldrop" role="listbox" aria-label="Language selector">
           <div class="lang-opt sel" onclick="pickLang('EN','English',this)" role="option"><span class="lol">English</span><span class="lon">EN</span></div>
           <div class="lang-opt" onclick="pickLang('FR','Français',this)" role="option"><span class="lol">Français</span><span class="lon">FR</span></div>
-          <div class="lang-opt" onclick="pickLang('DE','Deutsch',this)" role="option"><span class="lol">Deutsch</span><span class="lon">DE</span></div>
+          <div class="lang-opt" onclick="pickLang('RU','Русский',this)" role="option"><span class="lol">Русский</span><span class="lon">RU</span></div>
           <div class="lang-opt" onclick="pickLang('AR','العربية',this)" role="option"><span class="lol">العربية</span><span class="lon">AR</span></div>
           <div class="lang-opt" onclick="pickLang('ZH','中文',this)" role="option"><span class="lol">中文</span><span class="lon">ZH</span></div>
         </div>
@@ -633,8 +698,9 @@
     <a href="#intel" onclick="closeMenu()">Intelligence</a>
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a class="mobile-brochure-link" id="mobile-brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" hreflang="en" onclick="closeMenu()" data-i18n="brochure_btn">Open corporate presentation</a>
     <div class="mobile-menu-bottom">
-      <a href="#contact" class="ncta" style="font-size:13px">
+      <a href="#contact" class="ncta" style="font-size:13px" onclick="closeMenu()">
         <span class="cdot"></span>Request a sourcing mandate
       </a>
     </div>
@@ -669,7 +735,7 @@
 <!-- ===== HERO ===== -->
 <div class="hero hero-premium">
   <div class="hero-media" aria-hidden="true">
-    <img src="assets/hero-premium.jpg" alt="Strategic metals logistics and industrial infrastructure"/>
+    <img src="assets/hero-premium.jpg" alt="Strategic metals logistics and industrial infrastructure" onerror="this.style.display='none'"/>
   </div>
 
   <!-- Texture métallique tissée — malle.jpg simulée en SVG -->
@@ -760,6 +826,7 @@
       <div class="hero-actions hbtns">
         <a class="btn-p btn-primary" href="#contact" data-i18n="hb1">Request a sourcing mandate</a>
         <a class="btn-s btn-secondary" href="#services" data-i18n="hb2">Review operating model</a>
+        <a class="btn-s btn-secondary brochure-btn" id="brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" data-i18n="brochure_btn">Open corporate presentation</a>
       </div>
 
       <div class="hero-points">
@@ -1701,9 +1768,9 @@ requestAnimationFrame(animate);
   <div class="footer-bottom">
     <div class="fcopy">© 2026 AYYS Commodities. All rights reserved. Indicative information only.</div>
     <div class="flegal">
-      <a href="#">Legal notice</a>
-      <a href="#">Privacy</a>
-      <a href="#">Cookies</a>
+      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20Legal%20notice">Legal notice</a>
+      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20Privacy%20request">Privacy</a>
+      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20Cookies%20request">Cookies</a>
     </div>
   </div>
 </footer>
@@ -1788,7 +1855,7 @@ window.addEventListener('scroll', () => {
   const s = window.scrollY;
   document.getElementById('nav').classList.toggle('scrolled', s > 40);
   const h = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('prog').style.width = (s / h * 100) + '%';
+  document.getElementById('prog').style.width = (h > 0 ? (s / h * 100) : 0) + '%';
 });
 
 /* ===== REVEAL ===== */
@@ -1867,7 +1934,7 @@ function submitForm() {
 <script>
 const I18N = {
   EN: {
-    nav_services:'Services', nav_markets:'Markets', nav_intel:'Intelligence', nav_about:'About', nav_contact:'Contact', nav_platform:'Request a sourcing mandate',
+    nav_services:'Services', nav_markets:'Markets', nav_intel:'Intelligence', nav_about:'About', nav_contact:'Contact', nav_platform:'Request a sourcing mandate', brochure_btn:'Open corporate presentation',
     badge:'Global reach · Compliance-led execution', h1:'Strategic metals,<br>structured for industries worldwide', hero_p:'We originate upstream supply, structure contracts, coordinate logistics and manage settlement for battery manufacturers, EPC contractors and strategic buyers across international markets that need bankable metal flows.',
     ct_btn:'Send request', ct_h:'Need a qualified supply partner for strategic metals?', ct_s:'Qualified buyers and upstream partners receive a response within 24 business hours once the mandate fields below are completed.',
     ci1h:'General enquiries', ci2h:'Trading desk', ci3h:'Availability', ci3p:'Mon – Fri, 8am – 8pm (CET)<br>Trading emergencies: 24/7',
@@ -1880,7 +1947,7 @@ const I18N = {
     formNote:'Your information is used for mandate qualification, compliance screening and commercial follow-up. Do not submit confidential trade data until a bilateral process is opened.'
   },
   FR: {
-    nav_services:'Services', nav_markets:'Marchés', nav_intel:'Intelligence', nav_about:'À propos', nav_contact:'Contact', nav_platform:'Demander un mandat d’approvisionnement',
+    nav_services:'Services', nav_markets:'Marchés', nav_intel:'Intelligence', nav_about:'À propos', nav_contact:'Contact', nav_platform:'Demander un mandat d’approvisionnement', brochure_btn:'Consulter la plaquette',
     badge:'Portée internationale · Exécution pilotée par la conformité', h1:'Métaux stratégiques,<br>structurés pour les industries du monde', hero_p:'Nous sourçons l’offre amont, structurons les contrats, coordonnons la logistique et le règlement pour des industriels actifs sur les marchés internationaux ayant besoin de flux de métaux sécurisés.',
     ct_btn:'Envoyer la demande', ct_h:'Besoin d’un partenaire qualifié pour vos métaux stratégiques ?', ct_s:'Producteurs, acheteurs et partenaires qualifiés reçoivent une réponse sous 24 heures ouvrées lorsque les champs ci-dessous sont complétés.',
     ci1h:'Demandes générales', ci2h:'Département trading', ci3h:'Disponibilité', ci3p:'Lun – Ven, 8h – 20h (CET)<br>Urgences trading : 24h/7j',
@@ -1892,21 +1959,21 @@ const I18N = {
     form_ok:'✓ Merci — votre demande a bien été reçue.<br>Notre équipe vous contactera sous 24 heures ouvrées.',
     formNote:'Vos informations sont utilisées pour qualifier la demande, effectuer les vérifications de conformité et assurer le suivi commercial. Merci de ne pas transmettre de données confidentielles avant l’ouverture d’un processus bilatéral.'
   },
-  DE: {
-    nav_services:'Leistungen', nav_markets:'Märkte', nav_intel:'Marktanalyse', nav_about:'Über uns', nav_contact:'Kontakt', nav_platform:'Beschaffungsmandat anfragen',
-    badge:'Internationale Reichweite · Compliance-geführte Ausführung', h1:'Strategische Metalle,<br>strukturiert für Industrien weltweit', hero_p:'Wir beschaffen Upstream-Angebote, strukturieren Verträge, koordinieren Logistik und Abwicklung für Industriekäufer auf internationalen Märkten mit Bedarf an verlässlichen Metallströmen.',
-    ct_btn:'Anfrage senden', ct_h:'Brauchen Sie einen qualifizierten Partner für strategische Metalle?', ct_s:'Qualifizierte Käufer und Upstream-Partner erhalten innerhalb von 24 Geschäftsstunden eine Antwort, sobald das Formular ausgefüllt ist.',
-    ci1h:'Allgemeine Anfragen', ci2h:'Trading Desk', ci3h:'Verfügbarkeit', ci3p:'Mo – Fr, 8:00 – 20:00 Uhr (MEZ)<br>Trading-Notfälle: 24/7',
-    ph_name:'Vollständiger Name', ph_co:'Unternehmen', ph_email:'Geschäftliche E-Mail', ph_country:'Land / Region', ph_msg:'Beschreiben Sie Ihr Projekt: Metalltyp, geschätztes Volumen, Ursprung oder Ziel, Zeitplan...',
-    buyerType:'Art der Anfrage',
-    formOptions:['Metalle / Mineralien kaufen','Verkauf / Sourcing','Logistik & Transport','Beratung & Expertise','Finanzpartnerschaft','Andere'],
-    extraPh:{metal:'Metall / Produkt', volume:'Geschätztes Volumen', destination:'Zielort / Lieferpunkt', timeline:'Zielzeitplan'},
-    ctaBand:'Mandat anfragen →', footerApply:'Partnerschaft anfragen',
-    form_ok:'✓ Danke — Ihre Anfrage wurde empfangen.<br>Unser Team antwortet innerhalb von 24 Geschäftsstunden.',
-    formNote:'Ihre Informationen werden zur Qualifizierung des Mandats, zur Compliance-Prüfung und zur kommerziellen Nachverfolgung verwendet. Bitte senden Sie keine vertraulichen Handelsdaten, bevor ein bilateraler Prozess eröffnet wurde.'
-  },
+RU: {
+  nav_services:'Услуги', nav_markets:'Рынки', nav_intel:'Аналитика', nav_about:'О нас', nav_contact:'Контакты', nav_platform:'Запросить мандат на поставку', brochure_btn:'Открыть презентацию',
+  badge:'Глобальный охват · Исполнение под контролем compliance', h1:'Стратегические металлы,<br>структурированные для мировой промышленности', hero_p:'Мы обеспечиваем доступ к поставкам на upstream-уровне, структурируем контракты, координируем логистику и расчеты для промышленных покупателей на международных рынках.',
+  ct_btn:'Отправить запрос', ct_h:'Нужен квалифицированный партнер по стратегическим металлам?', ct_s:'Квалифицированные покупатели и upstream-партнеры получают ответ в течение 24 рабочих часов после заполнения формы.',
+  ci1h:'Общие запросы', ci2h:'Торговый отдел', ci3h:'Доступность', ci3p:'Пн – Пт, 8:00 – 20:00 (CET)<br>Экстренные торговые запросы: 24/7',
+  ph_name:'ФИО', ph_co:'Компания', ph_email:'Рабочий email', ph_country:'Страна / регион', ph_msg:'Опишите проект: тип металла, ориентировочный объем, происхождение или назначение, сроки...',
+  buyerType:'Тип запроса',
+  formOptions:['Покупка металлов / минералов','Продажа / поставка','Логистика и транспорт','Консалтинг и экспертиза','Финансовое партнерство','Другое'],
+  extraPh:{metal:'Металл / продукт', volume:'Ориентировочный объем', destination:'Пункт назначения / доставки', timeline:'Целевые сроки'},
+  ctaBand:'Запросить мандат →', footerApply:'Запросить партнерство по поставкам',
+  form_ok:'✓ Спасибо — ваш запрос получен.<br>Наша команда ответит в течение 24 рабочих часов.',
+  formNote:'Ваши данные используются для квалификации запроса, compliance-проверки и коммерческого сопровождения. Не отправляйте конфиденциальные торговые данные до открытия двустороннего процесса.'
+},
   AR: {
-    nav_services:'الخدمات', nav_markets:'الأسواق', nav_intel:'المعلومات', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_platform:'طلب تفويض توريد',
+    nav_services:'الخدمات', nav_markets:'الأسواق', nav_intel:'المعلومات', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_platform:'طلب تفويض توريد', brochure_btn:'فتح العرض المؤسسي',
     badge:'انتشار دولي · تنفيذ تقوده الامتثال', h1:'معادن استراتيجية،<br>مهيكلة لصناعات العالم', hero_p:'نقوم بتأمين التوريد من المصدر، وهيكلة العقود، وتنسيق الخدمات اللوجستية والتسوية للمشترين الصناعيين عبر الأسواق الدولية الذين يحتاجون إلى تدفقات معادن موثوقة.',
     ct_btn:'إرسال الطلب', ct_h:'هل تحتاج إلى شريك مؤهل للمعادن الاستراتيجية؟', ct_s:'يتلقى المشترون والشركاء المؤهلون رداً خلال 24 ساعة عمل بعد استكمال الحقول أدناه.',
     ci1h:'استفسارات عامة', ci2h:'قسم التداول', ci3h:'التوفر', ci3p:'الاثنين – الجمعة، 8 ص – 8 م (بتوقيت وسط أوروبا)<br>طوارئ التداول: 24/7',
@@ -1919,7 +1986,7 @@ const I18N = {
     formNote:'تُستخدم معلوماتك لتأهيل الطلب وفحص الامتثال والمتابعة التجارية. يرجى عدم إرسال بيانات تجارية سرية قبل فتح مسار ثنائي.'
   },
   ZH: {
-    nav_services:'服务', nav_markets:'市场', nav_intel:'情报', nav_about:'关于我们', nav_contact:'联系', nav_platform:'提交采购委托',
+    nav_services:'服务', nav_markets:'市场', nav_intel:'情报', nav_about:'关于我们', nav_contact:'联系', nav_platform:'提交采购委托', brochure_btn:'查看企业介绍',
     badge:'国际覆盖 · 合规驱动执行', h1:'战略金属，<br>面向全球产业完成结构化配置', hero_p:'我们为国际市场中的工业采购方完成上游资源对接、合同结构设计、物流协调与结算执行，提供可落地的金属供应方案。',
     ct_btn:'发送需求', ct_h:'需要合格的战略金属供应伙伴吗？', ct_s:'合格买方与上游合作方在完整填写下方信息后，将于 24 个工作小时内收到回复。',
     ci1h:'一般咨询', ci2h:'交易台', ci3h:'服务时间', ci3p:'周一至周五 8:00 – 20:00（中欧时间）<br>紧急交易支持：24/7',
@@ -1941,7 +2008,34 @@ const EXTRA_I18N = {
   ZH: {alertMore:'查看全部 →', heroAccess:'战略材料的市场准入', heroScroll:'向下滚动查看市场概览', servicesSub:'从原产地采购到最终交付，AYYS 以高精度组织每一笔交易，并针对市场波动、监管复杂性和物流扰动进行适配。', globalEy:'国际物流', globalTitle:'面向战略金属流转的全球运营网络', globalP1:'AYYS 协调跨供应产地、出口走廊、港口接口和最终交付点的国际物流。该模式旨在把非洲、拉丁美洲、亚洲和中东的原产市场连接到欧洲及其他地区的工业需求中心。', globalP2:'下方视觉被设计为高端网络信号：静态地球、透明航线叠层以及动画流线，用于展示采购、单证与港口物流如何在多个大陆之间协同。', globalTags:['覆盖各大洲的上游供应商','港到港与内陆多式联运执行','全路线可追溯单证控制'], flowChips:[['起源枢纽','拉丁美洲、撒哈拉以南非洲、海湾走廊、南亚和东亚。'],['港口接口','通过主要中转港和卸港进行散货、集装箱及专业矿物流转。'],['交付逻辑','路线根据货物属性、Incoterms、海关限制和买方时间表进行调整。']], globalNote:'这是一幅国际供应商—港口—买方路径逻辑的示意网络图。该视觉旨在传达品牌与运营能力，而不是实际货运追踪器。', whyP:'AYYS 面向需要执行伙伴而非宣传册的买方而建立。我们完成交易对手准入、交易结构设计，并确保从首次委托到最终结算期间，单证、物流与付款始终保持一致。', whyLis:['执行前进行交易对手准入，并完成 KYC、AML、制裁及受益所有人筛查','结构化执行路径：上游采购 → 合同 → 物流 → 交付 → 结算','为电池制造商、EPC 承包商和战略工业买方提供交易支持','围绕运输通道、海关节点和付款里程碑进行货运与单证控制及升级处理'], aboutP1:'AYYS Commodities 是一家在法国注册的商品贸易企业，服务于欧洲、中东、亚洲和美洲的上游生产商、精炼商和工业承购方。其商业模式以执行为核心：原产采购、合同结构设计、物流协调、交付管理与结算支持。', aboutP2:'每笔交易都需经过交易对手准入、KYC/AML 审查、制裁筛查以及针对运输通道、产品和付款工具定制的单证控制。网站展示的公开市场数据仅供参考，不应被视为正式报价或要约。', commercialLabel:'商务联系人', commercialText:'商务负责人', complianceLabel:'合规联系人', complianceText:'合规负责人', priceTag:'指示性数据 · 已标注来源', metalsSideNote:'页面引用来源：LME、Fastmarkets、USGS<br>仅供参考 · 不用于交易', metalsFootNote:'页面展示的参考价格仅用于市场背景说明，不构成交易用途。每个公开数字都应附带时间戳和公共来源。', serviceHeads:['采购与贸易','贸易融资','物流与运输','咨询与情报'], serviceBodies:['直接覆盖撒哈拉以南非洲、拉丁美洲和东南亚的矿山端产出。我们可组织承购协议、现货采购和长期供应合同，并保持有竞争力的条款。','包括信用证、银行保函和结构化付款工具。我们运用完整的贸易融资工具体系，为买卖双方交易提供保障。','覆盖整箱、散货和空运的多式联运协调。提供港口操作、清关以及从起运地到卸港的实时跟踪，支持 50 多种路径组合。','提供市场分析、价格基准和地缘政治风险监测。我们以独立视角帮助客户应对商品周期，从采购策略到合同谈判。'], partners:[['银行合作方','在准入阶段披露'],['货运代理','按路线指定'],['检验机构','必要时启用独立检验'],['法律顾问','按交易需要提供支持'],['合规','KYC / AML / 制裁检查']]}
 };
 
+const BROCHURE_URLS = {
+  EN: 'ayys_en.html',
+  FR: 'ayys_fr.html',
+  AR: 'ayys_ar.html',
+  ZH: 'ayys_zh.html',
+  RU: 'ayys_ru.html'
+};
+
+function brochureLang(lang){
+  return BROCHURE_URLS[lang] ? lang : 'EN';
+}
+
+function updateBrochureButton(lang){
+  const active = brochureLang(lang);
+  const label = ((I18N[lang] || I18N.EN).brochure_btn || I18N.EN.brochure_btn);
+  ['brochure-btn','mobile-brochure-btn'].forEach(id => {
+    const btn = document.getElementById(id);
+    if(!btn) return;
+    btn.href = BROCHURE_URLS[active];
+    btn.setAttribute('hreflang', active.toLowerCase());
+    btn.setAttribute('target', '_blank');
+    btn.setAttribute('rel', 'noopener');
+    btn.setAttribute('aria-label', label + ' — ' + active);
+  });
+}
+
 function applyLang(lang){
+  lang = I18N[lang] ? lang : 'EN';
   const d = I18N[lang] || I18N.EN;
   const x = EXTRA_I18N[lang] || EXTRA_I18N.EN;
   document.documentElement.lang = lang.toLowerCase();
@@ -1954,6 +2048,9 @@ function applyLang(lang){
   ctas.forEach(el => el.textContent = d.nav_platform);
   const heroBadge = document.querySelector('[data-i18n="badge"]'); if(heroBadge && d.badge) heroBadge.textContent = d.badge;
   const heroH1 = document.querySelector('[data-i18n="h1"]'); if(heroH1 && d.h1) heroH1.innerHTML = d.h1;
+  const brochureBtn = document.getElementById('brochure-btn'); if(brochureBtn) brochureBtn.textContent = d.brochure_btn || I18N.EN.brochure_btn;
+  const mobileBrochureBtn = document.getElementById('mobile-brochure-btn'); if(mobileBrochureBtn) mobileBrochureBtn.textContent = d.brochure_btn || I18N.EN.brochure_btn;
+  updateBrochureButton(lang);
   const heroP = document.querySelector('.hero p'); if(heroP) heroP.textContent = d.hero_p;
   const contactSub = document.querySelector('#contact .ssub'); if(contactSub) contactSub.textContent = d.ct_s;
   const ci3 = document.querySelector('.cinfo-item:nth-child(3) p'); if(ci3) ci3.innerHTML = d.ci3p;
@@ -2017,8 +2114,13 @@ document.getElementById('cform')?.addEventListener('submit', function(e){
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = (() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN';
+  const savedRaw = (() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN';
+  const saved = I18N[savedRaw] ? savedRaw : 'EN';
   applyLang(saved);
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    const code = opt.querySelector('.lon')?.textContent?.trim();
+    opt.classList.toggle('sel', code === saved);
+  });
 });
 </script>
 <script>
