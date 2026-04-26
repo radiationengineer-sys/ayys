@@ -214,11 +214,62 @@
     .global-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
     .global-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(255,253,249,0.84);border:1px solid rgba(29,158,117,0.14);font-size:11px;color:var(--mid);box-shadow:0 12px 30px rgba(26,34,31,0.05)}
     .global-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,rgba(29,158,117,0.95),rgba(204,176,122,0.9));box-shadow:0 0 0 6px rgba(29,158,117,0.08)}
-    .global-stage{position:relative;min-height:540px;border-radius:30px;overflow:hidden;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.68),rgba(255,255,255,0.18) 28%,transparent 58%),linear-gradient(160deg,rgba(50,56,52,0.98),rgba(36,43,40,0.98));border:1px solid rgba(255,255,255,0.10);box-shadow:0 34px 90px rgba(24,29,27,0.16)}
-    .global-stage::before{content:'';position:absolute;inset:-12%;background:radial-gradient(circle at 20% 20%,rgba(29,158,117,0.14),transparent 32%),radial-gradient(circle at 80% 25%,rgba(204,176,122,0.16),transparent 26%),radial-gradient(circle at 70% 70%,rgba(255,255,255,0.08),transparent 30%);filter:blur(16px);pointer-events:none}
-    .global-stage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.05),transparent 24%,transparent 76%,rgba(0,0,0,0.10));pointer-events:none}
+    .global-stage{
+      position:relative;min-height:540px;border-radius:30px;overflow:hidden;
+      background:#f5f2ec;
+      border:1px solid rgba(0,0,0,0.07);
+      box-shadow:0 34px 90px rgba(24,29,27,0.10)
+    }
+    /* Couche 1 — trame tissée SVG, forte côté droit */
+    .global-stage::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E%3Crect x='0' y='.6' width='5' height='1.6' fill='rgba(160,172,168,.65)' rx='.4'/%3E%3Crect x='0' y='3.2' width='5' height='1.5' fill='rgba(148,162,158,.55)' rx='.4'/%3E%3Crect x='.6' y='0' width='1.5' height='5' fill='rgba(178,188,185,.48)' rx='.4'/%3E%3Crect x='3.2' y='0' width='1.5' height='5' fill='rgba(165,178,174,.40)' rx='.4'/%3E%3Crect x='.6' y='.6' width='1.5' height='1.6' fill='rgba(210,218,216,.70)' rx='.3'/%3E%3Crect x='3.2' y='3.2' width='1.5' height='1.5' fill='rgba(205,214,212,.62)' rx='.3'/%3E%3Crect x='3.2' y='.6' width='1.5' height='1.6' fill='rgba(100,118,114,.38)' rx='.3'/%3E%3Crect x='.6' y='3.2' width='1.5' height='1.5' fill='rgba(95,112,108,.32)' rx='.3'/%3E%3C/svg%3E");
+      background-repeat:repeat;
+      opacity:0.90;
+      mask-image:linear-gradient(118deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.05) 14%,
+        rgba(0,0,0,0.22) 28%,
+        rgba(0,0,0,0.52) 44%,
+        rgba(0,0,0,0.80) 62%,
+        rgba(0,0,0,0.95) 80%,
+        rgba(0,0,0,0.92) 100%
+      );
+      -webkit-mask-image:linear-gradient(118deg,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.05) 14%,
+        rgba(0,0,0,0.22) 28%,
+        rgba(0,0,0,0.52) 44%,
+        rgba(0,0,0,0.80) 62%,
+        rgba(0,0,0,0.95) 80%,
+        rgba(0,0,0,0.92) 100%
+      );
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Couche 2 — shimmer diagonal argent, asymétrique vers le bas-droit */
+    .global-stage::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse 60% 55% at 82% 65%, rgba(215,222,218,0.38) 0%, rgba(195,208,204,0.16) 42%, transparent 68%),
+        radial-gradient(ellipse 30% 40% at 95% 88%, rgba(230,236,234,0.28) 0%, transparent 55%),
+        linear-gradient(145deg,
+          rgba(255,252,248,0) 0%,
+          rgba(255,252,248,0) 30%,
+          rgba(240,245,242,0.12) 48%,
+          rgba(250,254,252,0.20) 54%,
+          rgba(240,245,242,0.10) 60%,
+          rgba(255,252,248,0) 75%
+        );
+      pointer-events:none;
+      z-index:0;
+    }
     .globe-shell{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px}
-    .glow-ring{position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(255,255,255,0.08);box-shadow:0 0 0 18px rgba(29,158,117,0.04),0 0 80px rgba(29,158,117,0.14)}
+    .glow-ring{position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(0,0,0,0.06);box-shadow:0 0 0 18px rgba(29,158,117,0.03),0 0 60px rgba(160,195,220,0.18)}
     .globe{position:relative;width:min(100%,520px);aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.22),rgba(29,158,117,0.08) 26%,rgba(7,16,14,0.22) 58%,rgba(6,10,9,0.82) 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12),inset -30px -34px 80px rgba(0,0,0,0.32),0 24px 80px rgba(0,0,0,0.34);overflow:hidden}
     .globe svg{position:absolute;inset:0;width:100%;height:100%}
     .globe-atmo{position:absolute;inset:-2%;border-radius:50%;background:radial-gradient(circle at 50% 50%,transparent 56%,rgba(69,196,152,0.08) 72%,rgba(255,255,255,0.12) 82%,transparent 88%);mix-blend-mode:screen;pointer-events:none}
@@ -232,16 +283,16 @@
     .geo-line.light{stroke:rgba(255,255,255,0.08)}
     .continent{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.10);stroke-width:1}
     .global-panel{position:absolute;right:24px;top:24px;display:grid;gap:10px;z-index:2;max-width:220px}
-    .flow-chip{padding:11px 14px;border-radius:16px;background:rgba(255,253,249,0.10);border:1px solid rgba(255,255,255,0.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 28px rgba(9,16,14,0.14)}
-    .flow-chip strong{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#ccb07a;margin-bottom:6px}
-    .flow-chip span{display:block;font-size:12px;line-height:1.65;color:rgba(255,255,255,0.78)}
+    .flow-chip{padding:11px 14px;border-radius:16px;background:rgba(245,242,236,0.88);border:1px solid rgba(0,0,0,0.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+    .flow-chip strong{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#8e6e38;margin-bottom:6px}
+    .flow-chip span{display:block;font-size:12px;line-height:1.65;color:rgba(40,48,44,0.78)}
     .global-footer{position:absolute;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;z-index:2}
-    .global-note{max-width:340px;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.56)}
+    .global-note{max-width:340px;font-size:11px;line-height:1.7;color:rgba(40,48,44,0.52)}
     .global-legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .global-legend span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.66)}
-    .global-legend i{display:inline-block;width:18px;height:1.8px;border-radius:999px;background:rgba(225,245,238,0.78)}
-    .global-legend span:nth-child(2) i{background:rgba(230,212,170,0.74)}
-    .global-legend span:nth-child(3) i{background:rgba(255,255,255,0.42)}
+    .global-legend span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(255,252,248,0.72);border:1px solid rgba(0,0,0,0.10);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(40,48,44,0.68)}
+    .global-legend i{display:inline-block;width:18px;height:1.8px;border-radius:999px;background:rgba(29,158,117,0.70)}
+    .global-legend span:nth-child(2) i{background:rgba(176,138,73,0.70)}
+    .global-legend span:nth-child(3) i{background:rgba(100,120,115,0.50)}
     @keyframes routeFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-180}}
     @keyframes nodePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.24);opacity:.72}}
 
@@ -386,7 +437,7 @@
     .flinks{display:flex;flex-direction:column;gap:2px}
     .flinks a{font-size:12px;color:rgba(255,255,255,.52);text-decoration:none;padding:4px 0;transition:color .2s}
     .flinks a:hover{color:var(--g)}
-    .flinks a[href="#"]{color:rgba(255,255,255,.36);cursor:not-allowed}
+    .flinks a.disabled{color:rgba(255,255,255,.36);cursor:not-allowed}
     .fcerts{display:flex;flex-direction:column;gap:8px}
     .fcert{display:flex;align-items:center;gap:10px}
     .fcert-badge{font-size:9px;font-weight:700;letter-spacing:1.5px;background:rgba(29,158,117,0.15);color:var(--g);border:0.5px solid rgba(29,158,117,0.25);border-radius:5px;padding:3px 8px}
@@ -534,6 +585,16 @@
     .contact-mail{color:var(--g);font-weight:600;text-decoration:none;opacity:1;word-break:break-word}
     .contact-mail:hover{text-decoration:underline;color:var(--gd)}
     .entity-card p,.cinfo-item a,.cinfo-item p{opacity:1}
+/* === AYYS FINAL BROCHURE + MOBILE CTA PATCH === */
+.brochure-btn{border-color:rgba(204,176,122,.42)!important;color:#fff!important;background:rgba(176,138,73,.14)!important}
+.brochure-btn:hover{background:rgba(176,138,73,.24)!important;color:#fff!important;border-color:rgba(204,176,122,.62)!important}
+.mobile-menu-bottom{display:flex;flex-direction:column;gap:10px;padding:14px 24px 18px;border-top:0.5px solid rgba(0,0,0,0.06)}
+.mobile-menu-bottom .ncta,.mobile-menu-bottom .mobile-brochure-btn{width:100%;justify-content:center;text-align:center}
+.mobile-brochure-btn{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(176,138,73,.36);border-radius:22px;padding:11px 18px;font-size:13px;font-weight:600;color:#2f3431;background:rgba(176,138,73,.10);text-decoration:none;letter-spacing:.1px}
+.mobile-brochure-btn:hover{background:rgba(176,138,73,.18);color:#0F6E56}
+@media(max-width:768px){.hero-actions{gap:10px}.hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%;min-height:48px}.hero-card{display:none}.hero-points{gap:10px}.market-banner{overflow-x:auto;flex-wrap:nowrap}.mb-date{margin-left:0;white-space:nowrap}.footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}.flegal{flex-wrap:wrap}.contact-grid{gap:28px}.form-row{grid-template-columns:1fr!important}.ctaband{padding:54px 24px}.mobile-menu.open{max-height:520px}}
+html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,html[dir="rtl"] .contact-grid{text-align:right}
+
 </style>
 </head>
 <body>
@@ -541,7 +602,7 @@
 <!-- ===== NAV ===== -->
 <div class="nav-wrap" id="nav-wrap">
   <div class="nav" id="nav">
-    <a class="logo" href="#">
+    <a class="logo" href="#nav-wrap">
       <div class="logo-mark">AY<span>Y</span>S</div>
       <div class="logo-sub">Commodities</div>
     </a>
@@ -561,7 +622,7 @@
         <div class="lang-drop" id="ldrop" role="listbox" aria-label="Language selector">
           <div class="lang-opt sel" onclick="pickLang('EN','English',this)" role="option"><span class="lol">English</span><span class="lon">EN</span></div>
           <div class="lang-opt" onclick="pickLang('FR','Français',this)" role="option"><span class="lol">Français</span><span class="lon">FR</span></div>
-          <div class="lang-opt" onclick="pickLang('DE','Deutsch',this)" role="option"><span class="lol">Deutsch</span><span class="lon">DE</span></div>
+          <div class="lang-opt" onclick="pickLang('RU','Русский',this)" role="option"><span class="lol">Русский</span><span class="lon">RU</span></div>
           <div class="lang-opt" onclick="pickLang('AR','العربية',this)" role="option"><span class="lol">العربية</span><span class="lon">AR</span></div>
           <div class="lang-opt" onclick="pickLang('ZH','中文',this)" role="option"><span class="lol">中文</span><span class="lon">ZH</span></div>
         </div>
@@ -586,6 +647,7 @@
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
       </a>
+      <a id="mobile-brochure-btn" class="mobile-brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" data-brochure-cta>Open corporate presentation</a>
     </div>
   </div>
 </div>
@@ -709,6 +771,7 @@
       <div class="hero-actions hbtns">
         <a class="btn-p btn-primary" href="#contact" data-i18n="hb1">Request a sourcing mandate</a>
         <a class="btn-s btn-secondary" href="#services" data-i18n="hb2">Review operating model</a>
+        <a class="btn-s btn-secondary brochure-btn" id="brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" data-brochure-cta>Open corporate presentation</a>
       </div>
 
       <div class="hero-points">
@@ -996,22 +1059,22 @@ let tooltipTimeout = null;
 function drawGlobe() {
   ctx.clearRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
 
-  // Fond du globe — océan bleu profond réaliste
+  // Fond du globe — tons blancs nacrés / ivoire
   const grd = ctx.createRadialGradient(CX-70, CY-70, 20, CX, CY, R);
-  grd.addColorStop(0,'rgba(38,90,140,0.98)');
-  grd.addColorStop(0.4,'rgba(22,62,110,0.99)');
-  grd.addColorStop(0.75,'rgba(12,40,78,0.99)');
-  grd.addColorStop(1,'rgba(6,22,48,1.0)');
+  grd.addColorStop(0,'rgba(255,253,250,0.99)');
+  grd.addColorStop(0.35,'rgba(240,245,248,0.99)');
+  grd.addColorStop(0.70,'rgba(220,232,242,0.99)');
+  grd.addColorStop(1,'rgba(195,215,232,1.0)');
   ctx.beginPath();
   ctx.arc(CX, CY, R, 0, Math.PI*2);
   ctx.fillStyle = grd;
   ctx.fill();
 
-  // Halo atmosphérique — bleu océanique
+  // Halo atmosphérique — bleu ciel pâle
   const atmo = ctx.createRadialGradient(CX, CY, R*0.88, CX, CY, R*1.06);
-  atmo.addColorStop(0,'rgba(40,100,180,0.0)');
-  atmo.addColorStop(0.7,'rgba(40,100,200,0.09)');
-  atmo.addColorStop(1,'rgba(80,150,255,0.15)');
+  atmo.addColorStop(0,'rgba(200,220,240,0.0)');
+  atmo.addColorStop(0.7,'rgba(180,210,235,0.10)');
+  atmo.addColorStop(1,'rgba(160,200,230,0.18)');
   ctx.beginPath();
   ctx.arc(CX, CY, R*1.06, 0, Math.PI*2);
   ctx.fillStyle = atmo;
@@ -1024,7 +1087,7 @@ function drawGlobe() {
   ctx.clip();
 
   // ── Grille géodésique ──
-  ctx.strokeStyle = 'rgba(100,160,230,0.10)';
+  ctx.strokeStyle = 'rgba(160,195,220,0.28)';
   ctx.lineWidth = 0.6;
 
   // Méridiens (toutes les 30°)
@@ -1069,10 +1132,10 @@ function drawGlobe() {
 
   ctx.restore();
 
-  // Reflet surface
+  // Reflet surface doux
   const shine = ctx.createRadialGradient(CX-90, CY-90, 0, CX-60, CY-80, R*0.55);
-  shine.addColorStop(0,'rgba(255,255,255,0.10)');
-  shine.addColorStop(0.5,'rgba(255,255,255,0.02)');
+  shine.addColorStop(0,'rgba(255,255,255,0.22)');
+  shine.addColorStop(0.5,'rgba(255,255,255,0.06)');
   shine.addColorStop(1,'rgba(255,255,255,0)');
   ctx.save();
   ctx.beginPath();
@@ -1082,12 +1145,12 @@ function drawGlobe() {
   ctx.fill();
   ctx.restore();
 
-  // Ombre bord
+  // Ombre bord légère
   ctx.save();
   ctx.beginPath();
   ctx.arc(CX, CY, R, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(0,0,0,0.5)';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+  ctx.lineWidth = 1.5;
   ctx.stroke();
   ctx.restore();
 }
@@ -1109,8 +1172,8 @@ function drawContinents() {
     [[-20,115],[-15,129],[-12,136],[-14,141],[-22,150],[-32,152],[-38,145],[-38,140],[-30,115],[-20,115]],
   ];
 
-  ctx.fillStyle = 'rgba(112,148,88,0.72)';    // vert-brun terreux
-  ctx.strokeStyle = 'rgba(140,175,100,0.55)';
+  ctx.fillStyle = 'rgba(120,160,90,0.78)';     // vert terreux chaud
+  ctx.strokeStyle = 'rgba(90,130,65,0.60)';
   ctx.lineWidth = 0.9;
 
   shapes.forEach(pts => {
@@ -1136,9 +1199,9 @@ function drawContinents() {
 // ── Routes maritimes ──────────────────────────────────────────
 function drawRoutes() {
   const colors = [
-    'rgba(225,245,238,0.55)', // vert primaire
-    'rgba(230,212,170,0.52)', // or feeder
-    'rgba(255,255,255,0.30)', // blanc soft
+    'rgba(29,120,88,0.70)',   // vert primaire — lisible sur fond clair
+    'rgba(150,100,30,0.60)',  // or/brun feeder
+    'rgba(80,110,130,0.38)',  // bleu-gris soft
   ];
   const widths = [1.6, 1.2, 0.8];
   const dash = [[6,8],[4,6],[3,5]];
@@ -1181,20 +1244,20 @@ function drawPorts() {
     if (isNear) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, 12, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(29,158,117,0.18)';
+      ctx.fillStyle = 'rgba(29,120,88,0.14)';
       ctx.fill();
     }
 
     // Point port
     ctx.beginPath();
     ctx.arc(p.x, p.y, isNear ? 5 : 3.5, 0, Math.PI*2);
-    ctx.fillStyle = isNear ? '#ccb07a' : `rgba(204,176,122,${0.5 + brightness*0.5})`;
+    ctx.fillStyle = isNear ? '#9a6a18' : `rgba(154,106,24,${0.55 + brightness*0.45})`;
     ctx.fill();
 
     // Anneau
     ctx.beginPath();
     ctx.arc(p.x, p.y, isNear ? 7 : 5.5, 0, Math.PI*2);
-    ctx.strokeStyle = isNear ? 'rgba(29,158,117,0.9)' : `rgba(29,158,117,${0.35 + brightness*0.35})`;
+    ctx.strokeStyle = isNear ? 'rgba(29,120,88,0.95)' : `rgba(29,120,88,${0.40 + brightness*0.40})`;
     ctx.lineWidth = isNear ? 1.5 : 1;
     ctx.stroke();
   });
@@ -1235,7 +1298,7 @@ function drawShip() {
       if (first) { ctx.moveTo(pp.x, pp.y); first = false; }
       else ctx.lineTo(pp.x, pp.y);
     }
-    ctx.strokeStyle = 'rgba(29,158,117,0.45)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.50)';
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.restore();
@@ -1258,9 +1321,9 @@ function drawShip() {
     ctx.lineTo(-4, 0);
     ctx.lineTo(-6, -5);
     ctx.closePath();
-    ctx.fillStyle = '#f7f3eb';
+    ctx.fillStyle = '#2a3830';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(29,158,117,0.9)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.85)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -1268,7 +1331,7 @@ function drawShip() {
     ctx.beginPath();
     ctx.moveTo(2, 0);
     ctx.lineTo(2, -8);
-    ctx.strokeStyle = '#ccb07a';
+    ctx.strokeStyle = '#9a6a18';
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
@@ -1277,7 +1340,7 @@ function drawShip() {
     // Halo navire
     ctx.beginPath();
     ctx.arc(p.x, p.y, 13, 0, Math.PI*2);
-    ctx.strokeStyle = 'rgba(29,158,117,0.30)';
+    ctx.strokeStyle = 'rgba(29,120,88,0.22)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -1650,9 +1713,9 @@ requestAnimationFrame(animate);
   <div class="footer-bottom">
     <div class="fcopy">© 2026 AYYS Commodities. All rights reserved. Indicative information only.</div>
     <div class="flegal">
-      <a href="#">Legal notice</a>
-      <a href="#">Privacy</a>
-      <a href="#">Cookies</a>
+      <a href="#about">Legal notice</a>
+      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">Privacy</a>
+      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20cookies%20request">Cookies</a>
     </div>
   </div>
 </footer>
@@ -1890,10 +1953,39 @@ const EXTRA_I18N = {
   ZH: {alertMore:'查看全部 →', heroAccess:'战略材料的市场准入', heroScroll:'向下滚动查看市场概览', servicesSub:'从原产地采购到最终交付，AYYS 以高精度组织每一笔交易，并针对市场波动、监管复杂性和物流扰动进行适配。', globalEy:'国际物流', globalTitle:'面向战略金属流转的全球运营网络', globalP1:'AYYS 协调跨供应产地、出口走廊、港口接口和最终交付点的国际物流。该模式旨在把非洲、拉丁美洲、亚洲和中东的原产市场连接到欧洲及其他地区的工业需求中心。', globalP2:'下方视觉被设计为高端网络信号：静态地球、透明航线叠层以及动画流线，用于展示采购、单证与港口物流如何在多个大陆之间协同。', globalTags:['覆盖各大洲的上游供应商','港到港与内陆多式联运执行','全路线可追溯单证控制'], flowChips:[['起源枢纽','拉丁美洲、撒哈拉以南非洲、海湾走廊、南亚和东亚。'],['港口接口','通过主要中转港和卸港进行散货、集装箱及专业矿物流转。'],['交付逻辑','路线根据货物属性、Incoterms、海关限制和买方时间表进行调整。']], globalNote:'这是一幅国际供应商—港口—买方路径逻辑的示意网络图。该视觉旨在传达品牌与运营能力，而不是实际货运追踪器。', whyP:'AYYS 面向需要执行伙伴而非宣传册的买方而建立。我们完成交易对手准入、交易结构设计，并确保从首次委托到最终结算期间，单证、物流与付款始终保持一致。', whyLis:['执行前进行交易对手准入，并完成 KYC、AML、制裁及受益所有人筛查','结构化执行路径：上游采购 → 合同 → 物流 → 交付 → 结算','为电池制造商、EPC 承包商和战略工业买方提供交易支持','围绕运输通道、海关节点和付款里程碑进行货运与单证控制及升级处理'], aboutP1:'AYYS Commodities 是一家在法国注册的商品贸易企业，服务于欧洲、中东、亚洲和美洲的上游生产商、精炼商和工业承购方。其商业模式以执行为核心：原产采购、合同结构设计、物流协调、交付管理与结算支持。', aboutP2:'每笔交易都需经过交易对手准入、KYC/AML 审查、制裁筛查以及针对运输通道、产品和付款工具定制的单证控制。网站展示的公开市场数据仅供参考，不应被视为正式报价或要约。', commercialLabel:'商务联系人', commercialText:'商务负责人', complianceLabel:'合规联系人', complianceText:'合规负责人', priceTag:'指示性数据 · 已标注来源', metalsSideNote:'页面引用来源：LME、Fastmarkets、USGS<br>仅供参考 · 不用于交易', metalsFootNote:'页面展示的参考价格仅用于市场背景说明，不构成交易用途。每个公开数字都应附带时间戳和公共来源。', serviceHeads:['采购与贸易','贸易融资','物流与运输','咨询与情报'], serviceBodies:['直接覆盖撒哈拉以南非洲、拉丁美洲和东南亚的矿山端产出。我们可组织承购协议、现货采购和长期供应合同，并保持有竞争力的条款。','包括信用证、银行保函和结构化付款工具。我们运用完整的贸易融资工具体系，为买卖双方交易提供保障。','覆盖整箱、散货和空运的多式联运协调。提供港口操作、清关以及从起运地到卸港的实时跟踪，支持 50 多种路径组合。','提供市场分析、价格基准和地缘政治风险监测。我们以独立视角帮助客户应对商品周期，从采购策略到合同谈判。'], partners:[['银行合作方','在准入阶段披露'],['货运代理','按路线指定'],['检验机构','必要时启用独立检验'],['法律顾问','按交易需要提供支持'],['合规','KYC / AML / 制裁检查']]}
 };
 
+/* === AYYS FINAL LANGUAGE + BROCHURE PATCH === */
+const AYYS_SUPPORTED_LANGS = ['EN','FR','RU','AR','ZH'];
+const AYYS_BROCHURES = { EN:'ayys_en.html', FR:'ayys_fr.html', RU:'ayys_ru.html', AR:'ayys_ar.html', ZH:'ayys_zh.html' };
+const AYYS_BROCHURE_LABELS = { EN:'Open corporate presentation', FR:'Consulter la plaquette', RU:'Открыть презентацию', AR:'فتح العرض المؤسسي', ZH:'查看企业介绍' };
+I18N.RU = {
+  nav_services:'Услуги', nav_markets:'Рынки', nav_intel:'Аналитика', nav_about:'О нас', nav_contact:'Контакт', nav_platform:'Запросить мандат на поставку',
+  badge:'Глобальный охват · Исполнение с учетом комплаенса', h1:'Стратегические металлы,<br>структурированные для промышленности по всему миру', hero_p:'AYYS обеспечивает поставки от источника, структурирует контракты, координирует логистику и расчеты для промышленных покупателей на международных рынках, которым необходимы надежные потоки металлов.',
+  ct_btn:'Отправить запрос', ct_h:'Нужен квалифицированный партнер по стратегическим металлам?', ct_s:'Квалифицированные покупатели и upstream-партнеры получают ответ в течение 24 рабочих часов после заполнения полей мандата.',
+  ci1h:'Общие запросы', ci2h:'Торговый отдел', ci3h:'Доступность', ci3p:'Пн – Пт, 8:00 – 20:00 (CET)<br>Срочные торговые вопросы: 24/7',
+  ph_name:'Полное имя', ph_co:'Компания', ph_email:'Рабочий email', ph_country:'Страна / регион', ph_msg:'Опишите ваш мандат: происхождение, Incoterm, структура контракта, платежный инструмент и ограничения комплаенса...',
+  buyerType:'Тип покупателя / партнера', formOptions:['Производитель батарей','EPC-подрядчик','Промышленный покупатель / offtaker','Upstream-производитель / продавец','Финансовый / стратегический партнер','Другое'],
+  extraPh:{metal:'Металл / продукт', volume:'Ориентировочный объем', destination:'Пункт назначения / поставки', timeline:'Целевой срок'},
+  ctaBand:'Запросить мандат →', footerApply:'Запросить мандат на поставку',
+  form_ok:'✓ Черновик письма подготовлен для contact@ayys-group.fr.<br>Проверьте его в почтовом клиенте и отправьте, когда будете готовы.',
+  formNote:'Ваши данные используются для квалификации мандата, проверки комплаенса и коммерческого сопровождения. Не передавайте конфиденциальные торговые данные до начала двустороннего процесса.'
+};
+EXTRA_I18N.RU = {
+  alertMore:'Смотреть все →', heroAccess:'Доступ к рынку стратегических материалов', heroScroll:'Прокрутите для обзора рынка', servicesSub:'От sourcing у источника до финальной поставки AYYS структурирует каждую сделку точно, учитывая рыночную волатильность, регуляторную сложность и логистические сбои.',
+  globalEy:'Международная логистика', globalTitle:'Глобальная операционная сеть для потоков стратегических металлов', globalP1:'AYYS координирует международную логистику между бассейнами поставщиков, экспортными коридорами, портовой инфраструктурой и конечными точками доставки. Модель связывает рынки происхождения в Африке, Латинской Америке, Азии и на Ближнем Востоке с промышленным спросом в Европе и за ее пределами.', globalP2:'Визуал ниже задуман как премиальный сигнал сети: статичный глобус, прозрачные маршруты и анимированные линии потоков показывают, как sourcing, документация и портовая логистика могут сходиться на нескольких континентах.',
+  globalTags:['Upstream-поставщики на всех континентах','Мультимодальное исполнение порт–порт и inland','Прослеживаемый документарный контроль по маршрутам'], flowChips:[['Узлы происхождения','Латинская Америка, Африка к югу от Сахары, коридоры Залива, Южная и Восточная Азия.'],['Портовые интерфейсы','Навалочные, контейнерные и специализированные минеральные грузы через ключевые порты перевалки и разгрузки.'],['Логика поставки','Маршрут адаптируется к профилю груза, Incoterms, таможенным ограничениям и графику покупателя.']], globalNote:'Иллюстративный вид международной логики маршрутов от поставщика к порту и от порта к покупателю. Это брендовый и операционный сигнал, а не буквальный трекер отгрузок.',
+  whyP:'AYYS создана для покупателей, которым нужен партнер по исполнению, а не брошюра. Мы квалифицируем контрагентов, структурируем сделку и поддерживаем согласованность документов, логистики и платежей от первого мандата до финального расчета.', whyLis:['Онбординг контрагента с проверками KYC, AML, санкций и бенефициарных владельцев до исполнения','Структурированный путь: upstream sourcing → контракт → логистика → поставка → расчет','Сопровождение сделок для производителей батарей, EPC-подрядчиков и стратегических промышленных покупателей','Контроль отгрузок и документов с эскалацией по маршруту, таможне и платежным этапам'],
+  aboutP1:'AYYS Commodities работает как зарегистрированная во Франции компания по торговле сырьевыми товарами для upstream-производителей, переработчиков и промышленных offtaker в Европе, на Ближнем Востоке, в Азии и Америке. Коммерческая модель построена вокруг исполнения: sourcing у источника, структурирование контрактов, координация логистики, управление поставкой и поддержка расчетов.', aboutP2:'Каждая сделка проходит онбординг контрагента, проверку KYC/AML, санкционный скрининг и документарный контроль, адаптированный к маршруту, продукту и платежному инструменту. Публичные рыночные данные на сайте носят исключительно индикативный характер и не являются твердой котировкой или предложением.',
+  commercialLabel:'Коммерческий контакт', commercialText:'Коммерческий отдел', complianceLabel:'Комплаенс-контакт', complianceText:'Отдел комплаенса', priceTag:'Индикативные данные · источник указан', metalsSideNote:'Источники на странице: LME, Fastmarkets, USGS<br>Только индикативно · не для торговых операций', metalsFootNote:'Индикативные справочные цены приведены только для рыночного контекста и не предназначены для торгового использования. Для каждого опубликованного числа должны указываться время и публичный источник.',
+  serviceHeads:['Sourcing и торговля','Торговое финансирование','Логистика и shipping','Консалтинг и аналитика'], serviceBodies:['Прямой доступ к mine-gate production в Африке к югу от Сахары, Латинской Америке и Юго-Восточной Азии. Мы структурируем offtake-соглашения, spot-покупки и долгосрочные контракты поставки на конкурентных условиях.','Документарные аккредитивы, банковские гарантии и структурированные платежные инструменты. Мы используем полный набор инструментов trade finance для защиты сделок покупателей и продавцов.','Координация мультимодальных перевозок FCL, bulk и air cargo. Портовая обработка, таможенная очистка и отслеживание от происхождения до порта выгрузки по 50+ комбинациям маршрутов.','Рыночный анализ, ценовой benchmarking и мониторинг геополитических рисков. Мы даем независимый взгляд для прохождения commodity cycle — от стратегии закупок до переговоров по контракту.'], partners:[['БАНКОВСКИЙ ПАРТНЕР','Раскрывается на этапе онбординга'],['ЭКСПЕДИТОР','Назначается по маршруту'],['ИНСПЕКЦИЯ','Независимый сюрвейер при необходимости'],['ЮРИДИЧЕСКИЙ СОВЕТНИК','Поддержка в зависимости от сделки'],['КОМПЛАЕНС','Проверки KYC / AML / санкций']]
+};
+function ayysNormalizeLang(lang){ lang = String(lang || 'EN').toUpperCase(); if(lang === 'DE') return 'RU'; return AYYS_SUPPORTED_LANGS.includes(lang) ? lang : 'EN'; }
+function ayysUpdateBrochureButtons(lang){ lang = ayysNormalizeLang(lang); const href = AYYS_BROCHURES[lang] || AYYS_BROCHURES.EN; const label = AYYS_BROCHURE_LABELS[lang] || AYYS_BROCHURE_LABELS.EN; document.querySelectorAll('[data-brochure-cta]').forEach(btn => { btn.setAttribute('href', href); btn.textContent = label; btn.setAttribute('aria-label', label); }); }
+
 function applyLang(lang){
+  lang = ayysNormalizeLang(lang);
   const d = I18N[lang] || I18N.EN;
   const x = EXTRA_I18N[lang] || EXTRA_I18N.EN;
-  document.documentElement.lang = lang.toLowerCase();
+  document.documentElement.lang = lang === 'ZH' ? 'zh-CN' : lang.toLowerCase();
   document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
   const nav = document.querySelectorAll('.nav-links a');
   [d.nav_services,d.nav_markets,d.nav_intel,d.nav_about,d.nav_contact].forEach((txt,i)=>{ if(nav[i]) nav[i].textContent = txt; });
@@ -1932,6 +2024,7 @@ function applyLang(lang){
   const sel = document.getElementById('ftype');
   if(sel){ sel.options[0].textContent = d.buyerType; d.formOptions.forEach((txt,i)=>{ if(sel.options[i+1]) sel.options[i+1].textContent = txt; }); }
   const code = document.getElementById('lcode'); if(code) code.textContent = lang;
+  ayysUpdateBrochureButtons(lang);
 }
 
 function toggleLang(e){
@@ -1945,6 +2038,7 @@ function toggleLang(e){
 }
 
 function pickLang(code,label,el){
+  code = ayysNormalizeLang(code);
   document.querySelectorAll('.lang-opt').forEach(o=>o.classList.remove('sel'));
   if(el) el.classList.add('sel');
   document.getElementById('ldrop')?.classList.remove('open');
@@ -1966,7 +2060,7 @@ document.getElementById('cform')?.addEventListener('submit', function(e){
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = (() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN';
+  const saved = ayysNormalizeLang((() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN');
   applyLang(saved);
 });
 </script>
