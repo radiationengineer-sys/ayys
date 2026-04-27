@@ -1542,30 +1542,91 @@ requestAnimationFrame(animate);
 
 <!-- ===== INTELLIGENCE ===== -->
 <section class="sec white" id="intel">
-  <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px">
+  <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px">
     <div>
-      <div class="eyebrow" data-i18n="in_ey">Market Intelligence</div>
-      <div class="stitle" style="margin-bottom:0" data-i18n="in_t">Publish insight, not noise</div>
+      <div class="eyebrow">Market Intelligence</div>
+      <div class="stitle" style="margin-bottom:6px">AYYS Signal — Les flux qui comptent</div>
+      <div class="ssub" style="margin-bottom:0;max-width:480px">La lettre de veille stratégique sur les métaux critiques. Cuivre, nickel, cobalt, lithium, terres rares — bimensuelle, pour les acheteurs industriels qui ont besoin d'information structurée, pas de bruit.</div>
     </div>
+    <a href="/signal/" style="display:inline-flex;align-items:center;gap:7px;background:var(--dark);color:#fff;border-radius:9px;padding:12px 22px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,transform .15s" onmouseover="this.style.background='#1D9E75';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#2f3431';this.style.transform='none'">
+      Voir toutes les éditions →
+    </a>
   </div>
+
+  <!-- SIGNAL FEATURED CARD -->
+  <a href="/signal/001" style="display:block;text-decoration:none;margin-bottom:16px">
+    <div class="reveal" style="background:linear-gradient(135deg,#0e1612 0%,#182820 60%,#1a2218 100%);border-radius:18px;padding:36px 40px;position:relative;overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s;border:0.5px solid rgba(255,255,255,0.07)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.22)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+      <!-- Gold top line -->
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#B87A2A 30%,#B87A2A 70%,transparent)"></div>
+      <!-- Waveform decoration -->
+      <svg style="position:absolute;bottom:0;left:0;right:0;height:60px;opacity:0.15;pointer-events:none" viewBox="0 0 800 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,38 60,38 90,20 120,50 150,28 180,36 210,22 240,44 270,28 300,38 330,18 360,48 390,30 420,38 450,20 480,50 510,32 540,38 570,22 600,46 630,30 660,38 690,20 720,48 750,32 780,38 800,38" fill="none" stroke="#B87A2A" stroke-width="1.5"/>
+      </svg>
+
+      <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+            <span style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B87A2A;background:rgba(184,122,42,0.12);border:0.5px solid rgba(184,122,42,0.25);border-radius:4px;padding:4px 10px">AYYS SIGNAL · N°001</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.38);letter-spacing:.5px">Avril 2026 · Numéro pilote</span>
+            <span style="display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,0.38)"><span style="width:5px;height:5px;border-radius:50%;background:#1D9E75;display:inline-block;animation:pu 2s infinite"></span>Nouveau</span>
+          </div>
+          <div style="font-size:26px;font-weight:600;color:#f7f3eb;line-height:1.2;margin-bottom:12px;letter-spacing:-.3px">Les flux qui comptent</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:520px;margin-bottom:24px">Tarifs US cuivre &amp; dislocation Comex/LME · Décret HPM 144 Indonésie · Corridors Afrique · Déficit structurel cuivre · Radar mai 2026</div>
+          <!-- Mini ticker -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px">
+              <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px">Cuivre LME</div>
+              <div style="font-size:13px;font-weight:600;color:#fff">$13 262/t</div>
+              <div style="font-size:9px;color:#1D9E75;margin-top:1px">+12,7%</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px">
+              <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px">Cobalt LME</div>
+              <div style="font-size:13px;font-weight:600;color:#fff">$55 852/t</div>
+              <div style="font-size:9px;color:#1D9E75;margin-top:1px">+67% AA</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px">
+              <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px">Nickel LME</div>
+              <div style="font-size:13px;font-weight:600;color:#fff">$16 933/t</div>
+              <div style="font-size:9px;color:#B87A2A;margin-top:1px">Post-HPM</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px">
+              <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px">Lithium</div>
+              <div style="font-size:13px;font-weight:600;color:#fff">$26 278/t</div>
+              <div style="font-size:9px;color:#1D9E75;margin-top:1px">+95% Q1</div>
+            </div>
+          </div>
+        </div>
+        <!-- CTA right -->
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0">
+          <div style="background:rgba(184,122,42,0.15);border:0.5px solid rgba(184,122,42,0.3);border-radius:10px;padding:16px 20px;text-align:center;min-width:140px">
+            <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#B87A2A;margin-bottom:6px">Lire le numéro</div>
+            <div style="font-size:22px;font-weight:600;color:#f7f3eb;line-height:1">→</div>
+          </div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.28);text-align:right;line-height:1.6;letter-spacing:.3px">5 signaux · Avril 2026<br>Données indicatives</div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- 3 SECONDARY CARDS (articles à venir / teaser) -->
   <div class="igrid">
     <div class="icard reveal">
-      <div class="itag h">INSIGHT · CORRIDOR</div>
-      <h4>Corridor brief template: DRC → Rotterdam</h4>
-      <p>Replace generic headlines with a signed corridor brief covering origin risk, routing, handover points, documentation stack, dwell-time risk and payment/security recommendations for buyers.</p>
-      <div class="idate">Use monthly</div>
+      <div class="itag h">SIGNAL · CORRIDORS</div>
+      <h4>DRC → Rotterdam : brief de corridor cobalt</h4>
+      <p>Risque d'origine, routage, points de transfert, stack documentaire, délais portuaires et recommandations paiement/sécurité pour les acheteurs de cobalt raffiné.</p>
+      <div class="idate">Prochain numéro — Juin 2026</div>
     </div>
     <div class="icard reveal" style="transition-delay:.08s">
-      <div class="itag m">DISCLOSURE · DATA</div>
-      <h4>Every published number needs a source and timestamp</h4>
-      <p>Where prices are shown, cite source and time exactly, for example: LME cash copper, timestamped UTC, displayed for indicative market context only and not for trading purposes.</p>
-      <div class="idate">Required on every figure</div>
+      <div class="itag m">FOCUS · RÉGLEMENTATION</div>
+      <h4>CSDDD &amp; Critical Raw Materials Act : ce qui change pour les offtakers</h4>
+      <p>Les nouvelles obligations de diligence raisonnable européennes sur les chaînes d'approvisionnement en minerais critiques — calendrier, seuils et documentation requise.</p>
+      <div class="idate">Prochain numéro — Juin 2026</div>
     </div>
     <div class="icard reveal" style="transition-delay:.16s">
-      <div class="itag l">LEAD MAGNET</div>
-      <h4>Monthly market report for qualified inbound</h4>
-      <p>Offer a gated market report or corridor brief in exchange for company, buyer type, metal, target volume and destination. This creates a better funnel than a passive intelligence feed.</p>
-      <div class="idate">Lead capture asset</div>
+      <div class="itag l">ABONNEMENT · GRATUIT</div>
+      <h4>Recevoir AYYS Signal directement</h4>
+      <p>La lettre paraît deux fois par mois. Réservée aux acheteurs industriels, équipes sourcing et directions achats qualifiés. Renseignez le formulaire de contact.</p>
+      <div class="idate"><a href="#contact" style="color:var(--g);text-decoration:none;font-weight:600">S'abonner →</a></div>
     </div>
   </div>
 </section>

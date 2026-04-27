@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AYYS Signal N°001 — Les flux qui comptent · Avril 2026</title>
+
+  <!-- SEO -->
+  <meta name="description" content="AYYS Signal N°001 : tarifs cuivre US, décret HPM Indonésie, corridors Afrique, déficit structurel cuivre. La lettre de veille sur les métaux critiques par AYYS Commodities."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.ayys-group.com/signal/001"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="AYYS Signal N°001 — Les flux qui comptent"/>
+  <meta property="og:description" content="Tarifs US cuivre, décret HPM Indonésie, corridors Afrique, déficit structurel : 5 signaux critiques pour les acheteurs industriels. Avril 2026."/>
+  <meta property="og:url" content="https://www.ayys-group.com/signal/001"/>
+  <meta property="og:image" content="https://www.ayys-group.com/signal/og-001.jpg"/>
+  <meta property="og:site_name" content="AYYS Commodities"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;
+      --bg:#f2eee7;--white:#fffdf9;--dark:#2f3431;--mid:#66625d;--light:#9c958c;
+      --red:#D85B57;--amber:#B08A49;--ink:#353a37;--ink-soft:#434845;--mist:#ebe5dc;
+      --gold:#B87A2A;--gold-light:#f5e6c8;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark)}
+
+    /* RTL support */
+    [dir="rtl"] body{font-family:'Segoe UI',Tahoma,Arial,sans-serif}
+    [dir="rtl"] .sig-list li,[dir="rtl"] .signal-meta,[dir="rtl"] .sig-tags,[dir="rtl"] .sig-ticker-grid{direction:rtl}
+    [dir="rtl"] .sig-dot-g{flex-shrink:0}
+    [dir="rtl"] .sig-label{flex-direction:row-reverse}
+    [dir="rtl"] .nav-right{flex-direction:row-reverse}
+    [dir="rtl"] .signal-breadcrumb{flex-direction:row-reverse}
+    [dir="rtl"] .sig-bq{border-left:none;border-right:2px solid var(--g);border-radius:8px 0 0 8px}
+    [dir="rtl"] .signal-intro{border-left:none;border-right:3px solid var(--gold)}
+
+    /* === NAV === */
+    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(245,243,238,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
+    .nav.scrolled{height:54px;background:rgba(245,243,238,0.98)}
+    .logo{display:flex;align-items:baseline;gap:5px;cursor:pointer;text-decoration:none}
+    .logo-mark{font-size:18px;font-weight:600;letter-spacing:5px;color:var(--dark)}
+    .logo-mark span{color:var(--g)}
+    .logo-sub{font-size:9px;letter-spacing:1.5px;color:var(--light);font-weight:400;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .nav-back{font-size:12px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+    .nav-back:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
+    .ncta{display:inline-flex;align-items:center;gap:6px;background:var(--g);color:#fff;border:none;border-radius:22px;padding:9px 20px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;font-family:inherit;text-decoration:none}
+    .ncta:hover{background:var(--gd);transform:translateY(-1px)}
+    .bar{height:2px;background:rgba(0,0,0,0.05)}
+    .prog{height:100%;background:var(--g);width:0%;transition:width .1s linear}
+
+    /* === LANGUAGE SWITCHER (identique au site) === */
+    .lang-wrap{position:relative;display:flex;align-items:center}
+    .lang-btn{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background:rgba(12,18,16,0.94);color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;text-transform:uppercase;cursor:pointer;transition:border-color .18s,background .18s,transform .18s;font-family:inherit;box-shadow:0 8px 20px rgba(0,0,0,0.10)}
+    .lang-btn:hover{background:rgba(15,24,20,0.98);border-color:rgba(29,158,117,0.42);transform:translateY(-1px)}
+    .lang-btn.open{background:#101816;border-color:rgba(29,158,117,0.55)}
+    .lmeta{display:flex;align-items:center;gap:8px;line-height:1}
+    .lcap{font-size:9px;font-weight:700;letter-spacing:1.6px;color:rgba(255,255,255,.42)}
+    .lc{font-size:10px;font-weight:800;letter-spacing:1.45px}
+    .la{width:10px;height:6px;stroke:currentColor;stroke-width:1.6;fill:none;opacity:.72;transition:transform .18s}
+    .lang-btn.open .la{transform:rotate(180deg);opacity:1}
+    .lang-drop{position:absolute;top:calc(100% + 8px);right:0;min-width:152px;padding:6px;background:rgba(10,15,13,0.98);border:1px solid rgba(255,255,255,0.08);border-radius:6px;box-shadow:0 16px 40px rgba(0,0,0,0.22);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .16s,transform .16s;z-index:120}
+    .lang-drop.open{opacity:1;transform:translateY(0);pointer-events:auto}
+    .lang-opt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:10px;border-radius:3px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.78);cursor:pointer;transition:background .14s,color .14s}
+    .lang-opt:hover{background:rgba(255,255,255,0.05);color:#fff}
+    .lang-opt.sel{background:rgba(29,158,117,0.14);color:#fff}
+    .lol{font-size:11px;font-weight:600}
+    .lon{font-size:10px;font-weight:800;color:rgba(255,255,255,.40);letter-spacing:1.35px}
+    .lang-opt.sel .lon{color:rgba(225,245,238,0.95)}
+
+    /* === HERO === */
+    .signal-hero{background:#0e1612;padding:112px 52px 64px;position:relative;overflow:hidden;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+    .signal-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E%3Crect x='0' y='.6' width='5' height='1.6' fill='rgba(182,198,194,.78)' rx='.4'/%3E%3Crect x='0' y='3.2' width='5' height='1.5' fill='rgba(168,186,182,.66)' rx='.4'/%3E%3Crect x='.6' y='0' width='1.5' height='5' fill='rgba(208,220,217,.56)' rx='.4'/%3E%3Crect x='3.2' y='0' width='1.5' height='5' fill='rgba(192,208,204,.48)' rx='.4'/%3E%3C/svg%3E");opacity:0.4;pointer-events:none}
+    .signal-hero-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent)}
+    .signal-hero-inner{position:relative;z-index:2;max-width:800px;margin:0 auto}
+    .signal-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .signal-breadcrumb a{font-size:11px;color:rgba(255,255,255,0.4);text-decoration:none;letter-spacing:.5px;transition:color .2s}
+    .signal-breadcrumb a:hover{color:rgba(255,255,255,0.7)}
+    .signal-breadcrumb span{font-size:11px;color:rgba(255,255,255,0.2)}
+    .signal-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .signal-title{font-size:48px;font-weight:600;color:#f7f3eb;line-height:1.1;letter-spacing:-1px;margin-bottom:10px}
+    .signal-title em{color:var(--gold);font-style:normal}
+    .signal-subtitle{font-size:15px;color:rgba(255,255,255,.52);letter-spacing:.5px;margin-bottom:32px}
+    .signal-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .signal-meta-item{display:flex;align-items:center;gap:7px}
+    .signal-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .signal-meta-item span{font-size:11px;color:rgba(255,255,255,.42);letter-spacing:.5px}
+    .signal-meta-item strong{color:rgba(255,255,255,.75);font-weight:500}
+    .signal-wave{position:absolute;bottom:0;left:0;right:0;height:80px;opacity:.18;pointer-events:none}
+
+    /* === TICKER === */
+    .signal-ticker{background:#1a1f1c;padding:0;border-bottom:0.5px solid rgba(29,158,117,.14);overflow:hidden;position:relative}
+    .st-label{position:absolute;left:0;top:0;bottom:0;background:rgba(176,138,73,.9);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.8px;padding:0 14px;display:flex;align-items:center;z-index:2;white-space:nowrap}
+    .st-track{display:flex;animation:tk 28s linear infinite;width:max-content;padding:0 80px}
+    @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .st-item{display:flex;align-items:center;gap:10px;padding:10px 24px;border-right:0.5px solid rgba(255,255,255,.05);white-space:nowrap}
+    .st-sym{font-size:11px;font-weight:700;color:rgba(255,255,255,.85)}
+    .st-val{font-size:11px;color:rgba(255,255,255,.5)}
+    .st-up{font-size:10px;color:var(--g)}
+
+    /* === BODY === */
+    .signal-body{max-width:800px;margin:0 auto;padding:64px 52px}
+    .signal-intro{background:var(--white);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:52px;font-size:14px;line-height:1.8;color:var(--mid);font-style:italic;border:0.5px solid rgba(0,0,0,.07);border-left:3px solid var(--gold)}
+
+    .sig-section{margin-bottom:52px}
+    .sig-label{font-size:9px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);border-bottom:0.5px solid rgba(0,0,0,.08);padding-bottom:10px;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+    .sig-label-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;color:#fff;font-size:8px;font-weight:700;letter-spacing:0;flex-shrink:0}
+
+    .sig-ticker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+    .sig-tick{background:var(--white);border:0.5px solid rgba(0,0,0,.08);border-radius:12px;padding:16px;border-top:2px solid var(--gold)}
+    .sig-tick-name{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:6px}
+    .sig-tick-price{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:4px}
+    .sig-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:3px 7px;border-radius:5px}
+    .sig-badge.up{background:var(--gl);color:var(--gd)}
+    .sig-badge.neutral{background:#f0ece4;color:var(--amber)}
+    .sig-source{font-size:10px;color:var(--light);letter-spacing:.3px;margin-top:4px}
+
+    .sig-divider{border:none;border-top:0.5px solid rgba(0,0,0,.07);margin:0 0 52px}
+    .sig-h2{font-size:24px;font-weight:600;color:var(--dark);line-height:1.28;margin-bottom:16px;letter-spacing:-.3px}
+    .sig-p{font-size:14px;line-height:1.85;color:var(--ink-soft);margin-bottom:14px}
+    .sig-p:last-child{margin-bottom:0}
+    .hl{background:#f0ece4;color:var(--amber);border-radius:4px;padding:1px 6px;font-weight:600;font-size:13px}
+    .sig-bq{border-left:2px solid var(--g);padding:10px 20px;margin:20px 0;font-size:14px;font-style:italic;color:var(--mid);line-height:1.75;background:var(--white);border-radius:0 8px 8px 0}
+    .sig-focus{background:var(--white);border:0.5px solid rgba(0,0,0,.08);border-radius:14px;padding:24px;margin:20px 0}
+    .sig-focus-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .sig-list{list-style:none}
+    .sig-list li{display:flex;gap:14px;font-size:13.5px;line-height:1.75;color:var(--ink-soft);padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,.06)}
+    .sig-list li:last-child{border-bottom:none;padding-bottom:0}
+    .sig-dot-g{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:8px}
+    .sig-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+    .sig-tag{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:var(--bg);border:0.5px solid rgba(0,0,0,.09);border-radius:5px;padding:4px 8px;color:var(--light)}
+    .sig-radar li{padding:14px 0;border-bottom:0.5px solid rgba(0,0,0,.06)}
+    .sig-radar li:last-child{border-bottom:none}
+
+    /* === CTA === */
+    .signal-cta{background:#0e1612;border-radius:20px;padding:48px 40px;text-align:center;margin:64px 0 0;position:relative;overflow:hidden}
+    .signal-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(29,158,117,.12),transparent 60%);pointer-events:none}
+    .signal-cta-line{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(176,138,73,.4) 40%,rgba(176,138,73,.4) 60%,transparent)}
+    .signal-cta-inner{position:relative;z-index:2}
+    .signal-cta h3{font-size:22px;font-weight:600;color:#f7f3eb;margin-bottom:8px;letter-spacing:-.2px}
+    .signal-cta p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.7}
+    .signal-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-gold{background:var(--gold);color:#fff;border:none;border-radius:9px;padding:13px 28px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:opacity .2s,transform .15s}
+    .btn-gold:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:rgba(255,255,255,.6);border:0.5px solid rgba(255,255,255,.18);border-radius:9px;padding:13px 28px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .2s}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+    /* === ARCHIVE === */
+    .signal-archive{background:var(--white);border-top:0.5px solid rgba(0,0,0,.07);border-bottom:0.5px solid rgba(0,0,0,.07);padding:24px 52px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:64px}
+    .sa-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light)}
+    .sa-link{font-size:12px;color:var(--g);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;transition:opacity .2s}
+    .sa-link:hover{opacity:.7}
+
+    /* === FOOTER === */
+    .footer{background:linear-gradient(180deg,#434945,#383d3a)}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding:52px;border-bottom:0.5px solid rgba(255,255,255,.06)}
+    .flogo{font-size:20px;font-weight:600;letter-spacing:4px;color:var(--white);margin-bottom:10px}
+    .flogo span{color:var(--g)}
+    .ftag{font-size:13px;color:rgba(255,255,255,.56);line-height:1.75;margin-bottom:16px}
+    .freg{font-size:11px;color:rgba(255,255,255,.36);line-height:1.9}
+    .flinks{display:flex;flex-direction:column;gap:2px}
+    .flinks a{font-size:12px;color:rgba(255,255,255,.52);text-decoration:none;padding:4px 0;transition:color .2s}
+    .flinks a:hover{color:var(--g)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(20,22,21,.14)}
+    .fcopy{font-size:11px;color:rgba(255,255,255,.32)}
+    .flegal{display:flex;gap:16px}
+    .flegal a{font-size:11px;color:rgba(255,255,255,.36);text-decoration:none}
+
+    /* === RESPONSIVE === */
+    @media(max-width:768px){
+      .signal-hero{padding:96px 24px 48px}
+      .signal-title{font-size:32px}
+      .signal-body{padding:40px 24px}
+      .sig-ticker-grid{grid-template-columns:1fr 1fr}
+      .signal-cta{padding:36px 20px}
+      .signal-archive{padding:20px 24px}
+      .footer-top{grid-template-columns:1fr;padding:36px 24px}
+      .footer-bottom{padding:16px 24px;flex-direction:column;gap:10px}
+      .nav{padding:0 20px}
+      .lang-drop{right:auto;left:0}
+    }
+
+    @keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
+  </style>
+</head>
+<body>
+
+<!-- === NAV === -->
+<div class="nav-wrap">
+  <nav class="nav" id="nav">
+    <a class="logo" href="/">
+      <span class="logo-mark">AYYS<span>.</span></span>
+      <span class="logo-sub">Commodities</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="/#intel" id="nav-back-link">← Intelligence</a>
+
+      <!-- Language switcher identique au site principal -->
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" onclick="toggleLangDrop()" aria-label="Select language">
+          <span class="lmeta">
+            <span class="lcap">Lang</span>
+            <span class="lc" id="lc-cur">FR</span>
+          </span>
+          <svg class="la" viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg>
+        </button>
+        <div class="lang-drop" id="lang-drop">
+          <div class="lang-opt sel" data-lang="FR" onclick="setLang('FR')">
+            <span class="lol">Français</span><span class="lon">FR</span>
+          </div>
+          <div class="lang-opt" data-lang="EN" onclick="setLang('EN')">
+            <span class="lol">English</span><span class="lon">EN</span>
+          </div>
+          <div class="lang-opt" data-lang="RU" onclick="setLang('RU')">
+            <span class="lol">Русский</span><span class="lon">RU</span>
+          </div>
+          <div class="lang-opt" data-lang="AR" onclick="setLang('AR')">
+            <span class="lol">العربية</span><span class="lon">AR</span>
+          </div>
+          <div class="lang-opt" data-lang="ZH" onclick="setLang('ZH')">
+            <span class="lol">中文</span><span class="lon">ZH</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="ncta" href="/#contact" id="nav-cta">Request a mandate</a>
+    </div>
+  </nav>
+  <div class="bar"><div class="prog" id="prog"></div></div>
+</div>
+
+<!-- === HERO === -->
+<div class="signal-hero">
+  <div class="signal-hero-line"></div>
+  <div class="signal-hero-inner">
+    <div class="signal-breadcrumb">
+      <a href="/">ayys-group.com</a>
+      <span>/</span>
+      <a href="/#intel" id="bc-intel">Intelligence</a>
+      <span>/</span>
+      <a href="/signal/">AYYS Signal</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,0.5)">N°001</span>
+    </div>
+    <div class="signal-eyebrow">AYYS Signal · Intelligence Letter</div>
+    <div class="signal-title" id="hero-title">Les flux <em>qui comptent</em></div>
+    <div class="signal-subtitle" id="hero-sub">N°001 — Avril 2026 · Numéro pilote</div>
+    <div class="signal-meta">
+      <div class="signal-meta-item">
+        <div class="signal-meta-dot"></div>
+        <span id="meta-scope">Périmètre : <strong>Cuivre · Nickel · Cobalt · Lithium · Terres rares</strong></span>
+      </div>
+      <div class="signal-meta-item">
+        <div class="signal-meta-dot"></div>
+        <span id="meta-freq">Fréquence : <strong>Bimensuelle</strong></span>
+      </div>
+    </div>
+  </div>
+  <svg class="signal-wave" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="0,50 80,50 120,28 160,62 200,38 240,46 280,32 320,55 360,38 400,50 440,26 480,58 520,40 560,50 600,30 640,60 680,42 720,50 760,34 800,56 840,40 880,50 920,28 960,58 1000,42 1040,50 1080,34 1120,54 1160,50 1200,50" fill="none" stroke="#B87A2A" stroke-width="2"/>
+  </svg>
+</div>
+
+<!-- === TICKER === -->
+<div class="signal-ticker">
+  <div class="st-label" id="ticker-label">LIVE · APR 2026</div>
+  <div class="st-track">
+    <div class="st-item"><span class="st-sym">Cu</span><span class="st-val">$13 262/t</span><span class="st-up">+12,7%</span></div>
+    <div class="st-item"><span class="st-sym">Ni</span><span class="st-val">$16 933/t</span><span class="st-up">Post-HPM</span></div>
+    <div class="st-item"><span class="st-sym">Co</span><span class="st-val">$55 852/t</span><span class="st-up">+67% AA</span></div>
+    <div class="st-item"><span class="st-sym">Li₂CO₃</span><span class="st-val">$26 278/t</span><span class="st-up">+95% Q1</span></div>
+    <div class="st-item"><span class="st-sym">Au</span><span class="st-val">$4 656/oz</span><span class="st-up">+56% AA</span></div>
+    <div class="st-item"><span class="st-sym">Cu</span><span class="st-val">$13 262/t</span><span class="st-up">+12,7%</span></div>
+    <div class="st-item"><span class="st-sym">Ni</span><span class="st-val">$16 933/t</span><span class="st-up">Post-HPM</span></div>
+    <div class="st-item"><span class="st-sym">Co</span><span class="st-val">$55 852/t</span><span class="st-up">+67% AA</span></div>
+    <div class="st-item"><span class="st-sym">Li₂CO₃</span><span class="st-val">$26 278/t</span><span class="st-up">+95% Q1</span></div>
+    <div class="st-item"><span class="st-sym">Au</span><span class="st-val">$4 656/oz</span><span class="st-up">+56% AA</span></div>
+  </div>
+</div>
+
+<!-- === CORPS === -->
+<div class="signal-body">
+
+  <div class="signal-intro" id="intro-text">
+    Bienvenue dans AYYS Signal, la lettre de veille stratégique sur les métaux critiques. Chaque numéro vous livre l'essentiel : un signal macro, un focus métal, un point corridors, un point opérationnel et les transactions à surveiller. Conçu pour les acheteurs industriels, trésoriers et équipes approvisionnement qui ont besoin d'information structurée, pas de bruit.
+  </div>
+
+  <!-- TABLEAU DE BORD -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--gold)">◆</span>
+      <span id="s0-label">Tableau de bord · Semaine du 21 avril 2026</span>
+    </div>
+    <div class="sig-ticker-grid">
+      <div class="sig-tick"><div class="sig-tick-name" id="t1-name">Cuivre LME</div><div class="sig-tick-price">$13 262/t</div><span class="sig-badge up">+12,7% vs mars</span></div>
+      <div class="sig-tick"><div class="sig-tick-name" id="t2-name">Nickel LME</div><div class="sig-tick-price">$16 933/t</div><span class="sig-badge neutral" id="t2-badge">Hausse post-HPM</span></div>
+      <div class="sig-tick"><div class="sig-tick-name" id="t3-name">Cobalt LME</div><div class="sig-tick-price">$55 852/t</div><span class="sig-badge up">+67% AA</span></div>
+      <div class="sig-tick"><div class="sig-tick-name" id="t4-name">Lithium carb.</div><div class="sig-tick-price">$26 278/t</div><span class="sig-badge up">+95% Q1</span></div>
+    </div>
+    <div class="sig-source" id="source-note">Sources : SMM, Mysteel, LME, Fastmarkets — données indicatives, non destinées au trading · Avril 2026</div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 01 -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--red)">01</span>
+      <span id="s1-label">Macro-signal</span>
+    </div>
+    <div class="sig-h2" id="s1-title">Tarifs américains sur le cuivre : une recomposition durable des flux</div>
+    <p class="sig-p" id="s1-p1">Le 2 avril 2026, l'administration Trump a restructuré par décret présidentiel l'ensemble du régime douanier sur le cuivre au titre de la section 232. Le cuivre et ses produits restent frappés d'un tarif de <span class="hl">50 %</span> (annexe I-A) et <span class="hl">25 %</span> (annexe I-B) — avec un régime préférentiel pour le Royaume-Uni.</p>
+    <p class="sig-p" id="s1-p2">Le Comex et le LME évoluent désormais dans des univers de prix distincts : l'écart Comex/LME a atteint <span class="hl">16 %</span> fin mars, contre une moyenne historique de 0,5 %. Cette dislocation a conduit à un afflux massif de cuivre physique vers les entrepôts américains, appauvrissant les disponibilités mondiales hors États-Unis.</p>
+    <div class="sig-bq" id="s1-quote">« Everything the global economy wants to invest in is copper-intensive — the energy transition, AI, data centers. » — Benchmark Minerals, MINING.COM</div>
+    <p class="sig-p" id="s1-p3">Pour les acheteurs européens et asiatiques, la conséquence directe est une concurrence accrue sur les tonnages disponibles. L'ouverture du portail CAPE le 20 avril — permettant les remboursements des droits IEEPA invalidés par la Cour suprême — introduit une nouvelle variable dans les stratégies d'approvisionnement transatlantiques.</p>
+    <div class="sig-tags" id="s1-tags">
+      <span class="sig-tag">Section 232</span><span class="sig-tag">Cuivre</span><span class="sig-tag">Tarifs US</span><span class="sig-tag">Dislocation LME/Comex</span><span class="sig-tag">CAPE</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 02 -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--amber)">02</span>
+      <span id="s2-label">Focus métal — Nickel</span>
+    </div>
+    <div class="sig-h2" id="s2-title">Indonésie : le décret HPM 144 réécrit les règles du jeu</div>
+    <p class="sig-p" id="s2-p1">Le 15 avril 2026, l'Indonésie — premier producteur mondial de nickel — a mis en vigueur le décret ESDM n° 144, révisant en profondeur la formule HPM. Trois ruptures structurelles :</p>
+    <div class="sig-focus">
+      <div class="sig-focus-tag" id="s2-focus-tag">Les trois ruptures du décret HPM 144</div>
+      <ul class="sig-list" id="s2-list">
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li1h">Facteur de correction relevé :</strong> <span id="s2-li1">de 17 % à 30 % pour le grade Ni 1,6 %. Le HPM passe de 26,66 $/wmt à 57,13 $/wmt — plus du double.</span></div></li>
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li2h">Tarification multi-éléments :</strong> <span id="s2-li2">cobalt, fer et chrome intégrés dans la formule HPM. Première mondiale. Le cobalt est taxé à 2 % dès 0,05 % de teneur.</span></div></li>
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li3h">Impact coût NPI :</strong> <span id="s2-li3">+570 $/t Ni (+3,76 %) selon SMM. Une grande aciérie indonésienne a suspendu ses offres dès l'annonce du décret.</span></div></li>
+      </ul>
+    </div>
+    <p class="sig-p" id="s2-p2">Les répercussions s'étendent à toute la chaîne : le marché MHP voit ses coûts se réorienter, les producteurs de NPI en Chine devront renégocier leurs contrats. La Philippines et la Nouvelle-Calédonie pourraient bénéficier d'un regain de compétitivité à la marge.</p>
+    <div class="sig-tags">
+      <span class="sig-tag">Nickel</span><span class="sig-tag">Indonésie</span><span class="sig-tag">HPM 144</span><span class="sig-tag">NPI</span><span class="sig-tag">MHP</span><span class="sig-tag">Cobalt</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 03 -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--g)">03</span>
+      <span id="s3-label">Corridors & Origines — Afrique</span>
+    </div>
+    <div class="sig-h2" id="s3-title">L'Afrique recompose sa chaîne de valeur</div>
+    <p class="sig-p" id="s3-p1">Depuis 2023, au moins 14 pays africains ont restreint les exportations de minerais bruts. Le Zimbabwe a interdit toute exportation de minerais bruts en 2026, forçant un investissement de 400 M$ par Zhejiang Huayou Cobalt pour une usine de raffinage de sulfate de lithium — la première du continent.</p>
+    <p class="sig-p" id="s3-p2">La RDC maintient sa domination sur le cobalt (Kisanfu, Tenke Fungurume, Kamoto = +50 % de l'offre mondiale). Le déploiement du système blockchain "E-trace" aligne la traçabilité congolaise sur les standards ESG exigés par les chaînes d'approvisionnement européennes et américaines.</p>
+    <div class="sig-bq" id="s3-quote">L'écart de valeur est éloquent : une tonne de concentré de lithium capte 3 000 $ ; la même tonne transformée en sulfate de lithium haute pureté en vaut 25 000 $.</div>
+    <p class="sig-p" id="s3-p3">Le Maroc s'affirme comme hub batteries : la gigafactory Gotion à Kénitra (20 GWh, T3 2026) et BTR New Material à Tanger Tech City (25 000 t cathodiques, septembre 2026) ancrent un écosystème industriel inédit sur le continent.</p>
+    <div class="sig-tags"><span class="sig-tag">RDC</span><span class="sig-tag">Zimbabwe</span><span class="sig-tag">Maroc</span><span class="sig-tag">Cobalt</span><span class="sig-tag">Lithium</span><span class="sig-tag">Bénéficiation</span><span class="sig-tag">ESG</span></div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 04 -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--mid)">04</span>
+      <span id="s4-label">Point opérationnel</span>
+    </div>
+    <div class="sig-h2" id="s4-title">Déficit structurel de cuivre : l'ère du métal "facile" est révolue</div>
+    <p class="sig-p" id="s4-p1">S&P Global signale un déficit structurel de cuivre raffiné d'environ <span class="hl">150 000 tonnes</span>, rupture nette avec l'équilibre de fin 2024. Le cuivre cumule deux fonctions : métal de l'économie réelle et métal de la transition numérique (data centers IA, réseaux électriques).</p>
+    <p class="sig-p" id="s4-p2">Une substitution aluminium/cuivre s'opère dans la distribution électrique basse tension (+<span class="hl">12–15 %</span> de consommation aluminium projetée d'ici fin 2026). La réouverture de la mine Cobre Panamá (~1 % de l'offre mondiale) reste le facteur clé à surveiller au T2 2026.</p>
+    <div class="sig-tags"><span class="sig-tag">Cuivre</span><span class="sig-tag">Aluminium</span><span class="sig-tag">Substitution</span><span class="sig-tag">Urban Mining</span><span class="sig-tag">Cobre Panamá</span></div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 05 -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--dark)">05</span>
+      <span id="s5-label">Radar — À surveiller en mai 2026</span>
+    </div>
+    <ul class="sig-list sig-radar" id="s5-list">
+      <li><div class="sig-dot-g"></div><div id="s5-li1"><strong>Webinaire Mysteel (30 avril) :</strong> focus lithium et nickel T2 — les perturbations d'offre alimenteront-elles de nouvelles hausses sur les marchés intermédiaires ?</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li2"><strong>Batteries solide :</strong> la conférence CLNB 2026 (Suzhou) place 2026–2030 comme période charnière pour l'industrialisation. Impact potentiel majeur sur la demande en lithium sulphate.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li3"><strong>Tarifs cuivre US :</strong> portail CAPE ouvert le 20 avril. Suivre l'impact sur les spreads Comex/LME et les flux transatlantiques.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li4"><strong>Terres rares :</strong> la Chine contrôle 91 % du raffinage mondial. Toute restriction d'export (terbium, dysprosium, yttrium) serait un signal d'alerte de première magnitude.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li5"><strong>Cobre Panamá (First Quantum) :</strong> audit indépendant en cours de conclusion. Réouverture mi-2026 = impact significatif sur l'équilibre offre/demande mondial du cuivre.</div></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="signal-cta">
+    <div class="signal-cta-line"></div>
+    <div class="signal-cta-inner">
+      <h3 id="cta-title">Recevoir AYYS Signal</h3>
+      <p id="cta-sub">La prochaine édition paraît en juin 2026.<br>Réservée aux acheteurs industriels, équipes sourcing et directions achats qualifiés.</p>
+      <div class="signal-cta-btns">
+        <a href="/#contact" class="btn-gold" id="cta-btn1">S'abonner via le formulaire</a>
+        <a href="/#intel" class="btn-ghost" id="cta-btn2">← Retour Intelligence</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Archive -->
+<div class="signal-archive">
+  <span class="sa-label" id="archive-label">Archive · AYYS Signal</span>
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:12px;color:var(--light)" id="archive-current">N°001 · Avril 2026 — Numéro actuel</span>
+    <a href="/#intel" class="sa-link" id="archive-link">Voir toutes les éditions →</a>
+  </div>
+</div>
+
+<!-- === FOOTER === -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="flogo">AYYS<span>.</span></div>
+      <div class="ftag" id="footer-tag">Strategic metal sourcing for international industrial offtakers.</div>
+      <div class="freg">AYYS Commodities · 3 place Jussieu, 75005 Paris, France<br>SIRET 102 790 375 00012 · KYC/AML/Sanctions screening</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:14px" id="footer-nav-label">Navigation</div>
+      <div class="flinks">
+        <a href="/#services" id="fn-services">Services</a>
+        <a href="/#metals" id="fn-markets">Markets</a>
+        <a href="/#intel" id="fn-intel">Intelligence</a>
+        <a href="/signal/">AYYS Signal</a>
+        <a href="/#about" id="fn-about">About</a>
+        <a href="/#contact" id="fn-contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:14px">Contact</div>
+      <div class="flinks">
+        <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a>
+        <a href="mailto:trading@ayys-group.fr">trading@ayys-group.fr</a>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.28);margin-top:16px;line-height:1.8" id="footer-disclaimer">Données indicatives uniquement.<br>Non destinées au trading.</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="fcopy">© 2026 AYYS Commodities. All rights reserved.</span>
+    <div class="flegal"><a href="#">Legal</a><a href="#">Privacy</a><a href="#">Compliance</a></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   TRANSLATIONS — 5 LANGUAGES
+   ============================================================ */
+const T = {
+  FR: {
+    dir:'ltr', htmlLang:'fr',
+    navBack:'← Intelligence',
+    navCta:'Demander un mandat',
+    heroTitle:'Les flux <em>qui comptent</em>',
+    heroSub:'N°001 — Avril 2026 · Numéro pilote',
+    metaScope:'Périmètre : <strong>Cuivre · Nickel · Cobalt · Lithium · Terres rares</strong>',
+    metaFreq:'Fréquence : <strong>Bimensuelle</strong>',
+    tickerLabel:'LIVE · AVR 2026',
+    intro:'Bienvenue dans AYYS Signal, la lettre de veille stratégique sur les métaux critiques. Chaque numéro vous livre l\'essentiel : un signal macro, un focus métal, un point corridors, un point opérationnel et les transactions à surveiller. Conçu pour les acheteurs industriels, trésoriers et équipes approvisionnement qui ont besoin d\'information structurée, pas de bruit.',
+    s0:'Tableau de bord · Semaine du 21 avril 2026',
+    t1:'Cuivre LME', t2:'Nickel LME', t3:'Cobalt LME', t4:'Lithium carb.', t2badge:'Hausse post-HPM',
+    source:'Sources : SMM, Mysteel, LME, Fastmarkets — données indicatives, non destinées au trading · Avril 2026',
+    s1:'Macro-signal',
+    s1t:'Tarifs américains sur le cuivre : une recomposition durable des flux',
+    s1p1:'Le 2 avril 2026, l\'administration Trump a restructuré par décret présidentiel l\'ensemble du régime douanier sur le cuivre au titre de la section 232. Le cuivre et ses produits restent frappés d\'un tarif de <span class="hl">50 %</span> (annexe I-A) et <span class="hl">25 %</span> (annexe I-B) — avec un régime préférentiel pour le Royaume-Uni.',
+    s1p2:'Le Comex et le LME évoluent désormais dans des univers de prix distincts : l\'écart Comex/LME a atteint <span class="hl">16 %</span> fin mars, contre une moyenne historique de 0,5 %. Cette dislocation a conduit à un afflux massif de cuivre physique vers les entrepôts américains, appauvrissant les disponibilités mondiales hors États-Unis.',
+    s1q:'« Everything the global economy wants to invest in is copper-intensive — the energy transition, AI, data centers. » — Benchmark Minerals, MINING.COM',
+    s1p3:'Pour les acheteurs européens et asiatiques, la conséquence directe est une concurrence accrue sur les tonnages disponibles. L\'ouverture du portail CAPE le 20 avril — permettant les remboursements des droits IEEPA — introduit une nouvelle variable dans les stratégies d\'approvisionnement transatlantiques.',
+    s2:'Focus métal — Nickel',
+    s2t:'Indonésie : le décret HPM 144 réécrit les règles du jeu',
+    s2p1:'Le 15 avril 2026, l\'Indonésie — premier producteur mondial de nickel — a mis en vigueur le décret ESDM n° 144, révisant en profondeur la formule HPM. Trois ruptures structurelles :',
+    s2ft:'Les trois ruptures du décret HPM 144',
+    s2li1h:'Facteur de correction relevé :', s2li1:'de 17 % à 30 % pour le grade Ni 1,6 %. Le HPM passe de 26,66 $/wmt à 57,13 $/wmt — plus du double.',
+    s2li2h:'Tarification multi-éléments :', s2li2:'cobalt, fer et chrome intégrés dans la formule HPM. Première mondiale. Le cobalt est taxé à 2 % dès 0,05 % de teneur.',
+    s2li3h:'Impact coût NPI :', s2li3:'+570 $/t Ni (+3,76 %) selon SMM. Une grande aciérie indonésienne a suspendu ses offres dès l\'annonce du décret.',
+    s2p2:'Les répercussions s\'étendent à toute la chaîne : le marché MHP voit ses coûts se réorienter, les producteurs de NPI en Chine devront renégocier leurs contrats. La Philippines et la Nouvelle-Calédonie pourraient bénéficier d\'un regain de compétitivité à la marge.',
+    s3:'Corridors & Origines — Afrique',
+    s3t:'L\'Afrique recompose sa chaîne de valeur',
+    s3p1:'Depuis 2023, au moins 14 pays africains ont restreint les exportations de minerais bruts. Le Zimbabwe a interdit toute exportation de minerais bruts en 2026, forçant un investissement de 400 M$ par Zhejiang Huayou Cobalt pour une usine de raffinage de sulfate de lithium — la première du continent.',
+    s3p2:'La RDC maintient sa domination sur le cobalt (Kisanfu, Tenke Fungurume, Kamoto = +50 % de l\'offre mondiale). Le déploiement du système blockchain "E-trace" aligne la traçabilité congolaise sur les standards ESG exigés par les chaînes d\'approvisionnement européennes et américaines.',
+    s3q:'L\'écart de valeur est éloquent : une tonne de concentré de lithium capte 3 000 $ ; la même tonne transformée en sulfate de lithium haute pureté en vaut 25 000 $.',
+    s3p3:'Le Maroc s\'affirme comme hub batteries : la gigafactory Gotion à Kénitra (20 GWh, T3 2026) et BTR New Material à Tanger Tech City (25 000 t cathodiques, sept. 2026) ancrent un écosystème industriel inédit sur le continent.',
+    s4:'Point opérationnel',
+    s4t:'Déficit structurel de cuivre : l\'ère du métal "facile" est révolue',
+    s4p1:'S&P Global signale un déficit structurel de cuivre raffiné d\'environ <span class="hl">150 000 tonnes</span>, rupture nette avec l\'équilibre de fin 2024. Le cuivre cumule deux fonctions : métal de l\'économie réelle et métal de la transition numérique (data centers IA, réseaux électriques).',
+    s4p2:'Une substitution aluminium/cuivre s\'opère dans la distribution électrique basse tension (+<span class="hl">12–15 %</span> de consommation aluminium projetée d\'ici fin 2026). La réouverture de la mine Cobre Panamá (~1 % de l\'offre mondiale) reste le facteur clé à surveiller au T2 2026.',
+    s5:'Radar — À surveiller en mai 2026',
+    s5li1:'<strong>Webinaire Mysteel (30 avril) :</strong> focus lithium et nickel T2 — les perturbations d\'offre alimenteront-elles de nouvelles hausses sur les marchés intermédiaires ?',
+    s5li2:'<strong>Batteries solide :</strong> la conférence CLNB 2026 (Suzhou) place 2026–2030 comme période charnière. Impact potentiel majeur sur la demande en lithium sulphate.',
+    s5li3:'<strong>Tarifs cuivre US :</strong> portail CAPE ouvert le 20 avril. Suivre l\'impact sur les spreads Comex/LME et les flux transatlantiques.',
+    s5li4:'<strong>Terres rares :</strong> la Chine contrôle 91 % du raffinage mondial. Toute restriction d\'export (terbium, dysprosium, yttrium) serait un signal d\'alerte de première magnitude.',
+    s5li5:'<strong>Cobre Panamá (First Quantum) :</strong> audit indépendant en cours de conclusion. Réouverture mi-2026 = impact significatif sur l\'équilibre offre/demande mondial du cuivre.',
+    ctaTitle:'Recevoir AYYS Signal',
+    ctaSub:'La prochaine édition paraît en juin 2026.<br>Réservée aux acheteurs industriels, équipes sourcing et directions achats qualifiés.',
+    ctaBtn1:'S\'abonner via le formulaire',
+    ctaBtn2:'← Retour Intelligence',
+    archiveLabel:'Archive · AYYS Signal',
+    archiveCurrent:'N°001 · Avril 2026 — Numéro actuel',
+    archiveLink:'Voir toutes les éditions →',
+    footerTag:'Sourcing de métaux stratégiques pour industriels internationaux.',
+    footerNavLabel:'Navigation',
+    fnServices:'Services', fnMarkets:'Marchés', fnIntel:'Intelligence', fnAbout:'À propos', fnContact:'Contact',
+    footerDisclaimer:'Données indicatives uniquement.<br>Non destinées au trading.',
+    bcIntel:'Intelligence'
+  },
+
+  EN: {
+    dir:'ltr', htmlLang:'en',
+    navBack:'← Intelligence',
+    navCta:'Request a mandate',
+    heroTitle:'The flows <em>that matter</em>',
+    heroSub:'N°001 — April 2026 · Pilot issue',
+    metaScope:'Scope: <strong>Copper · Nickel · Cobalt · Lithium · Rare Earths</strong>',
+    metaFreq:'Frequency: <strong>Bimonthly</strong>',
+    tickerLabel:'LIVE · APR 2026',
+    intro:'Welcome to AYYS Signal, the strategic intelligence letter on critical metals. Each issue delivers the essentials: a macro signal, a metal focus, a corridors update, an operational point and the transactions to watch. Designed for industrial buyers, treasury teams and procurement departments who need structured market intelligence — not noise.',
+    s0:'Market dashboard · Week of April 21, 2026',
+    t1:'Copper LME', t2:'Nickel LME', t3:'Cobalt LME', t4:'Lithium carb.', t2badge:'Post-HPM rise',
+    source:'Sources: SMM, Mysteel, LME, Fastmarkets — indicative data, not for trading purposes · April 2026',
+    s1:'Macro-signal',
+    s1t:'US copper tariffs: a lasting reshaping of global flows',
+    s1p1:'On April 2, 2026, the Trump administration restructured the entire tariff regime on copper under Section 232. Copper and its products remain subject to a <span class="hl">50%</span> tariff (Annex I-A) and <span class="hl">25%</span> (Annex I-B) — with a preferential regime for the United Kingdom.',
+    s1p2:'The Comex and LME now operate in distinct price universes: the Comex/LME spread reached <span class="hl">16%</span> at end-March, against a historical average of 0.5%. This dislocation has driven a massive flow of physical copper into US warehouses, depleting global availability outside the United States.',
+    s1q:'"Everything the global economy wants to invest in is copper-intensive — the energy transition, AI, data centers." — Benchmark Minerals, MINING.COM',
+    s1p3:'For European and Asian buyers, the direct consequence is intensified competition for available tonnage. The opening of the CAPE portal on April 20 — enabling IEEPA duty refund claims struck down by the Supreme Court — introduces a new variable into transatlantic sourcing strategies.',
+    s2:'Metal focus — Nickel',
+    s2t:'Indonesia: HPM Decree 144 rewrites the rules',
+    s2p1:'On April 15, 2026, Indonesia — the world\'s top nickel producer — enacted Ministerial Decree ESDM No. 144, fundamentally revising the HPM benchmark pricing formula. Three structural breaks:',
+    s2ft:'The three breaks of HPM Decree 144',
+    s2li1h:'Correction factor raised:', s2li1:'from 17% to 30% for Ni 1.6% grade ore. HPM for Ni 1.5% grade moved from $26.66/wmt to $57.13/wmt — more than doubled.',
+    s2li2h:'Multi-element pricing:', s2li2:'cobalt, iron and chrome now integrated into the HPM formula. A global first. Cobalt is taxed at a separate 2% rate above 0.05% content.',
+    s2li3h:'NPI cost impact:', s2li3:'+$570/t Ni (+3.76%) per SMM calculations. A major Indonesian stainless mill suspended offers immediately after the announcement.',
+    s2p2:'Impacts extend across the supply chain: the MHP market sees its cost base shift, Chinese NPI producers will need to renegotiate supply contracts. The Philippines and New Caledonia may marginally regain competitiveness.',
+    s3:'Corridors & Origins — Africa',
+    s3t:'Africa reshapes its value chain',
+    s3p1:'Since 2023, at least 14 African countries have restricted raw mineral exports. Zimbabwe banned all raw mineral exports in 2026, forcing a $400M investment by Zhejiang Huayou Cobalt for a lithium sulphate refinery — the first on the continent.',
+    s3p2:'The DRC maintains its cobalt dominance (Kisanfu, Tenke Fungurume, Kamoto = over 50% of global supply). The rollout of the "E-trace" blockchain system aligns Congolese traceability with ESG standards required by European and US supply chains.',
+    s3q:'The value gap is striking: one tonne of lithium concentrate captures $3,000; the same tonne refined into high-purity lithium sulphate is worth $25,000.',
+    s3p3:'Morocco is emerging as a battery materials hub: the Gotion gigafactory in Kenitra (20 GWh initial, Q3 2026) and BTR New Material at Tanger Tech City (25,000 t cathode materials, September 2026) anchor an unprecedented industrial ecosystem on the continent.',
+    s4:'Operational point',
+    s4t:'Structural copper deficit: the era of "easy" metal is over',
+    s4p1:'S&P Global signals a structural refined copper deficit of approximately <span class="hl">150,000 tonnes</span>, a clear break from end-2024 market balance. Copper serves a dual function: industrial economy metal and digital transition metal — AI data center cabling, next-generation power grids.',
+    s4p2:'Aluminium-for-copper substitution is underway in low-voltage electrical distribution, with projected aluminium consumption growth of <span class="hl">12–15%</span> in this segment by end-2026. The reopening of Cobre Panamá mine (~1% of global supply) remains the key factor to watch in Q2 2026.',
+    s5:'Radar — Watch in May 2026',
+    s5li1:'<strong>Mysteel webinar (April 30):</strong> focus on lithium and nickel Q2 — will supply disruptions feed further price increases in intermediate markets?',
+    s5li2:'<strong>Solid-state batteries:</strong> the CLNB 2026 conference consensus (Suzhou) places 2026–2030 as the pivotal industrialisation window. Major potential demand impact on lithium sulphate.',
+    s5li3:'<strong>US copper tariffs:</strong> CAPE portal opened April 20. Monitor impact on Comex/LME spreads and transatlantic flows.',
+    s5li4:'<strong>Rare earths:</strong> China controls 91% of global refining. Any export restriction on terbium, dysprosium or yttrium would be a first-magnitude alert signal.',
+    s5li5:'<strong>Cobre Panamá (First Quantum):</strong> independent audit nearing conclusion. A mid-2026 reopening decision would significantly reshape global copper supply/demand balance.',
+    ctaTitle:'Subscribe to AYYS Signal',
+    ctaSub:'The next issue is due in June 2026.<br>Reserved for qualified industrial buyers, sourcing teams and procurement directors.',
+    ctaBtn1:'Subscribe via the contact form',
+    ctaBtn2:'← Back to Intelligence',
+    archiveLabel:'Archive · AYYS Signal',
+    archiveCurrent:'N°001 · April 2026 — Current issue',
+    archiveLink:'View all issues →',
+    footerTag:'Strategic metal sourcing for international industrial offtakers.',
+    footerNavLabel:'Navigation',
+    fnServices:'Services', fnMarkets:'Markets', fnIntel:'Intelligence', fnAbout:'About', fnContact:'Contact',
+    footerDisclaimer:'Indicative data only.<br>Not for trading purposes.',
+    bcIntel:'Intelligence'
+  },
+
+  RU: {
+    dir:'ltr', htmlLang:'ru',
+    navBack:'← Аналитика',
+    navCta:'Запросить мандат',
+    heroTitle:'Потоки, <em>которые важны</em>',
+    heroSub:'№001 — Апрель 2026 · Пилотный выпуск',
+    metaScope:'Охват: <strong>Медь · Никель · Кобальт · Литий · Редкоземельные металлы</strong>',
+    metaFreq:'Периодичность: <strong>Два раза в месяц</strong>',
+    tickerLabel:'LIVE · АПР 2026',
+    intro:'Добро пожаловать в AYYS Signal — стратегический аналитический бюллетень по критическим металлам. Каждый выпуск содержит главное: макросигнал, фокус на металле, обновление коридоров поставок, операционный момент и сделки, за которыми стоит следить. Предназначен для промышленных закупщиков, казначеев и отделов снабжения, которым нужна структурированная рыночная информация — без информационного шума.',
+    s0:'Рыночный обзор · Неделя 21 апреля 2026',
+    t1:'Медь LME', t2:'Никель LME', t3:'Кобальт LME', t4:'Карбонат лития', t2badge:'Рост после HPM',
+    source:'Источники: SMM, Mysteel, LME, Fastmarkets — индикативные данные, не для торговых операций · Апрель 2026',
+    s1:'Макросигнал',
+    s1t:'Американские тарифы на медь: долгосрочная перестройка глобальных потоков',
+    s1p1:'2 апреля 2026 года администрация Трампа реструктурировала тарифный режим на медь в рамках раздела 232. Медь и её производные облагаются тарифом <span class="hl">50%</span> (приложение I-A) и <span class="hl">25%</span> (приложение I-B) — с льготным режимом для Великобритании.',
+    s1p2:'Comex и LME теперь торгуются в разных ценовых плоскостях: спред Comex/LME достиг <span class="hl">16%</span> в конце марта при историческом среднем значении 0,5%. Это вызвало массовый приток физической меди на американские склады, истощая мировое предложение за пределами США.',
+    s1q:'"Everything the global economy wants to invest in is copper-intensive — the energy transition, AI, data centers." — Benchmark Minerals, MINING.COM',
+    s1p3:'Для европейских и азиатских покупателей прямым следствием является усиление конкуренции за доступные объёмы. Открытие портала CAPE 20 апреля — для подачи заявок на возврат пошлин IEEPA, отменённых Верховным судом, — вводит новую переменную в трансатлантические стратегии снабжения.',
+    s2:'Фокус на металле — Никель',
+    s2t:'Индонезия: декрет HPM 144 переписывает правила игры',
+    s2p1:'15 апреля 2026 года Индонезия — крупнейший в мире производитель никеля — ввела в действие ведомственный декрет ESDM № 144, кардинально пересмотрев формулу расчёта эталонной цены HPM. Три структурных изменения:',
+    s2ft:'Три ключевых изменения декрета HPM 144',
+    s2li1h:'Повышенный корректирующий коэффициент:', s2li1:'с 17% до 30% для руды с содержанием Ni 1,6%. HPM для Ni 1,5% вырос с 26,66 $/вмт до 57,13 $/вмт — более чем вдвое.',
+    s2li2h:'Мультиэлементное ценообразование:', s2li2:'кобальт, железо и хром теперь включены в формулу HPM. Мировой прецедент. Кобальт облагается отдельно по ставке 2% при содержании от 0,05%.',
+    s2li3h:'Влияние на себестоимость NPI:', s2li3:'+570 $/т Ni (+3,76%) по расчётам SMM. Крупный индонезийский металлургический завод приостановил котировки сразу после объявления.',
+    s2p2:'Последствия распространяются на всю цепочку: рынок MHP переориентирует свою базу затрат, китайским производителям NPI придётся пересмотреть контракты на поставку. Филиппины и Новая Каледония могут незначительно восстановить конкурентоспособность.',
+    s3:'Коридоры и источники — Африка',
+    s3t:'Африка перестраивает цепочку создания стоимости',
+    s3p1:'С 2023 года как минимум 14 африканских стран ввели ограничения на экспорт необработанных руд. Зимбабве в 2026 году запретило весь экспорт необработанных минералов, вынудив Zhejiang Huayou Cobalt инвестировать 400 млн $ в строительство завода по переработке сульфата лития — первого на континенте.',
+    s3p2:'ДРК сохраняет доминирование на рынке кобальта (Kisanfu, Tenke Fungurume, Kamoto = более 50% мирового предложения). Внедрение блокчейн-системы "E-trace" приводит конголезскую прослеживаемость в соответствие со стандартами ESG, требуемыми европейскими и американскими цепочками поставок.',
+    s3q:'Разрыв в стоимости красноречив: одна тонна литиевого концентрата стоит 3 000 $; та же тонна, переработанная в высокочистый сульфат лития, стоит 25 000 $.',
+    s3p3:'Марокко утверждается как хаб аккумуляторных материалов: гигафабрика Gotion в Кенитре (20 ГВт·ч, III кв. 2026) и BTR New Material в Tanger Tech City (25 000 т катодных материалов, сентябрь 2026) формируют беспрецедентную промышленную экосистему на континенте.',
+    s4:'Операционный момент',
+    s4t:'Структурный дефицит меди: эпоха "лёгкого" металла закончилась',
+    s4p1:'S&P Global фиксирует структурный дефицит рафинированной меди около <span class="hl">150 000 тонн</span> — резкий разрыв с балансом конца 2024 года. Медь выполняет двойную функцию: металл реальной экономики и металл цифрового перехода (дата-центры ИИ, электрические сети нового поколения).',
+    s4p2:'В секторе низковольтного электрораспределения идёт замещение меди алюминием: прогнозируется рост потребления алюминия на <span class="hl">12–15%</span> в этом сегменте к концу 2026 года. Возобновление работы рудника Cobre Panamá (~1% мирового предложения) остаётся ключевым фактором, который необходимо отслеживать во II кв. 2026.',
+    s5:'Радар — Следить в мае 2026',
+    s5li1:'<strong>Вебинар Mysteel (30 апреля):</strong> фокус на литии и никеле во II кв. — приведут ли перебои с поставками к дальнейшему росту цен на промежуточных рынках?',
+    s5li2:'<strong>Твёрдотельные аккумуляторы:</strong> консенсус конференции CLNB 2026 (Сучжоу) выделяет 2026–2030 как ключевой период для промышленного внедрения. Существенное потенциальное влияние на спрос на сульфат лития.',
+    s5li3:'<strong>Тарифы США на медь:</strong> портал CAPE открыт 20 апреля. Отслеживать влияние на спреды Comex/LME и трансатлантические потоки.',
+    s5li4:'<strong>Редкоземельные металлы:</strong> Китай контролирует 91% мировой переработки. Любые ограничения на экспорт тербия, диспрозия или иттрия станут сигналом тревоги первого уровня.',
+    s5li5:'<strong>Cobre Panamá (First Quantum):</strong> независимый аудит близок к завершению. Решение об открытии в середине 2026 года существенно изменит мировой баланс спроса и предложения меди.',
+    ctaTitle:'Подписаться на AYYS Signal',
+    ctaSub:'Следующий выпуск выйдет в июне 2026 года.<br>Только для квалифицированных промышленных покупателей, отделов снабжения и директоров по закупкам.',
+    ctaBtn1:'Подписаться через форму',
+    ctaBtn2:'← Назад к аналитике',
+    archiveLabel:'Архив · AYYS Signal',
+    archiveCurrent:'№001 · Апрель 2026 — Текущий выпуск',
+    archiveLink:'Смотреть все выпуски →',
+    footerTag:'Стратегический сорсинг металлов для международных промышленных покупателей.',
+    footerNavLabel:'Навигация',
+    fnServices:'Услуги', fnMarkets:'Рынки', fnIntel:'Аналитика', fnAbout:'О нас', fnContact:'Контакт',
+    footerDisclaimer:'Только индикативные данные.<br>Не для торговых операций.',
+    bcIntel:'Аналитика'
+  },
+
+  AR: {
+    dir:'rtl', htmlLang:'ar',
+    navBack:'الاستخبارات ←',
+    navCta:'طلب تفويض توريد',
+    heroTitle:'التدفقات <em>التي تُحدث الفرق</em>',
+    heroSub:'العدد 001 — أبريل 2026 · العدد التجريبي',
+    metaScope:'النطاق: <strong>النحاس · النيكل · الكوبالت · الليثيوم · العناصر الأرضية النادرة</strong>',
+    metaFreq:'التكرار: <strong>مرتان شهرياً</strong>',
+    tickerLabel:'مباشر · أبريل 2026',
+    intro:'مرحباً بكم في AYYS Signal، النشرة الاستخباراتية الاستراتيجية حول المعادن الحرجة. يقدم كل عدد الجوهر: إشارة كلية، تركيز على معدن، تحديث ممرات التوريد، نقطة تشغيلية، والصفقات التي تستحق المتابعة. مصمم للمشترين الصناعيين وفرق الخزانة ومسؤولي المشتريات الذين يحتاجون إلى معلومات سوقية منظمة — لا ضوضاء.',
+    s0:'لوحة السوق · أسبوع 21 أبريل 2026',
+    t1:'النحاس LME', t2:'النيكل LME', t3:'الكوبالت LME', t4:'كربونات الليثيوم', t2badge:'ارتفاع ما بعد HPM',
+    source:'المصادر: SMM، Mysteel، LME، Fastmarkets — بيانات استرشادية، غير مخصصة للتداول · أبريل 2026',
+    s1:'الإشارة الكلية',
+    s1t:'التعريفات الأمريكية على النحاس: إعادة هيكلة دائمة للتدفقات العالمية',
+    s1p1:'في 2 أبريل 2026، أعادت إدارة ترامب هيكلة نظام التعريفات الجمركية على النحاس بموجب القسم 232. يخضع النحاس ومنتجاته لتعريفة <span class="hl">50%</span> (الملحق I-A) و<span class="hl">25%</span> (الملحق I-B) — مع نظام تفضيلي للمملكة المتحدة.',
+    s1p2:'بات Comex و LME يتداولان في مستويات سعرية مختلفة: وصل الفارق بينهما إلى <span class="hl">16%</span> في نهاية مارس، مقارنة بمتوسط تاريخي 0.5%. أسفر ذلك عن تدفق هائل للنحاس المادي إلى المستودعات الأمريكية، مما أضعف المعروض العالمي خارج الولايات المتحدة.',
+    s1q:'"كل ما تريد الاقتصاد العالمي الاستثمار فيه كثيف الاستخدام للنحاس — التحول الطاقي والذكاء الاصطناعي ومراكز البيانات." — Benchmark Minerals، MINING.COM',
+    s1p3:'بالنسبة للمشترين الأوروبيين والآسيويين، النتيجة المباشرة هي تصاعد المنافسة على الأطنان المتاحة. فتح بوابة CAPE في 20 أبريل — لاسترداد الرسوم الملغاة قضائياً — يُدخل متغيراً جديداً في استراتيجيات التوريد عبر الأطلسي.',
+    s2:'تركيز على المعدن — النيكل',
+    s2t:'إندونيسيا: المرسوم HPM 144 يُعيد كتابة قواعد اللعبة',
+    s2p1:'في 15 أبريل 2026، أصدرت إندونيسيا — أكبر منتج للنيكل في العالم — المرسوم الوزاري ESDM رقم 144، مما أحدث تحولاً جذرياً في صيغة حساب السعر المرجعي HPM. ثلاثة تغييرات هيكلية:',
+    s2ft:'التغييرات الثلاثة الجوهرية للمرسوم HPM 144',
+    s2li1h:'رفع معامل التصحيح:', s2li1:'من 17% إلى 30% لخام بدرجة نيكل 1.6%. ارتفع سعر HPM لدرجة Ni 1.5% من 26.66 $/وحدة إلى 57.13 $/وحدة — أي أكثر من الضعف.',
+    s2li2h:'تسعير متعدد العناصر:', s2li2:'تم دمج الكوبالت والحديد والكروم في صيغة HPM. سابقة عالمية. يُفرض على الكوبالت معدل منفصل بنسبة 2% عند محتوى يتجاوز 0.05%.',
+    s2li3h:'أثر التكلفة على NPI:', s2li3:'+570 $/طن نيكل (+3.76%) وفق حسابات SMM. علّقت مصهرة إندونيسية كبرى عروضها فور الإعلان.',
+    s2p2:'تمتد التداعيات عبر سلسلة التوريد: يشهد سوق MHP إعادة توجه في قاعدة تكاليفه، وسيحتاج منتجو NPI في الصين إلى إعادة التفاوض على عقود التوريد. قد تستعيد الفلبين وكاليدونيا الجديدة جزءاً من قدرتها التنافسية.',
+    s3:'الممرات والمصادر — أفريقيا',
+    s3t:'أفريقيا تُعيد تشكيل سلسلة قيمتها',
+    s3p1:'منذ عام 2023، قيّدت ما لا يقل عن 14 دولة أفريقية صادرات الخامات الخام. حظرت زيمبابوي تصدير جميع الخامات الخام عام 2026، مما أجبر Zhejiang Huayou Cobalt على استثمار 400 مليون دولار في مصنع لتكرير كبريتات الليثيوم — الأول من نوعه في القارة.',
+    s3p2:'تحافظ جمهورية الكونغو الديمقراطية على هيمنتها في الكوبالت (Kisanfu وTenke Fungurume وKamoto = أكثر من 50% من العرض العالمي). يُوافق نشر نظام البلوكتشين "E-trace" المعايير البيئية والاجتماعية المطلوبة في سلاسل التوريد الأوروبية والأمريكية.',
+    s3q:'الفجوة في القيمة صارخة: طن واحد من مركّز الليثيوم يجلب 3,000 دولار؛ نفس الطن بعد تكريره إلى كبريتات ليثيوم عالية النقاء يساوي 25,000 دولار.',
+    s3p3:'تبرز المغرب كمركز لمواد البطاريات: مصنع Gotion العملاق في القنيطرة (20 جيجاواط/ساعة، الربع الثالث 2026) وBTR New Material في مدينة طنجة التقنية (25,000 طن من مواد الكاثود، سبتمبر 2026) يُرسّخان منظومة صناعية غير مسبوقة في القارة.',
+    s4:'النقطة التشغيلية',
+    s4t:'عجز هيكلي في النحاس: عصر المعدن "السهل" قد ولّى',
+    s4p1:'تُشير S&P Global إلى عجز هيكلي في النحاس المكرر يبلغ نحو <span class="hl">150,000 طن</span>، مما يمثل قطيعة واضحة مع توازن نهاية 2024. يؤدي النحاس وظيفة مزدوجة: معدن الاقتصاد الحقيقي ومعدن التحول الرقمي (مراكز بيانات الذكاء الاصطناعي، شبكات الكهرباء الجديدة).',
+    s4p2:'يجري الإحلال من النحاس إلى الألومنيوم في توزيع الكهرباء منخفض الجهد، مع نمو متوقع في استهلاك الألومنيوم بنسبة <span class="hl">12–15%</span> في هذا القطاع بنهاية 2026. ويظل إعادة فتح منجم Cobre Panamá (~1% من العرض العالمي) العامل الرئيسي للمراقبة في الربع الثاني 2026.',
+    s5:'الرادار — ما يستحق المتابعة في مايو 2026',
+    s5li1:'<strong>ندوة Mysteel الإلكترونية (30 أبريل):</strong> تركيز على الليثيوم والنيكل في الربع الثاني — هل ستُغذّي الاضطرابات في العرض موجة ارتفاعات جديدة في الأسواق الوسيطة؟',
+    s5li2:'<strong>بطاريات الحالة الصلبة:</strong> توافق مؤتمر CLNB 2026 (سوتشو) يضع الفترة 2026–2030 كمرحلة محورية للتصنيع. أثر محتمل كبير على الطلب على كبريتات الليثيوم.',
+    s5li3:'<strong>التعريفات الأمريكية على النحاس:</strong> بوابة CAPE مفتوحة منذ 20 أبريل. متابعة الأثر على فروق Comex/LME والتدفقات عبر الأطلسي.',
+    s5li4:'<strong>العناصر الأرضية النادرة:</strong> تسيطر الصين على 91% من التكرير العالمي. أي قيود على تصدير التيربيوم أو الديسبروسيوم أو الإيتريوم ستكون إشارة إنذار بالغة الأهمية.',
+    s5li5:'<strong>Cobre Panamá (First Quantum):</strong> التدقيق المستقل على وشك الاكتمال. قرار إعادة الفتح منتصف 2026 سيُغيّر بشكل ملحوظ توازن العرض والطلب العالمي على النحاس.',
+    ctaTitle:'اشترك في AYYS Signal',
+    ctaSub:'العدد القادم يصدر في يونيو 2026.<br>مخصص للمشترين الصناعيين المؤهلين وفرق التوريد ومديري المشتريات.',
+    ctaBtn1:'اشترك عبر نموذج التواصل',
+    ctaBtn2:'الرجوع إلى الاستخبارات ←',
+    archiveLabel:'أرشيف · AYYS Signal',
+    archiveCurrent:'العدد 001 · أبريل 2026 — العدد الحالي',
+    archiveLink:'← عرض جميع الإصدارات',
+    footerTag:'توريد المعادن الاستراتيجية للمشترين الصناعيين الدوليين.',
+    footerNavLabel:'التنقل',
+    fnServices:'الخدمات', fnMarkets:'الأسواق', fnIntel:'الاستخبارات', fnAbout:'من نحن', fnContact:'اتصل بنا',
+    footerDisclaimer:'بيانات استرشادية فقط.<br>غير مخصصة للتداول.',
+    bcIntel:'الاستخبارات'
+  },
+
+  ZH: {
+    dir:'ltr', htmlLang:'zh-CN',
+    navBack:'← 市场情报',
+    navCta:'申请采购委托',
+    heroTitle:'关键 <em>市场流向</em>',
+    heroSub:'第001期 — 2026年4月 · 试刊号',
+    metaScope:'范围：<strong>铜 · 镍 · 钴 · 锂 · 稀土</strong>',
+    metaFreq:'频率：<strong>每月两期</strong>',
+    tickerLabel:'实时 · 2026年4月',
+    intro:'欢迎阅读AYYS Signal——关键金属战略情报信函。每期精准呈现核心内容：宏观信号、金属聚焦、供应走廊更新、操作要点及值得关注的市场动态。专为需要结构化市场情报（而非噪音）的工业采购商、财务团队和供应链管理人员设计。',
+    s0:'市场概览 · 2026年4月21日当周',
+    t1:'铜 LME', t2:'镍 LME', t3:'钴 LME', t4:'碳酸锂', t2badge:'HPM后上涨',
+    source:'来源：SMM、Mysteel、LME、Fastmarkets — 指示性数据，非交易用途 · 2026年4月',
+    s1:'宏观信号',
+    s1t:'美国铜关税：全球流向的持久重构',
+    s1p1:'2026年4月2日，特朗普政府依据第232条款发布总统令，对铜及铜产品征收 <span class="hl">50%</span>（附录I-A）和 <span class="hl">25%</span>（附录I-B）关税，英国享有优惠税率安排。',
+    s1p2:'Comex与LME现已在不同价格体系中运行：3月底Comex/LME价差达到 <span class="hl">16%</span>，而历史均值仅为0.5%。这种价格分裂导致大量实物铜涌入美国仓库，削弱了美国以外的全球供应。',
+    s1q:'"全球经济想要投资的一切都是铜密集型的——能源转型、人工智能、数据中心。" — Benchmark Minerals, MINING.COM',
+    s1p3:'对欧洲和亚洲买家而言，直接后果是对可用吨位的竞争加剧。4月20日开放的CAPE门户——允许申请被最高法院推翻的IEEPA关税退款——为跨大西洋采购策略引入了新变量。',
+    s2:'金属聚焦 — 镍',
+    s2t:'印度尼西亚：HPM第144号法令重写游戏规则',
+    s2p1:'2026年4月15日，世界最大镍生产国印度尼西亚正式实施能矿部第144号令，从根本上修订HPM基准定价公式。三大结构性变化：',
+    s2ft:'HPM第144号法令的三大变化',
+    s2li1h:'修正系数提高：', s2li1:'Ni品位1.6%矿石的系数从17%提升至30%。Ni品位1.5%的HPM从26.66美元/湿吨升至57.13美元/湿吨——涨幅超过一倍。',
+    s2li2h:'多元素定价：', s2li2:'钴、铁和铬现已纳入HPM公式计算，全球首创。钴含量超过0.05%时，将按2%的独立税率征收。',
+    s2li3h:'NPI成本影响：', s2li3:'据SMM测算，高品位NPI生产成本将上涨约570美元/吨镍（+3.76%）。印尼一家大型不锈钢厂在公告发布后立即暂停报价。',
+    s2p2:'影响贯穿整个产业链：MHP市场的成本基础正在重塑，中国NPI生产商将需要重新谈判供应合同。菲律宾和新喀里多尼亚可能在边际上获得竞争力改善。',
+    s3:'供应走廊与来源地 — 非洲',
+    s3t:'非洲正在重塑其价值链',
+    s3p1:'自2023年以来，至少14个非洲国家限制了原矿出口。津巴布韦于2026年禁止所有原矿出口，迫使浙江华友钴业投资4亿美元建设硫酸锂精炼厂——非洲大陆首座。',
+    s3p2:'刚果民主共和国继续主导钴市场（Kisanfu、Tenke Fungurume、Kamoto矿山合计占全球供应量50%以上）。"E-trace"区块链系统的推广使刚果的可追溯性达到欧美供应链要求的ESG标准。',
+    s3q:'价值差距一目了然：一吨锂精矿售价3,000美元；同一吨矿石加工成高纯度硫酸锂后价值25,000美元。',
+    s3p3:'摩洛哥正崛起为电池材料枢纽：肯尼特拉的国轩高科超级工厂（首期20GWh，2026年第三季度）和丹吉尔技术城的贝特瑞新材料（正极材料首期2.5万吨，2026年9月），在非洲大陆构建起史无前例的产业生态系统。',
+    s4:'操作要点',
+    s4t:'铜结构性短缺：轻松获铜的时代已经终结',
+    s4p1:'标普全球指出精炼铜结构性短缺约 <span class="hl">15万吨</span>，与2024年底的市场平衡相比出现明显断裂。铜承担双重功能：实体经济金属与数字转型金属（AI数据中心布线、新一代电网）。',
+    s4p2:'低压电力配电领域正在发生铝替代铜的趋势，预计该细分市场2026年底前铝消耗量将增长 <span class="hl">12-15%</span>。Cobre Panamá矿山（约占全球供应量1%）的重启是2026年第二季度需要重点关注的关键因素。',
+    s5:'雷达 — 2026年5月重点关注',
+    s5li1:'<strong>Mysteel网络研讨会（4月30日）：</strong>聚焦二季度锂和镍——供应中断是否会推动中间市场进一步涨价？',
+    s5li2:'<strong>固态电池：</strong>CLNB 2026会议（苏州）共识将2026-2030年定为产业化的关键窗口期，对硫酸锂需求具有重大潜在影响。',
+    s5li3:'<strong>美国铜关税：</strong>CAPE门户于4月20日开放。密切关注对Comex/LME价差和跨大西洋流向的影响。',
+    s5li4:'<strong>稀土：</strong>中国控制全球91%的精炼产能。任何针对铽、镝或钇的出口限制都将是一级预警信号。',
+    s5li5:'<strong>Cobre Panamá（第一量子）：</strong>独立审计即将结束。2026年中期的复产决定将对全球铜供需平衡产生重大影响。',
+    ctaTitle:'订阅 AYYS Signal',
+    ctaSub:'下一期将于2026年6月发布。<br>仅面向合格工业采购商、供应链团队和采购总监。',
+    ctaBtn1:'通过联系表格订阅',
+    ctaBtn2:'← 返回市场情报',
+    archiveLabel:'存档 · AYYS Signal',
+    archiveCurrent:'第001期 · 2026年4月 — 当期',
+    archiveLink:'查看所有期刊 →',
+    footerTag:'为全球工业采购商提供战略金属采购服务。',
+    footerNavLabel:'导航',
+    fnServices:'服务', fnMarkets:'市场', fnIntel:'情报', fnAbout:'关于我们', fnContact:'联系',
+    footerDisclaimer:'仅供参考数据。<br>非交易用途。',
+    bcIntel:'情报'
+  }
+};
+
+/* ============================================================
+   APPLY LANGUAGE
+   ============================================================ */
+let currentLang = 'FR';
+
+function applyLang(lang) {
+  const d = T[lang];
+  if (!d) return;
+  currentLang = lang;
+
+  // HTML dir + lang
+  document.documentElement.lang = d.htmlLang;
+  document.documentElement.dir = d.dir;
+
+  // Nav
+  document.getElementById('nav-back-link').textContent = d.navBack;
+  document.getElementById('nav-cta').textContent = d.navCta;
+  document.getElementById('lc-cur').textContent = lang;
+
+  // Hero
+  document.getElementById('hero-title').innerHTML = d.heroTitle;
+  document.getElementById('hero-sub').textContent = d.heroSub;
+  document.getElementById('meta-scope').innerHTML = d.metaScope;
+  document.getElementById('meta-freq').innerHTML = d.metaFreq;
+  document.getElementById('ticker-label').textContent = d.tickerLabel;
+  document.getElementById('bc-intel').textContent = d.bcIntel;
+
+  // Intro
+  document.getElementById('intro-text').textContent = d.intro;
+
+  // S0
+  document.getElementById('s0-label').textContent = d.s0;
+  document.getElementById('t1-name').textContent = d.t1;
+  document.getElementById('t2-name').textContent = d.t2;
+  document.getElementById('t3-name').textContent = d.t3;
+  document.getElementById('t4-name').textContent = d.t4;
+  document.getElementById('t2-badge').textContent = d.t2badge;
+  document.getElementById('source-note').textContent = d.source;
+
+  // S1
+  document.getElementById('s1-label').textContent = d.s1;
+  document.getElementById('s1-title').textContent = d.s1t;
+  document.getElementById('s1-p1').innerHTML = d.s1p1;
+  document.getElementById('s1-p2').innerHTML = d.s1p2;
+  document.getElementById('s1-quote').textContent = d.s1q;
+  document.getElementById('s1-p3').innerHTML = d.s1p3;
+
+  // S2
+  document.getElementById('s2-label').textContent = d.s2;
+  document.getElementById('s2-title').textContent = d.s2t;
+  document.getElementById('s2-p1').textContent = d.s2p1;
+  document.getElementById('s2-focus-tag').textContent = d.s2ft;
+  document.getElementById('s2-li1h').textContent = d.s2li1h;
+  document.getElementById('s2-li1').textContent = d.s2li1;
+  document.getElementById('s2-li2h').textContent = d.s2li2h;
+  document.getElementById('s2-li2').textContent = d.s2li2;
+  document.getElementById('s2-li3h').textContent = d.s2li3h;
+  document.getElementById('s2-li3').textContent = d.s2li3;
+  document.getElementById('s2-p2').textContent = d.s2p2;
+
+  // S3
+  document.getElementById('s3-label').textContent = d.s3;
+  document.getElementById('s3-title').textContent = d.s3t;
+  document.getElementById('s3-p1').textContent = d.s3p1;
+  document.getElementById('s3-p2').textContent = d.s3p2;
+  document.getElementById('s3-quote').textContent = d.s3q;
+  document.getElementById('s3-p3').textContent = d.s3p3;
+
+  // S4
+  document.getElementById('s4-label').textContent = d.s4;
+  document.getElementById('s4-title').textContent = d.s4t;
+  document.getElementById('s4-p1').innerHTML = d.s4p1;
+  document.getElementById('s4-p2').innerHTML = d.s4p2;
+
+  // S5
+  document.getElementById('s5-label').textContent = d.s5;
+  document.getElementById('s5-li1').innerHTML = d.s5li1;
+  document.getElementById('s5-li2').innerHTML = d.s5li2;
+  document.getElementById('s5-li3').innerHTML = d.s5li3;
+  document.getElementById('s5-li4').innerHTML = d.s5li4;
+  document.getElementById('s5-li5').innerHTML = d.s5li5;
+
+  // CTA
+  document.getElementById('cta-title').textContent = d.ctaTitle;
+  document.getElementById('cta-sub').innerHTML = d.ctaSub;
+  document.getElementById('cta-btn1').textContent = d.ctaBtn1;
+  document.getElementById('cta-btn2').textContent = d.ctaBtn2;
+
+  // Archive
+  document.getElementById('archive-label').textContent = d.archiveLabel;
+  document.getElementById('archive-current').textContent = d.archiveCurrent;
+  document.getElementById('archive-link').textContent = d.archiveLink;
+
+  // Footer
+  document.getElementById('footer-tag').textContent = d.footerTag;
+  document.getElementById('footer-nav-label').textContent = d.footerNavLabel;
+  document.getElementById('fn-services').textContent = d.fnServices;
+  document.getElementById('fn-markets').textContent = d.fnMarkets;
+  document.getElementById('fn-intel').textContent = d.fnIntel;
+  document.getElementById('fn-about').textContent = d.fnAbout;
+  document.getElementById('fn-contact').textContent = d.fnContact;
+  document.getElementById('footer-disclaimer').innerHTML = d.footerDisclaimer;
+
+  // Update lang-opt active state
+  document.querySelectorAll('.lang-opt').forEach(el => {
+    el.classList.toggle('sel', el.dataset.lang === lang);
+  });
+
+  // Save preference
+  try { localStorage.setItem('ayys_lang', lang); } catch(e) {}
+}
+
+/* ============================================================
+   LANG DROPDOWN
+   ============================================================ */
+function toggleLangDrop() {
+  const btn = document.getElementById('lang-btn');
+  const drop = document.getElementById('lang-drop');
+  btn.classList.toggle('open');
+  drop.classList.toggle('open');
+}
+
+function setLang(lang) {
+  applyLang(lang);
+  document.getElementById('lang-btn').classList.remove('open');
+  document.getElementById('lang-drop').classList.remove('open');
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-wrap')) {
+    document.getElementById('lang-btn').classList.remove('open');
+    document.getElementById('lang-drop').classList.remove('open');
+  }
+});
+
+/* ============================================================
+   SCROLL — PROGRESS BAR + NAV
+   ============================================================ */
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('nav').classList.toggle('scrolled', s.scrollTop > 40);
+});
+
+/* ============================================================
+   INIT — detect stored or browser language
+   ============================================================ */
+(function() {
+  let stored;
+  try { stored = localStorage.getItem('ayys_lang'); } catch(e) {}
+  const supported = ['FR','EN','RU','AR','ZH'];
+  const browserLang = (navigator.language || '').toUpperCase().split('-')[0];
+  const langMap = { FR:'FR', EN:'EN', RU:'RU', AR:'AR', ZH:'ZH' };
+  const detected = stored || langMap[browserLang] || 'FR';
+  const initial = supported.includes(detected) ? detected : 'FR';
+  applyLang(initial);
+})();
+</script>
+</body>
+</html>
