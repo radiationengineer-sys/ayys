@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AYYS — Admin Blog & Publications</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;
+  --bg:#f2eee7;--white:#fffdf9;--dark:#2f3431;--mid:#66625d;--light:#9c958c;
+  --li:#0A66C2;--li-bg:#E8F0FA;
+  --gg:#34A853;--gg-bg:#E6F4EA;
+  --red:#D85B57;--amber:#B08A49;
+  --radius:14px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark);min-height:100vh}
+.topbar{background:rgba(10,15,13,0.97);padding:0 40px;height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar-logo{font-size:16px;font-weight:600;letter-spacing:4px;color:#fff}
+.topbar-logo span{color:var(--g)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 12px;border:1px solid rgba(255,255,255,0.12);border-radius:7px;transition:all .2s}
+.back-btn:hover{color:#fff;border-color:rgba(29,158,117,0.5)}
+.admin-badge{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);background:rgba(29,158,117,0.12);padding:4px 10px;border-radius:20px}
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 58px)}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+.sidebar{background:var(--white);border-right:0.5px solid rgba(0,0,0,0.08);padding:28px 20px;display:flex;flex-direction:column;gap:6px}
+.sidebar-section{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light);padding:8px 12px 4px;margin-top:10px}
+.sidebar-section:first-child{margin-top:0}
+.slink{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;font-size:13px;color:var(--mid);cursor:pointer;transition:all .2s;user-select:none}
+.slink:hover{background:rgba(0,0,0,0.04);color:var(--dark)}
+.slink.active{background:var(--gl);color:var(--gd);font-weight:600}
+.slink-icon{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.slink-badge{margin-left:auto;font-size:10px;font-weight:700;background:var(--g);color:#fff;padding:2px 7px;border-radius:10px;min-width:20px;text-align:center}
+.slink-auto{margin-left:auto;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.06);color:var(--light)}
+.slink-auto.on-li{background:var(--li-bg);color:var(--li)}
+.slink-auto.on-gg{background:var(--gg-bg);color:var(--gg)}
+.main{padding:36px 40px;max-width:920px}
+@media(max-width:600px){.main{padding:24px 20px}}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:var(--radius);padding:28px;margin-bottom:20px}
+.card-title{font-size:16px;font-weight:600;color:var(--dark);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card-sub{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:20px}
+input[type=text],input[type=date],input[type=url],select,textarea{width:100%;padding:10px 14px;border:0.5px solid rgba(0,0,0,0.15);border-radius:9px;font-size:13px;font-family:inherit;background:var(--bg);color:var(--dark);transition:border-color .18s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--g);background:var(--white)}
+textarea{resize:vertical;min-height:110px;line-height:1.6}
+.form-group{margin-bottom:16px}
+.form-label{font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px;display:block}
+.form-label span{font-size:11px;color:var(--light);font-weight:400;margin-left:4px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.form-row-2{grid-template-columns:1fr}}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;background:var(--bg);margin-bottom:10px;cursor:pointer;transition:background .18s}
+.toggle-row:hover{background:#ece7de}
+.toggle-info{display:flex;flex-direction:column;gap:3px}
+.toggle-label{font-size:13px;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:8px}
+.toggle-desc{font-size:11px;color:var(--light)}
+.toggle{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:24px;transition:background .2s;cursor:pointer}
+.toggle-slider::before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:transform .2s}
+.toggle input:checked+.toggle-slider{background:var(--g)}
+.toggle input:checked+.toggle-slider::before{transform:translateX(20px)}
+.t-li input:checked+.toggle-slider{background:var(--li)}
+.t-gg input:checked+.toggle-slider{background:var(--gg)}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .18s;white-space:nowrap}
+.btn-primary{background:var(--g);color:#fff}
+.btn-primary:hover{background:var(--gd);transform:translateY(-1px)}
+.btn-secondary{background:var(--white);color:var(--dark);border:0.5px solid rgba(0,0,0,0.15)}
+.btn-secondary:hover{background:var(--bg)}
+.btn-danger{background:#FCEBEB;color:var(--red);border:0.5px solid rgba(216,91,87,0.2)}
+.btn-danger:hover{background:#fad9d9}
+.btn-li{background:var(--li-bg);color:var(--li);border:0.5px solid rgba(10,102,194,0.2)}
+.btn-li:hover{background:#d4e5f7}
+.btn-gg{background:var(--gg-bg);color:var(--gg);border:0.5px solid rgba(52,168,83,0.2)}
+.btn-gg:hover{background:#cce8d2}
+.btn-sm{padding:7px 14px;font-size:12px;border-radius:8px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.post-list{display:flex;flex-direction:column;gap:10px}
+.post-item{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px}
+.post-item-left{flex:1;min-width:0}
+.post-item-cat{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g);margin-bottom:4px}
+.post-item-title{font-size:14px;font-weight:600;color:var(--dark);line-height:1.35;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.post-item-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:11px;color:var(--light)}
+.badge-li{display:inline-flex;align-items:center;gap:4px;color:var(--li);font-weight:700;font-size:10px;background:var(--li-bg);padding:2px 8px;border-radius:5px}
+.badge-li::before{content:'';display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--li)}
+.badge-gg{display:inline-flex;align-items:center;gap:4px;color:var(--gg);font-weight:700;font-size:10px;background:var(--gg-bg);padding:2px 8px;border-radius:5px}
+.badge-gg::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gg)}
+.badge-draft{background:#fff8e6;color:#8a6200;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px}
+.post-item-actions{display:flex;gap:6px;flex-shrink:0}
+.post-empty{text-align:center;padding:48px;color:var(--light);font-size:14px}
+.stats-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:24px}
+@media(max-width:580px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:12px;padding:16px;text-align:center}
+.stat-n{font-size:26px;font-weight:600}
+.stat-l{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.8px;margin-top:4px}
+.ch-header{display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:0.5px solid rgba(0,0,0,0.07);margin-bottom:24px}
+.ch-logo{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-logo.li{background:var(--li)}
+.ch-logo.gg{background:#fff;border:1px solid rgba(0,0,0,0.1)}
+.conn-line{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mid);margin-top:4px}
+.sdot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0}
+.sdot.on{background:var(--g);box-shadow:0 0 0 3px rgba(29,158,117,0.18)}
+.sdot.on-gg{background:var(--gg);box-shadow:0 0 0 3px rgba(52,168,83,0.18)}
+.wh-box{background:var(--bg);border:0.5px solid rgba(0,0,0,0.1);border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.wh-box-label{font-size:11px;font-weight:700;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:7px;letter-spacing:.3px}
+.wh-row{display:flex;gap:8px;flex-wrap:wrap}
+.wh-row input{flex:1;min-width:180px;font-size:12px}
+.step-list{display:flex;flex-direction:column}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:0.5px solid rgba(0,0,0,0.06)}
+.step:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-num.li{background:var(--li)}
+.step-num.gg{background:var(--gg)}
+.step-num.gray{background:var(--dark)}
+.step-body h4{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:5px}
+.step-body p{font-size:12px;color:var(--mid);line-height:1.75;margin-top:4px}
+.step-body code{background:#f3ede5;border-radius:5px;padding:1px 6px;font-size:11px;font-family:monospace;color:var(--dark)}
+.step-body a{color:var(--g);font-weight:600;text-decoration:none}
+.step-body a:hover{text-decoration:underline}
+.flow-box{background:linear-gradient(135deg,#0e1612,#182820);border-radius:14px;padding:22px 24px}
+.flow-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:0.5px solid rgba(255,255,255,0.05)}
+.flow-row:last-child{border-bottom:none}
+.flow-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:rgba(255,255,255,0.06)}
+.flow-icon.green{background:rgba(29,158,117,0.15)}
+.flow-icon.blue{background:rgba(10,102,194,0.15)}
+.flow-icon.goog{background:rgba(52,168,83,0.12)}
+.flow-text h5{font-size:12px;font-weight:600;color:#f7f3eb;margin-bottom:1px}
+.flow-text p{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5}
+.flow-arrow{color:rgba(29,158,117,0.55);font-size:13px;margin-left:auto;flex-shrink:0}
+.preview-card{background:var(--white);border:0.5px solid rgba(0,0,0,0.1);border-radius:12px;padding:18px 20px;margin-top:14px}
+.preview-cat{font-size:10px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--g);margin-bottom:6px}
+.preview-title{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;line-height:1.35}
+.preview-excerpt{font-size:13px;color:#888;line-height:1.7;margin-bottom:10px}
+.preview-foot{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);flex-wrap:wrap}
+.alert-info{background:var(--li-bg);border:0.5px solid rgba(10,102,194,0.2);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--li);line-height:1.7;margin-bottom:18px}
+.alert-gg{background:var(--gg-bg);border:0.5px solid rgba(52,168,83,0.2);border-radius:10px;padding:12px 16px;font-size:12px;color:#1a6e30;line-height:1.7;margin-bottom:18px}
+.alert-warn{background:#fff8e6;border:0.5px solid rgba(176,138,73,0.25);border-radius:10px;padding:12px 16px;font-size:12px;color:#7a5c10;line-height:1.7}
+.alert-ok{background:var(--gl);border:0.5px solid rgba(15,110,86,0.2);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--gd);line-height:1.7}
+.toast{position:fixed;bottom:24px;right:24px;background:rgba(10,15,13,0.96);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;z-index:999;opacity:0;transform:translateY(12px);transition:all .3s;pointer-events:none;max-width:320px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.green{border-left:3px solid var(--g)}
+.toast.blue{border-left:3px solid var(--li)}
+.toast.goog{border-left:3px solid var(--gg)}
+.toast.red{border-left:3px solid var(--red)}
+
+/* === Prévisualisation site === */
+.site-preview-wrap{background:var(--bg);border:1px solid rgba(0,0,0,0.1);border-radius:14px;overflow:hidden;margin-top:18px}
+.site-preview-bar{background:rgba(10,15,13,0.96);padding:9px 16px;display:flex;align-items:center;gap:10px}
+.site-preview-bar-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.15)}
+.site-preview-bar-url{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.5px;margin-left:8px}
+.site-preview-inner{padding:24px 20px}
+.site-preview-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.preview-bcard{background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.preview-bcard-bar{height:3px;background:var(--g);width:100%;position:absolute;top:0;left:0}
+.preview-bcard-cat{font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--g);margin-bottom:8px;margin-top:4px}
+.preview-bcard-title{font-size:13px;font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:7px}
+.preview-bcard-excerpt{font-size:11px;color:#888;line-height:1.7;margin-bottom:12px}
+.preview-bcard-foot{display:flex;align-items:center;gap:7px;padding-top:10px;border-top:0.5px solid rgba(0,0,0,0.06);font-size:10px;color:var(--light)}
+.make-arch{display:grid;grid-template-columns:1fr;gap:0}
+.make-step-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:0.5px solid rgba(0,0,0,0.06)}
+.make-step-row:last-child{border-bottom:none}
+.make-step-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.make-step-body h5{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.make-step-body p{font-size:12px;color:var(--mid);line-height:1.7}
+.make-step-body code{background:#f3ede5;border-radius:4px;padding:1px 5px;font-size:11px;font-family:monospace}
+.make-step-arrow{width:2px;background:rgba(0,0,0,0.07);height:20px;margin:0 auto 0 17px}
+.ch-status-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700}
+.ch-status-badge.ok{background:rgba(29,158,117,0.1);color:var(--g)}
+.ch-status-badge.err{background:#FCEBEB;color:var(--red)}
+.ch-status-badge.na{background:rgba(0,0,0,0.05);color:var(--light)}
+.payloadbox{background:#0e1612;border-radius:10px;padding:16px;font-size:11px;font-family:monospace;color:rgba(225,245,238,0.8);line-height:1.8;overflow-x:auto}
+.payloadbox .pk{color:#ccb07a}.payloadbox .pv{color:#a8d5be}.payloadbox .ps{color:rgba(255,255,255,0.3)}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">AY<span>Y</span>S</div>
+  <div class="topbar-right">
+    <span class="admin-badge">Admin Panel</span>
+    <a href="index.html" class="back-btn">← Retour au site</a>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="sidebar-section">Blog</div>
+    <div class="slink active" onclick="showPanel('new')">
+      <div class="slink-icon">✏️</div> Nouveau post
+    </div>
+    <div class="slink" onclick="showPanel('posts')">
+      <div class="slink-icon">📋</div> Tous les posts
+      <span class="slink-badge" id="sb-count">0</span>
+    </div>
+
+    <div class="sidebar-section">Canaux automatiques</div>
+    <div class="slink" onclick="showPanel('linkedin')">
+      <div class="slink-icon" style="background:var(--li-bg)">
+        <svg viewBox="0 0 24 24" width="11" height="11" fill="var(--li)"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </div>
+      LinkedIn
+      <span class="slink-auto" id="sb-li-badge">—</span>
+    </div>
+    <div class="slink" onclick="showPanel('google')">
+      <div class="slink-icon" style="background:var(--gg-bg)">
+        <svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg>
+      </div>
+      Google Business
+      <span class="slink-auto" id="sb-gg-badge">—</span>
+    </div>
+
+    <div class="sidebar-section">Outils</div>
+    <div class="slink" onclick="showPanel('preview')">
+      <div class="slink-icon">👁</div> Aperçu site
+    </div>
+    <div class="slink" onclick="showPanel('export')">
+      <div class="slink-icon">📤</div> Export / Import
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- NOUVEAU POST -->
+    <div class="panel active" id="panel-new">
+      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Nouveau post</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Rédigez votre contenu. Il est publié sur le site immédiatement — LinkedIn et Google Business sont notifiés automatiquement si les webhooks sont actifs.</p>
+
+      <div class="card">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Catégorie <span>*</span></label>
+            <select id="f-cat" onchange="updatePreview()">
+              <option>Marchés &amp; prix</option><option>Sourcing &amp; trading</option><option>Logistique &amp; corridors</option><option>Conformité &amp; réglementation</option><option>Partenariats</option><option>Intelligence matières premières</option><option>Recrutement</option><option>Actualités AYYS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span>*</span></label>
+            <input type="date" id="f-date"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Titre <span>* affiché sur la carte</span></label>
+          <input type="text" id="f-title" placeholder="Ex : AYYS recrute un trader junior en métaux stratégiques" oninput="updatePreview()"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Accroche <span>* résumé visible sur la grille</span></label>
+          <textarea id="f-excerpt" rows="3" placeholder="1 à 2 phrases affichées sur la carte." oninput="updatePreview()"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Corps du post <span>HTML simple accepté</span></label>
+          <textarea id="f-body" rows="7" placeholder="Contenu complet. Balises &lt;p&gt;, &lt;strong&gt;, &lt;a href=...&gt;, &lt;ul&gt;&lt;li&gt; acceptées."></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Canaux de diffusion automatique</div>
+        <div class="card-sub">Les canaux actifs envoient ce post dès la publication. Configurez les webhooks Make.com dans les onglets LinkedIn et Google Business.</div>
+
+        <div class="toggle-row" onclick="toggleCheck('t-li')">
+          <div class="toggle-info">
+            <div class="toggle-label">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--li)" style="flex-shrink:0"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              Publier sur LinkedIn AYYS GROUP
+            </div>
+            <div class="toggle-desc" id="desc-li">Configurez le webhook dans l'onglet LinkedIn</div>
+          </div>
+          <label class="toggle t-li"><input type="checkbox" id="t-li" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
+        </div>
+
+        <div class="toggle-row" onclick="toggleCheck('t-gba')">
+          <div class="toggle-info">
+            <div class="toggle-label">
+              <svg viewBox="0 0 24 24" width="14" height="14" style="flex-shrink:0"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg>
+              Publier sur Google Business AYYS
+            </div>
+            <div class="toggle-desc" id="desc-gg">Configurez le webhook dans l'onglet Google Business</div>
+          </div>
+          <label class="toggle t-gg"><input type="checkbox" id="t-gba" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
+        </div>
+
+        <div class="toggle-row" onclick="toggleCheck('t-draft')">
+          <div class="toggle-info">
+            <div class="toggle-label">🗒 Brouillon</div>
+            <div class="toggle-desc">Sauvegardé mais non publié ni envoyé aux canaux</div>
+          </div>
+          <label class="toggle"><input type="checkbox" id="t-draft" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+
+      <div id="preview-wrap" style="display:none">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:10px">Aperçu carte</div>
+        <div class="preview-card">
+          <div class="preview-cat" id="pv-cat">Recrutement</div>
+          <div class="preview-title" id="pv-title">—</div>
+          <div class="preview-excerpt" id="pv-excerpt">—</div>
+          <div class="preview-foot">
+            <span id="pv-date">—</span>
+            <span id="pv-li" class="badge-li" style="display:none">LinkedIn</span>
+            <span id="pv-gg" class="badge-gg" style="display:none">Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="publishPost()">✓ Publier sur le site</button>
+        <button class="btn btn-secondary" onclick="saveDraft()">Brouillon</button>
+        <button class="btn btn-secondary" onclick="resetForm()">Effacer</button>
+      </div>
+    </div>
+
+    <!-- TOUS LES POSTS -->
+    <div class="panel" id="panel-posts">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+        <div>
+          <h2 style="font-size:22px;font-weight:600;margin-bottom:3px">Tous les posts</h2>
+          <p style="font-size:13px;color:var(--mid)">Gérez vos publications.</p>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="showPanel('new')">+ Nouveau post</button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-n" id="st-pub" style="color:var(--g)">0</div><div class="stat-l">Publiés</div></div>
+        <div class="stat-card"><div class="stat-n" id="st-li" style="color:var(--li)">0</div><div class="stat-l">LinkedIn</div></div>
+        <div class="stat-card"><div class="stat-n" id="st-gg" style="color:var(--gg)">0</div><div class="stat-l">Google</div></div>
+        <div class="stat-card"><div class="stat-n" id="st-dr" style="color:var(--amber)">0</div><div class="stat-l">Brouillons</div></div>
+      </div>
+      <div class="post-list" id="post-list"></div>
+    </div>
+
+    <!-- LINKEDIN -->
+    <div class="panel" id="panel-linkedin">
+      <div class="ch-header">
+        <div class="ch-logo li"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
+        <div>
+          <h2 style="font-size:20px;font-weight:600;margin-bottom:4px">LinkedIn — Publication automatique</h2>
+          <div class="conn-line"><span class="sdot" id="sdot-li"></span><span id="conn-li" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
+        </div>
+      </div>
+
+      <div class="alert-info"><strong>Principe :</strong> Chaque post marqué "LinkedIn" envoie un webhook Make.com qui publie automatiquement sur la page <a href="https://www.linkedin.com/company/ayys-group/" target="_blank">AYYS GROUP</a>. Configuration unique.</div>
+
+      <div class="card">
+        <div class="card-title">🔗 Webhook LinkedIn</div>
+        <div class="card-sub">Créez un scénario Make.com, copiez l'URL webhook et collez-la ici.</div>
+        <div class="wh-box">
+          <div class="wh-box-label"><span class="sdot" id="whdot-li"></span> URL Webhook Make.com — LinkedIn</div>
+          <div class="wh-row">
+            <input type="url" id="li-url" placeholder="https://hook.eu2.make.com/xxxxxxxxxxxxxxxxxxxx"/>
+            <button class="btn btn-li btn-sm" onclick="saveWh('li')">Enregistrer</button>
+          </div>
+        </div>
+        <div id="li-test-result" style="display:none;margin-bottom:14px"></div>
+        <button class="btn btn-li btn-sm" onclick="testWh('li')">⚡ Tester la connexion</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚙️ Configuration Make.com — LinkedIn (guide complet)</div>
+
+        <div class="make-arch">
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">1</div>
+            <div class="make-step-body">
+              <h5>Créer un compte Make.com (gratuit)</h5>
+              <p>Allez sur <a href="https://make.com" target="_blank" style="color:var(--g)">make.com</a> → créez un compte → cliquez <code>Create a new scenario</code> → nommez-le <code>AYYS → LinkedIn</code>.</p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">2</div>
+            <div class="make-step-body">
+              <h5>Module 1 — Déclencheur Webhook</h5>
+              <p>Dans le scénario → cliquez <code>+</code> → recherchez <code>Webhooks</code> → sélectionnez <code>Custom webhook</code> → cliquez <code>Add</code> → nommez-le <code>ayys-linkedin</code> → Make génère une URL unique.</p>
+              <p><strong>Copiez cette URL</strong> et collez-la dans le champ "URL Webhook" ci-dessus → cliquez <code>Enregistrer</code>.</p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">3</div>
+            <div class="make-step-body">
+              <h5>Module 2 — Filtre (optionnel mais recommandé)</h5>
+              <p>Après le webhook, cliquez la petite roue crantée entre modules → <code>Set up a filter</code> → condition : <code>li</code> <code>Equal to</code> <code>true</code>. Seuls les posts cochés LinkedIn sont traités.</p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">4</div>
+            <div class="make-step-body">
+              <h5>Module 3 — LinkedIn → Create Company Update</h5>
+              <p>Cliquez <code>+</code> → recherchez <code>LinkedIn</code> → sélectionnez <code>Create a Company Update</code> → connectez votre compte via OAuth (fenêtre pop-up LinkedIn).</p>
+              <p>Sélectionnez la page <strong>AYYS GROUP</strong>. Mappez les champs :</p>
+              <p><code>Commentary</code> → <code>{{1.title}}</code> + saut de ligne + <code>{{1.excerpt}}</code> + <code>
+
+🔗 ayys-group.com</code></p>
+              <p><code>Visibility</code> → <code>PUBLIC</code></p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">5</div>
+            <div class="make-step-body">
+              <h5>Activer et tester</h5>
+              <p>En haut à droite → bouton <code>ON</code> → cliquez <code>Run once</code> pour armer le scénario → puis utilisez le bouton <strong>⚡ Tester la connexion</strong> ci-dessous. Make doit afficher une exécution réussie dans l’historique.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <div class="card-title" style="font-size:13px;margin-bottom:10px">📦 Payload JSON envoyé par l’admin</div>
+          <div class="payloadbox">
+            <span class="ps">{</span><br>
+            &nbsp;&nbsp;<span class="pk">"id"</span><span class="ps">:</span> <span class="pv">"p1746123456abcd"</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"title"</span><span class="ps">:</span> <span class="pv">"Le cuivre dépasse 12 000 $/t"</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"excerpt"</span><span class="ps">:</span> <span class="pv">"Analyse AYYS du marché LME..."</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"cat"</span><span class="ps">:</span> <span class="pv">"Marchés &amp; prix"</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"date"</span><span class="ps">:</span> <span class="pv">"2026-05-01"</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"li"</span><span class="ps">:</span> <span class="pv">true</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"gba"</span><span class="ps">:</span> <span class="pv">false</span><span class="ps">,</span><br>
+            &nbsp;&nbsp;<span class="pk">"site_url"</span><span class="ps">:</span> <span class="pv">"https://ayys-group.com/#blog"</span><br>
+            <span class="ps">}</span>
+          </div>
+          <p style="font-size:11px;color:var(--light);margin-top:8px">Dans Make, référencez les champs via <code>{{1.title}}</code>, <code>{{1.excerpt}}</code>, <code>{{1.cat}}</code>, <code>{{1.site_url}}</code> etc.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔁 Flux du scénario</div>
+        <div class="flow-box">
+          <div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post li:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>li = true → continuer</p></div><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-icon blue"><svg viewBox="0 0 24 24" width="13" height="13" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div><div class="flow-text"><h5>LinkedIn — Create Company Post</h5><p>Page AYYS GROUP · PUBLIC</p></div><div class="flow-arrow">✓</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGLE BUSINESS -->
+    <div class="panel" id="panel-google">
+      <div class="ch-header">
+        <div class="ch-logo gg"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg></div>
+        <div>
+          <h2 style="font-size:20px;font-weight:600;margin-bottom:4px">Google Business — Publication automatique</h2>
+          <div class="conn-line"><span class="sdot" id="sdot-gg"></span><span id="conn-gg" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
+        </div>
+      </div>
+
+      <div class="alert-gg"><strong>Résultat visible :</strong> Vos posts apparaissent directement sous la fiche "AYYS Commodities" dans Google Maps et Google Search, avec un bouton "En savoir plus" qui renvoie vers votre site.</div>
+
+      <div class="card">
+        <div class="card-title">🔗 Webhook Google Business</div>
+        <div class="card-sub">Même principe que LinkedIn — un webhook Make.com dédié reçoit le post et le publie sur votre fiche Google vérifiée (AYYS Commodities, Paris).</div>
+        <div class="wh-box">
+          <div class="wh-box-label"><span class="sdot" id="whdot-gg"></span> URL Webhook Make.com — Google Business</div>
+          <div class="wh-row">
+            <input type="url" id="gg-url" placeholder="https://hook.eu2.make.com/yyyyyyyyyyyyyyyyyyyy"/>
+            <button class="btn btn-gg btn-sm" onclick="saveWh('gg')">Enregistrer</button>
+          </div>
+        </div>
+        <div id="gg-test-result" style="display:none;margin-bottom:14px"></div>
+        <button class="btn btn-gg btn-sm" onclick="testWh('gg')">⚡ Tester la connexion</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚙️ Guide Make.com — Google Business</div>
+        <div class="step-list">
+          <div class="step">
+            <div class="step-num gg">1</div>
+            <div class="step-body"><h4>Créer un 2ème scénario Make.com</h4><p>Sur <a href="https://make.com" target="_blank">make.com</a> → <code>Create a new scenario</code> → nommez-le <code>AYYS → Google Business</code>. Vous pouvez aussi ajouter Google dans le même scénario que LinkedIn en parallèle.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num gg">2</div>
+            <div class="step-body"><h4>Module 1 — Webhook déclencheur</h4><p>Ajoutez <code>Webhooks → Custom webhook</code>. Copiez l'URL générée et collez-la dans le champ ci-dessus. Chaque canal a sa propre URL unique.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num gg">3</div>
+            <div class="step-body"><h4>Module 2 — Filtre</h4><p><code>gba</code> = <code>true</code> — seuls les posts cochés "Google Business" sont relayés.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num gg">4</div>
+            <div class="step-body"><h4>Module 3 — Google My Business → Create a Local Post</h4>
+            <p>Cherchez le module <code>Google My Business → Create a Local Post</code> dans Make. Connectez votre compte Google admin (celui qui gère <a href="https://business.google.com" target="_blank">business.google.com</a>).</p>
+            <p>Sélectionnez la fiche : <strong>AYYS Commodities — Paris</strong></p>
+            <p>Mappez les champs :</p>
+            <p><code>Summary</code> → <code>{{title}}</code> + <code>\n\n</code> + <code>{{excerpt}}</code></p>
+            <p><code>Call to Action Type</code> → <code>LEARN_MORE</code></p>
+            <p><code>Call to Action URL</code> → <code>https://ayys-group.com/#blog</code></p>
+            <p><code>Topic Type</code> → <code>STANDARD</code> (ou <code>EVENT</code> si cat = Événement)</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num gg">5</div>
+            <div class="step-body"><h4>Activez le scénario</h4><p>Bouton <code>ON</code> dans Make. Le post apparaît sur Google sous 5 à 10 minutes. Testez depuis ce panneau.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔁 Flux du scénario</div>
+        <div class="flow-box">
+          <div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post gba:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>gba = true → continuer</p></div><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-icon goog"><svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg></div><div class="flow-text"><h5>Google My Business — Create Local Post</h5><p>Fiche AYYS Commodities Paris · bouton "En savoir plus"</p></div><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-icon">📍</div><div class="flow-text"><h5>Visible dans Google Maps &amp; Search</h5><p>Affiché sous la fiche AYYS dans les résultats</p></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Infos de votre fiche</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Nom</div><div style="font-size:13px;font-weight:600">AYYS Commodities</div></div>
+          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Adresse</div><div style="font-size:13px;font-weight:600">3 place Jussieu, 75005 Paris</div></div>
+          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Statut</div><div style="font-size:13px;font-weight:600;color:var(--gg)">✓ Active et vérifiée</div></div>
+          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Admin</div><div style="font-size:13px;font-weight:600">contact@ayys-group.fr</div></div>
+        </div>
+        <a href="https://business.google.com" target="_blank" class="btn btn-secondary btn-sm">Ouvrir Google Business →</a>
+      </div>
+    </div>
+
+
+    <!-- APERÇU SITE -->
+    <div class="panel" id="panel-preview">
+      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Aperçu sur le site</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Voici exactement comment vos posts publiés apparaissent dans la section <strong>Market Intelligence</strong> de la page d’accueil AYYS.</p>
+
+      <div class="site-preview-wrap">
+        <div class="site-preview-bar">
+          <div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div>
+          <span class="site-preview-bar-url">ayys-group.com / #intel</span>
+        </div>
+        <div class="site-preview-inner">
+          <div class="site-preview-label">Section Intelligence — grille de posts</div>
+          <div id="site-preview-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+            <!-- Rendu dynamique -->
+          </div>
+          <div id="site-preview-empty" style="display:none;text-align:center;padding:32px;color:var(--light);font-size:13px;border:0.5px dashed rgba(0,0,0,0.1);border-radius:12px;background:#fdfaf5">
+            Aucun post publié — les posts que vous publierez apparaîtront ici.
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-title">ℹ️ Comment fonctionne l’affichage ?</div>
+        <div class="make-arch">
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:rgba(29,158,117,0.12);color:var(--g)">✏️</div>
+            <div class="make-step-body">
+              <h5>Vous publiez un post dans cet admin</h5>
+              <p>Le post est enregistré dans le <code>localStorage</code> du navigateur — une zone de stockage locale qui persiste entre les sessions.</p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:rgba(176,138,73,0.12);color:var(--amber)">💾</div>
+            <div class="make-step-body">
+              <h5>L’index lit ce même localStorage</h5>
+              <p>La page d’accueil (<code>index.html</code>) charge les posts automatiquement via JavaScript au chargement, et se met à jour en temps réel si un post est ajouté dans un autre onglet.</p>
+            </div>
+          </div>
+          <div class="make-step-arrow"></div>
+          <div class="make-step-row">
+            <div class="make-step-icon" style="background:rgba(29,158,117,0.12)">👁</div>
+            <div class="make-step-body">
+              <h5>Affiché immédiatement — sans serveur</h5>
+              <p>Aucun rechargement nécessaire. Les 6 posts les plus récents sont affichés dans la grille. Revenez sur l’onglet du site pour voir la mise à jour instantanée.</p>
+            </div>
+          </div>
+        </div>
+        <div class="alert-ok" style="margin-top:14px">
+          ✓ <strong>Important :</strong> Ce système fonctionne sur le même appareil et le même navigateur. Pour un hébergement multi-poste ou collaboratif, exportez votre JSON et importez-le sur chaque poste.
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a href="index.html#intel" target="_blank" class="btn btn-primary">🔗 Ouvrir le site →</a>
+        <button class="btn btn-secondary" onclick="showPanel('new')">+ Créer un post</button>
+      </div>
+    </div>
+
+    <!-- EXPORT -->
+    <div class="panel" id="panel-export">
+      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Export / Import</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Sauvegardez vos posts ou importez un fichier.</p>
+      <div class="card">
+        <div class="card-title">📤 Exporter tous les posts</div>
+        <div class="card-sub">Téléchargez un fichier JSON.</div>
+        <button class="btn btn-primary" onclick="exportPosts()">Télécharger JSON</button>
+      </div>
+      <div class="card">
+        <div class="card-title">📥 Importer des posts</div>
+        <div class="card-sub">Importez un JSON précédemment exporté. Les posts existants sont conservés.</div>
+        <input type="file" id="import-file" accept=".json" style="margin-bottom:12px"/><br>
+        <button class="btn btn-secondary" onclick="importPosts()">Importer</button>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--red)">🗑 Réinitialiser</div>
+        <div class="card-sub">Supprime tous les posts (irréversible).</div>
+        <button class="btn btn-danger" onclick="clearAll()">Tout supprimer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var SK='ayys_blog_posts', WL='ayys_wh_li', WG='ayys_wh_gg';
+function lp(){ try{ return JSON.parse(localStorage.getItem(SK)||'[]'); }catch(e){ return []; } }
+function sp(a){ try{ localStorage.setItem(SK,JSON.stringify(a)); }catch(e){} }
+function gw(k){ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } }
+function sw(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+function uid(){ return 'p'+Date.now()+Math.random().toString(36).slice(2,6); }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function fmtD(s){ try{ return new Date(s).toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'}); }catch(e){ return s; } }
+
+function toast(m,t){ var el=document.getElementById('toast'); el.textContent=m; el.className='toast show '+(t||'green'); setTimeout(function(){ el.className='toast'; },3200); }
+
+var PI={new:0,posts:1,linkedin:2,google:3,preview:4,export:5};
+function showPanel(n){
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.slink').forEach(function(l){ l.classList.remove('active'); });
+  var p=document.getElementById('panel-'+n); if(p) p.classList.add('active');
+  var sl=document.querySelectorAll('.slink'); if(sl[PI[n]]) sl[PI[n]].classList.add('active');
+  if(n==='posts') renderList();
+  if(n==='preview') renderSitePreview();
+  refreshUI();
+}
+
+function refreshUI(){
+  var lu=gw(WL), gu=gw(WG);
+  /* sidebar badges */
+  var lb=document.getElementById('sb-li-badge'), gb=document.getElementById('sb-gg-badge');
+  if(lb){ lb.textContent=lu?'Actif':'—'; lb.className='slink-auto'+(lu?' on-li':''); }
+  if(gb){ gb.textContent=gu?'Actif':'—'; gb.className='slink-auto'+(gu?' on-gg':''); }
+  /* connection dots LinkedIn */
+  function setDot(id,on,isGg){
+    var el=document.getElementById(id); if(!el) return;
+    el.className='sdot'+(on?(isGg?' on-gg':' on'):'');
+  }
+  setDot('sdot-li',!!lu,false); setDot('whdot-li',!!lu,false);
+  setDot('sdot-gg',!!gu,true);  setDot('whdot-gg',!!gu,true);
+  var cl=document.getElementById('conn-li'), cg=document.getElementById('conn-gg');
+  if(cl){ cl.textContent=lu?'Webhook configuré ✓':'Non configuré'; cl.style.color=lu?'var(--g)':'var(--light)'; }
+  if(cg){ cg.textContent=gu?'Webhook configuré ✓':'Non configuré'; cg.style.color=gu?'var(--gg)':'var(--light)'; }
+  /* toggle descs */
+  var dl=document.getElementById('desc-li'), dg=document.getElementById('desc-gg');
+  if(dl) dl.textContent=lu?'Page AYYS GROUP · webhook actif ✓':'Configurez le webhook dans l\'onglet LinkedIn';
+  if(dg) dg.textContent=gu?'Fiche AYYS Paris · webhook actif ✓':'Configurez le webhook dans l\'onglet Google Business';
+  /* auto-check toggles if webhook present */
+  var tl=document.getElementById('t-li'), tg=document.getElementById('t-gba');
+  if(tl&&lu&&!tl.checked) tl.checked=true;
+  if(tg&&gu&&!tg.checked) tg.checked=true;
+  /* count */
+  var posts=lp().filter(function(p){ return !p.draft; });
+  var sc=document.getElementById('sb-count'); if(sc) sc.textContent=posts.length;
+}
+
+function updatePreview(){
+  var t=document.getElementById('f-title').value.trim();
+  var e=document.getElementById('f-excerpt').value.trim();
+  var c=document.getElementById('f-cat').value;
+  var li=document.getElementById('t-li').checked, gg=document.getElementById('t-gba').checked;
+  var w=document.getElementById('preview-wrap');
+  if(t||e){
+    w.style.display='block';
+    document.getElementById('pv-cat').textContent=c;
+    document.getElementById('pv-title').textContent=t||'Titre du post';
+    document.getElementById('pv-excerpt').textContent=e||'Accroche…';
+    document.getElementById('pv-li').style.display=li?'inline-flex':'none';
+    document.getElementById('pv-gg').style.display=gg?'inline-flex':'none';
+  } else { w.style.display='none'; }
+}
+function toggleCheck(id){ var el=document.getElementById(id); el.checked=!el.checked; if(id==='t-li'||id==='t-gba') updatePreview(); }
+document.getElementById('t-li').addEventListener('change',updatePreview);
+document.getElementById('t-gba').addEventListener('change',updatePreview);
+document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
+
+function publishPost(){
+  var t=document.getElementById('f-title').value.trim();
+  var e=document.getElementById('f-excerpt').value.trim();
+  if(!t){ toast('Le titre est obligatoire','red'); return; }
+  if(!e){ toast('L\'accroche est obligatoire','red'); return; }
+  var post={id:uid(),cat:document.getElementById('f-cat').value,title:t,excerpt:e,
+    body:document.getElementById('f-body').value.trim(),
+    date:document.getElementById('f-date').value,
+    li:document.getElementById('t-li').checked,
+    gba:document.getElementById('t-gba').checked,
+    draft:document.getElementById('t-draft').checked};
+  var posts=lp(); posts.unshift(post); sp(posts);
+  if(!post.draft){
+    if(post.li) sendWh(WL,post,'LinkedIn');
+    if(post.gba) sendWh(WG,post,'Google');
+    toast('✓ Post publié !','green');
+  } else { toast('📝 Brouillon enregistré'); }
+  resetForm(); refreshUI();
+}
+function saveDraft(){ document.getElementById('t-draft').checked=true; publishPost(); }
+function resetForm(){
+  ['f-title','f-excerpt','f-body'].forEach(function(i){ var el=document.getElementById(i); if(el) el.value=''; });
+  var fcat=document.getElementById('f-cat'); if(fcat&&fcat.options.length) fcat.selectedIndex=0;
+  document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
+  document.getElementById('t-li').checked=!!gw(WL);
+  document.getElementById('t-gba').checked=!!gw(WG);
+  document.getElementById('t-draft').checked=false;
+  document.getElementById('preview-wrap').style.display='none';
+}
+
+function saveWh(ch){
+  var key=ch==='li'?WL:WG;
+  var url=document.getElementById(ch+'-url').value.trim();
+  if(!url){ toast('URL invalide','red'); return; }
+  sw(key,url); toast('✓ Webhook '+(ch==='li'?'LinkedIn':'Google')+' enregistré',ch==='li'?'blue':'goog');
+  refreshUI();
+}
+function sendWh(key,post,label){
+  var url=gw(key); if(!url) return;
+  fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({id:post.id,title:post.title,excerpt:post.excerpt,body:post.body,cat:post.cat,date:post.date,li:post.li,gba:post.gba,site_url:'https://ayys-group.com/#blog'})
+  }).then(function(r){ if(r.ok) toast('✓ Envoyé → '+label,label==='LinkedIn'?'blue':'goog'); })
+    .catch(function(){ toast('⚠ Webhook '+label+' inaccessible','red'); });
+}
+function testWh(ch){
+  var key=ch==='li'?WL:WG;
+  var url=gw(key);
+  var rid=ch+'-test-result', el=document.getElementById(rid);
+  el.style.display='block';
+  if(!url){ el.className='alert-warn'; el.innerHTML='⚠ Aucune URL enregistrée. Collez l\'URL Make.com et cliquez "Enregistrer".'; return; }
+  var label=ch==='li'?'LinkedIn':'Google Business';
+  var tp={id:'test-'+Date.now(),title:'[TEST] Vérification connexion AYYS',excerpt:'Post de test envoyé depuis le panneau admin AYYS pour vérifier la connexion Make.com → '+label+'.',cat:'Entreprise',date:new Date().toISOString().slice(0,10),li:ch==='li',gba:ch==='gg',site_url:'https://ayys-group.com/#blog'};
+  el.className=''; el.innerHTML='<span style="color:var(--mid);font-size:12px">⏳ Envoi en cours…</span>';
+  fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(tp)})
+    .then(function(r){
+      if(r.ok){ el.className=ch==='li'?'alert-info':'alert-gg'; el.innerHTML='✓ <strong>Connexion réussie !</strong> Make.com a reçu le post de test. Vérifiez votre scénario pour confirmer que le module '+label+' s\'est exécuté.'; }
+      else { el.className='alert-warn'; el.innerHTML='⚠ Webhook atteint, réponse HTTP '+r.status+'. Vérifiez la config du scénario Make.'; }
+    })
+    .catch(function(){ el.className='alert-warn'; el.innerHTML='✗ URL inaccessible. Vérifiez que le scénario Make est actif (bouton ON) et que l\'URL est correcte.'; });
+}
+
+function renderList(){
+  var posts=lp();
+  var list=document.getElementById('post-list'); if(!list) return;
+  var pub=posts.filter(function(p){ return !p.draft; });
+  var li=posts.filter(function(p){ return p.li&&!p.draft; });
+  var gg=posts.filter(function(p){ return p.gba&&!p.draft; });
+  var dr=posts.filter(function(p){ return p.draft; });
+  [['st-pub',pub],['st-li',li],['st-gg',gg],['st-dr',dr]].forEach(function(x){ var el=document.getElementById(x[0]); if(el) el.textContent=x[1].length; });
+  if(!posts.length){ list.innerHTML='<div class="post-empty">Aucun post. <a href="#" onclick="showPanel(\'new\');return false;" style="color:var(--g)">Créez votre premier post →</a></div>'; return; }
+  list.innerHTML=posts.map(function(p){
+    return '<div class="post-item"><div class="post-item-left">'
+      +'<div class="post-item-cat">'+esc(p.cat)+'</div>'
+      +'<div class="post-item-title">'+esc(p.title)+'</div>'
+      +'<div class="post-item-meta"><span>'+fmtD(p.date)+'</span>'
+      +(p.draft?'<span class="badge-draft">BROUILLON</span>':'')
+      +(p.li&&!p.draft?'<span class="badge-li">LinkedIn</span>':'')
+      +(p.gba&&!p.draft?'<span class="badge-gg">Google</span>':'')
+      +'</div></div>'
+      +'<div class="post-item-actions">'
+      +(p.draft?'<button class="btn btn-secondary btn-sm" onclick="pubFromDraft(\''+p.id+'\')">Publier</button>':'')
+      +'<button class="btn btn-danger btn-sm" onclick="delPost(\''+p.id+'\')">Suppr.</button>'
+      +'</div></div>';
+  }).join('');
+}
+function pubFromDraft(id){
+  var posts=lp(), p=posts.find(function(x){ return x.id===id; }); if(!p) return;
+  p.draft=false; sp(posts);
+  if(p.li) sendWh(WL,p,'LinkedIn');
+  if(p.gba) sendWh(WG,p,'Google');
+  toast('✓ Post publié !'); renderList(); refreshUI();
+}
+function delPost(id){
+  if(!confirm('Supprimer ce post ?')) return;
+  sp(lp().filter(function(p){ return p.id!==id; }));
+  renderList(); refreshUI(); toast('Supprimé','red');
+}
+
+function exportPosts(){
+  var b=new Blob([JSON.stringify(lp(),null,2)],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(b);
+  a.download='ayys-posts-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+  toast('✓ Export téléchargé');
+}
+function importPosts(){
+  var f=document.getElementById('import-file').files[0]; if(!f){ toast('Sélectionnez un fichier','red'); return; }
+  var r=new FileReader(); r.onload=function(e){
+    try{
+      var imp=JSON.parse(e.target.result); if(!Array.isArray(imp)) throw 0;
+      var ex=lp(); var ids=new Set(ex.map(function(p){ return p.id; }));
+      var added=imp.filter(function(p){ return !ids.has(p.id); });
+      sp([...added,...ex]); toast('✓ '+added.length+' post(s) importé(s)'); refreshUI();
+    }catch(err){ toast('Fichier JSON invalide','red'); }
+  }; r.readAsText(f);
+}
+function clearAll(){
+  if(!confirm('Supprimer TOUS les posts ? Irréversible.')) return;
+  sp([]); renderList(); refreshUI(); toast('Supprimés','red');
+}
+
+
+function renderSitePreview(){
+  var posts = lp().filter(function(p){ return !p.draft; }).slice(0,6);
+  var grid = document.getElementById('site-preview-grid');
+  var empty = document.getElementById('site-preview-empty');
+  if(!grid) return;
+
+  var CAT_COLORS = {
+    'Marchés & prix':'#1D9E75','Marchés &amp; prix':'#1D9E75',
+    'Sourcing & trading':'#B08A49','Sourcing &amp; trading':'#B08A49',
+    'Logistique & corridors':'#4A7C6F','Logistique &amp; corridors':'#4A7C6F',
+    'Conformité & réglementation':'#7C6F4A',
+    'Intelligence matières premières':'#6F4A7C',
+    'Partenariats':'#4A6F7C','Recrutement':'#2f3431','Actualités AYYS':'#1D9E75'
+  };
+
+  if(!posts.length){
+    grid.style.display='none';
+    if(empty) empty.style.display='block';
+    return;
+  }
+  grid.style.display='grid';
+  if(empty) empty.style.display='none';
+
+  grid.innerHTML = posts.map(function(p){
+    var color = CAT_COLORS[p.cat] || '#1D9E75';
+    var liB = p.li ? '<span style="font-size:9px;font-weight:700;color:#0A66C2;background:#E8F0FA;padding:2px 6px;border-radius:3px;letter-spacing:.3px">in LinkedIn</span>' : '';
+    var ggB = p.gba ? '<span style="font-size:9px;font-weight:700;color:#34A853;background:#E6F4EA;padding:2px 6px;border-radius:3px;letter-spacing:.3px">G Business</span>' : '';
+    var d = ''; try{ d=new Date(p.date).toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'}); }catch(e){}
+    return '<div class="preview-bcard">'
+      + '<div class="preview-bcard-bar" style="background:'+color+'"></div>'
+      + '<div class="preview-bcard-cat" style="color:'+color+'">'+esc(p.cat)+'</div>'
+      + '<div class="preview-bcard-title">'+esc(p.title)+'</div>'
+      + '<div class="preview-bcard-excerpt">'+esc(p.excerpt)+'</div>'
+      + '<div class="preview-bcard-foot"><span>'+d+'</span>'+liB+ggB+'</div>'
+      + '</div>';
+  }).join('');
+}
+
+/* Init */
+(function(){
+  refreshUI();
+  var lu=gw(WL), gu=gw(WG);
+  var li=document.getElementById('li-url'), gi=document.getElementById('gg-url');
+  if(li&&lu) li.value=lu;
+  if(gi&&gu) gi.value=gu;
+  document.getElementById('t-li').checked=!!lu;
+  document.getElementById('t-gba').checked=!!gu;
+
+  /* Sample posts if empty */
+  if(!lp().length){
+    var samples=[
+      {id:'s1',cat:'Recrutement',title:'AYYS recrute un trader junior en métaux stratégiques',excerpt:'Poste en CDI à Paris — cuivre, cobalt, lithium. Profil ingénieur ou école de commerce avec expérience en commodities.',body:'<p>AYYS Commodities recherche un(e) <strong>Trader Junior</strong> pour son desk commercial parisien.</p><p>Le poste couvre le cuivre, le cobalt et le lithium, avec une forte dimension relationnelle. Candidatures : <a href="mailto:contact@ayys-group.fr" style="color:#1D9E75">contact@ayys-group.fr</a></p>',date:'2026-04-28',li:true,gba:true,draft:false},
+      {id:'s2',cat:'Logistique & corridors',title:'Nouveau corridor logistique Afrique — Europe opérationnel',excerpt:'AYYS renforce son dispositif sur les routes cuivre/cobalt avec un opérateur spécialisé sur les corridors subsahariens.',body:'<p>AYYS Commodities annonce un accord-cadre avec un opérateur spécialisé dans le transport de métaux sur les corridors Afrique subsaharienne — Europe du Nord.</p><p>Opérationnel dès mai 2026 sur les flux cuivre (DRC/Zambie) et cobalt.</p>',date:'2026-04-21',li:true,gba:true,draft:false},
+      {id:'s3',cat:'Marchés & prix',title:'Le cuivre dépasse les 12 000 $/t — analyse AYYS',excerpt:'La demande industrielle chinoise et le resserrement de l\'offre minière propulsent les cours du cuivre LME à des niveaux historiques.',body:'<p>Le cuivre LME a franchi <strong>12 000 $/t</strong> cette semaine. Pour les acheteurs industriels, cette fenêtre renforce l\'intérêt des mandats à terme avec couverture intégrée.</p><p>Contactez notre desk : <a href="mailto:trading@ayys-group.fr" style="color:#1D9E75">trading@ayys-group.fr</a></p>',date:'2026-04-14',li:true,gba:false,draft:false}
+    ];
+    sp(samples);
+  }
+  refreshUI();
+})();
+</script>
+</body>
+</html>
