@@ -33,22 +33,10 @@
     .nav-links a:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
     .nav-right{display:flex;align-items:center;gap:8px}
     .lang-wrap{position:relative;display:flex;align-items:center}
-    .lang-btn{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background:rgba(12,18,16,0.94);color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;text-transform:uppercase;cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease,transform .18s ease;font-family:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.02),0 8px 20px rgba(0,0,0,0.10)}
-    .lang-btn:hover{background:rgba(15,24,20,0.98);border-color:rgba(29,158,117,0.42);color:#fff;transform:translateY(-1px)}
-    .lang-btn.open{background:#101816;border-color:rgba(29,158,117,0.55);color:#fff}
-    .lmeta{display:flex;align-items:center;gap:8px;line-height:1}
-    .lcap{font-size:9px;font-weight:700;letter-spacing:1.6px;color:rgba(255,255,255,0.42)}
-    .lc{font-size:10px;font-weight:800;letter-spacing:1.45px;color:currentColor}
-    .la{width:10px;height:6px;stroke:currentColor;stroke-width:1.6;fill:none;opacity:.72;transition:transform .18s ease,opacity .18s ease}
-    .lang-btn.open .la{transform:rotate(180deg);opacity:1}
-    .lang-drop{position:absolute;top:calc(100% + 8px);right:0;min-width:152px;padding:6px;background:rgba(10,15,13,0.98);border:1px solid rgba(255,255,255,0.08);border-radius:6px;box-shadow:0 16px 40px rgba(0,0,0,0.22);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:120}
-    .lang-drop.open{opacity:1;transform:translateY(0);pointer-events:auto}
-    .lang-opt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:10px 10px;border-radius:3px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.78);cursor:pointer;transition:background .14s ease,color .14s ease}
-    .lang-opt:hover{background:rgba(255,255,255,0.05);color:#fff}
-    .lang-opt.sel{background:rgba(29,158,117,0.14);color:#fff}
-    .lol{font-size:11px;font-weight:600;color:inherit}
-    .lon{font-size:10px;font-weight:800;color:rgba(255,255,255,0.40);letter-spacing:1.35px}
-    .lang-opt.sel .lon{color:rgba(225,245,238,0.95)}
+    .lang-sel{appearance:none;-webkit-appearance:none;-moz-appearance:none;height:34px;padding:0 32px 0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background-color:rgba(12,18,16,0.94);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,255,255,0.6)' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;cursor:pointer;font-family:inherit;transition:border-color .18s,background-color .18s;outline:none}
+    .lang-sel:hover{background-color:rgba(15,24,20,0.98);border-color:rgba(29,158,117,0.42)}
+    .lang-sel:focus{background-color:#101816;border-color:rgba(29,158,117,0.55);outline:none}
+    .lang-sel option{background:#101816;color:#fff;font-size:13px;letter-spacing:0;font-weight:500}
     .ncta{display:flex;align-items:center;gap:6px;background:var(--g);color:#fff;border:none;border-radius:22px;padding:9px 20px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;font-family:inherit;letter-spacing:.2px;text-decoration:none}
     .ncta:hover{background:var(--gd);transform:translateY(-1px)}
     .cdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6);animation:pu 2s infinite;flex-shrink:0}
@@ -639,17 +627,13 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     </nav>
     <div class="nav-right">
       <div class="lang-wrap" id="lw">
-        <button class="lang-btn" id="lbtn" onclick="toggleLang(event)" aria-label="Select language" aria-expanded="false">
-          <span class="lmeta"><span class="lcap">Lang</span><span class="lc" id="lcode">EN</span></span>
-          <svg class="la" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
-        </button>
-        <div class="lang-drop" id="ldrop" role="listbox" aria-label="Language selector">
-          <div class="lang-opt sel" onclick="pickLang('EN','English',this)" role="option"><span class="lol">English</span><span class="lon">EN</span></div>
-          <div class="lang-opt" onclick="pickLang('FR','Français',this)" role="option"><span class="lol">Français</span><span class="lon">FR</span></div>
-          <div class="lang-opt" onclick="pickLang('RU','Русский',this)" role="option"><span class="lol">Русский</span><span class="lon">RU</span></div>
-          <div class="lang-opt" onclick="pickLang('AR','العربية',this)" role="option"><span class="lol">العربية</span><span class="lon">AR</span></div>
-          <div class="lang-opt" onclick="pickLang('ZH','中文',this)" role="option"><span class="lol">中文</span><span class="lon">ZH</span></div>
-        </div>
+        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="pickLangSel(this.value)">
+          <option value="EN">EN</option>
+          <option value="FR">FR</option>
+          <option value="RU">RU</option>
+          <option value="AR">AR</option>
+          <option value="ZH">ZH</option>
+        </select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
       <a class="ncta" href="#contact">
@@ -1845,7 +1829,8 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', s > 40);
   const h = document.documentElement.scrollHeight - window.innerHeight;
   document.getElementById('prog').style.width = (s / h * 100) + '%';
-});
+
+}, { passive: true });
 
 /* ===== REVEAL ===== */
 const ro = new IntersectionObserver(entries => {
@@ -1912,7 +1897,7 @@ function submitForm() {
   document.getElementById('form-success').style.display = 'block';
   setTimeout(() => {
     btn.disabled = false;
-    const lang = (document.getElementById('lcode')?.textContent || 'EN').trim();
+    const _lsel=document.getElementById('lang-sel'); const lang=(_lsel?_lsel.value:'EN');
     btn.querySelector('span:last-child').textContent = (I18N[lang] || I18N.EN).ct_btn;
   }, 800);
 }
@@ -2074,43 +2059,19 @@ function applyLang(lang){
   Object.entries(placeholders).forEach(([id,val]) => { const el = document.getElementById(id); if(el) el.placeholder = val; });
   const sel = document.getElementById('ftype');
   if(sel){ sel.options[0].textContent = d.buyerType; d.formOptions.forEach((txt,i)=>{ if(sel.options[i+1]) sel.options[i+1].textContent = txt; }); }
-  const code = document.getElementById('lcode'); if(code) code.textContent = lang;
+  const langSel=document.getElementById('lang-sel'); if(langSel) langSel.value=lang;
   ayysUpdateBrochureButtons(lang);
 }
 
-function toggleLang(e){
-  e.stopPropagation(); // Kept for safety — main fix is in document click handler
-  const drop=document.getElementById('ldrop');
-  const btn=document.getElementById('lbtn');
-  const isOpen = drop.classList.contains('open');
-  // Toggle: si déjà ouvert on ferme, sinon on ouvre
-  drop.classList.toggle('open', !isOpen);
-  btn.classList.toggle('open', !isOpen);
-  btn.setAttribute('aria-expanded', String(!isOpen));
-}
+function toggleLang(e){ /* replaced by native select */ }
 
-function pickLang(code,label,el){
+function pickLangSel(code){
   code = ayysNormalizeLang(code);
-  // Marquer l'option sélectionnée
-  document.querySelectorAll('.lang-opt').forEach(o=>o.classList.remove('sel'));
-  if(el) el.classList.add('sel');
-  // Fermer le dropdown
-  document.getElementById('ldrop')?.classList.remove('open');
-  document.getElementById('lbtn')?.classList.remove('open');
-  document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
-  // Persister et appliquer
-  try { localStorage.setItem('ayys_lang', code); } catch(e) {}
+  try { localStorage.setItem('ayys_lang', code); } catch(e){}
   applyLang(code);
 }
+function pickLang(code,label,el){ pickLangSel(code); }
 
-document.addEventListener('click', e => {
-  // Ne ferme le dropdown que si le clic est EN DEHORS du sélecteur de langue
-  if (!e.target.closest('.lang-wrap')) {
-    document.getElementById('ldrop')?.classList.remove('open');
-    document.getElementById('lbtn')?.classList.remove('open');
-    document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
-  }
-});
 
 document.getElementById('cform')?.addEventListener('submit', function(e){
   e.preventDefault();
@@ -2125,7 +2086,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // (redondant avec localStorage mais garantit la sync même en navigation privée)
   document.querySelectorAll('a[href*="signal-001.html"]').forEach(a => {
     a.addEventListener('click', () => {
-      const lang = document.getElementById('lcode')?.textContent?.trim() || 'EN';
+      const _s=document.getElementById('lang-sel'); const lang=_s?_s.value:'EN';
       const base = a.getAttribute('href').split('?')[0];
       a.setAttribute('href', base + '?lang=' + lang);
     });
@@ -2237,5 +2198,11 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 2500);
 })();
 </script>
+
+  <div class="lang-opt" onclick="pickLang('FR','Français',this)" role="option"><span class="lol">Français</span><span class="lon">FR</span></div>
+  <div class="lang-opt" onclick="pickLang('RU','Русский',this)" role="option"><span class="lol">Русский</span><span class="lon">RU</span></div>
+  <div class="lang-opt" onclick="pickLang('AR','العربية',this)" role="option"><span class="lol">العربية</span><span class="lon">AR</span></div>
+  <div class="lang-opt" onclick="pickLang('ZH','中文',this)" role="option"><span class="lol">中文</span><span class="lon">ZH</span></div>
+</div>
 </body>
 </html>
