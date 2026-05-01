@@ -2079,30 +2079,37 @@ function applyLang(lang){
 }
 
 function toggleLang(e){
-  e.stopPropagation();
+  e.stopPropagation(); // Kept for safety — main fix is in document click handler
   const drop=document.getElementById('ldrop');
   const btn=document.getElementById('lbtn');
-  const open=!drop.classList.contains('open');
-  drop.classList.toggle('open',open);
-  btn.classList.toggle('open',open);
-  btn.setAttribute('aria-expanded',String(open));
+  const isOpen = drop.classList.contains('open');
+  // Toggle: si déjà ouvert on ferme, sinon on ouvre
+  drop.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
 }
 
 function pickLang(code,label,el){
   code = ayysNormalizeLang(code);
+  // Marquer l'option sélectionnée
   document.querySelectorAll('.lang-opt').forEach(o=>o.classList.remove('sel'));
   if(el) el.classList.add('sel');
+  // Fermer le dropdown
   document.getElementById('ldrop')?.classList.remove('open');
   document.getElementById('lbtn')?.classList.remove('open');
   document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
+  // Persister et appliquer
   try { localStorage.setItem('ayys_lang', code); } catch(e) {}
   applyLang(code);
 }
 
-document.addEventListener('click',()=>{
-  document.getElementById('ldrop')?.classList.remove('open');
-  document.getElementById('lbtn')?.classList.remove('open');
-  document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
+document.addEventListener('click', e => {
+  // Ne ferme le dropdown que si le clic est EN DEHORS du sélecteur de langue
+  if (!e.target.closest('.lang-wrap')) {
+    document.getElementById('ldrop')?.classList.remove('open');
+    document.getElementById('lbtn')?.classList.remove('open');
+    document.getElementById('lbtn')?.setAttribute('aria-expanded','false');
+  }
 });
 
 document.getElementById('cform')?.addEventListener('submit', function(e){
@@ -2113,6 +2120,16 @@ document.getElementById('cform')?.addEventListener('submit', function(e){
 window.addEventListener('DOMContentLoaded', () => {
   const saved = ayysNormalizeLang((() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN');
   applyLang(saved);
+
+  // Instrumentaliser les liens vers signal-001.html pour passer la langue active
+  // (redondant avec localStorage mais garantit la sync même en navigation privée)
+  document.querySelectorAll('a[href*="signal-001.html"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const lang = document.getElementById('lcode')?.textContent?.trim() || 'EN';
+      const base = a.getAttribute('href').split('?')[0];
+      a.setAttribute('href', base + '?lang=' + lang);
+    });
+  });
 });
 
 /* ===== BLOG POSTS — lecture localStorage (partagé avec admin-blog.html) ===== */

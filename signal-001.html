@@ -882,6 +882,18 @@ document.addEventListener('click', e => {
 });
 
 /* ============================================================
+   LIEN RETOUR — conserver la langue active
+   ============================================================ */
+document.querySelectorAll('a[href*="index.html"]').forEach(a => {
+  a.addEventListener('click', () => {
+    const cur = document.getElementById('lc-cur')?.textContent?.trim() || 'FR';
+    try { localStorage.setItem('ayys_lang', cur); } catch(e) {}
+    // localStorage est déjà à jour via applyLang → setLang, ceci est redondant
+    // mais garantit la sync avant navigation
+  });
+});
+
+/* ============================================================
    SCROLL — PROGRESS BAR + NAV
    ============================================================ */
 window.addEventListener('scroll', () => {
@@ -895,12 +907,26 @@ window.addEventListener('scroll', () => {
    INIT — detect stored or browser language
    ============================================================ */
 (function() {
-  let stored;
-  try { stored = localStorage.getItem('ayys_lang'); } catch(e) {}
   const supported = ['FR','EN','RU','AR','ZH'];
+
+  // 1. Paramètre URL ?lang=XX (priorité maximale — vient de l'index)
+  let urlLang = null;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const p = (params.get('lang') || '').toUpperCase();
+    if (supported.includes(p)) urlLang = p;
+  } catch(e) {}
+
+  // 2. Valeur stockée dans localStorage (persistance entre sessions)
+  let stored = null;
+  try { stored = localStorage.getItem('ayys_lang'); } catch(e) {}
+
+  // 3. Langue du navigateur
   const browserLang = (navigator.language || '').toUpperCase().split('-')[0];
   const langMap = { FR:'FR', EN:'EN', RU:'RU', AR:'AR', ZH:'ZH' };
-  const detected = stored || langMap[browserLang] || 'FR';
+
+  // Priorité : URL > localStorage > navigateur > FR par défaut
+  const detected = urlLang || stored || langMap[browserLang] || 'FR';
   const initial = supported.includes(detected) ? detected : 'FR';
   applyLang(initial);
 })();
