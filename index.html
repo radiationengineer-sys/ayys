@@ -46,9 +46,10 @@
     .vert-wrap{position:relative;display:flex;align-items:center}
     .vert-btn{appearance:none;-webkit-appearance:none;height:34px;padding:0 32px 0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background-color:rgba(12,18,16,0.94);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,255,255,0.6)' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;cursor:pointer;font-family:inherit;transition:border-color .18s,background-color .18s;outline:none;white-space:nowrap}
     .vert-btn:hover{background-color:rgba(15,24,20,0.98);border-color:rgba(29,158,117,0.42)}
-    .vert-drop{position:absolute;top:calc(100% + 8px);right:0;background:rgba(16,24,20,0.98);border:1px solid rgba(29,158,117,0.22);border-radius:8px;padding:5px;min-width:230px;box-shadow:0 16px 48px rgba(0,0,0,0.32),0 4px 12px rgba(0,0,0,0.18);opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease;z-index:200}
+    .vert-drop{position:absolute;top:100%;right:0;padding-top:8px;background:transparent;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease;z-index:200}
+    .vert-drop-inner{background:rgba(16,24,20,0.98);border:1px solid rgba(29,158,117,0.22);border-radius:8px;padding:5px;min-width:230px;box-shadow:0 16px 48px rgba(0,0,0,0.32),0 4px 12px rgba(0,0,0,0.18);position:relative}
     .vert-wrap:hover .vert-drop{opacity:1;pointer-events:auto;transform:translateY(0)}
-    .vert-drop::before{content:'';position:absolute;top:-5px;right:14px;transform:rotate(45deg);width:9px;height:9px;background:rgba(16,24,20,0.98);border:1px solid rgba(29,158,117,0.22);border-bottom:none;border-right:none}
+    .vert-drop-inner::before{content:'';position:absolute;top:-5px;right:14px;transform:rotate(45deg);width:9px;height:9px;background:rgba(16,24,20,0.98);border:1px solid rgba(29,158,117,0.22);border-bottom:none;border-right:none}
     .vditem{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:6px;text-decoration:none;transition:background .15s;cursor:pointer}
     .vditem:hover{background:rgba(29,158,117,0.10)}
     .vditem-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -684,6 +685,7 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
       <div class="vert-wrap" id="vw">
         <button class="vert-btn" aria-label="Divisions" aria-haspopup="true">DIVISIONS</button>
         <div class="vert-drop" role="menu">
+          <div class="vert-drop-inner">
           <a class="vditem" href="ayys-medcare.html" role="menuitem">
             <div class="vditem-icon mc"></div>
             <div>
@@ -707,6 +709,7 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
             </div>
             <span class="vditem-badge">SOON</span>
           </a>
+          </div>
         </div>
       </div>
       <div class="lang-wrap" id="lw">
@@ -1635,26 +1638,46 @@ requestAnimationFrame(animate);
       <div class="stitle" style="margin-bottom:6px" id="intel-title">AYYS Signal — The flows that matter</div>
       <div class="ssub" style="margin-bottom:0;max-width:480px" id="intel-sub">The strategic intelligence letter on critical metals. Copper, nickel, cobalt, lithium, rare earths — fortnightly, for industrial buyers who need structured information, not noise.</div>
     </div>
-    <a href="signal-001.html" id="intel-all-btn" style="display:inline-flex;align-items:center;gap:7px;background:var(--dark);color:#fff;border-radius:9px;padding:12px 22px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,transform .15s" onmouseover="this.style.background='#1D9E75';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#2f3431';this.style.transform='none'">
+    <a href="signal-002.html" id="intel-all-btn" style="display:inline-flex;align-items:center;gap:7px;background:var(--dark);color:#fff;border-radius:9px;padding:12px 22px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,transform .15s" onmouseover="this.style.background='#1D9E75';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#2f3431';this.style.transform='none'">
       <span id="intel-all-label">View all editions →</span>
     </a>
   </div>
 
-  <!-- SIGNAL FEATURED CARD -->
-  <a href="signal-001.html" style="display:block;text-decoration:none;margin-bottom:28px">
+  <!-- SIGNAL FEATURED CARD — N°002 -->
+  <a href="signal-002.html" style="display:block;text-decoration:none;margin-bottom:16px">
     <div class="reveal" style="background:linear-gradient(135deg,#0e1612 0%,#182820 60%,#1a2218 100%);border-radius:18px;padding:36px 40px;position:relative;overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s;border:0.5px solid rgba(255,255,255,0.07)" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.22)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#B87A2A 30%,#B87A2A 70%,transparent)"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#D85B57 30%,#D85B57 70%,transparent)"></div>
+      <div style="position:absolute;top:12px;right:16px;font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#D85B57;background:rgba(216,91,87,0.12);border:0.5px solid rgba(216,91,87,0.3);border-radius:4px;padding:3px 8px">DERNIÈRE ÉDITION</div>
       <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start">
         <div>
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-            <span style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B87A2A;background:rgba(184,122,42,0.12);border:0.5px solid rgba(184,122,42,0.25);border-radius:4px;padding:4px 10px">AYYS SIGNAL · N°001</span>
-            <span style="font-size:10px;color:rgba(255,255,255,0.38);letter-spacing:.5px">Avril 2026 · Numéro pilote</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B87A2A;background:rgba(184,122,42,0.12);border:0.5px solid rgba(184,122,42,0.25);border-radius:4px;padding:4px 10px">AYYS SIGNAL · N°002</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.38);letter-spacing:.5px">Mai 2026 · Édition de crise</span>
           </div>
-          <div style="font-size:22px;font-weight:600;color:#f7f3eb;line-height:1.2;margin-bottom:10px;letter-spacing:-.3px">Les flux qui comptent</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:520px">Tarifs US cuivre &amp; dislocation Comex/LME · Décret HPM 144 Indonésie · Corridors Afrique · Déficit structurel cuivre · Radar mai 2026</div>
+          <div style="font-size:22px;font-weight:600;color:#f7f3eb;line-height:1.2;margin-bottom:10px;letter-spacing:-.3px">Guerre, soufre et terres rares</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:520px">Hormuz bloqué · Soufre ×7 · Cobalt : quotas DRC · Terres rares : étau chinois · Cuivre : choc sur le Chile · Radar juin 2026</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
           <span style="font-size:10px;color:rgba(255,255,255,0.46);letter-spacing:1.2px;text-transform:uppercase;white-space:nowrap">Lire l'édition →</span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- SIGNAL ARCHIVE CARD — N°001 -->
+  <a href="signal-001.html" style="display:block;text-decoration:none;margin-bottom:28px">
+    <div class="reveal" style="background:rgba(14,22,18,0.55);border-radius:14px;padding:22px 28px;position:relative;overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s;border:0.5px solid rgba(255,255,255,0.06)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+      <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+            <span style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B87A2A;background:rgba(184,122,42,0.10);border:0.5px solid rgba(184,122,42,0.2);border-radius:4px;padding:3px 8px">AYYS SIGNAL · N°001</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:.5px">Avril 2026 · Numéro pilote</span>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:rgba(247,243,235,0.75);line-height:1.25;margin-bottom:6px;letter-spacing:-.2px">Les flux qui comptent</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.36);line-height:1.65;max-width:480px">Tarifs US cuivre &amp; dislocation Comex/LME · Décret HPM 144 Indonésie · Corridors Afrique · Déficit structurel cuivre · Radar mai 2026</div>
+        </div>
+        <div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.32);letter-spacing:1px;text-transform:uppercase;white-space:nowrap">Lire →</span>
         </div>
       </div>
     </div>
@@ -2170,9 +2193,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const saved = ayysNormalizeLang((() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN');
   applyLang(saved);
 
-  // Instrumentaliser les liens vers signal-001.html pour passer la langue active
+  // Instrumentaliser les liens vers signal-001.html et signal-002.html pour passer la langue active
   // (redondant avec localStorage mais garantit la sync même en navigation privée)
-  document.querySelectorAll('a[href*="signal-001.html"]').forEach(a => {
+  document.querySelectorAll('a[href*="signal-001.html"], a[href*="signal-002.html"]').forEach(a => {
     a.addEventListener('click', () => {
       const _s=document.getElementById('lang-sel'); const lang=_s?_s.value:'EN';
       const base = a.getAttribute('href').split('?')[0];
