@@ -10,6 +10,12 @@
   <meta property="og:description" content="We source and structure strategic metal flows for industrial buyers across international markets — directly from upstream producers, with execution from contract to delivery."/>
   <meta property="og:type" content="website"/>
   <link rel="canonical" href="https://www.ayysc.com/"/>
+  <link rel="alternate" hreflang="en" href="https://www.ayysc.com/"/>
+  <link rel="alternate" hreflang="fr" href="https://www.ayysc.com/index-fr"/>
+  <link rel="alternate" hreflang="ru" href="https://www.ayysc.com/index-ru"/>
+  <link rel="alternate" hreflang="ar" href="https://www.ayysc.com/index-ar"/>
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.ayysc.com/index-zh"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.ayysc.com/"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -850,13 +856,13 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </div>
       </div>
       <div class="lang-wrap" id="lw">
-        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="pickLangSel(this.value)">
-          <option value="EN">EN</option>
-          <option value="FR">FR</option>
-          <option value="RU">RU</option>
-          <option value="AR">AR</option>
-          <option value="ZH">ZH</option>
-        </select>
+        <select class="lang-sel" id="lang-sel" aria-label="Language" onchange="goLang(this)">
+<option value="EN" data-href="index.html" selected>EN</option>
+<option value="FR" data-href="index-fr.html">FR</option>
+<option value="RU" data-href="index-ru.html">RU</option>
+<option value="AR" data-href="index-ar.html">AR</option>
+<option value="ZH" data-href="index-zh.html">ZH</option>
+</select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
       <a class="ncta" href="#contact">
@@ -1993,8 +1999,8 @@ requestAnimationFrame(animate);
     <div class="fcopy">© 2026 AYYS Commodities. All rights reserved. Indicative information only.</div>
     <div class="flegal">
       <a href="#about">Legal notice</a>
-      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">Privacy</a>
-      <a href="mailto:contact@ayys-group.fr?subject=AYYS%20cookies%20request">Cookies</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
     </div>
   </div>
 </footer>

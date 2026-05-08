@@ -314,13 +314,13 @@
         </div>
       </div>
       <div class="lang-wrap" id="lw">
-        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="pickLangSel(this.value)">
-          <option value="EN">EN</option>
-          <option value="FR">FR</option>
-          <option value="RU">RU</option>
-          <option value="AR">AR</option>
-          <option value="ZH">ZH</option>
-        </select>
+        <select class="lang-sel" id="lang-sel" aria-label="Language" onchange="goLang(this)">
+<option value="EN" data-href="cobalt.html" selected>EN</option>
+<option value="FR" data-href="cobalt-fr.html">FR</option>
+<option value="RU" data-href="cobalt-ru.html">RU</option>
+<option value="AR" data-href="cobalt-ar.html">AR</option>
+<option value="ZH" data-href="cobalt-zh.html">ZH</option>
+</select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
       <a class="ncta" href="index.html#contact">
@@ -586,6 +586,7 @@ const ro=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
 function closeMenu(){document.getElementById('mmenu').classList.remove('open');document.getElementById('ham').classList.remove('open')}
+function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)window.location.href=o.dataset.href;}
 function pickLangSel(v){const url=new URL(window.location.href);url.searchParams.set('lang',v);window.history.replaceState(null,'',url)}
 (function(){
   const base=parseInt('56,290'.replace(/,/g,''));

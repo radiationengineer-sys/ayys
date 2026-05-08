@@ -9,7 +9,8 @@
   <meta property="og:title" content="Copper — AYYS Commodities"/>
   <meta property="og:type" content="website"/>
   <link rel="canonical" href="https://www.ayysc.com/copper"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Copper","description":"Copper cathode, rod, concentrate and scrap sourced and structured by AYYS Commodities from upstream producers in Africa, Middle East and Eastern Europe.","brand":{"@type":"Organization","name":"AYYS Commodities"},"offers":{"@type":"AggregateOffer","priceCurrency":"USD","availability":"https://schema.org/InStock"},"additionalProperty":[{"@type":"PropertyValue","name":"Purity range","value":"94-99.99%"},{"@type":"PropertyValue","name":"Forms","value":"Cathode, rod, wire bar, concentrate, scrap"},{"@type":"PropertyValue","name":"Exchange","value":"LME Grade A"},{"@type":"PropertyValue","name":"Corridors","value":"DRC, Zambia, Kazakhstan, Iran, Turkey, Poland"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Copper","description":"Copper cathode, rod, concentrate and scrap sourced and structured by AYYS Commodities from upstream producers in Africa, Middle East and Eastern Europe.","brand":{"@type":"Organization","name":"AYYS Commodities"},"offers":{"@type":"AggregateOffer","priceCurrency":"USD","availability":"https://schema.org/InStock"},"additionalProperty":[{"@type":"PropertyValue","name":"Purity range","value":"94-99.99%"},{"@type":"PropertyValue","name":"Forms","value":"Cathode, rod, wire bar, concentrate, scrap"},{"@type":"PropertyValue","name":"Exchange","value":"LME Grade A"},{"@type":"PropertyValue","name":"Corridors","value":"DRC, Zambia, Kazakhstan, Iran, Turkey, Poland"}]}function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)window.location.href=o.dataset.href;}
+</script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -42,6 +43,7 @@
     .nd-item:hover{background:rgba(29,158,117,0.07);color:var(--g)}
     .nd-item.active{color:var(--cu);font-weight:600;background:rgba(184,115,51,0.06)}
     .nav-right{display:flex;align-items:center;gap:8px}
+    .lang-wrap{display:flex;align-items:center}
     .ncta{display:flex;align-items:center;gap:6px;background:var(--g);color:#fff;border:none;border-radius:22px;padding:9px 20px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;font-family:inherit;text-decoration:none}
     .ncta:hover{background:var(--gd);transform:translateY(-1px)}
     .cdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6);animation:pu 2s infinite;flex-shrink:0}
@@ -191,40 +193,57 @@
     <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html" class="nav-plain">Home</a>
       <div class="nav-item">
-        <a href="index.html#metals" class="active" aria-haspopup="true">Markets <span class="nav-caret"></span></a>
+        <a href="copper.html" class="active" aria-haspopup="true">Markets <span class="nav-caret"></span></a>
         <div class="nav-drop"><div class="nav-drop-inner">
           <a class="nd-item active" href="copper.html">Copper</a>
-          <a class="nd-item" href="index.html#metals">Cobalt</a>
-          <a class="nd-item" href="index.html#metals">Lithium</a>
-          <a class="nd-item" href="index.html#metals">Nickel</a>
-          <a class="nd-item" href="index.html#metals">Rare Earths</a>
-          <a class="nd-item" href="index.html#metals">Precious Metals</a>
+          <a class="nd-item" href="cobalt.html">Cobalt</a>
+          <a class="nd-item" href="lithium.html">Lithium</a>
+          <a class="nd-item" href="nickel.html">Nickel</a>
+          <a class="nd-item" href="rare-earths.html">Rare Earths</a>
+          <a class="nd-item" href="precious-metals.html">Precious Metals</a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a href="index.html#services" aria-haspopup="true">Services <span class="nav-caret"></span></a>
+        <a href="services.html" aria-haspopup="true">Services <span class="nav-caret"></span></a>
         <div class="nav-drop"><div class="nav-drop-inner">
-          <a class="nd-item" href="index.html#services">Sourcing &amp; Trading</a>
-          <a class="nd-item" href="index.html#services">Trade Finance</a>
-          <a class="nd-item" href="index.html#services">Logistics &amp; Shipping</a>
-          <a class="nd-item" href="index.html#services">Advisory &amp; Intelligence</a>
+          <a class="nd-item" href="services.html#sourcing">Sourcing &amp; Trading</a>
+          <a class="nd-item" href="services.html#finance">Trade Finance</a>
+          <a class="nd-item" href="services.html#logistics">Logistics &amp; Shipping</a>
+          <a class="nd-item" href="services.html#advisory">Advisory &amp; Intelligence</a>
         </div></div>
       </div>
       <div class="nav-item">
-        <a href="index.html#intel" aria-haspopup="true">Intelligence <span class="nav-caret"></span></a>
+        <a href="intelligence.html" aria-haspopup="true">Intelligence <span class="nav-caret"></span></a>
         <div class="nav-drop"><div class="nav-drop-inner">
-          <a class="nd-item" href="index.html#intel">AYYS Signal</a>
-          <a class="nd-item" href="index.html#intel">Market Briefs</a>
-          <a class="nd-item" href="index.html#intel">Geopolitics</a>
-          <a class="nd-item" href="index.html#intel">Supply Chain Analysis</a>
+          <a class="nd-item" href="intelligence.html#signal">AYYS Signal</a>
+          <a class="nd-item" href="intelligence.html#briefs">Market Briefs</a>
+          <a class="nd-item" href="intelligence.html#geopolitics">Geopolitics</a>
+          <a class="nd-item" href="intelligence.html#supply-chain">Supply Chain Analysis</a>
         </div></div>
       </div>
-      <a href="index.html#about" class="nav-plain">About</a>
-      <a href="index.html#contact" class="nav-plain">Compliance</a>
-      <a href="index.html#contact" class="nav-plain">Contact</a>
+      <a href="about.html" class="nav-plain">About</a>
+      <a href="compliance.html" class="nav-plain">Compliance</a>
+      <a href="contact.html" class="nav-plain">Contact</a>
     </nav>
     <div class="nav-right">
-      <a class="ncta" href="index.html#contact"><span class="cdot"></span>Request a mandate</a>
+      <div class="vert-wrap" id="vw">
+        <button class="vert-btn" aria-haspopup="true">DIVISIONS</button>
+        <div class="vert-drop" role="menu"><div class="vert-drop-inner">
+          <a class="vditem" href="ayys-medcare.html" role="menuitem"><div class="vditem-icon mc"></div><div><div class="vditem-name">MEDCARE</div><div class="vditem-desc">Medical supply chains</div></div></a>
+          <a class="vditem" href="ayys-energy.html" role="menuitem"><div class="vditem-icon en"></div><div><div class="vditem-name">ENERGY</div><div class="vditem-desc">Energy trade &amp; flows</div></div><span class="vditem-badge">SOON</span></a>
+          <a class="vditem" href="ayys-agri.html" role="menuitem"><div class="vditem-icon ag"></div><div><div class="vditem-name">AGRI</div><div class="vditem-desc">Agricultural sourcing</div></div><span class="vditem-badge">SOON</span></a>
+        </div></div>
+      </div>
+      <div class="lang-wrap">
+        <select class="lang-sel" id="lang-sel" aria-label="Language" onchange="goLang(this)">
+<option value="EN" data-href="copper.html" selected>EN</option>
+<option value="FR" data-href="copper-fr.html">FR</option>
+<option value="RU" data-href="copper-ru.html">RU</option>
+<option value="AR" data-href="copper-ar.html">AR</option>
+<option value="ZH" data-href="copper-zh.html">ZH</option>
+</select>
+      </div>
+      <a class="ncta" href="#contact"><span class="cdot"></span><span>Request a mandate</span></a>
       <button class="hamburger" id="ham" onclick="document.getElementById('mmenu').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -232,13 +251,13 @@
   </div>
   <div class="bar"><div class="prog" id="prog"></div></div>
   <div class="mobile-menu" id="mmenu">
-    <a href="index.html">Home</a><a href="index.html#metals">Markets</a><a href="index.html#services">Services</a>
-    <a href="index.html#intel">Intelligence</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a>
+    <a href="index.html" onclick="closeMenu()">Home</a><a href="index.html#metals">Markets</a><a href="services.html">Services</a>
+    <a href="intelligence.html">Intelligence</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a>
   </div>
 </div>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">Home</a><span style="opacity:.4">›</span>
+  <a href="index.html" onclick="closeMenu()">Home</a><span style="opacity:.4">›</span>
   <a href="index.html#metals">Markets</a><span style="opacity:.4">›</span>
   <span>Copper</span>
 </nav>
@@ -763,16 +782,16 @@
     <div class="flinks">
       <div class="flinks-title">Markets</div>
       <a href="copper.html">Copper</a>
-      <a href="index.html#metals">Cobalt</a>
-      <a href="index.html#metals">Lithium</a>
-      <a href="index.html#metals">Nickel</a>
-      <a href="index.html#metals">Rare Earths</a>
-      <a href="index.html#metals">Precious Metals</a>
+      <a href="cobalt.html">Cobalt</a>
+      <a href="lithium.html">Lithium</a>
+      <a href="nickel.html">Nickel</a>
+      <a href="rare-earths.html">Rare Earths</a>
+      <a href="precious-metals.html">Precious Metals</a>
     </div>
     <div class="flinks">
       <div class="flinks-title">Company</div>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#intel">Intelligence</a>
+      <a href="services.html">Services</a>
+      <a href="intelligence.html">Intelligence</a>
       <a href="index.html#about">About</a>
       <a href="index.html#contact">Compliance</a>
       <a href="index.html#contact">Contact</a>
