@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Copper Sourcing & Trading — AYYS Commodities | Cu Grades 94–99.99%</title>
+  <meta name="description" content="AYYS Commodities sources and structures copper flows — cathode, rod, concentrate and scrap grades 94–99.99% — from upstream producers in Africa, Middle East and Eastern Europe."/>
+  <meta name="keywords" content="copper sourcing, copper trading, copper cathode, copper rod, copper concentrate, copper scrap, birch cliff, LME copper, DRC copper, Zambia copper, Kazakhstan copper"/>
+  <meta property="og:title" content="Copper — AYYS Commodities"/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://www.ayysc.com/copper"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Copper","description":"Copper cathode, rod, concentrate and scrap sourced and structured by AYYS Commodities from upstream producers in Africa, Middle East and Eastern Europe.","brand":{"@type":"Organization","name":"AYYS Commodities"},"offers":{"@type":"AggregateOffer","priceCurrency":"USD","availability":"https://schema.org/InStock"},"additionalProperty":[{"@type":"PropertyValue","name":"Purity range","value":"94-99.99%"},{"@type":"PropertyValue","name":"Forms","value":"Cathode, rod, wire bar, concentrate, scrap"},{"@type":"PropertyValue","name":"Exchange","value":"LME Grade A"},{"@type":"PropertyValue","name":"Corridors","value":"DRC, Zambia, Kazakhstan, Iran, Turkey, Poland"}]}</script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;
+      --bg:#f2eee7;--white:#fffdf9;--dark:#2f3431;--mid:#66625d;--light:#9c958c;
+      --red:#D85B57;--amber:#B08A49;--mist:#ebe5dc;
+      --cu:#b87333;--cu-light:#d4956a;--cu-dark:#7a4a1e;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark)}
+    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:70px;background:rgba(245,243,238,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
+    .nav.scrolled{height:60px;background:rgba(245,243,238,0.98)}
+    .logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+    .flogo{font-size:17px;font-weight:700;letter-spacing:4px;color:var(--dark)}
+    .flogo span{color:var(--g)}
+    .logo-sub{font-size:9px;letter-spacing:1.5px;color:var(--light);text-transform:uppercase}
+    .nav-links{display:flex;gap:2px}
+    .nav-item{position:relative;display:flex;align-items:center}
+    .nav-item>a,.nav-plain{font-size:13px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:4px}
+    .nav-item>a:hover,.nav-plain:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
+    .nav-item>a.active{color:var(--cu);font-weight:600}
+    .nav-caret::after{content:'';display:inline-block;width:5px;height:5px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;margin-left:2px}
+    .nav-item:hover .nav-caret::after{transform:rotate(-135deg) translateY(-2px)}
+    .nav-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);padding-top:10px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300}
+    .nav-item:hover .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-inner{background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:6px;min-width:200px;box-shadow:0 12px 36px rgba(0,0,0,0.10);position:relative}
+    .nav-drop-inner::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-bottom:none;border-right:none}
+    .nd-item{display:block;padding:8px 12px;border-radius:7px;text-decoration:none;font-size:12px;color:var(--mid);transition:background .14s,color .14s}
+    .nd-item:hover{background:rgba(29,158,117,0.07);color:var(--g)}
+    .nd-item.active{color:var(--cu);font-weight:600;background:rgba(184,115,51,0.06)}
+    .nav-right{display:flex;align-items:center;gap:8px}
+    .ncta{display:flex;align-items:center;gap:6px;background:var(--g);color:#fff;border:none;border-radius:22px;padding:9px 20px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;font-family:inherit;text-decoration:none}
+    .ncta:hover{background:var(--gd);transform:translateY(-1px)}
+    .cdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6);animation:pu 2s infinite;flex-shrink:0}
+    @keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
+    .bar{height:2px;background:rgba(0,0,0,0.05)}
+    .prog{height:100%;background:var(--cu);width:0%;transition:width .1s linear}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--dark);transition:all .3s;border-radius:2px}
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-menu{display:none;flex-direction:column;background:rgba(245,243,238,0.99);border-bottom:0.5px solid rgba(0,0,0,0.08);max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .mobile-menu.open{max-height:480px}
+    .mobile-menu a{font-size:15px;color:var(--mid);padding:14px 28px;border-bottom:0.5px solid rgba(0,0,0,0.05);display:block;text-decoration:none}
+    .breadcrumb{padding:90px 52px 0;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);letter-spacing:.3px}
+    .breadcrumb a{color:var(--light);text-decoration:none;transition:color .2s}
+    .breadcrumb a:hover{color:var(--g)}
+    .cu-hero{background:var(--white);border-bottom:0.5px solid rgba(0,0,0,0.07);padding:28px 52px 0;overflow:hidden}
+    .cu-hero-inner{display:grid;grid-template-columns:1fr 400px;gap:52px;align-items:start;max-width:1280px}
+    .cu-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .cu-symbol{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#c8793a,#b87333);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;font-family:'Georgia',serif;flex-shrink:0}
+    .cu-badge{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cu);background:rgba(184,115,51,0.1);padding:4px 10px;border-radius:4px;border:0.5px solid rgba(184,115,51,0.25)}
+    .cu-badge-lme{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--mid);background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;border:0.5px solid rgba(0,0,0,0.09)}
+    .cu-hero h1{font-size:44px;font-weight:600;line-height:1.08;color:var(--dark);letter-spacing:-.8px;margin-bottom:16px}
+    .cu-hero h1 em{color:var(--cu);font-style:normal}
+    .cu-hero-lead{font-size:15px;color:var(--mid);line-height:1.78;max-width:560px;margin-bottom:28px}
+    .cu-stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:32px}
+    .cu-stat{display:flex;flex-direction:column;gap:3px}
+    .cu-stat-val{font-size:22px;font-weight:600;color:var(--dark)}
+    .cu-stat-val.cu{color:var(--cu)}
+    .cu-stat-label{font-size:10px;color:var(--light);letter-spacing:1px;text-transform:uppercase}
+    .cu-actions{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:40px}
+    .btn-cu{background:var(--cu);color:#fff;border:none;border-radius:9px;padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+    .btn-cu:hover{background:var(--cu-dark);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:var(--dark);border:0.5px solid rgba(0,0,0,0.18);border-radius:9px;padding:12px 24px;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center}
+    .btn-outline:hover{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.28)}
+    .lme-widget{background:var(--dark);border-radius:16px;padding:22px;position:relative;overflow:hidden;border:0.5px solid rgba(255,255,255,0.06)}
+    .lme-widget::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(184,115,51,0.18),transparent 60%);pointer-events:none}
+    .lme-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .lme-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38)}
+    .lme-live{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--g);text-transform:uppercase}
+    .lme-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pu 2s infinite}
+    .lme-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+    .lme-price{font-size:38px;font-weight:600;color:#fff;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+    .lme-unit{font-size:13px;color:rgba(255,255,255,.38);font-weight:400}
+    .lme-change{display:flex;align-items:center;gap:6px;margin-bottom:18px}
+    .lme-chg-val{font-size:13px;font-weight:600}
+    .lme-chg-val.up{color:var(--g)}.lme-chg-val.dn{color:var(--red)}
+    .lme-chg-pct{font-size:11px;color:rgba(255,255,255,.38)}
+    .lme-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+    .lme-cell{background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;border:0.5px solid rgba(255,255,255,.06)}
+    .lme-cell-label{font-size:9px;color:rgba(255,255,255,.34);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+    .lme-cell-val{font-size:13px;font-weight:600;color:rgba(255,255,255,.82);font-variant-numeric:tabular-nums}
+    .lme-chart{height:52px;margin-bottom:14px;position:relative}
+    .lme-embed-note{font-size:9px;color:rgba(255,255,255,.22);letter-spacing:.4px;text-align:center;padding-top:10px;border-top:0.5px solid rgba(255,255,255,.06)}
+    .lme-grades{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+    .lme-grade-tag{font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;background:rgba(184,115,51,0.15);color:rgba(184,115,51,.9);border:0.5px solid rgba(184,115,51,.25)}
+    @keyframes drawLine{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+    .spark-path{stroke-dasharray:600;stroke-dashoffset:600;animation:drawLine 1.8s ease forwards .3s}
+    .sec{padding:64px 52px;border-bottom:0.5px solid rgba(0,0,0,0.07)}
+    .sec.white{background:var(--white)}
+    .sec.cream{background:var(--bg)}
+    .sec.dark{background:#1a1f1c;color:rgba(255,255,255,.86)}
+    .sec-inner{max-width:1280px}
+    .eyebrow{font-size:10px;font-weight:700;color:var(--cu);letter-spacing:2.8px;text-transform:uppercase;margin-bottom:10px}
+    .eyebrow.green{color:var(--g)}
+    .stitle{font-size:30px;font-weight:600;color:var(--dark);margin-bottom:12px;line-height:1.2;letter-spacing:-.3px}
+    .stitle.light{color:#fff}
+    .ssub{font-size:15px;color:var(--mid);line-height:1.78;max-width:580px;margin-bottom:36px}
+    .ssub.light{color:rgba(255,255,255,.52)}
+    .grades-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+    .grade-card{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:border-color .22s,transform .22s,box-shadow .22s}
+    .grade-card:hover{border-color:var(--cu);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,115,51,0.10)}
+    .grade-card-top{position:absolute;top:0;left:0;right:0;height:2px;background:var(--cu);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+    .grade-card:hover .grade-card-top{transform:scaleX(1)}
+    .grade-purity{font-size:22px;font-weight:700;color:var(--cu);letter-spacing:-.5px;margin-bottom:4px}
+    .grade-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:10px}
+    .grade-specs{display:flex;flex-direction:column;gap:5px}
+    .grade-spec{display:flex;justify-content:space-between;align-items:center;font-size:11px;padding:4px 0;border-bottom:0.5px solid rgba(0,0,0,0.05)}
+    .grade-spec:last-child{border-bottom:none}
+    .grade-spec-key{color:var(--light)}
+    .grade-spec-val{color:var(--dark);font-weight:600;font-variant-numeric:tabular-nums}
+    .grade-tag{font-size:8px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:3px;background:rgba(29,158,117,0.08);color:var(--g);text-transform:uppercase}
+    .forms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .form-row{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:16px 18px;display:flex;align-items:flex-start;gap:14px}
+    .form-icon{width:34px;height:34px;border-radius:8px;background:rgba(184,115,51,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+    .form-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:3px}
+    .form-desc{font-size:11px;color:var(--light);line-height:1.6}
+    .inco-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+    .inco-tag{font-size:10px;font-weight:700;letter-spacing:.8px;padding:5px 11px;border-radius:6px;background:rgba(0,0,0,0.04);color:var(--mid);border:0.5px solid rgba(0,0,0,0.09);transition:all .18s;cursor:default}
+    .inco-tag:hover{background:rgba(184,115,51,0.08);color:var(--cu);border-color:rgba(184,115,51,0.25)}
+    .map-wrap{background:#0a0f0d;border-radius:16px;overflow:hidden;position:relative;margin-bottom:24px}
+    .mine-tooltip{position:absolute;background:rgba(10,16,13,0.97);border:0.5px solid rgba(184,115,51,0.35);border-radius:10px;padding:11px 14px;pointer-events:none;opacity:0;transition:opacity .18s;z-index:20;min-width:200px;backdrop-filter:blur(10px);max-width:240px}
+    .mine-tooltip strong{display:block;font-size:12px;font-weight:600;color:#fff;margin-bottom:4px}
+    .mine-tooltip .tip-meta{font-size:10px;color:rgba(255,255,255,.42);line-height:1.7}
+    .mine-tooltip .tip-grade{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(184,115,51,0.18);color:rgba(184,115,51,.9);margin-top:6px}
+    .scrap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .scrap-card{background:rgba(255,255,255,.03);border:0.5px solid rgba(255,255,255,.07);border-radius:12px;padding:18px;transition:border-color .2s,background .2s}
+    .scrap-card:hover{background:rgba(184,115,51,.05);border-color:rgba(184,115,51,.3)}
+    .scrap-isri{font-size:9px;font-weight:700;letter-spacing:1.5px;color:rgba(184,115,51,.72);text-transform:uppercase;margin-bottom:6px}
+    .scrap-name{font-size:14px;font-weight:600;color:rgba(255,255,255,.88);margin-bottom:8px}
+    .scrap-specs{font-size:11px;color:rgba(255,255,255,.4);line-height:1.72}
+    .scrap-purity{display:inline-block;font-size:11px;font-weight:700;color:rgba(184,115,51,.9);background:rgba(184,115,51,.12);padding:3px 9px;border-radius:4px;margin-top:10px;letter-spacing:.5px}
+    .compliance-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .comp-item{background:var(--white);border:0.5px solid rgba(0,0,0,0.07);border-radius:10px;padding:18px;text-align:center}
+    .comp-badge{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--g);background:rgba(29,158,117,0.07);padding:3px 9px;border-radius:4px;text-transform:uppercase;display:inline-block;margin-bottom:10px}
+    .comp-desc{font-size:11px;color:var(--mid);line-height:1.65}
+    .intel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .intel-card{background:var(--white);border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:22px;transition:border-color .2s,transform .2s}
+    .intel-card:hover{border-color:var(--g);transform:translateY(-2px)}
+    .intel-tag{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+    .intel-tag.h{color:var(--red)}.intel-tag.m{color:var(--amber)}.intel-tag.l{color:var(--g)}
+    .intel-title{font-size:14px;font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:8px}
+    .intel-body{font-size:12px;color:#888;line-height:1.72}
+    .intel-date{font-size:10px;color:var(--light);margin-top:14px}
+    .ctaband{background:#0e1612;padding:72px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:0.5px solid rgba(255,255,255,0.05)}
+    .ctaband::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(184,115,51,0.14),transparent 60%);pointer-events:none}
+    .cta-eyebrow{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cu);margin-bottom:14px}
+    .cta-title{font-size:36px;font-weight:600;color:#fff;margin-bottom:14px;letter-spacing:-.5px}
+    .cta-sub{font-size:15px;color:rgba(255,255,255,.44);max-width:480px;margin:0 auto 32px;line-height:1.72}
+    .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .footer{background:#2f3431}
+    .footer-inner{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:48px 52px;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+    .ftag{font-size:12px;color:rgba(255,255,255,.38);line-height:1.82;margin-top:10px}
+    .flinks-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:14px}
+    .flinks a{display:block;font-size:12px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:8px;transition:color .2s}
+    .flinks a:hover{color:rgba(255,255,255,.8)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 52px;flex-wrap:wrap;gap:10px}
+    .fcopy{font-size:11px;color:rgba(255,255,255,.26)}
+    .flegal{display:flex;gap:18px}
+    .flegal a{font-size:11px;color:rgba(255,255,255,.26);text-decoration:none;transition:color .2s}
+    .flegal a:hover{color:rgba(255,255,255,.6)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.revealed{opacity:1;transform:translateY(0)}
+    @media(max-width:960px){.cu-hero-inner{grid-template-columns:1fr}.grades-grid{grid-template-columns:repeat(2,1fr)}.scrap-grid{grid-template-columns:repeat(2,1fr)}.intel-grid{grid-template-columns:1fr}.forms-grid{grid-template-columns:1fr}.compliance-strip{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr}}
+    @media(max-width:640px){.sec{padding:48px 24px}.breadcrumb{padding:90px 24px 0}.cu-hero{padding:20px 24px 0}.grades-grid,.scrap-grid,.compliance-strip{grid-template-columns:1fr}.nav{padding:0 20px}.hamburger{display:flex}.nav-links,.nav-right .ncta{display:none}.mobile-menu{display:flex}.ctaband{padding:48px 24px}.footer-inner{padding:36px 24px}.footer-bottom{padding:14px 24px;flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+
+<div class="nav-wrap" id="nav-wrap">
+  <div class="nav" id="nav">
+    <a class="logo" href="index.html" aria-label="AYYS Commodities">
+      <div class="flogo">AYY<span>S</span></div>
+      <div class="logo-sub" style="margin-left:6px">Commodities</div>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html" class="nav-plain">Home</a>
+      <div class="nav-item">
+        <a href="index.html#metals" class="active" aria-haspopup="true">Markets <span class="nav-caret"></span></a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a class="nd-item active" href="copper.html">Copper</a>
+          <a class="nd-item" href="index.html#metals">Cobalt</a>
+          <a class="nd-item" href="index.html#metals">Lithium</a>
+          <a class="nd-item" href="index.html#metals">Nickel</a>
+          <a class="nd-item" href="index.html#metals">Rare Earths</a>
+          <a class="nd-item" href="index.html#metals">Precious Metals</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html#services" aria-haspopup="true">Services <span class="nav-caret"></span></a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a class="nd-item" href="index.html#services">Sourcing &amp; Trading</a>
+          <a class="nd-item" href="index.html#services">Trade Finance</a>
+          <a class="nd-item" href="index.html#services">Logistics &amp; Shipping</a>
+          <a class="nd-item" href="index.html#services">Advisory &amp; Intelligence</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html#intel" aria-haspopup="true">Intelligence <span class="nav-caret"></span></a>
+        <div class="nav-drop"><div class="nav-drop-inner">
+          <a class="nd-item" href="index.html#intel">AYYS Signal</a>
+          <a class="nd-item" href="index.html#intel">Market Briefs</a>
+          <a class="nd-item" href="index.html#intel">Geopolitics</a>
+          <a class="nd-item" href="index.html#intel">Supply Chain Analysis</a>
+        </div></div>
+      </div>
+      <a href="index.html#about" class="nav-plain">About</a>
+      <a href="index.html#contact" class="nav-plain">Compliance</a>
+      <a href="index.html#contact" class="nav-plain">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="ncta" href="index.html#contact"><span class="cdot"></span>Request a mandate</a>
+      <button class="hamburger" id="ham" onclick="document.getElementById('mmenu').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="bar"><div class="prog" id="prog"></div></div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="index.html">Home</a><a href="index.html#metals">Markets</a><a href="index.html#services">Services</a>
+    <a href="index.html#intel">Intelligence</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a><span style="opacity:.4">›</span>
+  <a href="index.html#metals">Markets</a><span style="opacity:.4">›</span>
+  <span>Copper</span>
+</nav>
+
+<!-- HERO -->
+<div class="cu-hero">
+  <div class="cu-hero-inner">
+    <div>
+      <div class="cu-eyebrow">
+        <div class="cu-symbol">Cu</div>
+        <span class="cu-badge">Copper · At. No. 29</span>
+        <span class="cu-badge-lme">LME Grade A</span>
+      </div>
+      <h1>Copper flows,<br><em>structured end-to-end</em></h1>
+      <p class="cu-hero-lead">AYYS sources and structures copper across all principal forms — LME Grade A cathode, electrolytic rod, blister, concentrate and certified scrap grades 94–99.99% — from upstream producers in the DRC–Zambia copperbelt, Kazakhstan, Iran and Eastern Europe. Execution from mine-gate to delivery with full documentation discipline.</p>
+      <div class="cu-stats">
+        <div class="cu-stat"><span class="cu-stat-val cu">94–99.99%</span><span class="cu-stat-label">Purity range</span></div>
+        <div class="cu-stat"><span class="cu-stat-val">6</span><span class="cu-stat-label">Trade forms</span></div>
+        <div class="cu-stat"><span class="cu-stat-val">3</span><span class="cu-stat-label">Corridors</span></div>
+        <div class="cu-stat"><span class="cu-stat-val">CIF/FOB</span><span class="cu-stat-label">Principal Incoterms</span></div>
+      </div>
+      <div class="cu-actions">
+        <a class="btn-cu" href="index.html#contact">Request sourcing mandate</a>
+        <a class="btn-outline" href="#grades">Grade specifications</a>
+        <a class="btn-outline" href="#scrap">Copper scrap</a>
+      </div>
+    </div>
+
+    <!-- LME Widget -->
+    <div class="lme-widget">
+      <div class="lme-header">
+        <span class="lme-title">LME Copper — Cash settlement</span>
+        <span class="lme-live"><span class="lme-dot"></span>Live</span>
+      </div>
+      <div class="lme-price-row">
+        <span class="lme-price" id="lme-price">9,847</span>
+        <span class="lme-unit">USD / t</span>
+      </div>
+      <div class="lme-change">
+        <span class="lme-chg-val up" id="lme-chg">▲ +184</span>
+        <span class="lme-chg-pct" id="lme-pct">+1.90% today</span>
+      </div>
+      <div class="lme-chart">
+        <svg viewBox="0 0 360 52" preserveAspectRatio="none" style="display:block;width:100%;height:100%">
+          <defs>
+            <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(184,115,51,0.30)"/>
+              <stop offset="100%" stop-color="rgba(184,115,51,0)"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2 L360 52 L0 52 Z" fill="url(#sg)"/>
+          <path class="spark-path" d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2" fill="none" stroke="#b87333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lme-grid">
+        <div class="lme-cell"><div class="lme-cell-label">3M Forward</div><div class="lme-cell-val" id="lme-3m">9,893</div></div>
+        <div class="lme-cell"><div class="lme-cell-label">Open interest</div><div class="lme-cell-val">284,730 lt</div></div>
+        <div class="lme-cell"><div class="lme-cell-label">52W High</div><div class="lme-cell-val">12,034</div></div>
+        <div class="lme-cell"><div class="lme-cell-label">52W Low</div><div class="lme-cell-val">7,862</div></div>
+      </div>
+      <div class="lme-grades">
+        <span class="lme-grade-tag">Grade A Cathode</span>
+        <span class="lme-grade-tag">Cu-ETP Rod</span>
+        <span class="lme-grade-tag">Blister 98.5%+</span>
+        <span class="lme-grade-tag">Concentrate</span>
+      </div>
+      <div class="lme-embed-note">Indicative prices — LMElive · Contact trading desk for firm quotes</div>
+    </div>
+  </div>
+</div>
+
+<!-- GRADE SPECIFICATIONS -->
+<section class="sec white reveal" id="grades">
+  <div class="sec-inner">
+    <div class="eyebrow">Grade specifications</div>
+    <h2 class="stitle">Copper forms &amp; purity specifications</h2>
+    <p class="ssub">AYYS structures copper transactions across six principal forms. Each grade carries specific purity tolerances, chemical impurity caps and delivery standards. All transactions reference LME or ASTM/EN standards unless specifically agreed otherwise.</p>
+    <div class="grades-grid">
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">99.99%</div>
+        <div class="grade-name">LME Grade A Cathode <span class="grade-tag">LME</span></div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu min</span><span class="grade-spec-val">99.9935%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Ag max</span><span class="grade-spec-val">25 ppm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Pb max</span><span class="grade-spec-val">5 ppm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Bi max</span><span class="grade-spec-val">2 ppm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Standard</span><span class="grade-spec-val">LME / ASTM B115</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Form</span><span class="grade-spec-val">Cathode, 125 kg ±5%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Packaging</span><span class="grade-spec-val">Banded bundles on pallets</span></div>
+        </div>
+      </div>
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">99.90%</div>
+        <div class="grade-name">Cu-ETP Electrolytic Rod <span class="grade-tag">ASTM</span></div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu min</span><span class="grade-spec-val">99.90%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">O max</span><span class="grade-spec-val">400 ppm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Diameter</span><span class="grade-spec-val">8 mm ± 0.2 mm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Coil weight</span><span class="grade-spec-val">3.5–5 t</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Standard</span><span class="grade-spec-val">ASTM B49 / EN 1977</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Conductivity</span><span class="grade-spec-val">≥ 100% IACS</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Surface</span><span class="grade-spec-val">Bright, scale-free</span></div>
+        </div>
+      </div>
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">98.5%+</div>
+        <div class="grade-name">Fire-Refined Blister / Anode</div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu range</span><span class="grade-spec-val">98.0–99.5%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">S max</span><span class="grade-spec-val">0.05%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">O max</span><span class="grade-spec-val">0.10%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Ag</span><span class="grade-spec-val">Payable at agreed %</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Form</span><span class="grade-spec-val">Anodes / slabs</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Pricing</span><span class="grade-spec-val">LME + agreed deduct</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Assay</span><span class="grade-spec-val">Umpire at load port</span></div>
+        </div>
+      </div>
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">25–35% Cu</div>
+        <div class="grade-name">Sulphide Concentrate</div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu min</span><span class="grade-spec-val">25% (payable 1%)</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Fe</span><span class="grade-spec-val">22–28%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">S</span><span class="grade-spec-val">28–32%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">As max</span><span class="grade-spec-val">0.20% (penalty >0.15%)</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Moisture</span><span class="grade-spec-val">8–12% TMC</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Au / Ag</span><span class="grade-spec-val">Payable — assay basis</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">TC/RC</span><span class="grade-spec-val">Negotiated per shipment</span></div>
+        </div>
+      </div>
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">99.00%</div>
+        <div class="grade-name">Wirebar / Cast Billet</div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu min</span><span class="grade-spec-val">99.00%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Weight</span><span class="grade-spec-val">110–120 kg each</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Standard</span><span class="grade-spec-val">BS 6017 / ASTM</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Surface</span><span class="grade-spec-val">No cold shuts / cracks</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Marking</span><span class="grade-spec-val">Heat No. + origin</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Payment</span><span class="grade-spec-val">L/C or TT agreed</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Min lot</span><span class="grade-spec-val">25 mt per shipment</span></div>
+        </div>
+      </div>
+      <div class="grade-card reveal"><div class="grade-card-top"></div>
+        <div class="grade-purity">Cu-DHP</div>
+        <div class="grade-name">Deoxidised High-P Tube / Strip</div>
+        <div class="grade-specs">
+          <div class="grade-spec"><span class="grade-spec-key">Cu + Ag min</span><span class="grade-spec-val">99.90%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">P range</span><span class="grade-spec-val">0.015–0.040%</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">O max</span><span class="grade-spec-val">10 ppm</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Standard</span><span class="grade-spec-val">EN 12449 / ASTM B88</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Applications</span><span class="grade-spec-val">HVAC, plumbing, medical</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Wall tolerance</span><span class="grade-spec-val">±10% (EN 12449)</span></div>
+          <div class="grade-spec"><span class="grade-spec-key">Annealing</span><span class="grade-spec-val">Soft or hard per order</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:600;color:var(--dark);margin:32px 0 16px">Trade forms, pricing &amp; Incoterms</h3>
+    <div class="forms-grid reveal">
+      <div class="form-row">
+        <div class="form-icon">📦</div>
+        <div><div class="form-name">Physical delivery — bulk / breakbulk / container</div><div class="form-desc">LME-warranted lots, vessel parcel, containerised coils. Minimum 25 mt per shipment. Fumigation cert, SGS weight survey, certificate of origin required.</div></div>
+      </div>
+      <div class="form-row">
+        <div class="form-icon">📄</div>
+        <div><div class="form-name">Documentary — L/C, standby, TT</div><div class="form-desc">SWIFT MT700, confirmed irrevocable L/C at sight. TT against scanned docs for approved counterparties. Standby L/C accepted for long-term offtake agreements.</div></div>
+      </div>
+      <div class="form-row">
+        <div class="form-icon">⚖️</div>
+        <div><div class="form-name">Pricing — LME average, fixed, spot</div><div class="form-desc">MAMA (monthly average) M+1 or M+2 standard. Spot LME PM cash settlement available. Fixed-price contracts negotiable for volume offtakers ≥500 t/month.</div></div>
+      </div>
+      <div class="form-row">
+        <div class="form-icon">🔬</div>
+        <div><div class="form-name">Assay &amp; umpire procedure</div><div class="form-desc">SGS / Intertek / Bureau Veritas at load port. Umpire clause: independent third lab, result binding within ±0.05% Cu. Sampling per ISO 10251 or ASTM E255.</div></div>
+      </div>
+    </div>
+    <div class="inco-tags reveal">
+      <span class="inco-tag">FOB</span><span class="inco-tag">CIF</span><span class="inco-tag">CFR</span>
+      <span class="inco-tag">DAP</span><span class="inco-tag">DDP</span><span class="inco-tag">FCA</span><span class="inco-tag">EXW</span>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPLY CORRIDORS MAP -->
+<section class="sec cream reveal" id="corridors">
+  <div class="sec-inner">
+    <div class="eyebrow green">Supply corridors</div>
+    <h2 class="stitle">Active sourcing network — mine sites &amp; refineries</h2>
+    <p class="ssub">AYYS operates across three primary copper corridors: the Central African Copperbelt (DRC–Zambia), the Eurasian corridor (Kazakhstan) and the Middle East route (Iran). Hover each node for detail on output, operator and available grades.</p>
+    <div class="map-wrap">
+      <div class="mine-tooltip" id="mine-tip"></div>
+      <svg viewBox="0 0 900 500" style="display:block;width:100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad" cx="50%" cy="45%" r="70%">
+            <stop offset="0%" stop-color="#162018"/>
+            <stop offset="100%" stop-color="#080d0b"/>
+          </radialGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+        <rect width="900" height="500" fill="url(#bgGrad)"/>
+        <!-- grid -->
+        <g stroke="rgba(255,255,255,0.022)" stroke-width="0.5">
+          <line x1="0" y1="125" x2="900" y2="125"/><line x1="0" y1="250" x2="900" y2="250"/>
+          <line x1="0" y1="375" x2="900" y2="375"/><line x1="225" y1="0" x2="225" y2="500"/>
+          <line x1="450" y1="0" x2="450" y2="500"/><line x1="675" y1="0" x2="675" y2="500"/>
+        </g>
+
+        <!-- LANDMASSES -->
+        <!-- Europe -->
+        <polygon points="310,15 420,12 475,28 492,52 498,82 478,102 455,94 435,98 412,88 390,92 368,82 345,78 320,82 298,70 285,48 308,30" fill="rgba(255,255,255,0.052)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+        <!-- Scandinavia -->
+        <polygon points="358,8 382,6 396,18 386,34 368,30 352,20" fill="rgba(255,255,255,0.038)" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+        <!-- UK/Ireland -->
+        <polygon points="296,36 312,34 316,52 302,56 294,48" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+        <!-- Iberia -->
+        <polygon points="285,86 315,82 328,98 322,115 304,118 285,108" fill="rgba(255,255,255,0.038)" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+        <!-- Middle East / Anatolia -->
+        <polygon points="478,96 535,86 584,92 626,88 665,98 672,118 652,134 618,130 586,140 555,136 528,140 498,130 478,118" fill="rgba(255,255,255,0.052)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+        <!-- Arabian Peninsula -->
+        <polygon points="542,140 582,134 634,144 652,170 642,200 612,215 580,210 554,196 538,170 533,154" fill="rgba(255,255,255,0.038)" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+        <!-- Iran / Central Asia -->
+        <polygon points="598,52 684,48 745,58 762,78 742,100 702,106 662,100 620,90 598,74" fill="rgba(255,255,255,0.052)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+        <!-- Russia partial -->
+        <polygon points="448,8 602,4 762,8 802,28 782,52 745,58 684,48 598,52 548,44 488,44 448,32" fill="rgba(255,255,255,0.032)" stroke="rgba(255,255,255,0.07)" stroke-width="0.6"/>
+        <!-- Africa -->
+        <polygon points="338,158 402,148 442,152 472,172 482,218 472,278 462,330 450,378 438,420 418,450 398,460 368,456 344,440 324,400 312,358 308,310 306,262 312,218 318,178" fill="rgba(255,255,255,0.052)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+        <!-- India -->
+        <polygon points="642,114 682,106 714,118 722,154 712,186 692,200 664,196 644,175 635,150 636,128" fill="rgba(255,255,255,0.042)" stroke="rgba(255,255,255,0.09)" stroke-width="0.7"/>
+        <!-- China -->
+        <polygon points="722,52 802,48 862,58 878,82 862,108 822,118 782,114 742,106 718,98 712,78" fill="rgba(255,255,255,0.048)" stroke="rgba(255,255,255,0.10)" stroke-width="0.7"/>
+        <!-- South America -->
+        <polygon points="128,168 175,158 212,162 232,192 226,238 216,288 202,338 182,368 156,380 130,370 108,340 104,294 106,244 114,198" fill="rgba(255,255,255,0.042)" stroke="rgba(255,255,255,0.09)" stroke-width="0.7"/>
+        <!-- North America -->
+        <polygon points="18,48 118,38 176,52 186,82 166,108 128,118 88,114 48,108 18,92 8,68" fill="rgba(255,255,255,0.038)" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"/>
+
+        <!-- CORRIDORS — animated dashed routes -->
+        <!-- Africa copperbelt internal -->
+        <path d="M398,312 Q392,288 396,258 Q400,238 410,218 Q420,200 430,182 Q440,168 448,158" stroke="rgba(184,115,51,0.5)" stroke-width="1.2" fill="none" stroke-dasharray="5 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <!-- Africa to port Dar es Salaam -->
+        <path d="M448,158 Q456,148 468,138 Q482,128 496,120 Q510,112 522,106" stroke="rgba(184,115,51,0.35)" stroke-width="1" fill="none" stroke-dasharray="4 5">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="4s" repeatCount="indefinite"/>
+        </path>
+        <!-- Kazakhstan to Turkey -->
+        <path d="M683,70 Q660,78 638,86 Q616,94 596,100 Q576,106 556,110 Q536,114 516,110 Q496,106 490,100" stroke="rgba(29,158,117,0.5)" stroke-width="1.2" fill="none" stroke-dasharray="5 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="3.5s" repeatCount="indefinite"/>
+        </path>
+        <!-- Turkey to Europe -->
+        <path d="M490,100 Q476,90 462,82 Q448,74 434,68 Q420,62 406,58" stroke="rgba(29,158,117,0.4)" stroke-width="1" fill="none" stroke-dasharray="4 5">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <!-- Iran to Turkey -->
+        <path d="M592,106 Q572,102 552,100 Q532,98 512,100 Q500,102 490,100" stroke="rgba(176,138,73,0.45)" stroke-width="1" fill="none" stroke-dasharray="4 5">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="4.5s" repeatCount="indefinite"/>
+        </path>
+        <!-- Poland northward -->
+        <path d="M406,58 Q400,46 396,36" stroke="rgba(29,158,117,0.3)" stroke-width="0.9" fill="none" stroke-dasharray="4 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-80" dur="3.2s" repeatCount="indefinite"/>
+        </path>
+        <!-- Zambia to Durban -->
+        <path d="M418,328 Q424,356 422,384 Q420,406 418,422" stroke="rgba(184,115,51,0.3)" stroke-width="0.9" fill="none" stroke-dasharray="4 5">
+          <animate attributeName="stroke-dashoffset" from="0" to="-90" dur="4.2s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- AFRICA MINES -->
+        <!-- Tenke Fungurume DRC -->
+        <g class="mine-node" data-name="Tenke Fungurume" data-country="DRC" data-type="mine" data-output="290,000 t/y Cu" data-operator="CMOC International" data-grade="Cu cathode LME A, concentrate" data-corridor="Africa" style="cursor:pointer">
+          <circle cx="398" cy="312" r="11" fill="rgba(184,115,51,0.14)" stroke="rgba(184,115,51,0.5)" stroke-width="0.8"/>
+          <circle cx="398" cy="312" r="5.5" fill="#b87333" filter="url(#glow)">
+            <animate attributeName="r" values="5.5;7.5;5.5" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.72;1" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Kamoto KCC DRC -->
+        <g class="mine-node" data-name="Kamoto (KCC)" data-country="DRC" data-type="mine" data-output="160,000 t/y Cu" data-operator="Glencore" data-grade="Cu cathode LME Grade A" data-corridor="Africa" style="cursor:pointer">
+          <circle cx="385" cy="305" r="8.5" fill="rgba(184,115,51,0.11)" stroke="rgba(184,115,51,0.42)" stroke-width="0.7"/>
+          <circle cx="385" cy="305" r="4.2" fill="#c8793a">
+            <animate attributeName="r" values="4.2;6;4.2" dur="3s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Mutanda DRC -->
+        <g class="mine-node" data-name="Mutanda (Mumi)" data-country="DRC" data-type="mine" data-output="130,000 t/y Cu" data-operator="Glencore" data-grade="Cu cathode, cobalt hydroxide by-product" data-corridor="Africa" style="cursor:pointer">
+          <circle cx="392" cy="320" r="8" fill="rgba(184,115,51,0.10)" stroke="rgba(184,115,51,0.38)" stroke-width="0.7"/>
+          <circle cx="392" cy="320" r="4" fill="#c8793a">
+            <animate attributeName="r" values="4;5.8;4" dur="3.3s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Nkana Zambia -->
+        <g class="mine-node" data-name="Nkana Smelter — Kitwe" data-country="Zambia" data-type="smelter" data-output="Cu blister 98.5% / cathode 99.9%" data-operator="Mopani Copper Mines (ZCCM-IH)" data-grade="Blister 98.5%, cathode 99.9%" data-corridor="Africa" style="cursor:pointer">
+          <circle cx="418" cy="328" r="9" fill="rgba(184,115,51,0.11)" stroke="rgba(184,115,51,0.45)" stroke-width="0.7"/>
+          <circle cx="418" cy="328" r="4.5" fill="#d4956a">
+            <animate attributeName="r" values="4.5;6.5;4.5" dur="2.8s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Sentinel Zambia -->
+        <g class="mine-node" data-name="Sentinel Mine — Kalumbila" data-country="Zambia" data-type="mine" data-output="270,000 t/y Cu concentrate" data-operator="First Quantum Minerals" data-grade="Cu concentrate 28–32% grade" data-corridor="Africa" style="cursor:pointer">
+          <circle cx="408" cy="337" r="8" fill="rgba(184,115,51,0.10)" stroke="rgba(184,115,51,0.38)" stroke-width="0.6"/>
+          <circle cx="408" cy="337" r="4" fill="#d4956a">
+            <animate attributeName="r" values="4;5.8;4" dur="3.1s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <text x="352" y="352" font-size="8" fill="rgba(184,115,51,0.5)" letter-spacing="1.2" font-weight="700" font-family="-apple-system,sans-serif">DRC–ZAMBIA COPPERBELT</text>
+
+        <!-- KAZAKHSTAN -->
+        <!-- Bozshakol -->
+        <g class="mine-node" data-name="Bozshakol Mine" data-country="Kazakhstan" data-type="mine" data-output="100,000 t/y Cu" data-operator="KAZ Minerals (KMG)" data-grade="Cu concentrate, cathode 99.9%" data-corridor="Eurasia" style="cursor:pointer">
+          <circle cx="683" cy="70" r="10.5" fill="rgba(29,158,117,0.14)" stroke="rgba(29,158,117,0.50)" stroke-width="0.8"/>
+          <circle cx="683" cy="70" r="5.5" fill="#1D9E75" filter="url(#glow)">
+            <animate attributeName="r" values="5.5;7.5;5.5" dur="2.7s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Aktogay -->
+        <g class="mine-node" data-name="Aktogay Mine" data-country="Kazakhstan" data-type="mine" data-output="120,000 t/y Cu" data-operator="KAZ Minerals" data-grade="Cu concentrate, cathode" data-corridor="Eurasia" style="cursor:pointer">
+          <circle cx="704" cy="80" r="8.5" fill="rgba(29,158,117,0.11)" stroke="rgba(29,158,117,0.40)" stroke-width="0.7"/>
+          <circle cx="704" cy="80" r="4.2" fill="#25b588">
+            <animate attributeName="r" values="4.2;6;4.2" dur="3.1s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Jezkazgan smelter -->
+        <g class="mine-node" data-name="Jezkazgan Smelter" data-country="Kazakhstan" data-type="smelter" data-output="Cu rod &amp; cathode export" data-operator="Kazakhmys / KMG" data-grade="99.99% cathode, Cu-ETP rod" data-corridor="Eurasia" style="cursor:pointer">
+          <circle cx="656" cy="76" r="8.5" fill="rgba(29,158,117,0.11)" stroke="rgba(29,158,117,0.40)" stroke-width="0.7"/>
+          <circle cx="656" cy="76" r="4.2" fill="#25b588">
+            <animate attributeName="r" values="4.2;5.8;4.2" dur="2.9s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <text x="638" y="58" font-size="8" fill="rgba(29,158,117,0.5)" letter-spacing="1.2" font-weight="700" font-family="-apple-system,sans-serif">KAZAKHSTAN</text>
+
+        <!-- IRAN -->
+        <!-- Sarcheshmeh -->
+        <g class="mine-node" data-name="Sarcheshmeh Mine &amp; Smelter" data-country="Iran" data-type="mine" data-output="200,000 t/y Cu" data-operator="NICICO" data-grade="Cu cathode 99.9%, concentrate" data-corridor="Middle East" style="cursor:pointer">
+          <circle cx="592" cy="106" r="10.5" fill="rgba(176,138,73,0.14)" stroke="rgba(176,138,73,0.50)" stroke-width="0.8"/>
+          <circle cx="592" cy="106" r="5.5" fill="#B08A49" filter="url(#glow)">
+            <animate attributeName="r" values="5.5;7.5;5.5" dur="2.6s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <!-- Sungun -->
+        <g class="mine-node" data-name="Sungun Mine" data-country="Iran" data-type="mine" data-output="80,000 t/y Cu" data-operator="NISCO / NICICO" data-grade="Cu concentrate 24–28%" data-corridor="Middle East" style="cursor:pointer">
+          <circle cx="570" cy="98" r="8" fill="rgba(176,138,73,0.11)" stroke="rgba(176,138,73,0.38)" stroke-width="0.6"/>
+          <circle cx="570" cy="98" r="4" fill="#c8973a">
+            <animate attributeName="r" values="4;5.6;4" dur="3.4s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <text x="552" y="88" font-size="8" fill="rgba(176,138,73,0.5)" letter-spacing="1.2" font-weight="700" font-family="-apple-system,sans-serif">IRAN</text>
+
+        <!-- GATEWAYS / REFINERIES -->
+        <!-- Turkey — Eti Bakir -->
+        <g class="mine-node" data-name="Murgul / Küre Smelter" data-country="Turkey" data-type="refinery" data-output="Cu rod, wire rod export EU" data-operator="Eti Bakır A.Ş." data-grade="Cu-ETP rod 99.9%" data-corridor="Gateway" style="cursor:pointer">
+          <circle cx="490" cy="100" r="9" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.28)" stroke-width="0.9"/>
+          <circle cx="490" cy="100" r="4.5" fill="rgba(255,255,255,0.62)"/>
+        </g>
+        <text x="497" y="96" font-size="7.5" fill="rgba(255,255,255,0.42)" letter-spacing=".8" font-family="-apple-system,sans-serif">TURKEY</text>
+        <!-- Poland — KGHM -->
+        <g class="mine-node" data-name="KGHM Głogów Smelter" data-country="Poland" data-type="refinery" data-output="500,000 t/y — largest EU refiner" data-operator="KGHM Polska Miedź" data-grade="99.99% cathode, Cu-ETP rod 8mm" data-corridor="Eastern Europe" style="cursor:pointer">
+          <circle cx="406" cy="56" r="10" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.30)" stroke-width="0.9"/>
+          <circle cx="406" cy="56" r="5" fill="rgba(255,255,255,0.70)">
+            <animate attributeName="opacity" values="1;0.58;1" dur="3s" repeatCount="indefinite"/>
+          </circle>
+        </g>
+        <text x="418" y="52" font-size="7.5" fill="rgba(255,255,255,0.48)" letter-spacing=".8" font-family="-apple-system,sans-serif">KGHM / POLAND</text>
+        <!-- Dar es Salaam port -->
+        <g class="mine-node" data-name="Port of Dar es Salaam" data-country="Tanzania" data-type="port" data-output="Primary export hub — DRC &amp; Zambia copper" data-operator="Tanzania Ports Authority" data-grade="Bulk / container forwarding" data-corridor="Africa" style="cursor:pointer">
+          <rect x="516" y="154" width="13" height="10" rx="2.5" fill="rgba(184,115,51,0.22)" stroke="rgba(184,115,51,0.55)" stroke-width="0.7"/>
+          <circle cx="522" cy="159" r="2.5" fill="#b87333"/>
+        </g>
+        <text x="532" y="162" font-size="7.5" fill="rgba(184,115,51,0.52)" letter-spacing=".8" font-family="-apple-system,sans-serif">Dar es Salaam</text>
+        <!-- Durban -->
+        <g class="mine-node" data-name="Port of Durban" data-country="South Africa" data-type="port" data-output="Alternative gateway — Southern Africa" data-operator="Transnet National Ports Authority" data-grade="Bulk / container export" data-corridor="Africa" style="cursor:pointer">
+          <rect x="412" y="420" width="13" height="10" rx="2.5" fill="rgba(184,115,51,0.18)" stroke="rgba(184,115,51,0.42)" stroke-width="0.7"/>
+          <circle cx="418" cy="425" r="2.5" fill="rgba(184,115,51,0.75)"/>
+        </g>
+        <text x="428" y="428" font-size="7.5" fill="rgba(184,115,51,0.48)" letter-spacing=".8" font-family="-apple-system,sans-serif">Durban</text>
+
+        <!-- LEGEND -->
+        <g transform="translate(16,450)">
+          <circle cx="7" cy="7" r="5.5" fill="#b87333"/>
+          <text x="18" y="11" font-size="9" fill="rgba(255,255,255,0.48)" font-family="-apple-system,sans-serif">Africa copperbelt</text>
+          <circle cx="128" cy="7" r="5.5" fill="#1D9E75"/>
+          <text x="139" y="11" font-size="9" fill="rgba(255,255,255,0.48)" font-family="-apple-system,sans-serif">Kazakhstan / Eurasia</text>
+          <circle cx="262" cy="7" r="5.5" fill="#B08A49"/>
+          <text x="273" y="11" font-size="9" fill="rgba(255,255,255,0.48)" font-family="-apple-system,sans-serif">Middle East (Iran)</text>
+          <circle cx="382" cy="7" r="5.5" fill="rgba(255,255,255,0.62)"/>
+          <text x="393" y="11" font-size="9" fill="rgba(255,255,255,0.48)" font-family="-apple-system,sans-serif">Refinery / gateway</text>
+          <rect x="502" y="3" width="10" height="8" rx="2" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/>
+          <text x="516" y="11" font-size="9" fill="rgba(255,255,255,0.48)" font-family="-apple-system,sans-serif">Port / export hub</text>
+        </g>
+        <text x="885" y="492" font-size="7.5" fill="rgba(255,255,255,0.16)" text-anchor="end" font-family="-apple-system,sans-serif">AYYS indicative network — hover for detail</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- COPPER SCRAP -->
+<section class="sec dark reveal" id="scrap">
+  <div class="sec-inner">
+    <div class="eyebrow" style="color:rgba(184,115,51,0.8)">Copper scrap &middot; secondary grades</div>
+    <h2 class="stitle light">Certified scrap sourcing — grades 94 to 99%</h2>
+    <p class="ssub light">AYYS sources certified copper scrap across ISRI-graded categories from collection networks in Eastern Europe, Turkey and the Levant. All lots undergo independent pre-shipment assay. Pricing on LME discount basis or fixed spread per agreed grade. Minimum lot 20 mt.</p>
+    <div class="scrap-grid">
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">ISRI &mdash; Birch / Cliff</div>
+        <div class="scrap-name">Bare bright copper wire</div>
+        <div class="scrap-specs">Uncoated, unalloyed solid copper wire. No solder, paint, insulation or tinning. Minimum gauge 16 AWG. No hair wire, burnt wire or copper-clad.</div>
+        <div class="scrap-purity">Cu &ge; 99.0%</div>
+      </div>
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">ISRI &mdash; Berry</div>
+        <div class="scrap-name">Copper clippings &amp; punchings</div>
+        <div class="scrap-specs">Clean copper clippings, punchings and bus bar from electrical manufacturing. Free of oil, grease, solder and excessive oxidation. Baled or loose.</div>
+        <div class="scrap-purity">Cu &ge; 98.0%</div>
+      </div>
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">ISRI &mdash; Candy</div>
+        <div class="scrap-name">Mixed unalloyed copper scrap</div>
+        <div class="scrap-specs">Miscellaneous copper scrap including pipe, tubing, bus bar, commutator segments. Free from excessive iron, lead or other base metals. Unalloyed.</div>
+        <div class="scrap-purity">Cu &ge; 96.0%</div>
+      </div>
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">ISRI &mdash; Clove</div>
+        <div class="scrap-name">Light copper &mdash; alloyed</div>
+        <div class="scrap-specs">Miscellaneous low-grade copper including alloyed items. Copper tubing with fittings, coils with small amounts of solder or brass content. Assay required.</div>
+        <div class="scrap-purity">Cu &ge; 94.0%</div>
+      </div>
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">ISRI &mdash; Druid</div>
+        <div class="scrap-name">Copper wire nodules &mdash; granulated</div>
+        <div class="scrap-specs">Copper wire nodules from granulation of insulated copper wire. Clean copper granules, free of ferrous metals. Density &ge; 7.8 g/cm&sup3;. Assay mandatory.</div>
+        <div class="scrap-purity">Cu &ge; 97.5%</div>
+      </div>
+      <div class="scrap-card reveal">
+        <div class="scrap-isri">Heavy melt &mdash; machined</div>
+        <div class="scrap-name">Copper turnings &amp; borings</div>
+        <div class="scrap-specs">Copper and copper alloy turnings, borings and milling swarf from machining. Dry, oil-free, clean. Assay-based pricing; umpire clause applies to all lots.</div>
+        <div class="scrap-purity">Cu 94–98% assay</div>
+      </div>
+    </div>
+    <div style="margin-top:22px;padding:18px 22px;background:rgba(184,115,51,0.08);border:0.5px solid rgba(184,115,51,0.22);border-radius:10px;font-size:12px;color:rgba(255,255,255,.48);line-height:1.78">
+      <strong style="color:rgba(184,115,51,0.82);display:block;margin-bottom:5px">Assay &amp; pricing basis — all scrap grades</strong>
+      Independent pre-shipment assay by SGS / Intertek / Bureau Veritas. Pricing = LME Cash settlement minus agreed discount per ISRI grade. Payment: confirmed irrevocable L/C at sight or TT against original shipping documents. Minimum lot: 20 metric tonnes. Origin documentation, chain-of-title and CITES/non-CITES declaration required for all shipments. KYC and AML checks completed before issuance of any purchase confirmation.
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="sec white reveal" id="compliance">
+  <div class="sec-inner">
+    <div class="eyebrow green">Compliance framework</div>
+    <h2 class="stitle">Every copper transaction — KYC &middot; AML &middot; sanctions screened</h2>
+    <p class="ssub">AYYS integrates compliance at the transaction level. Onboarding, counterparty screening and trade documentation meet OECD Due Diligence Guidance for Responsible Supply Chains and EU CBAM requirements where applicable.</p>
+    <div class="compliance-strip">
+      <div class="comp-item reveal">
+        <div class="comp-badge">KYC / AML</div>
+        <div class="comp-desc">Full beneficial ownership verification. UBO chain documented to natural person level. Enhanced DD for high-risk jurisdictions including DRC and Iran.</div>
+      </div>
+      <div class="comp-item reveal">
+        <div class="comp-badge">Sanctions</div>
+        <div class="comp-desc">OFAC, EU, UN and UK sanctions screening on all counterparties, vessels, flags, ports and transit corridors prior to any commitment or instruction.</div>
+      </div>
+      <div class="comp-item reveal">
+        <div class="comp-badge">OECD DD</div>
+        <div class="comp-desc">Conflict minerals due diligence aligned with OECD 5-step framework. Origin documentation and chain-of-custody mandatory for all DRC and Zambia copper flows.</div>
+      </div>
+      <div class="comp-item reveal">
+        <div class="comp-badge">EU CBAM</div>
+        <div class="comp-desc">Carbon Border Adjustment Mechanism reporting support for copper cathode and rod imports into the EU. Embedded CO&#8322; intensity data available on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTELLIGENCE -->
+<section class="sec cream reveal" id="intel-copper">
+  <div class="sec-inner">
+    <div class="eyebrow">AYYS Signal &mdash; Copper</div>
+    <h2 class="stitle">Live intelligence signals</h2>
+    <p class="ssub">Market briefs updated by the AYYS trading desk. Contact us for full platform access.</p>
+    <div class="intel-grid">
+      <div class="intel-card reveal">
+        <div class="intel-tag h">High &mdash; Supply disruption</div>
+        <div class="intel-title">DRC logistics constrained &mdash; Lobito corridor rail bottleneck</div>
+        <div class="intel-body">Copper cathode shipments from Kolwezi experiencing 3–5 week delays due to capacity constraints on the Lobito Atlantic Railway. Dar es Salaam partially absorbing volume at elevated freight cost. Affects CIF European price basis by est. +$28/t.</div>
+        <div class="intel-date">May 2026</div>
+      </div>
+      <div class="intel-card reveal">
+        <div class="intel-tag m">Medium &mdash; Price driver</div>
+        <div class="intel-title">LME on-warrant inventory near 10-year low &mdash; backwardation at $180/t</div>
+        <div class="intel-body">LME on-warrant copper stocks at 142,600 mt, lowest since Q3 2014. Cash–3M backwardation reflects genuine prompt tightness compounded by slow Chinese smelter restarts post-maintenance season. AYYS prompt availability limited to confirmed allotments.</div>
+        <div class="intel-date">May 2026</div>
+      </div>
+      <div class="intel-card reveal">
+        <div class="intel-tag l">Monitoring &mdash; Policy</div>
+        <div class="intel-title">Kazakhstan–Turkey transit &mdash; customs normalisation underway</div>
+        <div class="intel-body">Following Q1 2026 friction on KAZ Minerals Cu-ETP rod transiting Türkiye, customs procedures normalising. AYYS has re-established routing for Jezkazgan-origin rod with 10–12 day transit to CIF European ports. Contingency routing via Caspian–Baku–Poti remains available.</div>
+        <div class="intel-date">April 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="ctaband">
+  <div class="cta-eyebrow">Copper &mdash; structured execution</div>
+  <h2 class="cta-title">Request a sourcing mandate</h2>
+  <p class="cta-sub">Specify form, grade, volume, Incoterm and preferred pricing basis. The AYYS trading desk responds within 24 hours with an indicative term sheet.</p>
+  <div class="cta-btns">
+    <a class="btn-cu" href="index.html#contact" style="font-size:14px;padding:14px 28px">Request copper mandate &rarr;</a>
+    <a class="btn-outline" href="index.html#contact" style="color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.14);font-size:14px;padding:14px 28px">Download spec sheet</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="flogo">AYY<span>S</span></div>
+      <div class="ftag">Strategic metal sourcing, contract structuring,<br>logistics and settlement support.<br><br>AYYS Commodities &middot; 3 place Jussieu, 75005 Paris, France<br>SIRET 102 790 375 00012<br>KYC / AML / sanctions controls apply to all transactions.</div>
+    </div>
+    <div class="flinks">
+      <div class="flinks-title">Markets</div>
+      <a href="copper.html">Copper</a>
+      <a href="index.html#metals">Cobalt</a>
+      <a href="index.html#metals">Lithium</a>
+      <a href="index.html#metals">Nickel</a>
+      <a href="index.html#metals">Rare Earths</a>
+      <a href="index.html#metals">Precious Metals</a>
+    </div>
+    <div class="flinks">
+      <div class="flinks-title">Company</div>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#intel">Intelligence</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Compliance</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="fcopy">&copy; 2026 AYYS Commodities. Indicative information only. Not an offer to buy or sell.</div>
+    <div class="flegal">
+      <a href="index.html#about">Legal notice</a>
+      <a href="mailto:contact@ayys-group.fr">Privacy</a>
+      <a href="mailto:contact@ayys-group.fr">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const p=document.documentElement;
+  const pct=(p.scrollTop/(p.scrollHeight-p.clientHeight))*100;
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('nav').classList.toggle('scrolled',p.scrollTop>40);
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed')});
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Mine tooltip
+const tip=document.getElementById('mine-tip');
+const mapEl=document.querySelector('.map-wrap');
+document.querySelectorAll('.mine-node').forEach(node=>{
+  node.addEventListener('mouseenter',()=>{
+    const d=node.dataset;
+    const typeMap={mine:'&#9935; Mine',smelter:'&#127981; Smelter / Refinery',refinery:'&#127981; Refinery',port:'&#9875; Export hub'};
+    tip.innerHTML='<strong>'+d.name+'</strong><div class="tip-meta">'+d.country+' &middot; '+(typeMap[d.type]||d.type)+'<br>Output: '+d.output+'<br>Operator: '+d.operator+'</div><div class="tip-grade">'+d.grade+'</div>';
+    tip.style.opacity='1';
+  });
+  node.addEventListener('mousemove',e=>{
+    const r=mapEl.getBoundingClientRect();
+    let x=e.clientX-r.left+16,y=e.clientY-r.top-12;
+    if(x+248>r.width)x=e.clientX-r.left-264;
+    if(y<0)y=4;
+    tip.style.left=x+'px';tip.style.top=y+'px';
+  });
+  node.addEventListener('mouseleave',()=>{tip.style.opacity='0';});
+});
+
+// LME price animation (placeholder — replace with LMElive embed script)
+(function(){
+  const prices=[9847,9862,9839,9878,9851,9895,9842,9881,9858,9872];
+  let i=0;
+  function fmt(n){return n.toLocaleString('en-US')}
+  function tick(){
+    i=(i+1)%prices.length;
+    const v=prices[i];
+    const base=9663;
+    const chg=v-base;
+    document.getElementById('lme-price').textContent=fmt(v);
+    const el=document.getElementById('lme-chg');
+    el.textContent=(chg>=0?'&#9650; +':'&#9660; ')+fmt(Math.abs(chg));
+    el.className='lme-chg-val '+(chg>=0?'up':'dn');
+    document.getElementById('lme-3m').textContent=fmt(v+46);
+  }
+  setInterval(tick,5000);
+})();
+</script>
+</body>
+</html>
