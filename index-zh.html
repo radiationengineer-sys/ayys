@@ -779,12 +779,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Markets submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#metals" role="menuitem">铜</a>
-            <a class="nd-item" href="#metals" role="menuitem">钴</a>
-            <a class="nd-item" href="#metals" role="menuitem">锂</a>
-            <a class="nd-item" href="#metals" role="menuitem">镍</a>
-            <a class="nd-item" href="#metals" role="menuitem">稀土</a>
-            <a class="nd-item" href="#metals" role="menuitem">贵金属</a>
+            <a class="nd-item" href="copper-zh.html" role="menuitem">铜</a>
+            <a class="nd-item" href="cobalt-zh.html" role="menuitem">钴</a>
+            <a class="nd-item" href="lithium-zh.html" role="menuitem">锂</a>
+            <a class="nd-item" href="nickel-zh.html" role="menuitem">镍</a>
+            <a class="nd-item" href="rare-earths-zh.html" role="menuitem">稀土</a>
+            <a class="nd-item" href="precious-metals-zh.html" role="menuitem">贵金属</a>
           </div>
         </div>
       </div>
@@ -795,10 +795,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Services submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#services" role="menuitem">采购与贸易</a>
-            <a class="nd-item" href="#services" role="menuitem">贸易融资</a>
-            <a class="nd-item" href="#services" role="menuitem">物流与运输</a>
-            <a class="nd-item" href="#services" role="menuitem">咨询与情报</a>
+            <a class="nd-item" href="services-zh.html#sourcing" role="menuitem">采购与贸易</a>
+            <a class="nd-item" href="services-zh.html#finance" role="menuitem">贸易融资</a>
+            <a class="nd-item" href="services-zh.html#logistics" role="menuitem">物流与运输</a>
+            <a class="nd-item" href="services-zh.html#advisory" role="menuitem">咨询与情报</a>
           </div>
         </div>
       </div>
@@ -809,10 +809,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#intel" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="#intel" role="menuitem">市场简报</a>
-            <a class="nd-item" href="#intel" role="menuitem">地缘政治</a>
-            <a class="nd-item" href="#intel" role="menuitem">供应链分析</a>
+            <a class="nd-item" href="intelligence-zh.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence-zh.html#briefs" role="menuitem">市场简报</a>
+            <a class="nd-item" href="intelligence-zh.html#geopolitics" role="menuitem">地缘政治</a>
+            <a class="nd-item" href="intelligence-zh.html#supply-chain" role="menuitem">供应链分析</a>
           </div>
         </div>
       </div>
@@ -882,9 +882,9 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     <a href="#metals" onclick="closeMenu()">市场</a>
     <a href="#services" onclick="closeMenu()">服务</a>
     <a href="#intel" onclick="closeMenu()">情报</a>
-    <a href="#about" onclick="closeMenu()">关于我们</a>
-    <a href="#contact" onclick="closeMenu()">合规</a>
-    <a href="#contact" onclick="closeMenu()">联系我们</a>
+    <a href="about-zh.html" href="about-zh.html" onclick="closeMenu()">关于我们</a>
+    <a href="#contact" href="compliance-zh.html" onclick="closeMenu()">合规</a>
+    <a href="contact-zh.html" href="contact-zh.html" onclick="closeMenu()">联系我们</a>
     <div class="mobile-menu-bottom">
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
@@ -1984,9 +1984,9 @@ requestAnimationFrame(animate);
       <a href="#metals">市场</a>
       <a href="#services">服务</a>
       <a href="#intel">情报</a>
-      <a href="#about">关于我们</a>
-      <a href="#contact">合规</a>
-      <a href="#contact">联系我们</a>
+      <a href="about-zh.html">关于我们</a>
+      <a href="compliance-zh.html">合规</a>
+      <a href="contact-zh.html">联系我们</a>
       <a href="sitemap.xml" rel="sitemap">网站地图</a>
     </div>
     <div class="fcerts">
@@ -2384,7 +2384,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  // Lang select handled by goLang() via onchange attribute
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){

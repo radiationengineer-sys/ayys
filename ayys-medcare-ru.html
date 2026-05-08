@@ -414,6 +414,14 @@
       <a href="#contact" id="nav-contact">Contact</a>
     </nav>
     <div class="nav-right">
+      <select class="lang-sel" id="lang-sel-ayys" aria-label="Language" onchange="goLang(this)" style="appearance:none;height:30px;padding:0 24px 0 10px;border-radius:4px;border:1px solid rgba(255,255,255,0.2);background:#0d1512;color:rgba(255,255,255,0.8);font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;">
+<option value="EN" data-href="ayys-medcare.html">EN</option>
+<option value="FR" data-href="ayys-medcare-fr.html">FR</option>
+<option value="RU" data-href="ayys-medcare-ru.html" selected>RU</option>
+<option value="AR" data-href="ayys-medcare-ar.html">AR</option>
+<option value="ZH" data-href="ayys-medcare-zh.html">ZH</option>
+</select>
+      
       <div class="lang-wrap">
         <select class="lang-sel" id="lang-sel" aria-label="Language" onchange="pickLang(this.value)">
           <option value="FR">FR</option>
@@ -1513,6 +1521,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (saved !== 'FR' && saved !== 'EN') saved = 'FR';
   applyLang(saved);
 });
+function goLang(sel){const o=sel.options[sel.selectedIndex];if(o&&o.dataset.href)window.location.href=o.dataset.href;}
 </script>
 </body>
 </html>

@@ -779,12 +779,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Markets submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#metals" role="menuitem">Cuivre</a>
-            <a class="nd-item" href="#metals" role="menuitem">Cobalt</a>
-            <a class="nd-item" href="#metals" role="menuitem">Lithium</a>
-            <a class="nd-item" href="#metals" role="menuitem">Nickel</a>
-            <a class="nd-item" href="#metals" role="menuitem">Terres Rares</a>
-            <a class="nd-item" href="#metals" role="menuitem">Métaux Précieux</a>
+            <a class="nd-item" href="copper-fr.html" role="menuitem">Cuivre</a>
+            <a class="nd-item" href="cobalt-fr.html" role="menuitem">Cobalt</a>
+            <a class="nd-item" href="lithium-fr.html" role="menuitem">Lithium</a>
+            <a class="nd-item" href="nickel-fr.html" role="menuitem">Nickel</a>
+            <a class="nd-item" href="rare-earths-fr.html" role="menuitem">Terres Rares</a>
+            <a class="nd-item" href="precious-metals-fr.html" role="menuitem">Métaux Précieux</a>
           </div>
         </div>
       </div>
@@ -796,10 +796,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Services submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#services" role="menuitem">Sourcing &amp; Trading</a>
-            <a class="nd-item" href="#services" role="menuitem">Financement du commerce</a>
-            <a class="nd-item" href="#services" role="menuitem">Logistique &amp; Transport</a>
-            <a class="nd-item" href="#services" role="menuitem">Conseil &amp; Intelligence</a>
+            <a class="nd-item" href="services-fr.html#sourcing" role="menuitem">Sourcing &amp; Trading</a>
+            <a class="nd-item" href="services-fr.html#finance" role="menuitem">Financement du commerce</a>
+            <a class="nd-item" href="services-fr.html#logistics" role="menuitem">Logistique &amp; Transport</a>
+            <a class="nd-item" href="services-fr.html#advisory" role="menuitem">Conseil &amp; Intelligence</a>
           </div>
         </div>
       </div>
@@ -810,10 +810,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#intel" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="#intel" role="menuitem">Bulletins de marché</a>
-            <a class="nd-item" href="#intel" role="menuitem">Géopolitique</a>
-            <a class="nd-item" href="#intel" role="menuitem">Analyse des chaînes d'approvisionnement</a>
+            <a class="nd-item" href="intelligence-fr.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence-fr.html#briefs" role="menuitem">Bulletins de marché</a>
+            <a class="nd-item" href="intelligence-fr.html#geopolitics" role="menuitem">Géopolitique</a>
+            <a class="nd-item" href="intelligence-fr.html#supply-chain" role="menuitem">Analyse des chaînes d'approvisionnement</a>
           </div>
         </div>
       </div>
@@ -883,9 +883,9 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     <a href="#metals" onclick="closeMenu()">Marchés</a>
     <a href="#services" onclick="closeMenu()">Services</a>
     <a href="#intel" onclick="closeMenu()">Intelligence</a>
-    <a href="#about" onclick="closeMenu()">À propos</a>
-    <a href="#contact" onclick="closeMenu()">Conformité</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="about-fr.html" href="about-fr.html" onclick="closeMenu()">À propos</a>
+    <a href="#contact" href="compliance-fr.html" onclick="closeMenu()">Conformité</a>
+    <a href="contact-fr.html" href="contact-fr.html" onclick="closeMenu()">Contact</a>
     <div class="mobile-menu-bottom">
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
@@ -1985,9 +1985,9 @@ requestAnimationFrame(animate);
       <a href="#metals">Marchés</a>
       <a href="#services">Services</a>
       <a href="#intel">Veille stratégique</a>
-      <a href="#about">À propos</a>
-      <a href="#contact">Conformité</a>
-      <a href="#contact">Contact</a>
+      <a href="about-fr.html">À propos</a>
+      <a href="compliance-fr.html">Conformité</a>
+      <a href="contact-fr.html">Contact</a>
       <a href="sitemap-fr.html">Plan du site</a>
     </div>
     <div class="fcerts">
@@ -2385,7 +2385,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  // Lang select handled by goLang() via onchange attribute
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){

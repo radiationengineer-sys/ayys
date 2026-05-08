@@ -774,12 +774,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Markets submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#metals" role="menuitem">Copper</a>
-            <a class="nd-item" href="#metals" role="menuitem">Cobalt</a>
-            <a class="nd-item" href="#metals" role="menuitem">Lithium</a>
-            <a class="nd-item" href="#metals" role="menuitem">Nickel</a>
-            <a class="nd-item" href="#metals" role="menuitem">Rare Earths</a>
-            <a class="nd-item" href="#metals" role="menuitem">Precious Metals</a>
+            <a class="nd-item" href="copper.html" role="menuitem">Copper</a>
+            <a class="nd-item" href="cobalt.html" role="menuitem">Cobalt</a>
+            <a class="nd-item" href="lithium.html" role="menuitem">Lithium</a>
+            <a class="nd-item" href="nickel.html" role="menuitem">Nickel</a>
+            <a class="nd-item" href="rare-earths.html" role="menuitem">Rare Earths</a>
+            <a class="nd-item" href="precious-metals.html" role="menuitem">Precious Metals</a>
           </div>
         </div>
       </div>
@@ -791,10 +791,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Services submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#services" role="menuitem">Sourcing &amp; Trading</a>
-            <a class="nd-item" href="#services" role="menuitem">Trade Finance</a>
-            <a class="nd-item" href="#services" role="menuitem">Logistics &amp; Shipping</a>
-            <a class="nd-item" href="#services" role="menuitem">Advisory &amp; Intelligence</a>
+            <a class="nd-item" href="services.html#sourcing" role="menuitem">Sourcing &amp; Trading</a>
+            <a class="nd-item" href="services.html#finance" role="menuitem">Trade Finance</a>
+            <a class="nd-item" href="services.html#logistics" role="menuitem">Logistics &amp; Shipping</a>
+            <a class="nd-item" href="services.html#advisory" role="menuitem">Advisory &amp; Intelligence</a>
           </div>
         </div>
       </div>
@@ -806,10 +806,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#intel" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="#intel" role="menuitem">Market Briefs</a>
-            <a class="nd-item" href="#intel" role="menuitem">Geopolitics</a>
-            <a class="nd-item" href="#intel" role="menuitem">Supply Chain Analysis</a>
+            <a class="nd-item" href="intelligence.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence.html#briefs" role="menuitem">Market Briefs</a>
+            <a class="nd-item" href="intelligence.html#geopolitics" role="menuitem">Geopolitics</a>
+            <a class="nd-item" href="intelligence.html#supply-chain" role="menuitem">Supply Chain Analysis</a>
           </div>
         </div>
       </div>
@@ -879,9 +879,9 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     <a href="#metals" onclick="closeMenu()">Markets</a>
     <a href="#services" onclick="closeMenu()">Services</a>
     <a href="#intel" onclick="closeMenu()">Intelligence</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#contact" onclick="closeMenu()">Compliance</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#about" href="about.html" href="about.html" onclick="closeMenu()">About</a>
+    <a href="#contact" href="compliance.html" onclick="closeMenu()">Compliance</a>
+    <a href="#contact" href="contact.html" onclick="closeMenu()">Contact</a>
     <div class="mobile-menu-bottom">
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
@@ -1981,9 +1981,9 @@ requestAnimationFrame(animate);
       <a href="#metals">Markets</a>
       <a href="#services">Services</a>
       <a href="#intel">Intelligence</a>
-      <a href="#about">About</a>
-      <a href="#contact">Compliance</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="contact.html">Contact</a>
       <a href="sitemap.xml" rel="sitemap">Sitemap</a>
     </div>
     <div class="fcerts">
@@ -2350,7 +2350,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  // Lang select handled by goLang() via onchange attribute
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){

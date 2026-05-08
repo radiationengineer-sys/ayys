@@ -779,12 +779,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Markets submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#metals" role="menuitem">النحاس</a>
-            <a class="nd-item" href="#metals" role="menuitem">الكوبالت</a>
-            <a class="nd-item" href="#metals" role="menuitem">الليثيوم</a>
-            <a class="nd-item" href="#metals" role="menuitem">النيكل</a>
-            <a class="nd-item" href="#metals" role="menuitem">الأتربة النادرة</a>
-            <a class="nd-item" href="#metals" role="menuitem">المعادن الثمينة</a>
+            <a class="nd-item" href="copper-ar.html" role="menuitem">النحاس</a>
+            <a class="nd-item" href="cobalt-ar.html" role="menuitem">الكوبالت</a>
+            <a class="nd-item" href="lithium-ar.html" role="menuitem">الليثيوم</a>
+            <a class="nd-item" href="nickel-ar.html" role="menuitem">النيكل</a>
+            <a class="nd-item" href="rare-earths-ar.html" role="menuitem">الأتربة النادرة</a>
+            <a class="nd-item" href="precious-metals-ar.html" role="menuitem">المعادن الثمينة</a>
           </div>
         </div>
       </div>
@@ -795,10 +795,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Services submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#services" role="menuitem">التوريد &amp; التداول</a>
-            <a class="nd-item" href="#services" role="menuitem">تمويل التجارة</a>
-            <a class="nd-item" href="#services" role="menuitem">اللوجستيات &amp; الشحن</a>
-            <a class="nd-item" href="#services" role="menuitem">الاستشارات &amp; المعلومات</a>
+            <a class="nd-item" href="services-ar.html#sourcing" role="menuitem">التوريد &amp; التداول</a>
+            <a class="nd-item" href="services-ar.html#finance" role="menuitem">تمويل التجارة</a>
+            <a class="nd-item" href="services-ar.html#logistics" role="menuitem">اللوجستيات &amp; الشحن</a>
+            <a class="nd-item" href="services-ar.html#advisory" role="menuitem">الاستشارات &amp; المعلومات</a>
           </div>
         </div>
       </div>
@@ -809,10 +809,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#intel" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="#intel" role="menuitem">نشرات السوق</a>
-            <a class="nd-item" href="#intel" role="menuitem">الجيوسياسة</a>
-            <a class="nd-item" href="#intel" role="menuitem">تحليل سلاسل التوريد</a>
+            <a class="nd-item" href="intelligence-ar.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence-ar.html#briefs" role="menuitem">نشرات السوق</a>
+            <a class="nd-item" href="intelligence-ar.html#geopolitics" role="menuitem">الجيوسياسة</a>
+            <a class="nd-item" href="intelligence-ar.html#supply-chain" role="menuitem">تحليل سلاسل التوريد</a>
           </div>
         </div>
       </div>
@@ -882,9 +882,9 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     <a href="#metals" onclick="closeMenu()">الأسواق</a>
     <a href="#services" onclick="closeMenu()">الخدمات</a>
     <a href="#intel" onclick="closeMenu()">الاستخبارات</a>
-    <a href="#about" onclick="closeMenu()">من نحن</a>
-    <a href="#contact" onclick="closeMenu()">الامتثال</a>
-    <a href="#contact" onclick="closeMenu()">تواصل</a>
+    <a href="about-ar.html" href="about-ar.html" onclick="closeMenu()">من نحن</a>
+    <a href="#contact" href="compliance-ar.html" onclick="closeMenu()">الامتثال</a>
+    <a href="contact-ar.html" href="contact-ar.html" onclick="closeMenu()">تواصل</a>
     <div class="mobile-menu-bottom">
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
@@ -1984,9 +1984,9 @@ requestAnimationFrame(animate);
       <a href="#metals">الأسواق</a>
       <a href="#services">الخدمات</a>
       <a href="#intel">الاستخبارات</a>
-      <a href="#about">من نحن</a>
-      <a href="#contact">الامتثال</a>
-      <a href="#contact">تواصل</a>
+      <a href="about-ar.html">من نحن</a>
+      <a href="compliance-ar.html">الامتثال</a>
+      <a href="contact-ar.html">تواصل</a>
       <a href="sitemap.xml" rel="sitemap">خريطة الموقع</a>
     </div>
     <div class="fcerts">
@@ -2384,7 +2384,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  // Lang select handled by goLang() via onchange attribute
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){

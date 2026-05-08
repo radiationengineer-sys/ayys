@@ -779,12 +779,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Markets submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#metals" role="menuitem">Медь</a>
-            <a class="nd-item" href="#metals" role="menuitem">Кобальт</a>
-            <a class="nd-item" href="#metals" role="menuitem">Литий</a>
-            <a class="nd-item" href="#metals" role="menuitem">Никель</a>
-            <a class="nd-item" href="#metals" role="menuitem">Редкоземельные</a>
-            <a class="nd-item" href="#metals" role="menuitem">Драгоценные металлы</a>
+            <a class="nd-item" href="copper-ru.html" role="menuitem">Медь</a>
+            <a class="nd-item" href="cobalt-ru.html" role="menuitem">Кобальт</a>
+            <a class="nd-item" href="lithium-ru.html" role="menuitem">Литий</a>
+            <a class="nd-item" href="nickel-ru.html" role="menuitem">Никель</a>
+            <a class="nd-item" href="rare-earths-ru.html" role="menuitem">Редкоземельные</a>
+            <a class="nd-item" href="precious-metals-ru.html" role="menuitem">Драгоценные металлы</a>
           </div>
         </div>
       </div>
@@ -795,10 +795,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Services submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#services" role="menuitem">Сорсинг &amp; торговля</a>
-            <a class="nd-item" href="#services" role="menuitem">Торговое финансирование</a>
-            <a class="nd-item" href="#services" role="menuitem">Логистика &amp; доставка</a>
-            <a class="nd-item" href="#services" role="menuitem">Консалтинг &amp; аналитика</a>
+            <a class="nd-item" href="services-ru.html#sourcing" role="menuitem">Сорсинг &amp; торговля</a>
+            <a class="nd-item" href="services-ru.html#finance" role="menuitem">Торговое финансирование</a>
+            <a class="nd-item" href="services-ru.html#logistics" role="menuitem">Логистика &amp; доставка</a>
+            <a class="nd-item" href="services-ru.html#advisory" role="menuitem">Консалтинг &amp; аналитика</a>
           </div>
         </div>
       </div>
@@ -809,10 +809,10 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </a>
         <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
           <div class="nav-drop-inner">
-            <a class="nd-item" href="#intel" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="#intel" role="menuitem">Рыночные обзоры</a>
-            <a class="nd-item" href="#intel" role="menuitem">Геополитика</a>
-            <a class="nd-item" href="#intel" role="menuitem">Анализ цепочек поставок</a>
+            <a class="nd-item" href="intelligence-ru.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence-ru.html#briefs" role="menuitem">Рыночные обзоры</a>
+            <a class="nd-item" href="intelligence-ru.html#geopolitics" role="menuitem">Геополитика</a>
+            <a class="nd-item" href="intelligence-ru.html#supply-chain" role="menuitem">Анализ цепочек поставок</a>
           </div>
         </div>
       </div>
@@ -882,9 +882,9 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
     <a href="#metals" onclick="closeMenu()">Рынки</a>
     <a href="#services" onclick="closeMenu()">Услуги</a>
     <a href="#intel" onclick="closeMenu()">Аналитика</a>
-    <a href="#about" onclick="closeMenu()">О нас</a>
-    <a href="#contact" onclick="closeMenu()">Комплаенс</a>
-    <a href="#contact" onclick="closeMenu()">Контакт</a>
+    <a href="about-ru.html" href="about-ru.html" onclick="closeMenu()">О нас</a>
+    <a href="#contact" href="compliance-ru.html" onclick="closeMenu()">Комплаенс</a>
+    <a href="contact-ru.html" href="contact-ru.html" onclick="closeMenu()">Контакт</a>
     <div class="mobile-menu-bottom">
       <a href="#contact" class="ncta" style="font-size:13px">
         <span class="cdot"></span>Request a sourcing mandate
@@ -1984,9 +1984,9 @@ requestAnimationFrame(animate);
       <a href="#metals">Рынки</a>
       <a href="#services">Услуги</a>
       <a href="#intel">Аналитика</a>
-      <a href="#about">О нас</a>
-      <a href="#about">Комплаенс</a>
-      <a href="#contact">Контакт</a>
+      <a href="about-ru.html">О нас</a>
+      <a href="compliance-ru.html">Комплаенс</a>
+      <a href="contact-ru.html">Контакт</a>
       <a href="sitemap-ru.html">Карта сайта</a>
     </div>
     <div class="fcerts">
@@ -2384,7 +2384,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  // Lang select handled by goLang() via onchange attribute
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){
