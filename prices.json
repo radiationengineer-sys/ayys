@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "source": "London Metal Exchange — lme.com",
+    "source_url": "https://www.lme.com/en/metals",
+    "updated": "2026-05-09T16:30:00Z",
+    "updated_readable": "09 May 2026, 16:30 London",
+    "next_update": "2026-05-12T16:30:00Z",
+    "currency": "USD",
+    "unit": "per metric tonne (USD/t) unless noted",
+    "note": "LME Official Settlement Prices — updated automatically each business day after 16:30 London time via GitHub Actions"
+  },
+  "metals": {
+    "copper": {
+      "name": "Copper",
+      "lme_code": "CA",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-copper",
+      "cash": 9241,
+      "three_month": 9278,
+      "settlement": 9252,
+      "change": -38,
+      "change_pct": -0.41,
+      "unit": "USD/t",
+      "grade": "Grade A Cathode (99.99%)"
+    },
+    "nickel": {
+      "name": "Nickel",
+      "lme_code": "NI",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-nickel",
+      "cash": 15820,
+      "three_month": 15910,
+      "settlement": 15865,
+      "change": 125,
+      "change_pct": 0.79,
+      "unit": "USD/t",
+      "grade": "Full plate, briquettes, pellets (99.8%)"
+    },
+    "cobalt": {
+      "name": "Cobalt",
+      "lme_code": "CO",
+      "lme_url": "https://www.lme.com/en/metals/minor-metals/lme-cobalt",
+      "monthly_avg": 26480,
+      "settlement": 26480,
+      "change": -320,
+      "change_pct": -1.19,
+      "unit": "USD/t",
+      "grade": "Min 99.8% Co",
+      "note": "LME monthly average — OTC market, no daily spot futures"
+    },
+    "aluminium": {
+      "name": "Aluminium",
+      "lme_code": "AH",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-aluminium",
+      "cash": 2389,
+      "three_month": 2418,
+      "settlement": 2402,
+      "change": 12,
+      "change_pct": 0.50,
+      "unit": "USD/t",
+      "grade": "Primary aluminium, min 99.7%"
+    },
+    "zinc": {
+      "name": "Zinc",
+      "lme_code": "ZS",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-zinc",
+      "cash": 2698,
+      "three_month": 2731,
+      "settlement": 2714,
+      "change": -18,
+      "change_pct": -0.66,
+      "unit": "USD/t",
+      "grade": "SHG (Special High Grade) min 99.995%"
+    },
+    "lead": {
+      "name": "Lead",
+      "lme_code": "PB",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-lead",
+      "cash": 1962,
+      "three_month": 1985,
+      "settlement": 1973,
+      "change": 8,
+      "change_pct": 0.41,
+      "unit": "USD/t",
+      "grade": "Refined lead, 99.97%"
+    },
+    "tin": {
+      "name": "Tin",
+      "lme_code": "SN",
+      "lme_url": "https://www.lme.com/en/metals/non-ferrous/lme-tin",
+      "cash": 28420,
+      "three_month": 28680,
+      "settlement": 28540,
+      "change": 380,
+      "change_pct": 1.35,
+      "unit": "USD/t",
+      "grade": "Min 99.85% Sn"
+    },
+    "lithium": {
+      "name": "Lithium Carbonate",
+      "lme_code": null,
+      "lme_url": null,
+      "source": "Fastmarkets / SMM China",
+      "source_url": "https://www.fastmarkets.com/commodities/battery-materials/lithium/",
+      "settlement": 11200,
+      "change": -150,
+      "change_pct": -1.32,
+      "unit": "USD/t",
+      "grade": "Battery grade, min 99.5% Li2CO3",
+      "note": "OTC index price (Fastmarkets) — no LME futures contract"
+    },
+    "gold": {
+      "name": "Gold",
+      "lme_code": null,
+      "lme_url": null,
+      "source": "LBMA",
+      "source_url": "https://www.lbma.org.uk/prices-and-data/precious-metal-prices",
+      "settlement": 3284,
+      "change": 18,
+      "change_pct": 0.55,
+      "unit": "USD/troy oz",
+      "grade": "995 fine"
+    },
+    "silver": {
+      "name": "Silver",
+      "lme_code": null,
+      "source": "LBMA",
+      "source_url": "https://www.lbma.org.uk/prices-and-data/precious-metal-prices",
+      "settlement": 32.84,
+      "change": 0.42,
+      "change_pct": 1.29,
+      "unit": "USD/troy oz",
+      "grade": "999 fine"
+    },
+    "platinum": {
+      "name": "Platinum",
+      "lme_code": null,
+      "source": "LBMA",
+      "source_url": "https://www.lbma.org.uk/prices-and-data/precious-metal-prices",
+      "settlement": 978,
+      "change": -12,
+      "change_pct": -1.21,
+      "unit": "USD/troy oz",
+      "grade": "999.5 fine"
+    },
+    "palladium": {
+      "name": "Palladium",
+      "lme_code": null,
+      "source": "LBMA",
+      "source_url": "https://www.lbma.org.uk/prices-and-data/precious-metal-prices",
+      "settlement": 918,
+      "change": 24,
+      "change_pct": 2.68,
+      "unit": "USD/troy oz",
+      "grade": "999.5 fine"
+    },
+    "rare_earths": {
+      "name": "Rare Earth Elements",
+      "source": "SMM China / Fastmarkets",
+      "source_url": "https://www.metal.com/Rare-Earth",
+      "note": "OTC market — no public exchange listing. Prices on request.",
+      "elements": {
+        "neodymium_oxide": {"price": 68400, "unit": "USD/t", "grade": "99%"},
+        "dysprosium_oxide": {"price": 1820000, "unit": "USD/t", "grade": "99.5%"},
+        "lanthanum_oxide": {"price": 1240, "unit": "USD/t", "grade": "99%"},
+        "cerium_oxide": {"price": 1680, "unit": "USD/t", "grade": "99%"}
+      }
+    }
+  }
+}

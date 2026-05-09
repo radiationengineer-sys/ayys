@@ -2021,69 +2021,109 @@ requestAnimationFrame(animate);
    Zn: ~$2,850/t (estimate based on LME trend)
    Al: ~$2,480/t (estimate based on LME trend)
 */
-const metals = [
-  {sym:'Cu', name:'Copper',     price:'$12,138/t', chg:'+42% YoY', ref:'LME',
-   trend:[8550,9200,9800,10400,11100,11800,12138], up:true},
-  {sym:'Co', name:'Cobalt',     price:'$56,290/t', chg:'+67% YoY', ref:'LME/FM',
-   trend:[33700,38000,42000,46000,50000,54000,56290], up:true},
-  {sym:'Li', name:'Lithium',    price:'$24,500/t', chg:'+82% Q1',  ref:'Fastmkts',
-   trend:[13400,15000,17000,19500,22000,23500,24500], up:true},
-  {sym:'Ni', name:'Nickel',     price:'$17,241/t', chg:'−8% YoY',  ref:'LME',
-   trend:[19000,18800,18400,18100,17800,17500,17241], up:false},
-  {sym:'Au', name:'Gold',       price:'$4,656/oz', chg:'+56% YoY', ref:'LBMA',
-   trend:[2980,3200,3600,3950,4200,4450,4656], up:true},
-  {sym:'Ag', name:'Silver',     price:'$72.3/oz',  chg:'+150% YoY',ref:'LBMA',
-   trend:[28.9,35,42,52,60,68,72.3], up:true},
-  {sym:'Zn', name:'Zinc',       price:'$2,850/t',  chg:'+6% YoY',  ref:'LME',
-   trend:[2540,2600,2650,2720,2780,2820,2850], up:true},
-  {sym:'Al', name:'Aluminium',  price:'$2,480/t',  chg:'+3% YoY',  ref:'LME',
-   trend:[2280,2310,2350,2390,2420,2460,2480], up:true},
+/* ===== METALS GRID — LME live prices from prices.json ===== */
+
+const METAL_CONFIG = [
+  {sym:'Cu', key:'copper',    unit:'$/t',  page:'copper-fr.html',          pageFR:'copper-fr.html',  pageRU:'copper-ru.html',  pageAR:'copper-ar.html',  pageZH:'copper-zh.html',  ref:'LME'},
+  {sym:'Co', key:'cobalt',    unit:'$/t',  page:'cobalt-fr.html',          pageFR:'cobalt-fr.html',  pageRU:'cobalt-ru.html',  pageAR:'cobalt-ar.html',  pageZH:'cobalt-zh.html',  ref:'LME'},
+  {sym:'Li', key:'lithium',   unit:'$/t',  page:'lithium-fr.html',         pageFR:'lithium-fr.html', pageRU:'lithium-ru.html', pageAR:'lithium-ar.html', pageZH:'lithium-zh.html', ref:'Fastmkts'},
+  {sym:'Ni', key:'nickel',    unit:'$/t',  page:'nickel-fr.html',          pageFR:'nickel-fr.html',  pageRU:'nickel-ru.html',  pageAR:'nickel-ar.html',  pageZH:'nickel-zh.html',  ref:'LME'},
+  {sym:'Au', key:'gold',      unit:'$/oz', page:'precious-metals-fr.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
+  {sym:'Ag', key:'silver',    unit:'$/oz', page:'precious-metals-fr.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
+  {sym:'Zn', key:'zinc',      unit:'$/t',  page:'index-fr.html#metals',    pageFR:'index-fr.html#metals', pageRU:'index-ru.html#metals', pageAR:'index-ar.html#metals', pageZH:'index-zh.html#metals', ref:'LME'},
+  {sym:'Al', key:'aluminium', unit:'$/t',  page:'index-fr.html#metals',    pageFR:'index-fr.html#metals', pageRU:'index-ru.html#metals', pageAR:'index-ar.html#metals', pageZH:'index-zh.html#metals', ref:'LME'},
 ];
 
 function sparkline(d, up) {
   const w=64,h=26,min=Math.min(...d),max=Math.max(...d),range=max-min||1;
-  const pts = d.map((v,i)=>`${Math.round(i*(w/(d.length-1)))},${Math.round(h-(((v-min)/range)*h*.82+h*.09))}`).join(' ');
+  const pts = d.map((v,i)=>`${Math.round(i*(w/(d.length-1)))},${
+Math.round(h-(((v-min)/range)*h*.82+h*.09))}`).join(' ');
   return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${up?'#1D9E75':'#E24B4A'}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 
-const grid = document.getElementById('metals-grid');
-metals.forEach((m, i) => {
-  const c = document.createElement('div');
-  c.className = `mcell reveal ${m.up?'up-cell':'dn-cell'}`;
-  c.style.transitionDelay = (i * .06) + 's';
-  c.innerHTML = `
-    <div class="mbadge ${m.ref==='LME'||m.ref==='LME/FM'?'lme':'other'}">${m.ref}</div>
-    <div class="msym">${m.sym}</div>
-    <div class="mname">${m.name}</div>
-    <div class="msparkline">${sparkline(m.trend, m.up)}</div>
-    <div class="mprice ${m.up?'up':'dn'}">${m.price}</div>
-    <div class="mchange">${m.chg}</div>`;
-  grid.appendChild(c);
-});
+function fmtPrice(val, unit) {
+  if (!val && val !== 0) return '—';
+  const num = Number(val);
+  if (unit.includes('oz')) return '$' + num.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}) + '/oz';
+  return '$' + Math.round(num).toLocaleString('en-US') + '/t';
+}
 
-/* ===== TICKER — Real data ===== */
-const tickerData = [
-  {sym:'Cu',  val:'12,138', unit:'$/t', chg:+42.0, up:true},
-  {sym:'Co',  val:'56,290', unit:'$/t', chg:+67.5, up:true},
-  {sym:'Li₂CO₃',val:'24,500',unit:'$/t',chg:+82.0,up:true},
-  {sym:'Ni',  val:'17,241', unit:'$/t', chg:-8.0,  up:false},
-  {sym:'Au',  val:'4,656',  unit:'$/oz',chg:+56.0, up:true},
-  {sym:'Ag',  val:'72.3',   unit:'$/oz',chg:+150.0,up:true},
-  {sym:'Zn',  val:'2,850',  unit:'$/t', chg:+6.0,  up:true},
-  {sym:'Al',  val:'2,480',  unit:'$/t', chg:+3.0,  up:true},
-  {sym:'Nd',  val:'78,400', unit:'$/t', chg:+18.0, up:true},
-  {sym:'Dy',  val:'242,000',unit:'$/t', chg:+34.0, up:true},
-];
-const track = document.getElementById('ticker-track');
-const items = [...tickerData, ...tickerData].map(t =>
-  `<div class="ti">
-    <span class="tsym">${t.sym}</span>
-    <span class="tval">${t.val} <span style="font-size:9px;opacity:.5">${t.unit}</span></span>
-    <span class="${t.up?'tup':'tdn'}">${t.up?'+':''}${t.chg}%</span>
-  </div>`
-).join('');
-track.innerHTML = items;
+function fmtChange(chg, pct) {
+  if (pct === undefined || pct === null) return '—';
+  const sign = pct >= 0 ? '+' : '';
+  return `${sign}${Number(pct).toFixed(1)}% today`;
+}
 
+function getLangPage(m) {
+  const lang = (localStorage.getItem('ayys_lang') || 'FR').toUpperCase();
+  if (lang === 'FR') return m.pageFR || m.page;
+  if (lang === 'RU') return m.pageRU || m.page;
+  if (lang === 'AR') return m.pageAR || m.page;
+  if (lang === 'ZH') return m.pageZH || m.page;
+  return m.page.replace('-fr', '');
+}
+
+function buildGrid(pricesData) {
+  const grid = document.getElementById('metals-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const updatedAt = pricesData?._meta?.updated_readable || '';
+  METAL_CONFIG.forEach((m, i) => {
+    const metal = pricesData?.metals?.[m.key] || {};
+    const price  = metal.settlement || metal.monthly_avg || null;
+    const chgPct = metal.change_pct;
+    const up     = (chgPct || 0) >= 0;
+    const trend  = metal.trend || (price ? [price, price] : [0, 0]);
+    const spark  = sparkline(trend, up);
+    const targetPage = getLangPage(m);
+    const c = document.createElement('a');
+    c.className = `mcell reveal ${up ? 'up-cell' : 'dn-cell'}`;
+    c.style.transitionDelay = (i * .06) + 's';
+    c.href = targetPage;
+    c.style.textDecoration = 'none';
+    c.style.cursor = 'pointer';
+    c.innerHTML = `
+      <div class="mbadge ${m.ref === 'LME' ? 'lme' : 'other'}">${m.ref}</div>
+      <div class="msym">${m.sym}</div>
+      <div class="mname">${m.key.charAt(0).toUpperCase() + m.key.slice(1)}</div>
+      <div class="msparkline">${spark}</div>
+      <div class="mprice ${up ? 'up' : 'dn'}">${price ? fmtPrice(price, m.unit) : '—'}</div>
+      <div class="mchange">${fmtChange(metal.change, chgPct)}</div>
+      ${updatedAt ? `<div class="mupdated">LME ${updatedAt}</div>` : ''}
+    `;
+    c.addEventListener('mouseenter', () => { c.style.transform = 'translateY(-2px)'; c.style.boxShadow = '0 8px 24px rgba(0,0,0,.10)'; });
+    c.addEventListener('mouseleave', () => { c.style.transform = ''; c.style.boxShadow = ''; });
+    grid.appendChild(c);
+  });
+}
+
+function buildTicker(pricesData) {
+  const track = document.getElementById('ticker-track');
+  if (!track) return;
+  const items = [...METAL_CONFIG, ...METAL_CONFIG].map(m => {
+    const metal = pricesData?.metals?.[m.key] || {};
+    const price = metal.settlement || metal.monthly_avg || null;
+    const chgPct = metal.change_pct;
+    const up = (chgPct || 0) >= 0;
+    const priceStr = price ? (m.unit.includes('oz') ? price.toFixed(2) : Math.round(price).toLocaleString('en-US')) : '—';
+    const chgStr = chgPct !== undefined ? `${chgPct >= 0 ? '+' : ''}${Number(chgPct).toFixed(1)}%` : '—';
+    return `<div class="ti"><span class="tsym">${m.sym}</span><span class="tval">${priceStr} <span style="font-size:9px;opacity:.5">${m.unit}</span></span><span class="${up ? 'tup' : 'tdn'}">${chgStr}</span></div>`;
+  }).join('');
+  track.innerHTML = items;
+}
+
+(function() {
+  const s = document.createElement('style');
+  s.textContent = '.mupdated{font-size:8px;color:rgba(0,0,0,.3);letter-spacing:.3px;margin-top:4px;text-align:center}.mcell{transition:transform .2s,box-shadow .2s}';
+  document.head.appendChild(s);
+})();
+
+fetch('/prices.json?v=' + Math.floor(Date.now() / 3600000), {cache: 'no-store'})
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(data => { buildGrid(data); buildTicker(data); })
+  .catch(() => buildGrid(null));
+
+/* ===== NAV SCROLL ===== */
 /* ===== NAV SCROLL ===== */
 window.addEventListener('scroll', () => {
   const s = window.scrollY;
@@ -2579,5 +2619,6 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
+<script src="lme-prices.js"></script>
 </body>
 </html>
