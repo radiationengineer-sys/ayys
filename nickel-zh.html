@@ -198,6 +198,9 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
 [dir=rtl] .nav-caret::after{margin-left:0;margin-right:2px}
 @media(max-width:960px){.cu-hero-inner{grid-template-columns:1fr}.grades-grid{grid-template-columns:repeat(2,1fr)}.scrap-grid{grid-template-columns:repeat(2,1fr)}.intel-grid{grid-template-columns:1fr}.forms-grid{grid-template-columns:1fr}.comp-strip{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr}}
 @media(max-width:640px){.sec,.ctaband{padding:48px 24px}.breadcrumb{padding:90px 24px 0}.cu-hero{padding:20px 24px 0}.grades-grid,.scrap-grid,.comp-strip{grid-template-columns:1fr}.nav{padding:0 20px}.hamburger{display:flex}.nav-links,.nav-right .vert-wrap,.nav-right .ncta{display:none}.mobile-menu{display:flex}.footer-inner{padding:36px 24px}.footer-bottom{padding:14px 24px;flex-direction:column;align-items:flex-start}}
+      .tv-widget-wrap{border-radius:12px;overflow:hidden;border:.5px solid rgba(255,255,255,.08);margin-bottom:12px;background:#0d1512}
+    .lme-source-note{font-size:9px;color:rgba(255,255,255,.22);letter-spacing:.4px;text-align:center;padding-top:10px;border-top:.5px solid rgba(255,255,255,.06);margin-top:12px}
+    .lme-source-note a{color:rgba(255,255,255,.38);text-decoration:none}
   </style>
 </head>
 <body>
@@ -313,37 +316,20 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
       </div>
     </div>
     <div class="lme-widget">
-      <div class="lme-header">
+<div class="lme-header">
         <span class="lme-title">LME镍 — 现货结算</span>
-        <span class="lme-live"><span class="lme-dot"></span>Live</span>
+        <span class="lme-live"><span class="lme-dot"></span>Live</span>Live</span>
       </div>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
-        <span class="lme-price" id="lme-price">16,840</span>
-        <span class="lme-unit">USD / t</span>
+      <div class="tv-widget-wrap">
+          <div class="tradingview-widget-container" style="height:160px">
+            <div class="tradingview-widget-container__widget" style="height:160px;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"COMEX:NI1!","width":"100%","height":160,"locale":"en","dateRange":"1M","colorTheme":"dark","trendLineColor":"rgba(29,158,117,1)","underLineColor":"rgba(29,158,117,0.15)","underLineBottomColor":"rgba(0,0,0,0)","isTransparent":true,"autosize":true,"largeChartUrl":"https://www.tradingview.com/chart/?symbol=COMEX%3ANI1!"}
+            </script>
+          </div>
+        </div>
+<div class="lme-source-note">Data: <a href="https://www.tradingview.com/chart/?symbol=COMEX%3ANI1%21" target="_blank" rel="noopener">TradingView</a> &middot; <a href="https://www.lme.com/en/metals/non-ferrous/lme-nickel" target="_blank" rel="noopener">LME Nickel</a> &middot; 15 min delay</div>
       </div>
-      <div style="display:flex;align-items:center;gap:6px;margin-bottom:18px">
-        <span class="lme-chg-val up">+320</span>
-        <span class="lme-chg-pct">+1.94% today</span>
-      </div>
-      <div class="lme-chart">
-        <svg viewBox="0 0 360 52" preserveAspectRatio="none" style="display:block;width:100%;height:100%">
-          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(29,158,117,0.30)"/>
-            <stop offset="100%" stop-color="rgba(29,158,117,0)"/>
-          </linearGradient></defs>
-          <path d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2 L360 52 L0 52 Z" fill="url(#sg)"/>
-          <path class="spark-path" d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="lme-grid">
-        <div class="lme-cell"><div class="lme-cell-label">3个月远期</div><div class="lme-cell-val">16,920</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">52周最高</div><div class="lme-cell-val">21,600</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">52周最低</div><div class="lme-cell-val">12,820</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">美元/吨</div><div class="lme-cell-val">USD / t</div></div>
-      </div>
-      <div class="lme-grades"><span class="lme-grade-tag">LME Ni阴极</span><span class="lme-grade-tag">Ni镍豆</span><span class="lme-grade-tag">NiSO₄电池</span><span class="lme-grade-tag">镍铁</span></div>
-      <div class="lme-embed-note">参考价格 — LMElive · 如需报盘请联系交易部</div>
-    </div>
   </div>
 </div>
 

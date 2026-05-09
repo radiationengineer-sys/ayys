@@ -198,6 +198,9 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
 [dir=rtl] .nav-caret::after{margin-left:0;margin-right:2px}
 @media(max-width:960px){.cu-hero-inner{grid-template-columns:1fr}.grades-grid{grid-template-columns:repeat(2,1fr)}.scrap-grid{grid-template-columns:repeat(2,1fr)}.intel-grid{grid-template-columns:1fr}.forms-grid{grid-template-columns:1fr}.comp-strip{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr}}
 @media(max-width:640px){.sec,.ctaband{padding:48px 24px}.breadcrumb{padding:90px 24px 0}.cu-hero{padding:20px 24px 0}.grades-grid,.scrap-grid,.comp-strip{grid-template-columns:1fr}.nav{padding:0 20px}.hamburger{display:flex}.nav-links,.nav-right .vert-wrap,.nav-right .ncta{display:none}.mobile-menu{display:flex}.footer-inner{padding:36px 24px}.footer-bottom{padding:14px 24px;flex-direction:column;align-items:flex-start}}
+      .tv-widget-wrap{border-radius:12px;overflow:hidden;border:.5px solid rgba(255,255,255,.08);margin-bottom:12px;background:#0d1512}
+    .lme-source-note{font-size:9px;color:rgba(255,255,255,.22);letter-spacing:.4px;text-align:center;padding-top:10px;border-top:.5px solid rgba(255,255,255,.06);margin-top:12px}
+    .lme-source-note a{color:rgba(255,255,255,.38);text-decoration:none}
   </style>
 </head>
 <body dir="rtl">
@@ -313,37 +316,20 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
       </div>
     </div>
     <div class="lme-widget">
-      <div class="lme-header">
+<div class="lme-header">
         <span class="lme-title">كربونات الليثيوم — مرجع السعر الفوري</span>
-        <span class="lme-live"><span class="lme-dot"></span>Live</span>
+        <span class="lme-live"><span class="lme-dot"></span>Live</span>Live</span>
       </div>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
-        <span class="lme-price" id="lme-price">26,278</span>
-        <span class="lme-unit">USD / t</span>
+      <div class="tv-widget-wrap">
+          <div class="tradingview-widget-container" style="height:160px">
+            <div class="tradingview-widget-container__widget" style="height:160px;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"CME:ALI1!","width":"100%","height":160,"locale":"en","dateRange":"1M","colorTheme":"dark","trendLineColor":"rgba(229,184,57,1)","underLineColor":"rgba(229,184,57,0.15)","underLineBottomColor":"rgba(0,0,0,0)","isTransparent":true,"autosize":true,"largeChartUrl":"https://www.tradingview.com/chart/?symbol=CME%3AALI1!"}
+            </script>
+          </div>
+        </div>
+<div class="lme-source-note">Data: <a href="https://www.tradingview.com/chart/?symbol=CME%3AALI1%21" target="_blank" rel="noopener">TradingView</a> &middot; CME Lithium Futures &middot; indicatif</div>
       </div>
-      <div style="display:flex;align-items:center;gap:6px;margin-bottom:18px">
-        <span class="lme-chg-val up">+1,422</span>
-        <span class="lme-chg-pct">+5.72% today</span>
-      </div>
-      <div class="lme-chart">
-        <svg viewBox="0 0 360 52" preserveAspectRatio="none" style="display:block;width:100%;height:100%">
-          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(127,119,221,0.30)"/>
-            <stop offset="100%" stop-color="rgba(127,119,221,0)"/>
-          </linearGradient></defs>
-          <path d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2 L360 52 L0 52 Z" fill="url(#sg)"/>
-          <path class="spark-path" d="M0 42 L30 40 L60 38 L90 42 L120 34 L150 28 L180 24 L210 20 L240 15 L270 10 L300 8 L330 5 L360 2" fill="none" stroke="#7F77DD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="lme-grid">
-        <div class="lme-cell"><div class="lme-cell-label">آجل / 3 أشهر</div><div class="lme-cell-val">26,950</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">أعلى 52 أسبوعاً</div><div class="lme-cell-val">34,200</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">أدنى 52 أسبوعاً</div><div class="lme-cell-val">12,400</div></div>
-        <div class="lme-cell"><div class="lme-cell-label">دولار / طن</div><div class="lme-cell-val">USD / t</div></div>
-      </div>
-      <div class="lme-grades"><span class="lme-grade-tag">Li₂CO₃ بطاريات</span><span class="lme-grade-tag">LiOH·H₂O</span><span class="lme-grade-tag">سبودومين SC6</span><span class="lme-grade-tag">درجة تقنية</span></div>
-      <div class="lme-embed-note">أسعار استرشادية — LMElive · تواصل مع مكتب التداول للحصول على عروض رسمية</div>
-    </div>
   </div>
 </div>
 
