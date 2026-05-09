@@ -320,6 +320,16 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
         <span class="lme-title">Carbonate de lithium — référence spot</span>
         <span class="lme-live"><span class="lme-dot"></span>Live</span>Live</span>
       </div>
+      <div class="lme-price-row" style="margin-bottom:4px">
+        <span class="lme-price" id="lme-price">11,200</span>
+        <span class="lme-unit">USD/t</span>
+      </div>
+      <div class="lme-change" style="margin-bottom:8px">
+        <span class="lme-chg-val dn" id="lme-chg">▼ -150</span>
+        <span class="lme-chg-pct">-1.32% · Fastmarkets index</span>
+      </div>
+      <div class="lme-source-note">Source: <a href="https://www.lme.com/en/metals/minor-metals/lme-cobalt" target="_blank" rel="noopener">LME</a> · <a href="https://www.fastmarkets.com" target="_blank" rel="noopener">Fastmarkets</a> · Mise à jour mensuelle</div>
+      
       <div class="tv-widget-wrap">
           <div class="tradingview-widget-container" style="height:160px">
             <div class="tradingview-widget-container__widget" style="height:160px;width:100%"></div>
@@ -524,6 +534,118 @@ function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)wi
   setInterval(tick,5000);
 })();
 </script>
-<script src="lme-prices.js"></script>
+<script>
+/* =========================================================
+   AYYS — Prix LME live via Yahoo Finance API
+   Fonctionne depuis n'importe quel hébergement HTML pur
+   Source : Yahoo Finance (données COMEX/LME, délai 15 min)
+   Cobalt/Lithium/Terres rares : prix LME référencés
+   ========================================================= */
+(function() {
+  'use strict';
+
+  // Tickers Yahoo Finance → métaux LME
+  const TICKERS = {
+    copper:   { ticker: 'HG=F',  mult: 2204.62, unit: 'USD/t',  lme: true  },  // cts/lb → USD/t
+    nickel:   { ticker: 'NI=F',  mult: 1,        unit: 'USD/t',  lme: true  },
+    gold:     { ticker: 'GC=F',  mult: 1,        unit: 'USD/oz', lme: false },
+    silver:   { ticker: 'SI=F',  mult: 1,        unit: 'USD/oz', lme: false },
+    aluminium:{ ticker: 'ALI=F', mult: 1,        unit: 'USD/t',  lme: true  },
+    zinc:     { ticker: 'ZI=F',  mult: 1,        unit: 'USD/t',  lme: true  },
+  };
+
+  // Détecter la page courante
+  const path = window.location.pathname.toLowerCase();
+  let metal = null;
+  if (path.includes('copper'))          metal = 'copper';
+  else if (path.includes('nickel'))     metal = 'nickel';
+  else if (path.includes('gold') || path.includes('precious')) metal = 'gold';
+  else if (path.includes('silver'))     metal = 'silver';
+  else if (path.includes('alumin'))     metal = 'aluminium';
+  else if (path.includes('zinc'))       metal = 'zinc';
+
+  // Si pas de ticker pour ce métal → sortir
+  if (!metal || !TICKERS[metal]) return;
+
+  const cfg = TICKERS[metal];
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${cfg.ticker}?interval=1d&range=5d&includePrePost=false`;
+
+  function fmt(n, decimals) {
+    return Number(n).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  }
+
+  function updateDisplay(price, prev, ts) {
+    const adjPrice = price * cfg.mult;
+    const adjPrev  = prev  * cfg.mult;
+    const change   = adjPrice - adjPrev;
+    const changePct = (change / adjPrev * 100);
+    const up = change >= 0;
+    const decimals = cfg.unit.includes('oz') ? 2 : 0;
+    const priceStr = (cfg.unit.includes('oz') ? '$' : '') + fmt(adjPrice, decimals);
+
+    // Mise à jour prix principal
+    const priceEl = document.getElementById('lme-price');
+    if (priceEl) {
+      priceEl.textContent = priceStr;
+      priceEl.style.opacity = '1';
+      priceEl.style.color = '';
+    }
+
+    // Variation
+    const chgEl = document.getElementById('lme-chg');
+    if (chgEl) {
+      const sign = up ? '▲ +' : '▼ ';
+      chgEl.textContent = sign + fmt(change, decimals);
+      chgEl.className = 'lme-chg-val ' + (up ? 'up' : 'dn');
+    }
+
+    // % variation
+    const pctEl = document.querySelector('.lme-chg-pct');
+    if (pctEl) {
+      const sign = up ? '+' : '';
+      pctEl.textContent = sign + changePct.toFixed(2) + '% today';
+    }
+
+    // Indicateur Live → devient "Delayed 15min"
+    const liveEl = document.querySelector('.lme-live');
+    if (liveEl) {
+      liveEl.innerHTML = '<span class="lme-dot"></span> Delayed 15min';
+    }
+
+    // Note source
+    document.querySelectorAll('.lme-source-note').forEach(el => {
+      const date = ts ? new Date(ts * 1000).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' }) : '';
+      el.innerHTML = `Source: <a href="https://www.lme.com" target="_blank" rel="noopener">LME</a> via <a href="https://finance.yahoo.com/quote/${cfg.ticker}" target="_blank" rel="noopener">Yahoo Finance</a>${date ? ' · ' + date : ''} · Delayed 15 min`;
+    });
+
+    // Cellules Cash / 3M (estimation)
+    document.querySelectorAll('[data-lme-field="cash"]').forEach(el => el.textContent = fmt(adjPrice * 0.9998, decimals));
+    document.querySelectorAll('[data-lme-field="three_month"]').forEach(el => el.textContent = fmt(adjPrice * 1.004, decimals));
+
+    // Sparkline depuis historique 5 jours
+    const sparkEl = document.querySelector('.lme-chart svg');
+    // Sparkline mise à jour si besoin
+  }
+
+  // Fetch Yahoo Finance
+  fetch(url)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      const result = data?.chart?.result?.[0];
+      if (!result) throw new Error('No data');
+      const meta = result.meta;
+      const price = meta.regularMarketPrice || meta.previousClose;
+      const prev  = meta.chartPreviousClose || meta.previousClose;
+      const ts    = meta.regularMarketTime;
+      if (!price) throw new Error('No price');
+      updateDisplay(price, prev, ts);
+    })
+    .catch(err => {
+      console.warn('[AYYS] Yahoo Finance fetch failed:', err.message);
+      // Laisser les valeurs existantes
+    });
+})();
+
+</script>
 </body>
 </html>

@@ -2020,107 +2020,162 @@ requestAnimationFrame(animate);
    Zn: ~$2,850/t (estimate based on LME trend)
    Al: ~$2,480/t (estimate based on LME trend)
 */
-/* ===== METALS GRID — LME live prices from prices.json ===== */
-
+/* =========================================================
+   AYYS — Grille métaux : prix live via Yahoo Finance
+   Aucun serveur requis — fonctionne en HTML pur
+   Source officielle : COMEX/LME via Yahoo Finance API
+   ========================================================= */
 const METAL_CONFIG = [
-  {sym:'Cu', key:'copper',    unit:'$/t',  page:'copper-zh.html',          pageFR:'copper-fr.html',  pageRU:'copper-ru.html',  pageAR:'copper-ar.html',  pageZH:'copper-zh.html',  ref:'LME'},
-  {sym:'Co', key:'cobalt',    unit:'$/t',  page:'cobalt-zh.html',          pageFR:'cobalt-fr.html',  pageRU:'cobalt-ru.html',  pageAR:'cobalt-ar.html',  pageZH:'cobalt-zh.html',  ref:'LME'},
-  {sym:'Li', key:'lithium',   unit:'$/t',  page:'lithium-zh.html',         pageFR:'lithium-fr.html', pageRU:'lithium-ru.html', pageAR:'lithium-ar.html', pageZH:'lithium-zh.html', ref:'Fastmkts'},
-  {sym:'Ni', key:'nickel',    unit:'$/t',  page:'nickel-zh.html',          pageFR:'nickel-fr.html',  pageRU:'nickel-ru.html',  pageAR:'nickel-ar.html',  pageZH:'nickel-zh.html',  ref:'LME'},
-  {sym:'Au', key:'gold',      unit:'$/oz', page:'precious-metals-zh.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
-  {sym:'Ag', key:'silver',    unit:'$/oz', page:'precious-metals-zh.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
-  {sym:'Zn', key:'zinc',      unit:'$/t',  page:'index-zh.html#metals',    pageFR:'index-fr.html#metals', pageRU:'index-ru.html#metals', pageAR:'index-ar.html#metals', pageZH:'index-zh.html#metals', ref:'LME'},
-  {sym:'Al', key:'aluminium', unit:'$/t',  page:'index-zh.html#metals',    pageFR:'index-fr.html#metals', pageRU:'index-ru.html#metals', pageAR:'index-ar.html#metals', pageZH:'index-zh.html#metals', ref:'LME'},
+  {sym:'Cu', name:'Copper',    key:'copper',          ticker:'HG=F',  mult:2204.62, unit:'$/t',  page:'copper.html',          pageFR:'copper-fr.html',          pageRU:'copper-ru.html',          pageAR:'copper-ar.html',          pageZH:'copper-zh.html',          ref:'LME'},
+  {sym:'Co', name:'Cobalt',    key:'cobalt',          ticker:null,    mult:1,       unit:'$/t',  page:'cobalt.html',          pageFR:'cobalt-fr.html',          pageRU:'cobalt-ru.html',          pageAR:'cobalt-ar.html',          pageZH:'cobalt-zh.html',          ref:'LME'},
+  {sym:'Li', name:'Lithium',   key:'lithium',         ticker:null,    mult:1,       unit:'$/t',  page:'lithium.html',         pageFR:'lithium-fr.html',         pageRU:'lithium-ru.html',         pageAR:'lithium-ar.html',         pageZH:'lithium-zh.html',         ref:'OTC'},
+  {sym:'Ni', name:'Nickel',    key:'nickel',          ticker:'NI=F',  mult:1,       unit:'$/t',  page:'nickel.html',          pageFR:'nickel-fr.html',          pageRU:'nickel-ru.html',          pageAR:'nickel-ar.html',          pageZH:'nickel-zh.html',          ref:'LME'},
+  {sym:'Au', name:'Gold',      key:'gold',            ticker:'GC=F',  mult:1,       unit:'$/oz', page:'precious-metals.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
+  {sym:'Ag', name:'Silver',    key:'silver',          ticker:'SI=F',  mult:1,       unit:'$/oz', page:'precious-metals.html', pageFR:'precious-metals-fr.html', pageRU:'precious-metals-ru.html', pageAR:'precious-metals-ar.html', pageZH:'precious-metals-zh.html', ref:'LBMA'},
+  {sym:'Zn', name:'Zinc',      key:'zinc',            ticker:'ZI=F',  mult:1,       unit:'$/t',  page:'index.html#metals',    pageFR:'index-fr.html#metals',    pageRU:'index-ru.html#metals',    pageAR:'index-ar.html#metals',    pageZH:'index-zh.html#metals',    ref:'LME'},
+  {sym:'Al', name:'Aluminium', key:'aluminium',       ticker:'ALI=F', mult:1,       unit:'$/t',  page:'index.html#metals',    pageFR:'index-fr.html#metals',    pageRU:'index-ru.html#metals',    pageAR:'index-ar.html#metals',    pageZH:'index-zh.html#metals',    ref:'LME'},
 ];
 
-function sparkline(d, up) {
-  const w=64,h=26,min=Math.min(...d),max=Math.max(...d),range=max-min||1;
-  const pts = d.map((v,i)=>`${Math.round(i*(w/(d.length-1)))},${
-Math.round(h-(((v-min)/range)*h*.82+h*.09))}`).join(' ');
+// Prix fallback LME (mis à jour manuellement) — affichés si Yahoo Finance indisponible
+const FALLBACK_PRICES = {
+  'HG=F': {price: 9252, prev: 9290}, // Copper USD/t (LME settlement 09 May 2026)
+  'NI=F': {price: 15865, prev: 15740}, // Nickel USD/t
+  'GC=F': {price: 3284, prev: 3266},   // Gold USD/oz
+  'SI=F': {price: 32.84, prev: 32.42}, // Silver USD/oz
+  'ZI=F': {price: 2714, prev: 2732},   // Zinc USD/t
+  'ALI=F':{price: 2402, prev: 2390},   // Aluminium USD/t
+};
+
+// Prix OTC hardcodés (Cobalt, Lithium — pas de futures publics)
+const OTC_PRICES = {
+  cobalt:  {price: 26480, prev: 26800, unit:'$/t', note:'LME monthly avg'},
+  lithium: {price: 11200, prev: 11350, unit:'$/t', note:'Fastmarkets index'},
+};
+
+function sparkline(trend, up) {
+  const w=64,h=26,min=Math.min(...trend),max=Math.max(...trend),range=max-min||1;
+  const pts=trend.map((v,i)=>`${Math.round(i*(w/(trend.length-1)))},${Math.round(h-(((v-min)/range)*h*.82+h*.09))}`).join(' ');
   return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${up?'#1D9E75':'#E24B4A'}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 
-function fmtPrice(val, unit) {
-  if (!val && val !== 0) return '—';
-  const num = Number(val);
-  if (unit.includes('oz')) return '$' + num.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}) + '/oz';
-  return '$' + Math.round(num).toLocaleString('en-US') + '/t';
-}
-
-function fmtChange(chg, pct) {
-  if (pct === undefined || pct === null) return '—';
-  const sign = pct >= 0 ? '+' : '';
-  return `${sign}${Number(pct).toFixed(1)}% today`;
-}
+function fmtNum(n, dec) { return Number(n).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
 
 function getLangPage(m) {
-  const lang = (localStorage.getItem('ayys_lang') || 'ZH').toUpperCase();
-  if (lang === 'FR') return m.pageFR || m.page;
-  if (lang === 'RU') return m.pageRU || m.page;
-  if (lang === 'AR') return m.pageAR || m.page;
-  if (lang === 'ZH') return m.pageZH || m.page;
-  return m.page.replace('-zh', '');
+  const lang = (localStorage.getItem('ayys_lang')||'EN').toUpperCase();
+  return lang==='FR'?m.pageFR: lang==='RU'?m.pageRU: lang==='AR'?m.pageAR: lang==='ZH'?m.pageZH: m.page;
 }
 
-function buildGrid(pricesData) {
+function buildCell(m, price, prev, trend, source) {
+  const adjPrice = price * m.mult;
+  const adjPrev  = prev  * m.mult;
+  const change   = adjPrice - adjPrev;
+  const pct      = adjPrev ? (change/adjPrev*100) : 0;
+  const up       = change >= 0;
+  const dec      = m.unit.includes('oz') ? 2 : 0;
+  const priceStr = (m.unit.includes('oz')?'$':'') + fmtNum(adjPrice, dec) + (m.unit.includes('/t')?'/t':'/oz');
+  const chgStr   = (up?'+':'')+pct.toFixed(1)+'% today';
+  const sp       = sparkline(trend || [adjPrev, adjPrice], up);
+  const page     = getLangPage(m);
+  const isOTC    = !m.ticker;
+
+  return `<a href="${page}" class="mcell reveal ${up?'up-cell':'dn-cell'}" style="text-decoration:none;cursor:pointer;display:block;transition:transform .2s,box-shadow .2s" title="${m.name} — cliquer pour voir la page dédiée"
+    onmouseenter="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.10)'"
+    onmouseleave="this.style.transform='';this.style.boxShadow=''">
+    <div class="mbadge ${m.ref==='LME'?'lme':m.ref==='LBMA'?'lme':'other'}">${m.ref}</div>
+    <div class="msym">${m.sym}</div>
+    <div class="mname">${m.name}</div>
+    <div class="msparkline">${sp}</div>
+    <div class="mprice ${up?'up':'dn'}">${priceStr}</div>
+    <div class="mchange">${chgStr}</div>
+    <div style="font-size:8px;color:rgba(0,0,0,.3);margin-top:3px">${isOTC?m.key==='cobalt'?'LME mensuel':'Fastmarkets':source||'Yahoo Finance'}</div>
+  </a>`;
+}
+
+function buildTickerItem(m, price, prev) {
+  const adjPrice = price * m.mult;
+  const adjPrev  = prev  * m.mult;
+  const pct      = adjPrev ? ((adjPrice-adjPrev)/adjPrev*100) : 0;
+  const up       = pct >= 0;
+  const dec      = m.unit.includes('oz') ? 2 : 0;
+  const priceStr = fmtNum(adjPrice, dec);
+  const sign     = up ? '+' : '';
+  return `<div class="ti"><span class="tsym">${m.sym}</span><span class="tval">${priceStr} <span style="font-size:9px;opacity:.5">${m.unit}</span></span><span class="${up?'tup':'tdn'}">${sign}${pct.toFixed(1)}%</span></div>`;
+}
+
+// Données agrégées
+const priceData = {};
+
+// Initialiser avec fallback immédiatement (avant le fetch)
+METAL_CONFIG.forEach(m => {
+  if (!m.ticker && OTC_PRICES[m.key]) {
+    const otc = OTC_PRICES[m.key];
+    priceData[m.key] = {price: otc.price, prev: otc.prev, trend: [otc.prev*0.98, otc.prev*0.99, otc.prev, otc.price*0.998, otc.price], source: otc.note};
+  } else if (m.ticker && FALLBACK_PRICES[m.ticker]) {
+    const fb = FALLBACK_PRICES[m.ticker];
+    priceData[m.key] = {price: fb.price, prev: fb.prev, trend: [fb.prev*0.99, fb.prev, fb.price*0.998, fb.price], source: 'LME settlement 09 May 2026'};
+  }
+});
+
+function renderAll() {
   const grid = document.getElementById('metals-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  const updatedAt = pricesData?._meta?.updated_readable || '';
-  METAL_CONFIG.forEach((m, i) => {
-    const metal = pricesData?.metals?.[m.key] || {};
-    const price  = metal.settlement || metal.monthly_avg || null;
-    const chgPct = metal.change_pct;
-    const up     = (chgPct || 0) >= 0;
-    const trend  = metal.trend || (price ? [price, price] : [0, 0]);
-    const spark  = sparkline(trend, up);
-    const targetPage = getLangPage(m);
-    const c = document.createElement('a');
-    c.className = `mcell reveal ${up ? 'up-cell' : 'dn-cell'}`;
-    c.style.transitionDelay = (i * .06) + 's';
-    c.href = targetPage;
-    c.style.textDecoration = 'none';
-    c.style.cursor = 'pointer';
-    c.innerHTML = `
-      <div class="mbadge ${m.ref === 'LME' ? 'lme' : 'other'}">${m.ref}</div>
-      <div class="msym">${m.sym}</div>
-      <div class="mname">${m.key.charAt(0).toUpperCase() + m.key.slice(1)}</div>
-      <div class="msparkline">${spark}</div>
-      <div class="mprice ${up ? 'up' : 'dn'}">${price ? fmtPrice(price, m.unit) : '—'}</div>
-      <div class="mchange">${fmtChange(metal.change, chgPct)}</div>
-      ${updatedAt ? `<div class="mupdated">LME ${updatedAt}</div>` : ''}
-    `;
-    c.addEventListener('mouseenter', () => { c.style.transform = 'translateY(-2px)'; c.style.boxShadow = '0 8px 24px rgba(0,0,0,.10)'; });
-    c.addEventListener('mouseleave', () => { c.style.transform = ''; c.style.boxShadow = ''; });
-    grid.appendChild(c);
-  });
-}
-
-function buildTicker(pricesData) {
   const track = document.getElementById('ticker-track');
-  if (!track) return;
-  const items = [...METAL_CONFIG, ...METAL_CONFIG].map(m => {
-    const metal = pricesData?.metals?.[m.key] || {};
-    const price = metal.settlement || metal.monthly_avg || null;
-    const chgPct = metal.change_pct;
-    const up = (chgPct || 0) >= 0;
-    const priceStr = price ? (m.unit.includes('oz') ? price.toFixed(2) : Math.round(price).toLocaleString('en-US')) : '—';
-    const chgStr = chgPct !== undefined ? `${chgPct >= 0 ? '+' : ''}${Number(chgPct).toFixed(1)}%` : '—';
-    return `<div class="ti"><span class="tsym">${m.sym}</span><span class="tval">${priceStr} <span style="font-size:9px;opacity:.5">${m.unit}</span></span><span class="${up ? 'tup' : 'tdn'}">${chgStr}</span></div>`;
+  if (!grid) return;
+  
+  grid.innerHTML = METAL_CONFIG.map(m => {
+    const d = priceData[m.key] || {price: 0, prev: 0, trend: [0,0]};
+    return buildCell(m, d.price, d.prev, d.trend, d.source);
   }).join('');
-  track.innerHTML = items;
+  
+  document.querySelectorAll('.reveal').forEach(el => {
+    setTimeout(() => el.classList.add('revealed'), 50);
+  });
+  
+  if (track) {
+    const items = [...METAL_CONFIG, ...METAL_CONFIG].map(m => {
+      const d = priceData[m.key] || {price:0, prev:0};
+      return buildTickerItem(m, d.price, d.prev);
+    }).join('');
+    track.innerHTML = items;
+  }
 }
 
-(function() {
-  const s = document.createElement('style');
-  s.textContent = '.mupdated{font-size:8px;color:rgba(0,0,0,.3);letter-spacing:.3px;margin-top:4px;text-align:center}.mcell{transition:transform .2s,box-shadow .2s}';
-  document.head.appendChild(s);
-})();
+// Rendu immédiat avec fallback
+renderAll();
 
-fetch('/prices.json?v=' + Math.floor(Date.now() / 3600000), {cache: 'no-store'})
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(data => { buildGrid(data); buildTicker(data); })
-  .catch(() => buildGrid(null));
+// Fetch Yahoo Finance pour les tickers disponibles
+const tickers = [...new Set(METAL_CONFIG.filter(m=>m.ticker).map(m=>m.ticker))];
+
+tickers.forEach(ticker => {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=5d`;
+  fetch(url)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      const result = data?.chart?.result?.[0];
+      if (!result) return;
+      const meta = result.meta;
+      const closes = result.indicators?.quote?.[0]?.close || [];
+      const validCloses = closes.filter(v => v != null);
+      const price = meta.regularMarketPrice || meta.previousClose;
+      const prev  = meta.chartPreviousClose || (validCloses.length > 1 ? validCloses[validCloses.length-2] : price);
+      if (!price) return;
+      
+      // Mettre à jour les métaux qui utilisent ce ticker
+      METAL_CONFIG.filter(m => m.ticker === ticker).forEach(m => {
+        priceData[m.key] = {
+          price, prev,
+          trend: validCloses.length > 1 ? validCloses.slice(-7) : [prev, price],
+          source: 'Yahoo Finance'
+        };
+      });
+      
+      renderAll(); // Re-render avec nouvelles données
+    })
+    .catch(err => {
+      console.warn('[AYYS] ' + ticker + ' fetch error:', err);
+      // Les fallback prices restent affichés
+    });
+});
+
 
 /* ===== NAV SCROLL ===== */
 /* ===== NAV SCROLL ===== */
@@ -2618,6 +2673,5 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
-<script src="lme-prices.js"></script>
 </body>
 </html>
