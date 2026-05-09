@@ -1,0 +1,57 @@
+name: Update LME Prices
+
+on:
+  # Runs every business day at 16:45 UTC (after LME settlement at ~16:30 London)
+  schedule:
+    - cron: '45 16 * * 1-5'
+  
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # needed to commit prices.json
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml
+      
+      - name: Run LME price updater
+        run: |
+          python3 update_lme_prices.py
+      
+      - name: Commit updated prices.json
+        run: |
+          git config --local user.email "prices-bot@ayysc.com"
+          git config --local user.name "AYYS Price Bot"
+          git add prices.json
+          git diff --staged --quiet || git commit -m "chore: update LME prices $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Log result
+        run: |
+          echo "Prices updated at $(date -u)"
+          cat prices.json | python3 -c "
+          import sys, json
+          d = json.load(sys.stdin)
+          print(f\"Updated: {d['_meta']['updated_readable']}\")
+          for m, v in d['metals'].items():
+              if 'settlement' in v:
+                  p = v['settlement']
+                  c = v.get('change', 0)
+                  print(f\"  {m}: {p:,.0f} {v.get('unit','USD/t')} ({'+' if c>=0 else ''}{c:,.0f})\")
+          "

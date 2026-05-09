@@ -294,10 +294,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
       <div class="lang-wrap" id="lw">
         <select class="lang-sel" id="lang-sel" aria-label="Language" onchange="goLang(this)">
 <option value="EN" data-href="sitemap.html" selected>EN</option>
-<option value="FR" data-href="sitemap-fr.html">FR</option>
-<option value="RU" data-href="sitemap-ru.html">RU</option>
-<option value="AR" data-href="sitemap-ar.html">AR</option>
-<option value="ZH" data-href="sitemap-zh.html">ZH</option>
+<option value="FR" data-href="sitemap.html">FR</option>
+<option value="RU" data-href="sitemap.html">RU</option>
+<option value="AR" data-href="sitemap.html">AR</option>
+<option value="ZH" data-href="sitemap.html">ZH</option>
 </select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
@@ -332,6 +332,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
   </div>
 </div>
 
+<div id="sitemap-body">
 <section class="sec white reveal">
   <div class="sec-inner">
     <div class="sitemap-grid">
@@ -411,6 +412,70 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
     </div>
   </div>
 </section>
+</div>
+
+<script>
+(function(){
+  var lang = (localStorage.getItem('ayys_lang')||'EN').toUpperCase();
+  if(lang==='EN') return;
+  var body = document.getElementById('sitemap-body');
+  if(!body) return;
+  var content = {
+    FR: `<section class="sec w" ><div class="si">
+  <div class="sm-grid">
+    <div class="sm-sec"><h3>Marchés</h3><ul><li><a href="copper-fr.html">Cuivre</a></li><li><a href="cobalt-fr.html">Cobalt</a></li><li><a href="lithium-fr.html">Lithium</a></li><li><a href="nickel-fr.html">Nickel</a></li><li><a href="rare-earths-fr.html">Terres Rares</a></li><li><a href="precious-metals-fr.html">Métaux Précieux</a></li><li class="sub"><a href="copper-fr.html#grades">Spécifications grades</a></li><li class="sub"><a href="copper-fr.html#scrap">Ferraille certifiée</a></li><li class="sub"><a href="copper-fr.html#compliance">Conformité cuivre</a></li></ul></div>
+    <div class="sm-sec"><h3>Services & Intelligence</h3><ul><li><a href="services-fr.html">Services</a></li><li><a href="services-fr.html#sourcing">Sourcing & Trading</a></li><li><a href="services-fr.html#finance">Financement du commerce</a></li><li><a href="services-fr.html#logistics">Logistique & Transport</a></li><li><a href="services-fr.html#advisory">Conseil & Intelligence</a></li><li><a href="intelligence-fr.html">Veille stratégique</a></li><li><a href="intelligence-fr.html#signal">Signal AYYS</a></li><li><a href="intelligence-fr.html#briefs">Bulletins de marché</a></li><li><a href="intelligence-fr.html#geopolitics">Géopolitique</a></li><li><a href="intelligence-fr.html#supply-chain">Chaînes d'approvisionnement</a></li></ul></div>
+    <div class="sm-sec"><h3>Entreprise</h3><ul><li><a href="index-fr.html">Accueil</a></li><li><a href="about-fr.html">À propos</a></li><li><a href="compliance-fr.html">Conformité</a></li><li><a href="compliance-fr.html#kyc">KYC & LAB</a></li><li><a href="compliance-fr.html#sanctions">Sanctions</a></li><li><a href="compliance-fr.html#ocde">Devoir OCDE</a></li><li><a href="contact-fr.html">Contact</a></li><li><a href="sitemap.html">Plan du site</a></li></ul></div>
+  </div>
+</div></section>
+
+<div class="cta-band" >
+  <div class="cta-ey">AYYS Commodities</div><h2 class="cta-t">Commencer</h2><p class="cta-s">De la mine à la livraison industrielle — structuré, conforme, exécuté.</p>
+  <div class="cta-btns"><a class="btn-a" href="contact-fr.html">Demander un mandat →</a><a class="btn-o" href="contact-fr.html">Contactez-nous</a></div>
+</div>`,
+    RU: `<section class="sec w" ><div class="si">
+  <div class="sm-grid">
+    <div class="sm-sec"><h3>Рынки</h3><ul><li><a href="copper-ru.html">Медь</a></li><li><a href="cobalt-ru.html">Кобальт</a></li><li><a href="lithium-ru.html">Литий</a></li><li><a href="nickel-ru.html">Никель</a></li><li><a href="rare-earths-ru.html">Редкоземельные</a></li><li><a href="precious-metals-ru.html">Драгоценные металлы</a></li><li class="sub"><a href="copper-ru.html#grades">Спецификации сортов</a></li><li class="sub"><a href="copper-ru.html#scrap">Сертифицированный лом</a></li><li class="sub"><a href="copper-ru.html#compliance">Комплаенс по меди</a></li></ul></div>
+    <div class="sm-sec"><h3>Услуги и Аналитика</h3><ul><li><a href="services-ru.html">Услуги</a></li><li><a href="services-ru.html#sourcing">Сорсинг и торговля</a></li><li><a href="services-ru.html#finance">Торговое финансирование</a></li><li><a href="services-ru.html#logistics">Логистика и доставка</a></li><li><a href="services-ru.html#advisory">Консалтинг и аналитика</a></li><li><a href="intelligence-ru.html">Аналитика</a></li><li><a href="intelligence-ru.html#signal">Сигнал AYYS</a></li><li><a href="intelligence-ru.html#briefs">Рыночные обзоры</a></li><li><a href="intelligence-ru.html#geopolitics">Геополитика</a></li><li><a href="intelligence-ru.html#supply-chain">Цепочки поставок</a></li></ul></div>
+    <div class="sm-sec"><h3>Компания</h3><ul><li><a href="index-ru.html">Главная</a></li><li><a href="about-ru.html">О компании</a></li><li><a href="compliance-ru.html">Комплаенс</a></li><li><a href="compliance-ru.html#kyc">KYC и ПОД</a></li><li><a href="compliance-ru.html#sanctions">Санкции</a></li><li><a href="compliance-ru.html#ocde">Должная осмотрительность ОЭСР</a></li><li><a href="contact-ru.html">Контакт</a></li><li><a href="sitemap.html">Карта сайта</a></li></ul></div>
+  </div>
+</div></section>
+
+<div class="cta-band" >
+  <div class="cta-ey">AYYS Commodities</div><h2 class="cta-t">Начать</h2><p class="cta-s">От ворот рудника до промышленной поставки — структурированно, комплаентно, исполнено.</p>
+  <div class="cta-btns"><a class="btn-a" href="contact-ru.html">Запросить мандат →</a><a class="btn-o" href="contact-ru.html">Связаться с нами</a></div>
+</div>`,
+    AR: `<section class="sec w" dir="rtl"><div class="si">
+  <div class="sm-grid">
+    <div class="sm-sec"><h3>الأسواق</h3><ul><li><a href="copper-ar.html">النحاس</a></li><li><a href="cobalt-ar.html">الكوبالت</a></li><li><a href="lithium-ar.html">الليثيوم</a></li><li><a href="nickel-ar.html">النيكل</a></li><li><a href="rare-earths-ar.html">الأتربة النادرة</a></li><li><a href="precious-metals-ar.html">المعادن النفيسة</a></li><li class="sub"><a href="copper-ar.html#grades">مواصفات الدرجات</a></li><li class="sub"><a href="copper-ar.html#scrap">الخردة المعتمدة</a></li><li class="sub"><a href="copper-ar.html#compliance">امتثال النحاس</a></li></ul></div>
+    <div class="sm-sec"><h3>الخدمات والاستخبارات</h3><ul><li><a href="services-ar.html">الخدمات</a></li><li><a href="services-ar.html#sourcing">التوريد والتداول</a></li><li><a href="services-ar.html#finance">تمويل التجارة</a></li><li><a href="services-ar.html#logistics">الخدمات اللوجستية</a></li><li><a href="services-ar.html#advisory">الاستشارات والاستخبارات</a></li><li><a href="intelligence-ar.html">الاستخبارات</a></li><li><a href="intelligence-ar.html#signal">إشارة AYYS</a></li><li><a href="intelligence-ar.html#briefs">نشرات السوق</a></li><li><a href="intelligence-ar.html#geopolitics">الجيوسياسة</a></li><li><a href="intelligence-ar.html#supply-chain">تحليل سلاسل التوريد</a></li></ul></div>
+    <div class="sm-sec"><h3>الشركة</h3><ul><li><a href="index-ar.html">الرئيسية</a></li><li><a href="about-ar.html">حول</a></li><li><a href="compliance-ar.html">الامتثال</a></li><li><a href="compliance-ar.html#kyc">KYC ومكافحة غسل الأموال</a></li><li><a href="compliance-ar.html#sanctions">العقوبات</a></li><li><a href="compliance-ar.html#ocde">العناية الواجبة OECD</a></li><li><a href="contact-ar.html">اتصل بنا</a></li><li><a href="sitemap.html">خريطة الموقع</a></li></ul></div>
+  </div>
+</div></section>
+
+<div class="cta-band" dir="rtl">
+  <div class="cta-ey">AYYS Commodities</div><h2 class="cta-t">ابدأ الآن</h2><p class="cta-s">من بوابة المنجم إلى التسليم الصناعي — مُهيكل، ممتثل، منفّذ.</p>
+  <div class="cta-btns"><a class="btn-a" href="contact-ar.html">طلب تفويض ←</a><a class="btn-o" href="contact-ar.html">تواصل معنا</a></div>
+</div>`,
+    ZH: `<section class="sec w" ><div class="si">
+  <div class="sm-grid">
+    <div class="sm-sec"><h3>市场</h3><ul><li><a href="copper-zh.html">铜</a></li><li><a href="cobalt-zh.html">钴</a></li><li><a href="lithium-zh.html">锂</a></li><li><a href="nickel-zh.html">镍</a></li><li><a href="rare-earths-zh.html">稀土</a></li><li><a href="precious-metals-zh.html">贵金属</a></li><li class="sub"><a href="copper-zh.html#grades">品级规格</a></li><li class="sub"><a href="copper-zh.html#scrap">认证废料</a></li><li class="sub"><a href="copper-zh.html#compliance">铜合规</a></li></ul></div>
+    <div class="sm-sec"><h3>服务与情报</h3><ul><li><a href="services-zh.html">服务</a></li><li><a href="services-zh.html#sourcing">采购与交易</a></li><li><a href="services-zh.html#finance">贸易融资</a></li><li><a href="services-zh.html#logistics">物流与运输</a></li><li><a href="services-zh.html#advisory">咨询与情报</a></li><li><a href="intelligence-zh.html">情报</a></li><li><a href="intelligence-zh.html#signal">AYYS信号</a></li><li><a href="intelligence-zh.html#briefs">市场简报</a></li><li><a href="intelligence-zh.html#geopolitics">地缘政治</a></li><li><a href="intelligence-zh.html#supply-chain">供应链分析</a></li></ul></div>
+    <div class="sm-sec"><h3>公司</h3><ul><li><a href="index-zh.html">首页</a></li><li><a href="about-zh.html">关于</a></li><li><a href="compliance-zh.html">合规</a></li><li><a href="compliance-zh.html#kyc">KYC与反洗钱</a></li><li><a href="compliance-zh.html#sanctions">制裁</a></li><li><a href="compliance-zh.html#ocde">OECD尽职调查</a></li><li><a href="contact-zh.html">联系</a></li><li><a href="sitemap.html">网站地图</a></li></ul></div>
+  </div>
+</div></section>
+
+<div class="cta-band" >
+  <div class="cta-ey">AYYS Commodities</div><h2 class="cta-t">立即开始</h2><p class="cta-s">从矿山大门到工业交付——结构化、合规、执行。</p>
+  <div class="cta-btns"><a class="btn-a" href="contact-zh.html">申请委托 →</a><a class="btn-o" href="contact-zh.html">联系我们</a></div>
+</div>`
+  };
+  if(content[lang]) {
+    body.innerHTML = content[lang];
+    if(lang==='AR') body.setAttribute('dir','rtl');
+  }
+})();
+</script>
 <footer class="footer">
   <div class="footer-inner">
     <div>

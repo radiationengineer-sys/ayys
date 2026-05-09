@@ -17,7 +17,8 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div id="page-wrap-container">
+<div class="wrap">
     <a class="back" href="javascript:history.back()">← Back</a>
     <h1>Privacy Policy</h1>
     <p>AYYS Commodities SAS ("AYYS") is committed to protecting your personal data in accordance with the General Data Protection Regulation (GDPR) and applicable French law.</p>
@@ -35,5 +36,71 @@
 <p>This site uses only strictly necessary technical cookies. No advertising or tracking cookies are used. See our <a href="cookies.html">Cookies Policy</a>.</p>
     <p style="margin-top:48px;font-size:12px;color:rgba(255,255,255,0.3)">© 2024 AYYS Commodities SAS — France</p>
   </div>
+</div>
+<script>
+(function(){
+  var lang=(localStorage.getItem('ayys_lang')||'EN').toUpperCase();
+  if(lang==='EN') return;
+  var c={
+    FR: `<div class="wrap">
+    <a class="back" href="javascript:history.back()">← Back</a>
+    <h1>Politique de confidentialité</h1>
+    <p>AYYS Commodities SAS ("AYYS") s'engage à protéger vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi française applicable.</p>
+<h2>Responsable du traitement</h2>
+<p>AYYS Commodities SAS, enregistrée en France. Contact : <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a></p>
+<h2>Données collectées</h2>
+<p>Nous collectons les informations que vous fournissez via nos formulaires de contact : nom, société, adresse email, pays et détails du projet. Ces données sont utilisées exclusivement pour la qualification des mandats, le screening de conformité et le suivi commercial.</p>
+<h2>Base légale</h2>
+<p>Le traitement est fondé sur votre consentement (art. 6(1)(a) RGPD) et notre intérêt légitime à répondre aux demandes commerciales (art. 6(1)(f) RGPD).</p>
+<h2>Durée de conservation</h2>
+<p>Vos données sont conservées le temps nécessaire au traitement de votre demande, et jusqu'à 3 ans pour les besoins du suivi commercial.</p>
+<h2>Vos droits</h2>
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement ou de limitation du traitement de vos données personnelles. Pour exercer ces droits, contactez-nous à <a href="mailto:contact@ayys-group.fr?subject=AYYS%20demande%20confidentialit%C3%A9">contact@ayys-group.fr</a>.</p>
+<h2>Cookies</h2>
+<p>Ce site n'utilise que des cookies techniques strictement nécessaires. Aucun cookie publicitaire ou de tracking n'est utilisé. Consultez notre <a href="cookies.html">Politique cookies</a>.</p>
+    <p style="margin-top:48px;font-size:12px;color:rgba(255,255,255,0.3)">© 2024 AYYS Commodities SAS — France</p>
+  </div>`
+    RU: `<div class="wrap">
+    <a class="back" href="javascript:history.back()">← Back</a>
+    <h1>Политика конфиденциальности</h1>
+    <p>AYYS Commodities SAS обязуется защищать ваши персональные данные в соответствии с GDPR и применимым французским законодательством.</p>
+<h2>Контроллер данных</h2>
+<p>AYYS Commodities SAS, зарегистрированная во Франции. Контакт: <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a></p>
+<h2>Собираемые данные</h2>
+<p>Мы собираем информацию, которую вы предоставляете через формы: имя, компания, email, страна и детали проекта. Данные используются исключительно для квалификации мандата, комплаенс-проверки и коммерческого сопровождения.</p>
+<h2>Ваши права</h2>
+<p>Вы имеете право на доступ, исправление, удаление или ограничение обработки ваших данных. Обратитесь: <a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">contact@ayys-group.fr</a></p>
+    <p style="margin-top:48px;font-size:12px;color:rgba(255,255,255,0.3)">© 2024 AYYS Commodities SAS — France</p>
+  </div>`
+    AR: `<div class="wrap">
+    <a class="back" href="javascript:history.back()">← Back</a>
+    <h1>سياسة الخصوصية</h1>
+    <p>تلتزم شركة AYYS Commodities SAS بحماية بياناتك الشخصية وفقاً للائحة حماية البيانات العامة (GDPR) والقانون الفرنسي المعمول به.</p>
+<h2>مسؤول معالجة البيانات</h2>
+<p>AYYS Commodities SAS، مسجلة في فرنسا. للتواصل: <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a></p>
+<h2>البيانات التي نجمعها</h2>
+<p>نجمع المعلومات التي تقدمها عبر نماذج الاتصال: الاسم، الشركة، البريد الإلكتروني، الدولة وتفاصيل المشروع. تُستخدم هذه البيانات حصرياً لتأهيل التفويضات وفحص الامتثال والمتابعة التجارية.</p>
+<h2>حقوقك</h2>
+<p>لديك الحق في الوصول إلى بياناتك وتصحيحها وحذفها. للتواصل: <a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">contact@ayys-group.fr</a></p>
+    <p style="margin-top:48px;font-size:12px;color:rgba(255,255,255,0.3)">© 2024 AYYS Commodities SAS — France</p>
+  </div>`
+    ZH: `<div class="wrap">
+    <a class="back" href="javascript:history.back()">← Back</a>
+    <h1>隐私政策</h1>
+    <p>AYYS Commodities SAS致力于根据《通用数据保护条例》(GDPR)和适用的法国法律保护您的个人数据。</p>
+<h2>数据控制者</h2>
+<p>AYYS Commodities SAS，在法国注册。联系方式：<a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a></p>
+<h2>我们收集的数据</h2>
+<p>我们通过联系表单收集您提供的信息：姓名、公司、电子邮件、国家和项目详情。这些数据仅用于委托资格审核、合规筛查和商务跟进。</p>
+<h2>您的权利</h2>
+<p>您有权访问、更正、删除或限制对您个人数据的处理。请联系：<a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">contact@ayys-group.fr</a></p>
+    <p style="margin-top:48px;font-size:12px;color:rgba(255,255,255,0.3)">© 2024 AYYS Commodities SAS — France</p>
+  </div>`
+  };
+  var container=document.getElementById('page-wrap-container');
+  if(container && c[lang]) container.innerHTML=c[lang];
+  if(lang==='AR') document.body.setAttribute('dir','rtl');
+})();
+</script>
 </body>
 </html>
