@@ -433,12 +433,12 @@
           <span class="lme-live"><span class="lme-dot"></span>Live</span>
         </div>
       <div class="lme-price-row" style="margin-bottom:4px">
-        <span class="lme-price" id="lme-price">9,252</span>
+        <span class="lme-price" id="lme-price">11,826</span>
         <span class="lme-unit">USD/t</span>
       </div>
       <div class="lme-change" style="margin-bottom:8px">
-        <span class="lme-chg-val dn" id="lme-chg">▼ 38</span>
-        <span class="lme-chg-pct">-0.41% today</span>
+        <span class="lme-chg-val dn" id="lme-chg">▲ +107</span>
+        <span class="lme-chg-pct">+0.80% · 10 mai 2026</span>
       </div>
       <div class="lme-source-note">Data: <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> · <a href="https://www.lme.com" target="_blank" rel="noopener">LME Official</a> · Delayed 15 min</div>
       
@@ -1085,6 +1085,166 @@ document.querySelectorAll('.nav-item').forEach(item=>{
       console.warn('[AYYS] Yahoo Finance fetch failed:', err.message);
       // Laisser les valeurs existantes
     });
+})();
+
+</script>
+<script>
+/* ==========================================================
+   AYYS Commodities — Cours LME en temps réel
+   Source : Boursorama (via allorigins.win proxy CORS)
+   Fallback : Yahoo Finance API
+   Dernière mise à jour fallback : 10 mai 2026
+   ========================================================== */
+(function () {
+  'use strict';
+
+  // ── Symboles Boursorama par métal ─────────────────────────
+  const BOURSO = {
+    copper:          { sym: '7xCAUSD', unit: 'USD/t',  dec: 0 },
+    nickel:          { sym: '7xNIUSD', unit: 'USD/t',  dec: 0 },
+    cobalt:          { sym: '7xCOUSD', unit: 'USD/t',  dec: 0 },
+    zinc:            { sym: '7xZSUSD', unit: 'USD/t',  dec: 0 },
+    aluminium:       { sym: '7xAAUSD', unit: 'USD/t',  dec: 0 },
+    lead:            { sym: '7xPBUSD', unit: 'USD/t',  dec: 0 },
+    tin:             { sym: '7xSNUSD', unit: 'USD/t',  dec: 0 },
+    gold:            { sym: '_GC',     unit: 'USD/oz', dec: 2 },
+    silver:          { sym: '_SI',     unit: 'USD/oz', dec: 2 },
+  };
+
+  // ── Fallback : derniers cours Boursorama 10 mai 2026 ──────
+  const FALLBACK = {
+    copper:    { price: 11826.00, pct: -5.41 },
+    nickel:    { price: 18825.00, pct: -3.21 },
+    cobalt:    { price: 26500,    pct: -1.12 },
+    zinc:      { price: 3428,     pct: -0.90 },
+    aluminium: { price: 3511,     pct:  0.49 },
+    lead:      { price: 1969,     pct: -0.71 },
+    tin:       { price: 54000,    pct: -1.28 },
+    gold:      { price: 4492.15,  pct: -0.02 },
+    silver:    { price: 79.11,    pct: -0.57 },
+  };
+
+  // ── Détecter le métal de la page courante ────────────────
+  const path = window.location.pathname.toLowerCase();
+  let metal = null;
+  if      (path.includes('copper'))          metal = 'copper';
+  else if (path.includes('nickel'))          metal = 'nickel';
+  else if (path.includes('cobalt'))          metal = 'cobalt';
+  else if (path.includes('zinc'))            metal = 'zinc';
+  else if (path.includes('alumin'))          metal = 'aluminium';
+  else if (path.includes('lead'))            metal = 'lead';
+  else if (path.includes('tin'))             metal = 'tin';
+  else if (path.includes('gold') || path.includes('precious')) metal = 'gold';
+  else if (path.includes('silver'))          metal = 'silver';
+
+  if (!metal) return;
+  const cfg  = BOURSO[metal];
+  const fb   = FALLBACK[metal];
+
+  // ── Mettre à jour le DOM ──────────────────────────────────
+  function render(price, pct, source, live) {
+    const dec   = cfg.dec;
+    const up    = pct >= 0;
+    const arrow = up ? '▲' : '▼';
+    const sign  = up ? '+' : '';
+    const priceStr = (dec > 0 ? '$' : '') +
+      price.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+
+    // Prix principal
+    const el = document.getElementById('lme-price');
+    if (el) { el.textContent = priceStr; el.style.opacity = '1'; }
+
+    // Variation
+    const chgEl = document.getElementById('lme-chg');
+    if (chgEl) {
+      const prev = price / (1 + pct / 100);
+      const chg  = price - prev;
+      chgEl.textContent = arrow + ' ' + sign +
+        Math.abs(chg).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+      chgEl.className = 'lme-chg-val ' + (up ? 'up' : 'dn');
+    }
+
+    // % variation
+    const pctEl = document.querySelector('.lme-chg-pct');
+    if (pctEl) pctEl.textContent = sign + pct.toFixed(2) + '% · ' + new Date().toLocaleDateString('fr-FR');
+
+    // Indicateur live
+    const liveEl = document.querySelector('.lme-live');
+    if (liveEl) {
+      liveEl.innerHTML = live
+        ? '<span class="lme-dot"></span> Temps réel'
+        : '<span class="lme-dot" style="background:#f59e0b"></span> Différé';
+    }
+
+    // Note source avec lien Boursorama cliquable
+    const boursoUrl = 'https://www.boursorama.com/bourse/matieres-premieres/cours/' + cfg.sym + '/';
+    document.querySelectorAll('.lme-source-note').forEach(n => {
+      n.innerHTML =
+        'Source : <a href="' + boursoUrl + '" target="_blank" rel="noopener" ' +
+        'style="color:var(--g)">Boursorama · LME</a>' +
+        (source ? ' · ' + source : '') +
+        ' · ' + new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    });
+  }
+
+  // ── Appliquer le fallback immédiatement ─────────────────
+  render(fb.price, fb.pct, '10 mai 2026', false);
+
+  // ── Fetcher Boursorama via allorigins.win ────────────────
+  const boursoUrl = 'https://www.boursorama.com/bourse/matieres-premieres/cours/' + cfg.sym + '/';
+  const proxyUrl  = 'https://api.allorigins.win/get?url=' + encodeURIComponent(boursoUrl);
+
+  fetch(proxyUrl)
+    .then(r => r.ok ? r.json() : Promise.reject('proxy ' + r.status))
+    .then(data => {
+      const html = data.contents || '';
+      // Le cours est dans le titre du menu Boursorama :
+      // Pattern : "[CUIVRE (COPPER GRADE)\n\n11 826,00\n\n-5,41%]"
+      // Ou dans une balise avec le prix
+      const priceMatch = html.match(/(\d[\d\s]*,\d{2})\s*\n\s*([-+]?\d+[,\.]\d+%)/);
+      if (!priceMatch) throw new Error('prix non trouvé');
+
+      const priceRaw = parseFloat(priceMatch[1].replace(/\s/g, '').replace(',', '.'));
+      const pctRaw   = parseFloat(priceMatch[2].replace(',', '.').replace('%', ''));
+      if (!isFinite(priceRaw)) throw new Error('prix invalide');
+
+      render(priceRaw, pctRaw, 'Boursorama live', true);
+      console.log('[AYYS] Cours live Boursorama:', metal, priceRaw, cfg.unit);
+    })
+    .catch(err => {
+      console.warn('[AYYS] Boursorama proxy failed:', err, '— fallback maintenu');
+      // Essai Yahoo Finance comme second fallback
+      tryYahooFallback();
+    });
+
+  // ── Second fallback : Yahoo Finance ──────────────────────
+  const YF_TICKERS = {
+    copper: 'HG=F', nickel: 'NI=F', gold: 'GC=F', silver: 'SI=F',
+    zinc: 'ZI=F', aluminium: 'ALI=F',
+  };
+
+  function tryYahooFallback() {
+    const ticker = YF_TICKERS[metal];
+    if (!ticker) return;
+    const yfUrl = 'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker +
+      '?interval=1d&range=2d';
+    fetch(yfUrl)
+      .then(r => r.ok ? r.json() : Promise.reject('yf ' + r.status))
+      .then(d => {
+        const m = d?.chart?.result?.[0]?.meta;
+        if (!m) return;
+        const price = m.regularMarketPrice;
+        const prev  = m.chartPreviousClose;
+        const pct   = ((price - prev) / prev * 100);
+        // Conversion cts/lb → USD/t pour cuivre
+        const adj   = (metal === 'copper') ? price * 2204.62 / 100 : price;
+        const adjPct = pct; // pct reste le même
+        render(adj, adjPct, 'Yahoo Finance', false);
+        console.log('[AYYS] Yahoo Finance fallback:', metal, adj);
+      })
+      .catch(() => { /* fallback hardcodé déjà affiché */ });
+  }
+
 })();
 
 </script>

@@ -2038,18 +2038,18 @@ const METAL_CONFIG = [
 
 // Prix fallback LME (mis à jour manuellement) — affichés si Yahoo Finance indisponible
 const FALLBACK_PRICES = {
-  'HG=F': {price: 9252, prev: 9290}, // Copper USD/t (LME settlement 09 May 2026)
-  'NI=F': {price: 15865, prev: 15740}, // Nickel USD/t
-  'GC=F': {price: 3284, prev: 3266},   // Gold USD/oz
-  'SI=F': {price: 32.84, prev: 32.42}, // Silver USD/oz
-  'ZI=F': {price: 2714, prev: 2732},   // Zinc USD/t
-  'ALI=F':{price: 2402, prev: 2390},   // Aluminium USD/t
+  'HG=F':  {price: 11826.00, prev: 12502.00},
+  'NI=F':  {price: 18825.00, prev: 19453.00},
+  'GC=F':  {price:  4492.15, prev:  4493.05},
+  'SI=F':  {price:    79.11, prev:    79.56},
+  'ZI=F':  {price:  3428.00, prev:  3459.00},
+  'ALI=F': {price:  3511.00, prev:  3494.00},
 };
 
 // Prix OTC hardcodés (Cobalt, Lithium — pas de futures publics)
 const OTC_PRICES = {
-  cobalt:  {price: 26480, prev: 26800, unit:'$/t', note:'LME monthly avg'},
-  lithium: {price: 11200, prev: 11350, unit:'$/t', note:'Fastmarkets index'},
+  cobalt:  {price: 26500, prev: 26800, unit:'$/t', note:'LME avg mai 2026'},
+  lithium: {price: 11200, prev: 11350, unit:'$/t', note:'Fastmarkets mai 2026'},
 };
 
 function sparkline(trend, up) {
@@ -2141,6 +2141,30 @@ function renderAll() {
 
 // Rendu immédiat avec fallback
 renderAll();
+
+
+// Mise à jour live Boursorama (allorigins.win proxy CORS)
+[
+  {key:'copper', sym:'7xCAUSD'},
+  {key:'nickel', sym:'7xNIUSD'},
+  {key:'gold',   sym:'_GC'},
+  {key:'silver', sym:'_SI'},
+].forEach(function(m){
+  var u='https://api.allorigins.win/get?url='+encodeURIComponent('https://www.boursorama.com/bourse/matieres-premieres/cours/'+m.sym+'/');
+  fetch(u).then(function(r){return r.ok?r.json():Promise.reject();})
+  .then(function(d){
+    var h=d.contents||'';
+    var re=/(\d[\d ]*,\d{2})\s*
+\s*([-+]?\d+[,.]\d+%)/;
+    var match=h.match(re);
+    if(!match)return;
+    var p=parseFloat(match[1].replace(/ /g,'').replace(',','.'));
+    var pct=parseFloat(match[2].replace(',','.').replace('%',''));
+    if(!isFinite(p))return;
+    priceData[m.key]={price:p,prev:p/(1+pct/100),trend:[p/(1+pct/100),p],source:'Boursorama'};
+    renderAll();
+  }).catch(function(){});
+});
 
 // Fetch Yahoo Finance pour les tickers disponibles
 const tickers = [...new Set(METAL_CONFIG.filter(m=>m.ticker).map(m=>m.ticker))];
