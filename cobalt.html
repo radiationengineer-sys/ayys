@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cobalt Sourcing &amp; Trading — AYYS Commodities</title>
-  <meta name="description" content="AYYS Commodities sources and structures cobalt flows from upstream producers in Africa, Middle East and Eastern Europe. Direct execution from mine-gate to delivery."/>
+  <meta name="description" content="AYYS Commodities sources and structures cobalt flows from upstream producers in Africa, Middle East and Eastern Europe. Direct execution from mine-gate to dedailyry."/>
   <meta property="og:title" content="Cobalt — AYYS Commodities"/>
   <meta property="og:type" content="website"/>
   <link rel="canonical" href="https://www.ayysc.com/cobalt"/>
@@ -123,7 +123,7 @@
     .lme-widget{background:var(--dark);border-radius:16px;padding:22px;position:relative;overflow:hidden;border:0.5px solid rgba(255,255,255,0.06)}
     .lme-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
     .lme-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38)}
-    .lme-live{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--g);text-transform:uppercase}
+    .lme-daily{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--g);text-transform:uppercase}
     .lme-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pu 2s infinite}
     .lme-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
     .lme-price{font-size:38px;font-weight:600;color:#fff;letter-spacing:-1px;font-variant-numeric:tabular-nums}
@@ -380,7 +380,7 @@
     <div class="lme-widget">
       <div class="lme-header">
         <span class="lme-title">Cobalt Metal — LME</span>
-        <span class="lme-live"><span class="lme-dot"></span>OTC</span>
+        <span class="lme-daily"><span class="lme-dot"></span>OTC</span>
       </div>
       <div class="lme-price-row" style="margin-bottom:4px">
         <span class="lme-price" id="lme-price">26,500</span>
@@ -501,7 +501,7 @@
 <section class="sec cream reveal" id="intel-cobalt">
   <div class="sec-inner">
     <div class="eyebrow">AYYS Signal &mdash; Cobalt</div>
-    <h2 class="stitle">Live intelligence signals</h2>
+    <h2 class="stitle">Daily intelligence signals</h2>
     <p class="ssub">Market briefs updated by the AYYS trading desk. Contact us for full platform access.</p>
     <div class="intel-grid"><div class="intel-card reveal">
           <div class="intel-tag h">High — Supply risk</div>
@@ -585,291 +585,103 @@ function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');
 function closeMenu(){document.getElementById('mmenu').classList.remove('open');document.getElementById('ham').classList.remove('open')}
 function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)window.location.href=o.dataset.href;}
 function pickLangSel(v){const url=new URL(window.location.href);url.searchParams.set('lang',v);window.history.replaceState(null,'',url)}
+
+</script>
+
+
+
+<script>
+/* AYYS MARKET DATA — single local feed renderer
+   Frontend reads /market-prices.json only. Update that file daily from Boursorama/vendor via backend or CI. */
 (function(){
-  const base=parseInt('56,290'.replace(/,/g,''));
-  const deltas=[0,12,-8,18,-5,22,-12,8,15,-9,20,-6];
-  let i=0;
-  function fmt(n){return n.toLocaleString('en-US')}
-  function tick(){
-    i=(i+1)%deltas.length;
-    const v=base+deltas[i];
-    document.getElementById('lme-price').textContent=fmt(v);
-  }
-  setInterval(tick,5000);
-})();
-</script>
-<script>
-/* =========================================================
-   AYYS — Prix LME live via Yahoo Finance API
-   Fonctionne depuis n'importe quel hébergement HTML pur
-   Source : Yahoo Finance (données COMEX/LME, délai 15 min)
-   Cobalt/Lithium/Terres rares : prix LME référencés
-   ========================================================= */
-(function() {
   'use strict';
-
-  // Tickers Yahoo Finance → métaux LME
-  const TICKERS = {
-    copper:   { ticker: 'HG=F',  mult: 2204.62, unit: 'USD/t',  lme: true  },  // cts/lb → USD/t
-    nickel:   { ticker: 'NI=F',  mult: 1,        unit: 'USD/t',  lme: true  },
-    gold:     { ticker: 'GC=F',  mult: 1,        unit: 'USD/oz', lme: false },
-    silver:   { ticker: 'SI=F',  mult: 1,        unit: 'USD/oz', lme: false },
-    aluminium:{ ticker: 'ALI=F', mult: 1,        unit: 'USD/t',  lme: true  },
-    zinc:     { ticker: 'ZI=F',  mult: 1,        unit: 'USD/t',  lme: true  },
+  var FALLBACK_FEED = {"generatedAt": "2026-05-10T00:00:00+02:00", "policy": "Single public site feed. Pages read this file only; update it daily from an authorized source/proxy.", "sourcePrimary": "Boursorama when the instrument exists there; otherwise explicit non-LME fallback reference.", "instruments": {"copper": {"name": "Copper Grade", "symbol": "CAUSD", "price": 11826.0, "previous": 12502.0, "pct": -5.41, "unit": "USD/t", "source": "Boursorama", "sourceUrl": "https://www.boursorama.com/bourse/matieres-premieres/cours/7xCAUSD/", "sourceLabel": "Boursorama · Copper Grade CAUSD · LME", "freshness": "daily-target", "status": "fallback-seed"}, "cobalt": {"name": "Cobalt", "symbol": "CO", "price": 26500, "previous": 26800, "pct": -1.12, "unit": "USD/t", "source": "Manual/Fastmarkets/LME monthly reference", "sourceUrl": "https://www.lme.com/en/metals/minor-metals/lme-cobalt", "sourceLabel": "Non-Boursorama reference · cobalt is not reliably available on Boursorama", "freshness": "manual-or-vendor", "status": "not-boursorama"}, "lithium": {"name": "Lithium carbonate/hydroxide reference", "symbol": "LI", "price": 11200, "previous": 11350, "pct": -1.32, "unit": "USD/t", "source": "Manual/Fastmarkets/CME indicative", "sourceUrl": "https://www.fastmarkets.com/commodities/battery-materials/lithium/", "sourceLabel": "Non-Boursorama reference · lithium is not reliably available on Boursorama", "freshness": "manual-or-vendor", "status": "not-boursorama"}, "nickel": {"name": "Nickel", "symbol": "NI", "price": 18825, "previous": 19453, "pct": -3.21, "unit": "USD/t", "source": "Boursorama or licensed vendor needed", "sourceUrl": "", "sourceLabel": "Indicative fallback · connect daily feed", "freshness": "daily-target", "status": "fallback-seed"}, "zinc": {"name": "Zinc", "symbol": "ZN", "price": 3428, "previous": 3459, "pct": -0.9, "unit": "USD/t", "source": "Boursorama or licensed vendor needed", "sourceUrl": "", "sourceLabel": "Indicative fallback · connect daily feed", "freshness": "daily-target", "status": "fallback-seed"}, "aluminium": {"name": "Aluminium", "symbol": "AL", "price": 3511, "previous": 3494, "pct": 0.49, "unit": "USD/t", "source": "Boursorama or licensed vendor needed", "sourceUrl": "", "sourceLabel": "Indicative fallback · connect daily feed", "freshness": "daily-target", "status": "fallback-seed"}}};
+  var dayKey = new Date().toISOString().slice(0,10).replace(/-/g,'');
+  var feedUrl = 'market-prices.json?v=' + dayKey;
+  var langs = {
+    fr:{asof:'Source', stale:'donnée indicative', noB:'non disponible sur Boursorama'},
+    en:{asof:'Source', stale:'indicative data', noB:'not available on Boursorama'},
+    ru:{asof:'Источник', stale:'индикативные данные', noB:'недоступно на Boursorama'},
+    ar:{asof:'المصدر', stale:'بيانات إرشادية', noB:'غير متاح على Boursorama'},
+    zh:{asof:'来源', stale:'指示性数据', noB:'Boursorama不可用'}
   };
-
-  // Détecter la page courante
-  const path = window.location.pathname.toLowerCase();
-  let metal = null;
-  if (path.includes('copper'))          metal = 'copper';
-  else if (path.includes('nickel'))     metal = 'nickel';
-  else if (path.includes('gold') || path.includes('precious')) metal = 'gold';
-  else if (path.includes('silver'))     metal = 'silver';
-  else if (path.includes('alumin'))     metal = 'aluminium';
-  else if (path.includes('zinc'))       metal = 'zinc';
-
-  // Si pas de ticker pour ce métal → sortir
-  if (!metal || !TICKERS[metal]) return;
-
-  const cfg = TICKERS[metal];
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${cfg.ticker}?interval=1d&range=5d&includePrePost=false`;
-
-  function fmt(n, decimals) {
-    return Number(n).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  function lang(){
+    var h=(document.documentElement.lang||'en').toLowerCase();
+    if(h.indexOf('fr')===0) return 'fr'; if(h.indexOf('ru')===0) return 'ru';
+    if(h.indexOf('ar')===0) return 'ar'; if(h.indexOf('zh')===0) return 'zh'; return 'en';
   }
-
-  function updateDisplay(price, prev, ts) {
-    const adjPrice = price * cfg.mult;
-    const adjPrev  = prev  * cfg.mult;
-    const change   = adjPrice - adjPrev;
-    const changePct = (change / adjPrev * 100);
-    const up = change >= 0;
-    const decimals = cfg.unit.includes('oz') ? 2 : 0;
-    const priceStr = (cfg.unit.includes('oz') ? '$' : '') + fmt(adjPrice, decimals);
-
-    // Mise à jour prix principal
-    const priceEl = document.getElementById('lme-price');
-    if (priceEl) {
-      priceEl.textContent = priceStr;
-      priceEl.style.opacity = '1';
-      priceEl.style.color = '';
-    }
-
-    // Variation
-    const chgEl = document.getElementById('lme-chg');
-    if (chgEl) {
-      const sign = up ? '▲ +' : '▼ ';
-      chgEl.textContent = sign + fmt(change, decimals);
-      chgEl.className = 'lme-chg-val ' + (up ? 'up' : 'dn');
-    }
-
-    // % variation
-    const pctEl = document.querySelector('.lme-chg-pct');
-    if (pctEl) {
-      const sign = up ? '+' : '';
-      pctEl.textContent = sign + changePct.toFixed(2) + '% today';
-    }
-
-    // Indicateur Live → devient "Delayed 15min"
-    const liveEl = document.querySelector('.lme-live');
-    if (liveEl) {
-      liveEl.innerHTML = '<span class="lme-dot"></span> Delayed 15min';
-    }
-
-    // Note source
-    document.querySelectorAll('.lme-source-note').forEach(el => {
-      const date = ts ? new Date(ts * 1000).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' }) : '';
-      el.innerHTML = `Source: <a href="https://www.lme.com" target="_blank" rel="noopener">LME</a> via <a href="https://finance.yahoo.com/quote/${cfg.ticker}" target="_blank" rel="noopener">Yahoo Finance</a>${date ? ' · ' + date : ''} · Delayed 15 min`;
-    });
-
-    // Cellules Cash / 3M (estimation)
-    document.querySelectorAll('[data-lme-field="cash"]').forEach(el => el.textContent = fmt(adjPrice * 0.9998, decimals));
-    document.querySelectorAll('[data-lme-field="three_month"]').forEach(el => el.textContent = fmt(adjPrice * 1.004, decimals));
-
-    // Sparkline depuis historique 5 jours
-    const sparkEl = document.querySelector('.lme-chart svg');
-    // Sparkline mise à jour si besoin
+  function metalFromPath(){
+    var p=location.pathname.toLowerCase();
+    if(p.indexOf('copper')>-1) return 'copper';
+    if(p.indexOf('cobalt')>-1) return 'cobalt';
+    if(p.indexOf('lithium')>-1) return 'lithium';
+    return null;
   }
-
-  // Fetch Yahoo Finance
-  fetch(url)
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(data => {
-      const result = data?.chart?.result?.[0];
-      if (!result) throw new Error('No data');
-      const meta = result.meta;
-      const price = meta.regularMarketPrice || meta.previousClose;
-      const prev  = meta.chartPreviousClose || meta.previousClose;
-      const ts    = meta.regularMarketTime;
-      if (!price) throw new Error('No price');
-      updateDisplay(price, prev, ts);
-    })
-    .catch(err => {
-      console.warn('[AYYS] Yahoo Finance fetch failed:', err.message);
-      // Laisser les valeurs existantes
+  function fmt(n, dec){
+    if(n===null || n===undefined || isNaN(Number(n))) return '—';
+    return Number(n).toLocaleString('en-US',{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0});
+  }
+  function pctClass(p){ return Number(p)>=0 ? 'up' : 'dn'; }
+  function sign(n){ return Number(n)>=0 ? '+' : ''; }
+  function unitText(inst){ return (inst && inst.unit) || 'USD/t'; }
+  function sourceText(inst){
+    var L=langs[lang()]||langs.en;
+    if(!inst) return L.stale;
+    var s=inst.sourceLabel || inst.source || L.stale;
+    if(inst.status==='not-boursorama') s += ' · ' + L.noB;
+    return s;
+  }
+  function renderProduct(feed, metal){
+    var inst = feed.instruments && feed.instruments[metal];
+    if(!inst) return;
+    var priceEl=document.getElementById('lme-price');
+    if(priceEl) priceEl.textContent=fmt(inst.price, unitText(inst).indexOf('/oz')>-1?2:0);
+    var unitEl=document.querySelector('.lme-unit');
+    if(unitEl) unitEl.textContent=unitText(inst);
+    var chg=Number(inst.price||0)-Number(inst.previous||0);
+    var chgEl=document.getElementById('lme-chg') || document.querySelector('.lme-chg-val');
+    if(chgEl){
+      chgEl.textContent=(chg>=0?'▲ ':'▼ ')+sign(chg)+fmt(chg,0);
+      chgEl.classList.remove('up','dn'); chgEl.classList.add(pctClass(chg));
+    }
+    var pctEl=document.querySelector('.lme-chg-pct');
+    if(pctEl) pctEl.textContent=sign(inst.pct)+Number(inst.pct||0).toFixed(2)+'% · '+(feed.generatedAt||'');
+    document.querySelectorAll('.lme-source-note').forEach(function(n,i){
+      if(i>1) return;
+      var link = inst.sourceUrl ? '<a href="'+inst.sourceUrl+'" target="_blank" rel="noopener">'+(inst.source||'Market source')+'</a>' : (inst.source||'Market source');
+      n.innerHTML = (langs[lang()]||langs.en).asof + ': ' + link + ' · ' + sourceText(inst) + ' · feed: market-prices.json';
     });
+    document.querySelectorAll('.lme-live').forEach(function(el){
+      el.textContent = inst.status==='not-boursorama' ? 'REFERENCE' : 'DAILY';
+    });
+  }
+  function tickerItem(key, inst){
+    if(!inst) return '';
+    var cls=pctClass(inst.pct);
+    return '<div class="ti"><span class="tsym">'+(inst.symbol||key.toUpperCase())+'</span><span class="tval">'+fmt(inst.price, unitText(inst).indexOf('/oz')>-1?2:0)+' <span style="font-size:9px;opacity:.5">'+unitText(inst)+'</span></span><span class="t'+cls+'">'+sign(inst.pct)+Number(inst.pct||0).toFixed(1)+'%</span></div>';
+  }
+  function renderIndex(feed){
+    var order=['copper','cobalt','lithium','nickel','zinc','aluminium'];
+    var html=order.map(function(k){return tickerItem(k, feed.instruments[k]);}).join('');
+    document.querySelectorAll('.ttrack').forEach(function(t){ if(html) t.innerHTML=html+html; });
+    document.querySelectorAll('.tupdate,.mb-date').forEach(function(el){ el.textContent='Source: market-prices.json · '+(feed.generatedAt||'daily feed'); });
+    var map={Cu:'copper',Co:'cobalt',Li:'lithium',Ni:'nickel',Zn:'zinc',Al:'aluminium'};
+    document.querySelectorAll('.mb-item').forEach(function(item){
+      var sym=(item.querySelector('.mb-sym')||{}).textContent; var key=map[(sym||'').trim()]; var inst=feed.instruments[key];
+      if(!inst) return;
+      var val=item.querySelector('.mb-val'); if(val) val.textContent=fmt(inst.price,0);
+      var ch=item.querySelector('.mb-chg'); if(ch){ ch.textContent=sign(inst.pct)+Number(inst.pct||0).toFixed(1)+'%'; ch.classList.remove('up','dn'); ch.classList.add(pctClass(inst.pct)); }
+    });
+  }
+  function render(feed){
+    feed=feed||FALLBACK_FEED;
+    renderIndex(feed);
+    var m=metalFromPath(); if(m) renderProduct(feed,m);
+  }
+  window.AYYS_renderMarketFeed = render;
+  fetch(feedUrl,{cache:'no-store'}).then(function(r){if(!r.ok) throw new Error('feed missing'); return r.json();}).then(render).catch(function(){render(FALLBACK_FEED);});
 })();
-
 </script>
-<script>
-/* ==========================================================
-   AYYS Commodities — Cours LME en temps réel
-   Source : Boursorama (via allorigins.win proxy CORS)
-   Fallback : Yahoo Finance API
-   Dernière mise à jour fallback : 10 mai 2026
-   ========================================================== */
-(function () {
-  'use strict';
 
-  // ── Symboles Boursorama par métal ─────────────────────────
-  const BOURSO = {
-    copper:          { sym: '7xCAUSD', unit: 'USD/t',  dec: 0 },
-    nickel:          { sym: '7xNIUSD', unit: 'USD/t',  dec: 0 },
-    cobalt:          { sym: '7xCOUSD', unit: 'USD/t',  dec: 0 },
-    zinc:            { sym: '7xZSUSD', unit: 'USD/t',  dec: 0 },
-    aluminium:       { sym: '7xAAUSD', unit: 'USD/t',  dec: 0 },
-    lead:            { sym: '7xPBUSD', unit: 'USD/t',  dec: 0 },
-    tin:             { sym: '7xSNUSD', unit: 'USD/t',  dec: 0 },
-    gold:            { sym: '_GC',     unit: 'USD/oz', dec: 2 },
-    silver:          { sym: '_SI',     unit: 'USD/oz', dec: 2 },
-  };
-
-  // ── Fallback : derniers cours Boursorama 10 mai 2026 ──────
-  const FALLBACK = {
-    copper:    { price: 11826.00, pct: -5.41 },
-    nickel:    { price: 18825.00, pct: -3.21 },
-    cobalt:    { price: 26500,    pct: -1.12 },
-    zinc:      { price: 3428,     pct: -0.90 },
-    aluminium: { price: 3511,     pct:  0.49 },
-    lead:      { price: 1969,     pct: -0.71 },
-    tin:       { price: 54000,    pct: -1.28 },
-    gold:      { price: 4492.15,  pct: -0.02 },
-    silver:    { price: 79.11,    pct: -0.57 },
-  };
-
-  // ── Détecter le métal de la page courante ────────────────
-  const path = window.location.pathname.toLowerCase();
-  let metal = null;
-  if      (path.includes('copper'))          metal = 'copper';
-  else if (path.includes('nickel'))          metal = 'nickel';
-  else if (path.includes('cobalt'))          metal = 'cobalt';
-  else if (path.includes('zinc'))            metal = 'zinc';
-  else if (path.includes('alumin'))          metal = 'aluminium';
-  else if (path.includes('lead'))            metal = 'lead';
-  else if (path.includes('tin'))             metal = 'tin';
-  else if (path.includes('gold') || path.includes('precious')) metal = 'gold';
-  else if (path.includes('silver'))          metal = 'silver';
-
-  if (!metal) return;
-  const cfg  = BOURSO[metal];
-  const fb   = FALLBACK[metal];
-
-  // ── Mettre à jour le DOM ──────────────────────────────────
-  function render(price, pct, source, live) {
-    const dec   = cfg.dec;
-    const up    = pct >= 0;
-    const arrow = up ? '▲' : '▼';
-    const sign  = up ? '+' : '';
-    const priceStr = (dec > 0 ? '$' : '') +
-      price.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
-
-    // Prix principal
-    const el = document.getElementById('lme-price');
-    if (el) { el.textContent = priceStr; el.style.opacity = '1'; }
-
-    // Variation
-    const chgEl = document.getElementById('lme-chg');
-    if (chgEl) {
-      const prev = price / (1 + pct / 100);
-      const chg  = price - prev;
-      chgEl.textContent = arrow + ' ' + sign +
-        Math.abs(chg).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
-      chgEl.className = 'lme-chg-val ' + (up ? 'up' : 'dn');
-    }
-
-    // % variation
-    const pctEl = document.querySelector('.lme-chg-pct');
-    if (pctEl) pctEl.textContent = sign + pct.toFixed(2) + '% · ' + new Date().toLocaleDateString('fr-FR');
-
-    // Indicateur live
-    const liveEl = document.querySelector('.lme-live');
-    if (liveEl) {
-      liveEl.innerHTML = live
-        ? '<span class="lme-dot"></span> Temps réel'
-        : '<span class="lme-dot" style="background:#f59e0b"></span> Différé';
-    }
-
-    // Note source avec lien Boursorama cliquable
-    const boursoUrl = 'https://www.boursorama.com/bourse/matieres-premieres/cours/' + cfg.sym + '/';
-    document.querySelectorAll('.lme-source-note').forEach(n => {
-      n.innerHTML =
-        'Source : <a href="' + boursoUrl + '" target="_blank" rel="noopener" ' +
-        'style="color:var(--g)">Boursorama · LME</a>' +
-        (source ? ' · ' + source : '') +
-        ' · ' + new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-    });
-  }
-
-  // ── Appliquer le fallback immédiatement ─────────────────
-  render(fb.price, fb.pct, '10 mai 2026', false);
-
-  // ── Fetcher Boursorama via allorigins.win ────────────────
-  const boursoUrl = 'https://www.boursorama.com/bourse/matieres-premieres/cours/' + cfg.sym + '/';
-  const proxyUrl  = 'https://api.allorigins.win/get?url=' + encodeURIComponent(boursoUrl);
-
-  fetch(proxyUrl)
-    .then(r => r.ok ? r.json() : Promise.reject('proxy ' + r.status))
-    .then(data => {
-      const html = data.contents || '';
-      // Le cours est dans le titre du menu Boursorama :
-      // Pattern : "[CUIVRE (COPPER GRADE)\n\n11 826,00\n\n-5,41%]"
-      // Ou dans une balise avec le prix
-      const priceMatch = html.match(/(\d[\d\s]*,\d{2})\s*\n\s*([-+]?\d+[,\.]\d+%)/);
-      if (!priceMatch) throw new Error('prix non trouvé');
-
-      const priceRaw = parseFloat(priceMatch[1].replace(/\s/g, '').replace(',', '.'));
-      const pctRaw   = parseFloat(priceMatch[2].replace(',', '.').replace('%', ''));
-      if (!isFinite(priceRaw)) throw new Error('prix invalide');
-
-      render(priceRaw, pctRaw, 'Boursorama live', true);
-      console.log('[AYYS] Cours live Boursorama:', metal, priceRaw, cfg.unit);
-    })
-    .catch(err => {
-      console.warn('[AYYS] Boursorama proxy failed:', err, '— fallback maintenu');
-      // Essai Yahoo Finance comme second fallback
-      tryYahooFallback();
-    });
-
-  // ── Second fallback : Yahoo Finance ──────────────────────
-  const YF_TICKERS = {
-    copper: 'HG=F', nickel: 'NI=F', gold: 'GC=F', silver: 'SI=F',
-    zinc: 'ZI=F', aluminium: 'ALI=F',
-  };
-
-  function tryYahooFallback() {
-    const ticker = YF_TICKERS[metal];
-    if (!ticker) return;
-    const yfUrl = 'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker +
-      '?interval=1d&range=2d';
-    fetch(yfUrl)
-      .then(r => r.ok ? r.json() : Promise.reject('yf ' + r.status))
-      .then(d => {
-        const m = d?.chart?.result?.[0]?.meta;
-        if (!m) return;
-        const price = m.regularMarketPrice;
-        const prev  = m.chartPreviousClose;
-        const pct   = ((price - prev) / prev * 100);
-        // Conversion cts/lb → USD/t pour cuivre
-        const adj   = (metal === 'copper') ? price * 2204.62 / 100 : price;
-        const adjPct = pct; // pct reste le même
-        render(adj, adjPct, 'Yahoo Finance', false);
-        console.log('[AYYS] Yahoo Finance fallback:', metal, adj);
-      })
-      .catch(() => { /* fallback hardcodé déjà affiché */ });
-  }
-
-})();
-
-</script>
 </body>
 </html>

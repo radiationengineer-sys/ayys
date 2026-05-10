@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-05-10T00:00:00+02:00",
+  "policy": "Single public site feed. Pages read this file only; update it daily from an authorized source/proxy.",
+  "sourcePrimary": "Boursorama when the instrument exists there; otherwise explicit non-LME fallback reference.",
+  "instruments": {
+    "copper": {
+      "name": "Copper Grade",
+      "symbol": "CAUSD",
+      "price": 11826.0,
+      "previous": 12502.0,
+      "pct": -5.41,
+      "unit": "USD/t",
+      "source": "Boursorama",
+      "sourceUrl": "https://www.boursorama.com/bourse/matieres-premieres/cours/7xCAUSD/",
+      "sourceLabel": "Boursorama · Copper Grade CAUSD · LME",
+      "freshness": "daily-target",
+      "status": "fallback-seed"
+    },
+    "cobalt": {
+      "name": "Cobalt",
+      "symbol": "CO",
+      "price": 26500,
+      "previous": 26800,
+      "pct": -1.12,
+      "unit": "USD/t",
+      "source": "Manual/Fastmarkets/LME monthly reference",
+      "sourceUrl": "https://www.lme.com/en/metals/minor-metals/lme-cobalt",
+      "sourceLabel": "Non-Boursorama reference · cobalt is not reliably available on Boursorama",
+      "freshness": "manual-or-vendor",
+      "status": "not-boursorama"
+    },
+    "lithium": {
+      "name": "Lithium carbonate/hydroxide reference",
+      "symbol": "LI",
+      "price": 11200,
+      "previous": 11350,
+      "pct": -1.32,
+      "unit": "USD/t",
+      "source": "Manual/Fastmarkets/CME indicative",
+      "sourceUrl": "https://www.fastmarkets.com/commodities/battery-materials/lithium/",
+      "sourceLabel": "Non-Boursorama reference · lithium is not reliably available on Boursorama",
+      "freshness": "manual-or-vendor",
+      "status": "not-boursorama"
+    },
+    "nickel": {
+      "name": "Nickel",
+      "symbol": "NI",
+      "price": 18825,
+      "previous": 19453,
+      "pct": -3.21,
+      "unit": "USD/t",
+      "source": "Boursorama or licensed vendor needed",
+      "sourceUrl": "",
+      "sourceLabel": "Indicative fallback · connect daily feed",
+      "freshness": "daily-target",
+      "status": "fallback-seed"
+    },
+    "zinc": {
+      "name": "Zinc",
+      "symbol": "ZN",
+      "price": 3428,
+      "previous": 3459,
+      "pct": -0.9,
+      "unit": "USD/t",
+      "source": "Boursorama or licensed vendor needed",
+      "sourceUrl": "",
+      "sourceLabel": "Indicative fallback · connect daily feed",
+      "freshness": "daily-target",
+      "status": "fallback-seed"
+    },
+    "aluminium": {
+      "name": "Aluminium",
+      "symbol": "AL",
+      "price": 3511,
+      "previous": 3494,
+      "pct": 0.49,
+      "unit": "USD/t",
+      "source": "Boursorama or licensed vendor needed",
+      "sourceUrl": "",
+      "sourceLabel": "Indicative fallback · connect daily feed",
+      "freshness": "daily-target",
+      "status": "fallback-seed"
+    }
+  }
+}
