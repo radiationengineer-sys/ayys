@@ -2151,8 +2151,7 @@ renderAll();
   fetch(u).then(function(r){return r.ok?r.json():Promise.reject();})
   .then(function(d){
     var h=d.contents||'';
-    var re=/(\d[\d ]*,\d{2})\s*
-\s*([-+]?\d+[,.]\d+%)/;
+    var re=/(\d[\d ]*,\d{2})\s*\n?\s*([-+]?\d+[,.]\d+%)/;
     var match=h.match(re);
     if(!match)return;
     var p=parseFloat(match[1].replace(/ /g,'').replace(',','.'));
