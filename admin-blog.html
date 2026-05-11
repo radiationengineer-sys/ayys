@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AYYS — Admin Blog & Publications</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AYYS — Admin Blog &amp; Publications</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -174,432 +175,396 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
 </style>
 </head>
 <body>
-
 <div class="topbar">
-  <div class="topbar-logo">AY<span>Y</span>S</div>
-  <div class="topbar-right">
-    <span class="admin-badge">Admin Panel</span>
-    <a href="index.html" class="back-btn">← Retour au site</a>
-  </div>
+<div class="topbar-logo">AY<span>Y</span>S</div>
+<div class="topbar-right">
+<span class="admin-badge">Admin Panel</span>
+<a class="back-btn" href="index.html">← Retour au site</a>
 </div>
-
+</div>
 <div class="layout">
-  <div class="sidebar">
-    <div class="sidebar-section">Blog</div>
-    <div class="slink active" onclick="showPanel('new')">
-      <div class="slink-icon">✏️</div> Nouveau post
+<div class="sidebar">
+<div class="sidebar-section">Blog</div>
+<div class="slink active" onclick="showPanel('new')">
+<div class="slink-icon">✏️</div> Nouveau post
     </div>
-    <div class="slink" onclick="showPanel('posts')">
-      <div class="slink-icon">📋</div> Tous les posts
+<div class="slink" onclick="showPanel('posts')">
+<div class="slink-icon">📋</div> Tous les posts
       <span class="slink-badge" id="sb-count">0</span>
-    </div>
-
-    <div class="sidebar-section">Canaux automatiques</div>
-    <div class="slink" onclick="showPanel('linkedin')">
-      <div class="slink-icon" style="background:var(--li-bg)">
-        <svg viewBox="0 0 24 24" width="11" height="11" fill="var(--li)"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      </div>
+</div>
+<div class="sidebar-section">Canaux automatiques</div>
+<div class="slink" onclick="showPanel('linkedin')">
+<div class="slink-icon" style="background:var(--li-bg)">
+<svg fill="var(--li)" height="11" viewbox="0 0 24 24" width="11"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</div>
       LinkedIn
       <span class="slink-auto" id="sb-li-badge">—</span>
-    </div>
-    <div class="slink" onclick="showPanel('google')">
-      <div class="slink-icon" style="background:var(--gg-bg)">
-        <svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg>
-      </div>
+</div>
+<div class="slink" onclick="showPanel('google')">
+<div class="slink-icon" style="background:var(--gg-bg)">
+<svg height="13" viewbox="0 0 24 24" width="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"></path></svg>
+</div>
       Google Business
       <span class="slink-auto" id="sb-gg-badge">—</span>
+</div>
+<div class="sidebar-section">Outils</div>
+<div class="slink" onclick="showPanel('preview')">
+<div class="slink-icon">👁</div> Aperçu site
     </div>
-
-    <div class="sidebar-section">Outils</div>
-    <div class="slink" onclick="showPanel('preview')">
-      <div class="slink-icon">👁</div> Aperçu site
+<div class="slink" onclick="showPanel('export')">
+<div class="slink-icon">📤</div> Export / Import
     </div>
-    <div class="slink" onclick="showPanel('export')">
-      <div class="slink-icon">📤</div> Export / Import
-    </div>
-  </div>
-
-  <div class="main">
-
-    <!-- NOUVEAU POST -->
-    <div class="panel active" id="panel-new">
-      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Nouveau post</h2>
-      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Rédigez votre contenu. Il est publié sur le site immédiatement — LinkedIn et Google Business sont notifiés automatiquement si les webhooks sont actifs.</p>
-
-      <div class="card">
-        <div class="form-row-2">
-          <div class="form-group">
-            <label class="form-label">Catégorie <span>*</span></label>
-            <select id="f-cat" onchange="updatePreview()">
-              <option>Marchés &amp; prix</option><option>Sourcing &amp; trading</option><option>Logistique &amp; corridors</option><option>Conformité &amp; réglementation</option><option>Partenariats</option><option>Intelligence matières premières</option><option>Recrutement</option><option>Actualités AYYS</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Date <span>*</span></label>
-            <input type="date" id="f-date"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Titre <span>* affiché sur la carte</span></label>
-          <input type="text" id="f-title" placeholder="Ex : AYYS recrute un trader junior en métaux stratégiques" oninput="updatePreview()"/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Accroche <span>* résumé visible sur la grille</span></label>
-          <textarea id="f-excerpt" rows="3" placeholder="1 à 2 phrases affichées sur la carte." oninput="updatePreview()"></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Corps du post <span>HTML simple accepté</span></label>
-          <textarea id="f-body" rows="7" placeholder="Contenu complet. Balises &lt;p&gt;, &lt;strong&gt;, &lt;a href=...&gt;, &lt;ul&gt;&lt;li&gt; acceptées."></textarea>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Canaux de diffusion automatique</div>
-        <div class="card-sub">Les canaux actifs envoient ce post dès la publication. Configurez les webhooks Make.com dans les onglets LinkedIn et Google Business.</div>
-
-        <div class="toggle-row" onclick="toggleCheck('t-li')">
-          <div class="toggle-info">
-            <div class="toggle-label">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--li)" style="flex-shrink:0"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+</div>
+<div class="main">
+<!-- NOUVEAU POST -->
+<div class="panel active" id="panel-new">
+<h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Nouveau post</h2>
+<p style="font-size:14px;color:var(--mid);margin-bottom:28px">Rédigez votre contenu. Il est publié sur le site immédiatement — LinkedIn et Google Business sont notifiés automatiquement si les webhooks sont actifs.</p>
+<div class="card">
+<div class="form-row-2">
+<div class="form-group">
+<label class="form-label">Catégorie <span>*</span></label>
+<select id="f-cat" onchange="updatePreview()">
+<option>Marchés &amp; prix</option><option>Sourcing &amp; trading</option><option>Logistique &amp; corridors</option><option>Conformité &amp; réglementation</option><option>Partenariats</option><option>Intelligence matières premières</option><option>Recrutement</option><option>Actualités AYYS</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Date <span>*</span></label>
+<input id="f-date" type="date"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Titre <span>* affiché sur la carte</span></label>
+<input id="f-title" oninput="updatePreview()" placeholder="Ex : AYYS recrute un trader junior en métaux stratégiques" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Accroche <span>* résumé visible sur la grille</span></label>
+<textarea id="f-excerpt" oninput="updatePreview()" placeholder="1 à 2 phrases affichées sur la carte." rows="3"></textarea>
+</div>
+<div class="form-group">
+<label class="form-label">Corps du post <span>HTML simple accepté</span></label>
+<textarea id="f-body" placeholder="Contenu complet. Balises &lt;p&gt;, &lt;strong&gt;, &lt;a href=...&gt;, &lt;ul&gt;&lt;li&gt; acceptées." rows="7"></textarea>
+</div>
+</div>
+<div class="card">
+<div class="card-title">Canaux de diffusion automatique</div>
+<div class="card-sub">Les canaux actifs envoient ce post dès la publication. Configurez les webhooks Make.com dans les onglets LinkedIn et Google Business.</div>
+<div class="toggle-row" onclick="toggleCheck('t-li')">
+<div class="toggle-info">
+<div class="toggle-label">
+<svg fill="var(--li)" height="14" style="flex-shrink:0" viewbox="0 0 24 24" width="14"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
               Publier sur LinkedIn AYYS GROUP
             </div>
-            <div class="toggle-desc" id="desc-li">Configurez le webhook dans l'onglet LinkedIn</div>
-          </div>
-          <label class="toggle t-li"><input type="checkbox" id="t-li" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
-        </div>
-
-        <div class="toggle-row" onclick="toggleCheck('t-gba')">
-          <div class="toggle-info">
-            <div class="toggle-label">
-              <svg viewBox="0 0 24 24" width="14" height="14" style="flex-shrink:0"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg>
+<div class="toggle-desc" id="desc-li">Configurez le webhook dans l'onglet LinkedIn</div>
+</div>
+<label class="toggle t-li"><input id="t-li" onclick="event.stopPropagation()" type="checkbox"/><span class="toggle-slider"></span></label>
+</div>
+<div class="toggle-row" onclick="toggleCheck('t-gba')">
+<div class="toggle-info">
+<div class="toggle-label">
+<svg height="14" style="flex-shrink:0" viewbox="0 0 24 24" width="14"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"></path></svg>
               Publier sur Google Business AYYS
             </div>
-            <div class="toggle-desc" id="desc-gg">Configurez le webhook dans l'onglet Google Business</div>
-          </div>
-          <label class="toggle t-gg"><input type="checkbox" id="t-gba" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
-        </div>
-
-        <div class="toggle-row" onclick="toggleCheck('t-draft')">
-          <div class="toggle-info">
-            <div class="toggle-label">🗒 Brouillon</div>
-            <div class="toggle-desc">Sauvegardé mais non publié ni envoyé aux canaux</div>
-          </div>
-          <label class="toggle"><input type="checkbox" id="t-draft" onclick="event.stopPropagation()"><span class="toggle-slider"></span></label>
-        </div>
-      </div>
-
-      <div id="preview-wrap" style="display:none">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:10px">Aperçu carte</div>
-        <div class="preview-card">
-          <div class="preview-cat" id="pv-cat">Recrutement</div>
-          <div class="preview-title" id="pv-title">—</div>
-          <div class="preview-excerpt" id="pv-excerpt">—</div>
-          <div class="preview-foot">
-            <span id="pv-date">—</span>
-            <span id="pv-li" class="badge-li" style="display:none">LinkedIn</span>
-            <span id="pv-gg" class="badge-gg" style="display:none">Google</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="publishPost()">✓ Publier sur le site</button>
-        <button class="btn btn-secondary" onclick="saveDraft()">Brouillon</button>
-        <button class="btn btn-secondary" onclick="resetForm()">Effacer</button>
-      </div>
-    </div>
-
-    <!-- TOUS LES POSTS -->
-    <div class="panel" id="panel-posts">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
-        <div>
-          <h2 style="font-size:22px;font-weight:600;margin-bottom:3px">Tous les posts</h2>
-          <p style="font-size:13px;color:var(--mid)">Gérez vos publications.</p>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="showPanel('new')">+ Nouveau post</button>
-      </div>
-      <div class="stats-row">
-        <div class="stat-card"><div class="stat-n" id="st-pub" style="color:var(--g)">0</div><div class="stat-l">Publiés</div></div>
-        <div class="stat-card"><div class="stat-n" id="st-li" style="color:var(--li)">0</div><div class="stat-l">LinkedIn</div></div>
-        <div class="stat-card"><div class="stat-n" id="st-gg" style="color:var(--gg)">0</div><div class="stat-l">Google</div></div>
-        <div class="stat-card"><div class="stat-n" id="st-dr" style="color:var(--amber)">0</div><div class="stat-l">Brouillons</div></div>
-      </div>
-      <div class="post-list" id="post-list"></div>
-    </div>
-
-    <!-- LINKEDIN -->
-    <div class="panel" id="panel-linkedin">
-      <div class="ch-header">
-        <div class="ch-logo li"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
-        <div>
-          <h2 style="font-size:20px;font-weight:600;margin-bottom:4px">LinkedIn — Publication automatique</h2>
-          <div class="conn-line"><span class="sdot" id="sdot-li"></span><span id="conn-li" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
-        </div>
-      </div>
-
-      <div class="alert-info"><strong>Principe :</strong> Chaque post marqué "LinkedIn" envoie un webhook Make.com qui publie automatiquement sur la page <a href="https://www.linkedin.com/company/ayys-group/" target="_blank">AYYS GROUP</a>. Configuration unique.</div>
-
-      <div class="card">
-        <div class="card-title">🔗 Webhook LinkedIn</div>
-        <div class="card-sub">Créez un scénario Make.com, copiez l'URL webhook et collez-la ici.</div>
-        <div class="wh-box">
-          <div class="wh-box-label"><span class="sdot" id="whdot-li"></span> URL Webhook Make.com — LinkedIn</div>
-          <div class="wh-row">
-            <input type="url" id="li-url" placeholder="https://hook.eu2.make.com/xxxxxxxxxxxxxxxxxxxx"/>
-            <button class="btn btn-li btn-sm" onclick="saveWh('li')">Enregistrer</button>
-          </div>
-        </div>
-        <div id="li-test-result" style="display:none;margin-bottom:14px"></div>
-        <button class="btn btn-li btn-sm" onclick="testWh('li')">⚡ Tester la connexion</button>
-      </div>
-
-      <div class="card">
-        <div class="card-title">⚙️ Configuration Make.com — LinkedIn (guide complet)</div>
-
-        <div class="make-arch">
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">1</div>
-            <div class="make-step-body">
-              <h5>Créer un compte Make.com (gratuit)</h5>
-              <p>Allez sur <a href="https://make.com" target="_blank" style="color:var(--g)">make.com</a> → créez un compte → cliquez <code>Create a new scenario</code> → nommez-le <code>AYYS → LinkedIn</code>.</p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">2</div>
-            <div class="make-step-body">
-              <h5>Module 1 — Déclencheur Webhook</h5>
-              <p>Dans le scénario → cliquez <code>+</code> → recherchez <code>Webhooks</code> → sélectionnez <code>Custom webhook</code> → cliquez <code>Add</code> → nommez-le <code>ayys-linkedin</code> → Make génère une URL unique.</p>
-              <p><strong>Copiez cette URL</strong> et collez-la dans le champ "URL Webhook" ci-dessus → cliquez <code>Enregistrer</code>.</p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">3</div>
-            <div class="make-step-body">
-              <h5>Module 2 — Filtre (optionnel mais recommandé)</h5>
-              <p>Après le webhook, cliquez la petite roue crantée entre modules → <code>Set up a filter</code> → condition : <code>li</code> <code>Equal to</code> <code>true</code>. Seuls les posts cochés LinkedIn sont traités.</p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">4</div>
-            <div class="make-step-body">
-              <h5>Module 3 — LinkedIn → Create Company Update</h5>
-              <p>Cliquez <code>+</code> → recherchez <code>LinkedIn</code> → sélectionnez <code>Create a Company Update</code> → connectez votre compte via OAuth (fenêtre pop-up LinkedIn).</p>
-              <p>Sélectionnez la page <strong>AYYS GROUP</strong>. Mappez les champs :</p>
-              <p><code>Commentary</code> → <code>{{1.title}}</code> + saut de ligne + <code>{{1.excerpt}}</code> + <code>
+<div class="toggle-desc" id="desc-gg">Configurez le webhook dans l'onglet Google Business</div>
+</div>
+<label class="toggle t-gg"><input id="t-gba" onclick="event.stopPropagation()" type="checkbox"/><span class="toggle-slider"></span></label>
+</div>
+<div class="toggle-row" onclick="toggleCheck('t-draft')">
+<div class="toggle-info">
+<div class="toggle-label">🗒 Brouillon</div>
+<div class="toggle-desc">Sauvegardé mais non publié ni envoyé aux canaux</div>
+</div>
+<label class="toggle"><input id="t-draft" onclick="event.stopPropagation()" type="checkbox"/><span class="toggle-slider"></span></label>
+</div>
+</div>
+<div id="preview-wrap" style="display:none">
+<div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:10px">Aperçu carte</div>
+<div class="preview-card">
+<div class="preview-cat" id="pv-cat">Recrutement</div>
+<div class="preview-title" id="pv-title">—</div>
+<div class="preview-excerpt" id="pv-excerpt">—</div>
+<div class="preview-foot">
+<span id="pv-date">—</span>
+<span class="badge-li" id="pv-li" style="display:none">LinkedIn</span>
+<span class="badge-gg" id="pv-gg" style="display:none">Google</span>
+</div>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="publishPost()">✓ Publier sur le site</button>
+<button class="btn btn-secondary" onclick="saveDraft()">Brouillon</button>
+<button class="btn btn-secondary" onclick="resetForm()">Effacer</button>
+</div>
+</div>
+<!-- TOUS LES POSTS -->
+<div class="panel" id="panel-posts">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+<div>
+<h2 style="font-size:22px;font-weight:600;margin-bottom:3px">Tous les posts</h2>
+<p style="font-size:13px;color:var(--mid)">Gérez vos publications.</p>
+</div>
+<button class="btn btn-primary btn-sm" onclick="showPanel('new')">+ Nouveau post</button>
+</div>
+<div class="stats-row">
+<div class="stat-card"><div class="stat-n" id="st-pub" style="color:var(--g)">0</div><div class="stat-l">Publiés</div></div>
+<div class="stat-card"><div class="stat-n" id="st-li" style="color:var(--li)">0</div><div class="stat-l">LinkedIn</div></div>
+<div class="stat-card"><div class="stat-n" id="st-gg" style="color:var(--gg)">0</div><div class="stat-l">Google</div></div>
+<div class="stat-card"><div class="stat-n" id="st-dr" style="color:var(--amber)">0</div><div class="stat-l">Brouillons</div></div>
+</div>
+<div class="post-list" id="post-list"></div>
+</div>
+<!-- LINKEDIN -->
+<div class="panel" id="panel-linkedin">
+<div class="ch-header">
+<div class="ch-logo li"><svg fill="white" height="22" viewbox="0 0 24 24" width="22"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></div>
+<div>
+<h2 style="font-size:20px;font-weight:600;margin-bottom:4px">LinkedIn — Publication automatique</h2>
+<div class="conn-line"><span class="sdot" id="sdot-li"></span><span id="conn-li" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
+</div>
+</div>
+<div class="alert-info"><strong>Principe :</strong> Chaque post marqué "LinkedIn" envoie un webhook Make.com qui publie automatiquement sur la page <a href="https://www.linkedin.com/company/ayys-group/" target="_blank">AYYS GROUP</a>. Configuration unique.</div>
+<div class="card">
+<div class="card-title">🔗 Webhook LinkedIn</div>
+<div class="card-sub">Créez un scénario Make.com, copiez l'URL webhook et collez-la ici.</div>
+<div class="wh-box">
+<div class="wh-box-label"><span class="sdot" id="whdot-li"></span> URL Webhook Make.com — LinkedIn</div>
+<div class="wh-row">
+<input id="li-url" placeholder="https://hook.eu2.make.com/xxxxxxxxxxxxxxxxxxxx" type="url">
+<button class="btn btn-li btn-sm" onclick="saveWh('li')">Enregistrer</button>
+</input></div>
+</div>
+<div id="li-test-result" style="display:none;margin-bottom:14px"></div>
+<button class="btn btn-li btn-sm" onclick="testWh('li')">⚡ Tester la connexion</button>
+</div>
+<div class="card">
+<div class="card-title">⚙️ Configuration Make.com — LinkedIn (guide complet)</div>
+<div class="make-arch">
+<div class="make-step-row">
+<div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">1</div>
+<div class="make-step-body">
+<h5>Créer un compte Make.com (gratuit)</h5>
+<p>Allez sur <a href="https://make.com" style="color:var(--g)" target="_blank">make.com</a> → créez un compte → cliquez <code>Create a new scenario</code> → nommez-le <code>AYYS → LinkedIn</code>.</p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">2</div>
+<div class="make-step-body">
+<h5>Module 1 — Déclencheur Webhook</h5>
+<p>Dans le scénario → cliquez <code>+</code> → recherchez <code>Webhooks</code> → sélectionnez <code>Custom webhook</code> → cliquez <code>Add</code> → nommez-le <code>ayys-linkedin</code> → Make génère une URL unique.</p>
+<p><strong>Copiez cette URL</strong> et collez-la dans le champ "URL Webhook" ci-dessus → cliquez <code>Enregistrer</code>.</p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">3</div>
+<div class="make-step-body">
+<h5>Module 2 — Filtre (optionnel mais recommandé)</h5>
+<p>Après le webhook, cliquez la petite roue crantée entre modules → <code>Set up a filter</code> → condition : <code>li</code> <code>Equal to</code> <code>true</code>. Seuls les posts cochés LinkedIn sont traités.</p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">4</div>
+<div class="make-step-body">
+<h5>Module 3 — LinkedIn → Create Company Update</h5>
+<p>Cliquez <code>+</code> → recherchez <code>LinkedIn</code> → sélectionnez <code>Create a Company Update</code> → connectez votre compte via OAuth (fenêtre pop-up LinkedIn).</p>
+<p>Sélectionnez la page <strong>AYYS GROUP</strong>. Mappez les champs :</p>
+<p><code>Commentary</code> → <code>{{1.title}}</code> + saut de ligne + <code>{{1.excerpt}}</code> + <code>
 
 🔗 ayys-group.com</code></p>
-              <p><code>Visibility</code> → <code>PUBLIC</code></p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">5</div>
-            <div class="make-step-body">
-              <h5>Activer et tester</h5>
-              <p>En haut à droite → bouton <code>ON</code> → cliquez <code>Run once</code> pour armer le scénario → puis utilisez le bouton <strong>⚡ Tester la connexion</strong> ci-dessous. Make doit afficher une exécution réussie dans l’historique.</p>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:20px">
-          <div class="card-title" style="font-size:13px;margin-bottom:10px">📦 Payload JSON envoyé par l’admin</div>
-          <div class="payloadbox">
-            <span class="ps">{</span><br>
-            &nbsp;&nbsp;<span class="pk">"id"</span><span class="ps">:</span> <span class="pv">"p1746123456abcd"</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"title"</span><span class="ps">:</span> <span class="pv">"Le cuivre dépasse 12 000 $/t"</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"excerpt"</span><span class="ps">:</span> <span class="pv">"Analyse AYYS du marché LME..."</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"cat"</span><span class="ps">:</span> <span class="pv">"Marchés &amp; prix"</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"date"</span><span class="ps">:</span> <span class="pv">"2026-05-01"</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"li"</span><span class="ps">:</span> <span class="pv">true</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"gba"</span><span class="ps">:</span> <span class="pv">false</span><span class="ps">,</span><br>
-            &nbsp;&nbsp;<span class="pk">"site_url"</span><span class="ps">:</span> <span class="pv">"https://ayys-group.com/#blog"</span><br>
-            <span class="ps">}</span>
-          </div>
-          <p style="font-size:11px;color:var(--light);margin-top:8px">Dans Make, référencez les champs via <code>{{1.title}}</code>, <code>{{1.excerpt}}</code>, <code>{{1.cat}}</code>, <code>{{1.site_url}}</code> etc.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">🔁 Flux du scénario</div>
-        <div class="flow-box">
-          <div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post li:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
-          <div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>li = true → continuer</p></div><div class="flow-arrow">↓</div></div>
-          <div class="flow-row"><div class="flow-icon blue"><svg viewBox="0 0 24 24" width="13" height="13" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div><div class="flow-text"><h5>LinkedIn — Create Company Post</h5><p>Page AYYS GROUP · PUBLIC</p></div><div class="flow-arrow">✓</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GOOGLE BUSINESS -->
-    <div class="panel" id="panel-google">
-      <div class="ch-header">
-        <div class="ch-logo gg"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg></div>
-        <div>
-          <h2 style="font-size:20px;font-weight:600;margin-bottom:4px">Google Business — Publication automatique</h2>
-          <div class="conn-line"><span class="sdot" id="sdot-gg"></span><span id="conn-gg" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
-        </div>
-      </div>
-
-      <div class="alert-gg"><strong>Résultat visible :</strong> Vos posts apparaissent directement sous la fiche "AYYS Commodities" dans Google Maps et Google Search, avec un bouton "En savoir plus" qui renvoie vers votre site.</div>
-
-      <div class="card">
-        <div class="card-title">🔗 Webhook Google Business</div>
-        <div class="card-sub">Même principe que LinkedIn — un webhook Make.com dédié reçoit le post et le publie sur votre fiche Google vérifiée (AYYS Commodities, Paris).</div>
-        <div class="wh-box">
-          <div class="wh-box-label"><span class="sdot" id="whdot-gg"></span> URL Webhook Make.com — Google Business</div>
-          <div class="wh-row">
-            <input type="url" id="gg-url" placeholder="https://hook.eu2.make.com/yyyyyyyyyyyyyyyyyyyy"/>
-            <button class="btn btn-gg btn-sm" onclick="saveWh('gg')">Enregistrer</button>
-          </div>
-        </div>
-        <div id="gg-test-result" style="display:none;margin-bottom:14px"></div>
-        <button class="btn btn-gg btn-sm" onclick="testWh('gg')">⚡ Tester la connexion</button>
-      </div>
-
-      <div class="card">
-        <div class="card-title">⚙️ Guide Make.com — Google Business</div>
-        <div class="step-list">
-          <div class="step">
-            <div class="step-num gg">1</div>
-            <div class="step-body"><h4>Créer un 2ème scénario Make.com</h4><p>Sur <a href="https://make.com" target="_blank">make.com</a> → <code>Create a new scenario</code> → nommez-le <code>AYYS → Google Business</code>. Vous pouvez aussi ajouter Google dans le même scénario que LinkedIn en parallèle.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num gg">2</div>
-            <div class="step-body"><h4>Module 1 — Webhook déclencheur</h4><p>Ajoutez <code>Webhooks → Custom webhook</code>. Copiez l'URL générée et collez-la dans le champ ci-dessus. Chaque canal a sa propre URL unique.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num gg">3</div>
-            <div class="step-body"><h4>Module 2 — Filtre</h4><p><code>gba</code> = <code>true</code> — seuls les posts cochés "Google Business" sont relayés.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num gg">4</div>
-            <div class="step-body"><h4>Module 3 — Google My Business → Create a Local Post</h4>
-            <p>Cherchez le module <code>Google My Business → Create a Local Post</code> dans Make. Connectez votre compte Google admin (celui qui gère <a href="https://business.google.com" target="_blank">business.google.com</a>).</p>
-            <p>Sélectionnez la fiche : <strong>AYYS Commodities — Paris</strong></p>
-            <p>Mappez les champs :</p>
-            <p><code>Summary</code> → <code>{{title}}</code> + <code>\n\n</code> + <code>{{excerpt}}</code></p>
-            <p><code>Call to Action Type</code> → <code>LEARN_MORE</code></p>
-            <p><code>Call to Action URL</code> → <code>https://ayys-group.com/#blog</code></p>
-            <p><code>Topic Type</code> → <code>STANDARD</code> (ou <code>EVENT</code> si cat = Événement)</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num gg">5</div>
-            <div class="step-body"><h4>Activez le scénario</h4><p>Bouton <code>ON</code> dans Make. Le post apparaît sur Google sous 5 à 10 minutes. Testez depuis ce panneau.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">🔁 Flux du scénario</div>
-        <div class="flow-box">
-          <div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post gba:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
-          <div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>gba = true → continuer</p></div><div class="flow-arrow">↓</div></div>
-          <div class="flow-row"><div class="flow-icon goog"><svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"/></svg></div><div class="flow-text"><h5>Google My Business — Create Local Post</h5><p>Fiche AYYS Commodities Paris · bouton "En savoir plus"</p></div><div class="flow-arrow">↓</div></div>
-          <div class="flow-row"><div class="flow-icon">📍</div><div class="flow-text"><h5>Visible dans Google Maps &amp; Search</h5><p>Affiché sous la fiche AYYS dans les résultats</p></div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">📋 Infos de votre fiche</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
-          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Nom</div><div style="font-size:13px;font-weight:600">AYYS Commodities</div></div>
-          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Adresse</div><div style="font-size:13px;font-weight:600">3 place Jussieu, 75005 Paris</div></div>
-          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Statut</div><div style="font-size:13px;font-weight:600;color:var(--gg)">✓ Active et vérifiée</div></div>
-          <div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Admin</div><div style="font-size:13px;font-weight:600">contact@ayys-group.fr</div></div>
-        </div>
-        <a href="https://business.google.com" target="_blank" class="btn btn-secondary btn-sm">Ouvrir Google Business →</a>
-      </div>
-    </div>
-
-
-    <!-- APERÇU SITE -->
-    <div class="panel" id="panel-preview">
-      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Aperçu sur le site</h2>
-      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Voici exactement comment vos posts publiés apparaissent dans la section <strong>Market Intelligence</strong> de la page d’accueil AYYS.</p>
-
-      <div class="site-preview-wrap">
-        <div class="site-preview-bar">
-          <div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div>
-          <span class="site-preview-bar-url">ayys-group.com / #intel</span>
-        </div>
-        <div class="site-preview-inner">
-          <div class="site-preview-label">Section Intelligence — grille de posts</div>
-          <div id="site-preview-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-            <!-- Rendu dynamique -->
-          </div>
-          <div id="site-preview-empty" style="display:none;text-align:center;padding:32px;color:var(--light);font-size:13px;border:0.5px dashed rgba(0,0,0,0.1);border-radius:12px;background:#fdfaf5">
+<p><code>Visibility</code> → <code>PUBLIC</code></p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:#E8F0FA;color:var(--li);font-size:14px;font-weight:700">5</div>
+<div class="make-step-body">
+<h5>Activer et tester</h5>
+<p>En haut à droite → bouton <code>ON</code> → cliquez <code>Run once</code> pour armer le scénario → puis utilisez le bouton <strong>⚡ Tester la connexion</strong> ci-dessous. Make doit afficher une exécution réussie dans l’historique.</p>
+</div>
+</div>
+</div>
+<div style="margin-top:20px">
+<div class="card-title" style="font-size:13px;margin-bottom:10px">📦 Payload JSON envoyé par l’admin</div>
+<div class="payloadbox">
+<span class="ps">{</span><br/>
+              <span class="pk">"id"</span><span class="ps">:</span> <span class="pv">"p1746123456abcd"</span><span class="ps">,</span><br/>
+              <span class="pk">"title"</span><span class="ps">:</span> <span class="pv">"Le cuivre dépasse 12 000 $/t"</span><span class="ps">,</span><br/>
+              <span class="pk">"excerpt"</span><span class="ps">:</span> <span class="pv">"Analyse AYYS du marché LME..."</span><span class="ps">,</span><br/>
+              <span class="pk">"cat"</span><span class="ps">:</span> <span class="pv">"Marchés &amp; prix"</span><span class="ps">,</span><br/>
+              <span class="pk">"date"</span><span class="ps">:</span> <span class="pv">"2026-05-01"</span><span class="ps">,</span><br/>
+              <span class="pk">"li"</span><span class="ps">:</span> <span class="pv">true</span><span class="ps">,</span><br/>
+              <span class="pk">"gba"</span><span class="ps">:</span> <span class="pv">false</span><span class="ps">,</span><br/>
+              <span class="pk">"site_url"</span><span class="ps">:</span> <span class="pv">"https://ayys-group.com/#blog"</span><br/>
+<span class="ps">}</span>
+</div>
+<p style="font-size:11px;color:var(--light);margin-top:8px">Dans Make, référencez les champs via <code>{{1.title}}</code>, <code>{{1.excerpt}}</code>, <code>{{1.cat}}</code>, <code>{{1.site_url}}</code> etc.</p>
+</div>
+</div>
+<div class="card">
+<div class="card-title">🔁 Flux du scénario</div>
+<div class="flow-box">
+<div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post li:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
+<div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>li = true → continuer</p></div><div class="flow-arrow">↓</div></div>
+<div class="flow-row"><div class="flow-icon blue"><svg fill="#0A66C2" height="13" viewbox="0 0 24 24" width="13"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></div><div class="flow-text"><h5>LinkedIn — Create Company Post</h5><p>Page AYYS GROUP · PUBLIC</p></div><div class="flow-arrow">✓</div></div>
+</div>
+</div>
+</div>
+<!-- GOOGLE BUSINESS -->
+<div class="panel" id="panel-google">
+<div class="ch-header">
+<div class="ch-logo gg"><svg height="26" viewbox="0 0 24 24" width="26"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"></path></svg></div>
+<div>
+<h2 style="font-size:20px;font-weight:600;margin-bottom:4px">Google Business — Publication automatique</h2>
+<div class="conn-line"><span class="sdot" id="sdot-gg"></span><span id="conn-gg" style="font-size:12px;font-weight:600;color:var(--light)">Non configuré</span></div>
+</div>
+</div>
+<div class="alert-gg"><strong>Résultat visible :</strong> Vos posts apparaissent directement sous la fiche "AYYS Commodities" dans Google Maps et Google Search, avec un bouton "En savoir plus" qui renvoie vers votre site.</div>
+<div class="card">
+<div class="card-title">🔗 Webhook Google Business</div>
+<div class="card-sub">Même principe que LinkedIn — un webhook Make.com dédié reçoit le post et le publie sur votre fiche Google vérifiée (AYYS Commodities, Paris).</div>
+<div class="wh-box">
+<div class="wh-box-label"><span class="sdot" id="whdot-gg"></span> URL Webhook Make.com — Google Business</div>
+<div class="wh-row">
+<input id="gg-url" placeholder="https://hook.eu2.make.com/yyyyyyyyyyyyyyyyyyyy" type="url">
+<button class="btn btn-gg btn-sm" onclick="saveWh('gg')">Enregistrer</button>
+</input></div>
+</div>
+<div id="gg-test-result" style="display:none;margin-bottom:14px"></div>
+<button class="btn btn-gg btn-sm" onclick="testWh('gg')">⚡ Tester la connexion</button>
+</div>
+<div class="card">
+<div class="card-title">⚙️ Guide Make.com — Google Business</div>
+<div class="step-list">
+<div class="step">
+<div class="step-num gg">1</div>
+<div class="step-body"><h4>Créer un 2ème scénario Make.com</h4><p>Sur <a href="https://make.com" target="_blank">make.com</a> → <code>Create a new scenario</code> → nommez-le <code>AYYS → Google Business</code>. Vous pouvez aussi ajouter Google dans le même scénario que LinkedIn en parallèle.</p></div>
+</div>
+<div class="step">
+<div class="step-num gg">2</div>
+<div class="step-body"><h4>Module 1 — Webhook déclencheur</h4><p>Ajoutez <code>Webhooks → Custom webhook</code>. Copiez l'URL générée et collez-la dans le champ ci-dessus. Chaque canal a sa propre URL unique.</p></div>
+</div>
+<div class="step">
+<div class="step-num gg">3</div>
+<div class="step-body"><h4>Module 2 — Filtre</h4><p><code>gba</code> = <code>true</code> — seuls les posts cochés "Google Business" sont relayés.</p></div>
+</div>
+<div class="step">
+<div class="step-num gg">4</div>
+<div class="step-body"><h4>Module 3 — Google My Business → Create a Local Post</h4>
+<p>Cherchez le module <code>Google My Business → Create a Local Post</code> dans Make. Connectez votre compte Google admin (celui qui gère <a href="https://business.google.com" target="_blank">business.google.com</a>).</p>
+<p>Sélectionnez la fiche : <strong>AYYS Commodities — Paris</strong></p>
+<p>Mappez les champs :</p>
+<p><code>Summary</code> → <code>{{title}}</code> + <code>\n\n</code> + <code>{{excerpt}}</code></p>
+<p><code>Call to Action Type</code> → <code>LEARN_MORE</code></p>
+<p><code>Call to Action URL</code> → <code>https://ayys-group.com/#blog</code></p>
+<p><code>Topic Type</code> → <code>STANDARD</code> (ou <code>EVENT</code> si cat = Événement)</p></div>
+</div>
+<div class="step">
+<div class="step-num gg">5</div>
+<div class="step-body"><h4>Activez le scénario</h4><p>Bouton <code>ON</code> dans Make. Le post apparaît sur Google sous 5 à 10 minutes. Testez depuis ce panneau.</p></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-title">🔁 Flux du scénario</div>
+<div class="flow-box">
+<div class="flow-row"><div class="flow-icon green">🌐</div><div class="flow-text"><h5>Admin AYYS — post gba:true publié</h5><p>Webhook déclenché immédiatement</p></div><div class="flow-arrow">↓</div></div>
+<div class="flow-row"><div class="flow-icon">🔍</div><div class="flow-text"><h5>Filtre Make.com</h5><p>gba = true → continuer</p></div><div class="flow-arrow">↓</div></div>
+<div class="flow-row"><div class="flow-icon goog"><svg height="13" viewbox="0 0 24 24" width="13"><path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.734-.98 5.036-2.678 6.6C16.48 20.272 14.4 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.467.89 6.03 2.34L16.244 7.1C15.153 6.09 13.66 5.5 12 5.5 8.41 5.5 5.5 8.41 5.5 12s2.91 6.5 6.5 6.5c3.33 0 5.608-2.01 6.16-4.5H12v-3z" fill="#4285F4"></path></svg></div><div class="flow-text"><h5>Google My Business — Create Local Post</h5><p>Fiche AYYS Commodities Paris · bouton "En savoir plus"</p></div><div class="flow-arrow">↓</div></div>
+<div class="flow-row"><div class="flow-icon">📍</div><div class="flow-text"><h5>Visible dans Google Maps &amp; Search</h5><p>Affiché sous la fiche AYYS dans les résultats</p></div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-title">📋 Infos de votre fiche</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+<div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Nom</div><div style="font-size:13px;font-weight:600">AYYS Commodities</div></div>
+<div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Adresse</div><div style="font-size:13px;font-weight:600">3 place Jussieu, 75005 Paris</div></div>
+<div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Statut</div><div style="font-size:13px;font-weight:600;color:var(--gg)">✓ Active et vérifiée</div></div>
+<div><div style="font-size:11px;color:var(--light);margin-bottom:3px">Admin</div><div style="font-size:13px;font-weight:600">contact@ayys-group.fr</div></div>
+</div>
+<a class="btn btn-secondary btn-sm" href="https://business.google.com" target="_blank">Ouvrir Google Business →</a>
+</div>
+</div>
+<!-- APERÇU SITE -->
+<div class="panel" id="panel-preview">
+<h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Aperçu sur le site</h2>
+<p style="font-size:14px;color:var(--mid);margin-bottom:28px">Voici exactement comment vos posts publiés apparaissent dans la section <strong>Market Intelligence</strong> de la page d’accueil AYYS.</p>
+<div class="site-preview-wrap">
+<div class="site-preview-bar">
+<div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div><div class="site-preview-bar-dot"></div>
+<span class="site-preview-bar-url">ayys-group.com / #intel</span>
+</div>
+<div class="site-preview-inner">
+<div class="site-preview-label">Section Intelligence — grille de posts</div>
+<div id="site-preview-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<!-- Rendu dynamique -->
+</div>
+<div id="site-preview-empty" style="display:none;text-align:center;padding:32px;color:var(--light);font-size:13px;border:0.5px dashed rgba(0,0,0,0.1);border-radius:12px;background:#fdfaf5">
             Aucun post publié — les posts que vous publierez apparaîtront ici.
           </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:20px">
-        <div class="card-title">ℹ️ Comment fonctionne l’affichage ?</div>
-        <div class="make-arch">
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:rgba(29,158,117,0.12);color:var(--g)">✏️</div>
-            <div class="make-step-body">
-              <h5>Vous publiez un post dans cet admin</h5>
-              <p>Le post est enregistré dans le <code>localStorage</code> du navigateur — une zone de stockage locale qui persiste entre les sessions.</p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:rgba(176,138,73,0.12);color:var(--amber)">💾</div>
-            <div class="make-step-body">
-              <h5>L’index lit ce même localStorage</h5>
-              <p>La page d’accueil (<code>index.html</code>) charge les posts automatiquement via JavaScript au chargement, et se met à jour en temps réel si un post est ajouté dans un autre onglet.</p>
-            </div>
-          </div>
-          <div class="make-step-arrow"></div>
-          <div class="make-step-row">
-            <div class="make-step-icon" style="background:rgba(29,158,117,0.12)">👁</div>
-            <div class="make-step-body">
-              <h5>Affiché immédiatement — sans serveur</h5>
-              <p>Aucun rechargement nécessaire. Les 6 posts les plus récents sont affichés dans la grille. Revenez sur l’onglet du site pour voir la mise à jour instantanée.</p>
-            </div>
-          </div>
-        </div>
-        <div class="alert-ok" style="margin-top:14px">
+</div>
+</div>
+<div class="card" style="margin-top:20px">
+<div class="card-title">ℹ️ Comment fonctionne l’affichage ?</div>
+<div class="make-arch">
+<div class="make-step-row">
+<div class="make-step-icon" style="background:rgba(29,158,117,0.12);color:var(--g)">✏️</div>
+<div class="make-step-body">
+<h5>Vous publiez un post dans cet admin</h5>
+<p>Le post est enregistré dans le <code>localStorage</code> du navigateur — une zone de stockage locale qui persiste entre les sessions.</p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:rgba(176,138,73,0.12);color:var(--amber)">💾</div>
+<div class="make-step-body">
+<h5>L’index lit ce même localStorage</h5>
+<p>La page d’accueil (<code>index.html</code>) charge les posts automatiquement via JavaScript au chargement, et se met à jour en temps réel si un post est ajouté dans un autre onglet.</p>
+</div>
+</div>
+<div class="make-step-arrow"></div>
+<div class="make-step-row">
+<div class="make-step-icon" style="background:rgba(29,158,117,0.12)">👁</div>
+<div class="make-step-body">
+<h5>Affiché immédiatement — sans serveur</h5>
+<p>Aucun rechargement nécessaire. Les 6 posts les plus récents sont affichés dans la grille. Revenez sur l’onglet du site pour voir la mise à jour instantanée.</p>
+</div>
+</div>
+</div>
+<div class="alert-ok" style="margin-top:14px">
           ✓ <strong>Important :</strong> Ce système fonctionne sur le même appareil et le même navigateur. Pour un hébergement multi-poste ou collaboratif, exportez votre JSON et importez-le sur chaque poste.
         </div>
-      </div>
-
-      <div class="btn-row">
-        <a href="index.html#intel" target="_blank" class="btn btn-primary">🔗 Ouvrir le site →</a>
-        <button class="btn btn-secondary" onclick="showPanel('new')">+ Créer un post</button>
-      </div>
-    </div>
-
-    <!-- EXPORT -->
-    <div class="panel" id="panel-export">
-      <h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Export / Import</h2>
-      <p style="font-size:14px;color:var(--mid);margin-bottom:28px">Sauvegardez vos posts ou importez un fichier.</p>
-      <div class="card">
-        <div class="card-title">📤 Exporter tous les posts</div>
-        <div class="card-sub">Téléchargez un fichier JSON.</div>
-        <button class="btn btn-primary" onclick="exportPosts()">Télécharger JSON</button>
-      </div>
-      <div class="card">
-        <div class="card-title">📥 Importer des posts</div>
-        <div class="card-sub">Importez un JSON précédemment exporté. Les posts existants sont conservés.</div>
-        <input type="file" id="import-file" accept=".json" style="margin-bottom:12px"/><br>
-        <button class="btn btn-secondary" onclick="importPosts()">Importer</button>
-      </div>
-      <div class="card">
-        <div class="card-title" style="color:var(--red)">🗑 Réinitialiser</div>
-        <div class="card-sub">Supprime tous les posts (irréversible).</div>
-        <button class="btn btn-danger" onclick="clearAll()">Tout supprimer</button>
-      </div>
-    </div>
-
-  </div>
 </div>
-
+<div class="btn-row">
+<a class="btn btn-primary" href="index.html#intel" target="_blank">🔗 Ouvrir le site →</a>
+<button class="btn btn-secondary" onclick="showPanel('new')">+ Créer un post</button>
+</div>
+</div>
+<!-- EXPORT -->
+<div class="panel" id="panel-export">
+<h2 style="font-size:22px;font-weight:600;margin-bottom:6px">Export / Import</h2>
+<p style="font-size:14px;color:var(--mid);margin-bottom:28px">Sauvegardez vos posts ou importez un fichier.</p>
+<div class="card">
+<div class="card-title">📤 Exporter tous les posts</div>
+<div class="card-sub">Téléchargez un fichier JSON.</div>
+<button class="btn btn-primary" onclick="exportPosts()">Télécharger JSON</button>
+</div>
+<div class="card">
+<div class="card-title">📥 Importer des posts</div>
+<div class="card-sub">Importez un JSON précédemment exporté. Les posts existants sont conservés.</div>
+<input accept=".json" id="import-file" style="margin-bottom:12px" type="file"><br/>
+<button class="btn btn-secondary" onclick="importPosts()">Importer</button>
+</input></div>
+<div class="card">
+<div class="card-title" style="color:var(--red)">🗑 Réinitialiser</div>
+<div class="card-sub">Supprime tous les posts (irréversible).</div>
+<button class="btn btn-danger" onclick="clearAll()">Tout supprimer</button>
+</div>
+</div>
+</div>
+</div>
 <div class="toast" id="toast"></div>
-
 <script>
 var SK='ayys_blog_posts', WL='ayys_wh_li', WG='ayys_wh_gg';
 function lp(){ try{ return JSON.parse(localStorage.getItem(SK)||'[]'); }catch(e){ return []; } }

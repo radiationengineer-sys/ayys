@@ -1,0 +1,5 @@
+NAVIGATION VERIFICATION REPORT
+Order enforced on every main navigation: Markets/Localized Markets -> Services -> Intelligence -> About -> Compliance -> Contact
+Home/Accueil visible in menu/breadcrumb zones: 0
+Pages with wrong number/order slots: 0
+Metal pages with logo not pointing to localized home: 0
