@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AYYS Signal N°003 — Cuivre record, lithium en feu, Ormuz en négociation · Juin 2026</title>
+
+  <!-- SEO -->
+  <meta name="description" content="AYYS Signal N°003 : cuivre à $13 700+, lithium +197% AA, nickel à 2 ans de haut, sommet Trump-Xi 14-15 mai, négociations Ormuz. La lettre de veille sur les métaux critiques par AYYS Commodities."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.ayys-group.com/signal/003"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="AYYS Signal N°003 — Cuivre record, lithium en feu, Ormuz en négociation"/>
+  <meta property="og:description" content="Cuivre $6,23/lb record, lithium +197% AA, nickel à plus haut depuis 2 ans, sommet Trump-Xi : 5 signaux critiques pour les acheteurs industriels. Juin 2026."/>
+  <meta property="og:url" content="https://www.ayys-group.com/signal/003"/>
+  <meta property="og:image" content="https://www.ayys-group.com/signal/og-003.jpg"/>
+  <meta property="og:site_name" content="AYYS Commodities"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;
+      --bg:#f2eee7;--white:#fffdf9;--dark:#2f3431;--mid:#66625d;--light:#9c958c;
+      --red:#D85B57;--amber:#B08A49;--ink:#353a37;--ink-soft:#434845;--mist:#ebe5dc;
+      --gold:#B87A2A;--gold-light:#f5e6c8;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark)}
+
+    /* RTL support */
+    [dir="rtl"] body{font-family:'Segoe UI',Tahoma,Arial,sans-serif}
+    [dir="rtl"] .sig-list li,[dir="rtl"] .signal-meta,[dir="rtl"] .sig-tags,[dir="rtl"] .sig-ticker-grid{direction:rtl}
+    [dir="rtl"] .sig-dot-g{flex-shrink:0}
+    [dir="rtl"] .sig-label{flex-direction:row-reverse}
+    [dir="rtl"] .nav-right{flex-direction:row-reverse}
+    [dir="rtl"] .signal-breadcrumb{flex-direction:row-reverse}
+    [dir="rtl"] .sig-bq{border-left:none;border-right:2px solid var(--g);border-radius:8px 0 0 8px}
+    [dir="rtl"] .signal-intro{border-left:none;border-right:3px solid var(--gold)}
+
+    /* === NAV === */
+    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(245,243,238,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
+    .nav.scrolled{height:54px;background:rgba(245,243,238,0.98)}
+    .logo{display:flex;align-items:baseline;gap:5px;cursor:pointer;text-decoration:none}
+    .logo-mark{font-size:18px;font-weight:600;letter-spacing:5px;color:var(--dark)}
+    .logo-mark span{color:var(--g)}
+    .logo-sub{font-size:9px;letter-spacing:1.5px;color:var(--light);font-weight:400;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .nav-back{font-size:12px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+    .nav-back:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
+    .ncta{display:inline-flex;align-items:center;gap:6px;background:var(--g);color:#fff;border:none;border-radius:22px;padding:9px 20px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;font-family:inherit;text-decoration:none}
+    .ncta:hover{background:var(--gd);transform:translateY(-1px)}
+    .bar{height:2px;background:rgba(0,0,0,0.05)}
+    .prog{height:100%;background:var(--g);width:0%;transition:width .1s linear}
+
+    /* === LANGUAGE SWITCHER === */
+    .lang-wrap{position:relative;display:flex;align-items:center}
+    .lang-btn{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background:rgba(12,18,16,0.94);color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;text-transform:uppercase;cursor:pointer;transition:border-color .18s,background .18s,transform .18s;font-family:inherit;box-shadow:0 8px 20px rgba(0,0,0,0.10)}
+    .lang-btn:hover{background:rgba(15,24,20,0.98);border-color:rgba(29,158,117,0.42);transform:translateY(-1px)}
+    .lang-btn.open{background:#101816;border-color:rgba(29,158,117,0.55)}
+    .lmeta{display:flex;align-items:center;gap:8px;line-height:1}
+    .lcap{font-size:9px;font-weight:700;letter-spacing:1.6px;color:rgba(255,255,255,.42)}
+    .lc{font-size:10px;font-weight:800;letter-spacing:1.45px}
+    .la{width:10px;height:6px;stroke:currentColor;stroke-width:1.6;fill:none;opacity:.72;transition:transform .18s}
+    .lang-btn.open .la{transform:rotate(180deg);opacity:1}
+    .lang-drop{position:absolute;top:calc(100% + 8px);right:0;min-width:152px;padding:6px;background:rgba(10,15,13,0.98);border:1px solid rgba(255,255,255,0.08);border-radius:6px;box-shadow:0 16px 40px rgba(0,0,0,0.22);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .16s,transform .16s;z-index:120}
+    .lang-drop.open{opacity:1;transform:translateY(0);pointer-events:auto}
+    .lang-opt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:10px;border-radius:3px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.78);cursor:pointer;transition:background .14s,color .14s}
+    .lang-opt:hover{background:rgba(255,255,255,0.05);color:#fff}
+    .lang-opt.sel{background:rgba(29,158,117,0.14);color:#fff}
+    .lol{font-size:11px;font-weight:600}
+    .lon{font-size:10px;font-weight:800;color:rgba(255,255,255,.40);letter-spacing:1.35px}
+    .lang-opt.sel .lon{color:rgba(225,245,238,0.95)}
+
+    /* === HERO === */
+    .signal-hero{background:#0e1612;padding:112px 52px 64px;position:relative;overflow:hidden;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+    .signal-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5'%3E%3Crect x='0' y='.6' width='5' height='1.6' fill='rgba(182,198,194,.78)' rx='.4'/%3E%3Crect x='0' y='3.2' width='5' height='1.5' fill='rgba(168,186,182,.66)' rx='.4'/%3E%3Crect x='.6' y='0' width='1.5' height='5' fill='rgba(208,220,217,.56)' rx='.4'/%3E%3Crect x='3.2' y='0' width='1.5' height='5' fill='rgba(192,208,204,.48)' rx='.4'/%3E%3C/svg%3E");opacity:0.4;pointer-events:none}
+    .signal-hero-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--g) 30%,var(--g) 70%,transparent)}
+    .signal-hero-inner{position:relative;z-index:2;max-width:800px;margin:0 auto}
+    .signal-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .signal-breadcrumb a{font-size:11px;color:rgba(255,255,255,0.4);text-decoration:none;letter-spacing:.5px;transition:color .2s}
+    .signal-breadcrumb a:hover{color:rgba(255,255,255,0.7)}
+    .signal-breadcrumb span{font-size:11px;color:rgba(255,255,255,0.2)}
+    .signal-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:14px}
+    .signal-title{font-size:48px;font-weight:600;color:#f7f3eb;line-height:1.1;letter-spacing:-1px;margin-bottom:10px}
+    .signal-title em{color:var(--g);font-style:normal}
+    .signal-subtitle{font-size:15px;color:rgba(255,255,255,.52);letter-spacing:.5px;margin-bottom:32px}
+    .signal-meta{display:flex;gap:24px;flex-wrap:wrap}
+    .signal-meta-item{display:flex;align-items:center;gap:7px}
+    .signal-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--g);flex-shrink:0}
+    .signal-meta-item span{font-size:11px;color:rgba(255,255,255,.42);letter-spacing:.5px}
+    .signal-meta-item strong{color:rgba(255,255,255,.75);font-weight:500}
+    .signal-wave{position:absolute;bottom:0;left:0;right:0;height:80px;opacity:.18;pointer-events:none}
+
+    /* === TICKER === */
+    .signal-ticker{background:#1a1f1c;padding:0;border-bottom:0.5px solid rgba(29,158,117,.14);overflow:hidden;position:relative}
+    .st-label{position:absolute;left:0;top:0;bottom:0;background:rgba(29,158,117,.9);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.8px;padding:0 14px;display:flex;align-items:center;z-index:2;white-space:nowrap}
+    .st-track{display:flex;animation:tk 28s linear infinite;width:max-content;padding:0 80px}
+    @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .st-item{display:flex;align-items:center;gap:10px;padding:10px 24px;border-right:0.5px solid rgba(255,255,255,.05);white-space:nowrap}
+    .st-sym{font-size:11px;font-weight:700;color:rgba(255,255,255,.85)}
+    .st-val{font-size:11px;color:rgba(255,255,255,.5)}
+    .st-up{font-size:10px;color:var(--g)}
+    .st-dn{font-size:10px;color:var(--red)}
+
+    /* === BODY === */
+    .signal-body{max-width:800px;margin:0 auto;padding:64px 52px}
+    .signal-intro{background:var(--white);border-left:3px solid var(--g);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:52px;font-size:14px;line-height:1.8;color:var(--mid);font-style:italic;border:0.5px solid rgba(0,0,0,.07);border-left:3px solid var(--g)}
+
+    .sig-section{margin-bottom:52px}
+    .sig-label{font-size:9px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);border-bottom:0.5px solid rgba(0,0,0,.08);padding-bottom:10px;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+    .sig-label-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;color:#fff;font-size:8px;font-weight:700;letter-spacing:0;flex-shrink:0}
+
+    .sig-ticker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+    .sig-tick{background:var(--white);border:0.5px solid rgba(0,0,0,.08);border-radius:12px;padding:16px;border-top:2px solid var(--g)}
+    .sig-tick-name{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:6px}
+    .sig-tick-price{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:4px}
+    .sig-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:3px 7px;border-radius:5px}
+    .sig-badge.up{background:var(--gl);color:var(--gd)}
+    .sig-badge.neutral{background:#f0ece4;color:var(--amber)}
+    .sig-badge.dn{background:#fde9e8;color:var(--red)}
+    .sig-source{font-size:10px;color:var(--light);letter-spacing:.3px;margin-top:4px}
+
+    .sig-divider{border:none;border-top:0.5px solid rgba(0,0,0,.07);margin:0 0 52px}
+    .sig-h2{font-size:24px;font-weight:600;color:var(--dark);line-height:1.28;margin-bottom:16px;letter-spacing:-.3px}
+    .sig-p{font-size:14px;line-height:1.85;color:var(--ink-soft);margin-bottom:14px}
+    .sig-p:last-child{margin-bottom:0}
+    .hl{background:#f0ece4;color:var(--amber);border-radius:4px;padding:1px 6px;font-weight:600;font-size:13px}
+    .hl-red{background:#fde9e8;color:var(--red);border-radius:4px;padding:1px 6px;font-weight:600;font-size:13px}
+    .hl-g{background:var(--gl);color:var(--gd);border-radius:4px;padding:1px 6px;font-weight:600;font-size:13px}
+    .sig-bq{border-left:2px solid var(--g);padding:10px 20px;margin:20px 0;font-size:14px;font-style:italic;color:var(--mid);line-height:1.75;background:var(--white);border-radius:0 8px 8px 0}
+    .sig-focus{background:var(--white);border:0.5px solid rgba(0,0,0,.08);border-radius:14px;padding:24px;margin:20px 0}
+    .sig-focus-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .sig-list{list-style:none}
+    .sig-list li{display:flex;gap:14px;font-size:13.5px;line-height:1.75;color:var(--ink-soft);padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,.06)}
+    .sig-list li:last-child{border-bottom:none;padding-bottom:0}
+    .sig-dot-g{width:6px;height:6px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:8px}
+    .sig-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+    .sig-tag{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:var(--bg);border:0.5px solid rgba(0,0,0,.09);border-radius:5px;padding:4px 8px;color:var(--light)}
+    .sig-radar li{padding:14px 0;border-bottom:0.5px solid rgba(0,0,0,.06)}
+    .sig-radar li:last-child{border-bottom:none}
+
+    /* === CTA === */
+    .signal-cta{background:#0e1612;border-radius:20px;padding:48px 40px;text-align:center;margin:64px 0 0;position:relative;overflow:hidden}
+    .signal-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(29,158,117,.12),transparent 60%);pointer-events:none}
+    .signal-cta-line{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.4) 40%,rgba(29,158,117,.4) 60%,transparent)}
+    .signal-cta-inner{position:relative;z-index:2}
+    .signal-cta h3{font-size:22px;font-weight:600;color:#f7f3eb;margin-bottom:8px;letter-spacing:-.2px}
+    .signal-cta p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.7}
+    .signal-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-gold{background:var(--g);color:#fff;border:none;border-radius:9px;padding:13px 28px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:opacity .2s,transform .15s}
+    .btn-gold:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:rgba(255,255,255,.6);border:0.5px solid rgba(255,255,255,.18);border-radius:9px;padding:13px 28px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .2s}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+    /* === ARCHIVE === */
+    .signal-archive{background:var(--white);border-top:0.5px solid rgba(0,0,0,.07);border-bottom:0.5px solid rgba(0,0,0,.07);padding:24px 52px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:64px}
+    .sa-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light)}
+    .sa-link{font-size:12px;color:var(--g);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;transition:opacity .2s}
+    .sa-link:hover{opacity:.7}
+
+    /* === FOOTER === */
+    .footer{background:linear-gradient(180deg,#434945,#383d3a)}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding:52px;border-bottom:0.5px solid rgba(255,255,255,.06)}
+    .flogo{font-size:20px;font-weight:600;letter-spacing:4px;color:var(--white);margin-bottom:10px}
+    .flogo span{color:var(--g)}
+    .ftag{font-size:13px;color:rgba(255,255,255,.56);line-height:1.75;margin-bottom:16px}
+    .freg{font-size:11px;color:rgba(255,255,255,.36);line-height:1.9}
+    .flinks{display:flex;flex-direction:column;gap:2px}
+    .flinks a{font-size:12px;color:rgba(255,255,255,.52);text-decoration:none;padding:4px 0;transition:color .2s}
+    .flinks a:hover{color:var(--g)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(20,22,21,.14)}
+    .fcopy{font-size:11px;color:rgba(255,255,255,.32)}
+    .flegal{display:flex;gap:16px}
+    .flegal a{font-size:11px;color:rgba(255,255,255,.36);text-decoration:none}
+
+    /* === RESPONSIVE === */
+    @media(max-width:768px){
+      .signal-hero{padding:96px 24px 48px}
+      .signal-title{font-size:32px}
+      .signal-body{padding:40px 24px}
+      .sig-ticker-grid{grid-template-columns:1fr 1fr}
+      .signal-cta{padding:36px 20px}
+      .signal-archive{padding:20px 24px}
+      .footer-top{grid-template-columns:1fr;padding:36px 24px}
+      .footer-bottom{padding:16px 24px;flex-direction:column;gap:10px}
+      .nav{padding:0 20px}
+      .lang-drop{right:auto;left:0}
+    }
+  </style>
+</head>
+<body>
+
+<!-- === NAV === -->
+<div class="nav-wrap">
+  <nav class="nav" id="nav">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">AYYS<span>.</span></span>
+      <span class="logo-sub">Commodities</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="index.html#intel" id="nav-back-link">← Intelligence</a>
+
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" onclick="toggleLangDrop()" aria-label="Select language">
+          <span class="lmeta">
+            <span class="lcap">Lang</span>
+            <span class="lc" id="lc-cur">FR</span>
+          </span>
+          <svg class="la" viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg>
+        </button>
+        <div class="lang-drop" id="lang-drop">
+          <div class="lang-opt sel" data-lang="FR" onclick="setLang('FR')">
+            <span class="lol">Français</span><span class="lon">FR</span>
+          </div>
+          <div class="lang-opt" data-lang="EN" onclick="setLang('EN')">
+            <span class="lol">English</span><span class="lon">EN</span>
+          </div>
+          <div class="lang-opt" data-lang="RU" onclick="setLang('RU')">
+            <span class="lol">Русский</span><span class="lon">RU</span>
+          </div>
+          <div class="lang-opt" data-lang="AR" onclick="setLang('AR')">
+            <span class="lol">العربية</span><span class="lon">AR</span>
+          </div>
+          <div class="lang-opt" data-lang="ZH" onclick="setLang('ZH')">
+            <span class="lol">中文</span><span class="lon">ZH</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="ncta" href="index.html#contact" id="nav-cta">Demander un mandat</a>
+    </div>
+  </nav>
+  <div class="bar"><div class="prog" id="prog"></div></div>
+</div>
+
+<!-- === HERO === -->
+<div class="signal-hero">
+  <div class="signal-hero-line"></div>
+  <div class="signal-hero-inner">
+    <div class="signal-breadcrumb">
+      <a href="index.html">ayys-group.com</a>
+      <span>/</span>
+      <a href="index.html#intel" id="bc-intel">Intelligence</a>
+      <span>/</span>
+      <a href="signal-002.html">AYYS Signal</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,0.5)">N°003</span>
+    </div>
+    <div class="signal-eyebrow">AYYS Signal · Intelligence Letter</div>
+    <div class="signal-title" id="hero-title">Cuivre record, lithium <em>en feu</em></div>
+    <div class="signal-subtitle" id="hero-sub">N°003 — Juin 2026 · Édition pivot</div>
+    <div class="signal-meta">
+      <div class="signal-meta-item">
+        <div class="signal-meta-dot"></div>
+        <span id="meta-scope">Périmètre : <strong>Cuivre · Nickel · Cobalt · Lithium · Terres rares</strong></span>
+      </div>
+      <div class="signal-meta-item">
+        <div class="signal-meta-dot"></div>
+        <span id="meta-freq">Fréquence : <strong>Bimensuelle</strong></span>
+      </div>
+    </div>
+  </div>
+  <svg class="signal-wave" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="0,50 80,50 120,28 160,62 200,38 240,46 280,32 320,55 360,38 400,50 440,26 480,58 520,40 560,50 600,30 640,60 680,42 720,50 760,34 800,56 840,40 880,50 920,28 960,58 1000,42 1040,50 1080,34 1120,54 1160,50 1200,50" fill="none" stroke="#1D9E75" stroke-width="2"/>
+  </svg>
+</div>
+
+<!-- === TICKER === -->
+<div class="signal-ticker">
+  <div class="st-label" id="ticker-label">LIVE · JUIN 2026</div>
+  <div class="st-track">
+    <div class="st-item"><span class="st-sym">Cu</span><span class="st-val">$13 700/t</span><span class="st-up">+35% AA</span></div>
+    <div class="st-item"><span class="st-sym">Ni</span><span class="st-val">$19 143/t</span><span class="st-up">+22% AA · 2 ans de haut</span></div>
+    <div class="st-item"><span class="st-sym">Co</span><span class="st-val">$56 290/t</span><span class="st-up">+67% AA</span></div>
+    <div class="st-item"><span class="st-sym">Li₂CO₃</span><span class="st-val">CNY 194 000/t</span><span class="st-up">+197% AA</span></div>
+    <div class="st-item"><span class="st-sym">Au</span><span class="st-val">$4 724/oz</span><span class="st-up">+40% AA</span></div>
+    <div class="st-item"><span class="st-sym">Ormuz</span><span class="st-val">Cessez-le-feu étendu</span><span class="st-up">Négociations Pakistan</span></div>
+    <div class="st-item"><span class="st-sym">Cu</span><span class="st-val">$13 700/t</span><span class="st-up">+35% AA</span></div>
+    <div class="st-item"><span class="st-sym">Ni</span><span class="st-val">$19 143/t</span><span class="st-up">+22% AA · 2 ans de haut</span></div>
+    <div class="st-item"><span class="st-sym">Co</span><span class="st-val">$56 290/t</span><span class="st-up">+67% AA</span></div>
+    <div class="st-item"><span class="st-sym">Li₂CO₃</span><span class="st-val">CNY 194 000/t</span><span class="st-up">+197% AA</span></div>
+    <div class="st-item"><span class="st-sym">Au</span><span class="st-val">$4 724/oz</span><span class="st-up">+40% AA</span></div>
+    <div class="st-item"><span class="st-sym">Ormuz</span><span class="st-val">Cessez-le-feu étendu</span><span class="st-up">Négociations Pakistan</span></div>
+  </div>
+</div>
+
+<!-- === CORPS === -->
+<div class="signal-body">
+
+  <div class="signal-intro" id="intro-text">
+    Cette édition de juin 2026 paraît à un moment charnière : le cuivre a frôlé son record historique à $6,23/lb le 8 mai, le lithium a bondi de 197 % en glissement annuel, le nickel atteint son plus haut depuis deux ans, et les négociations sur Ormuz — médiatisées par le Pakistan — ouvrent une première fenêtre de désescalade depuis le 28 février. Pendant ce temps, le sommet Trump-Xi des 14-15 mai à Pékin place l'accès aux terres rares et la question des tarifs au centre de l'agenda mondial. AYYS Signal décrypte cinq signaux qui redéfinissent vos horizons d'approvisionnement pour le second semestre.
+  </div>
+
+  <!-- TABLEAU DE BORD -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--g)">◆</span>
+      <span id="s0-label">Tableau de bord · Semaine du 11 mai 2026</span>
+    </div>
+    <div class="sig-ticker-grid">
+      <div class="sig-tick">
+        <div class="sig-tick-name" id="t1-name">Cuivre LME</div>
+        <div class="sig-tick-price">$13 700/t</div>
+        <span class="sig-badge up" id="t1-badge">+35% AA</span>
+      </div>
+      <div class="sig-tick">
+        <div class="sig-tick-name" id="t2-name">Nickel LME</div>
+        <div class="sig-tick-price">$19 143/t</div>
+        <span class="sig-badge up" id="t2-badge">+22% AA · 2 ans de haut</span>
+      </div>
+      <div class="sig-tick">
+        <div class="sig-tick-name" id="t3-name">Cobalt LME</div>
+        <div class="sig-tick-price">$56 290/t</div>
+        <span class="sig-badge up" id="t3-badge">+67% AA</span>
+      </div>
+      <div class="sig-tick">
+        <div class="sig-tick-name" id="t4-name">Lithium carb.</div>
+        <div class="sig-tick-price">CNY 194 000/t</div>
+        <span class="sig-badge up" id="t4-badge">+197% AA</span>
+      </div>
+    </div>
+    <div class="sig-source" id="source-note">Sources : LME, Fastmarkets, Trading Economics, SMM — données indicatives, non destinées au trading · 8 mai 2026</div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 01 — MACRO SIGNAL -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--g)">01</span>
+      <span id="s1-label">Macro-signal</span>
+    </div>
+    <div class="sig-h2" id="s1-title">Cuivre : vers le record historique, cinq forces convergentes</div>
+    <p class="sig-p" id="s1-p1">Le cuivre a imprimé <span class="hl">$6,23/lb ($13 730/t)</span> le 8 mai 2026 sur le COMEX, approchant le record absolu atteint fin janvier. La progression sur un an atteint désormais <span class="hl">+35 %</span>. Deux vecteurs se superposent pour ancrer ce niveau structurel : la demande long-terme des data centers IA et des infrastructures de réseaux électriques d'un côté ; les contraintes d'offre accumulées depuis début 2026 de l'autre.</p>
+    <p class="sig-p" id="s1-p2">Cinq facteurs de tension opèrent simultanément. La <strong>disruption acide sulfurique</strong> : la Chine a officiellement banni ses exports d'acide sulfurique de mai à au moins décembre 2026, supprimant environ 3 millions de tonnes du marché maritime mondial — avec un impact direct sur le Chili, l'Indonésie et l'Inde. La <strong>production chilienne</strong> avait déjà reculé de <span class="hl-red">6 % au T1 2026</span> avant même la pleine entrée en vigueur de cette contrainte. La <strong>dislocation Section 232</strong> continue de drainer le métal disponible vers les entrepôts américains, asséchant les disponibilités mondiales. La mine <strong>Grasberg</strong> reste en sous-capacité post-force-majeure. Et la <strong>réouverture de Cobre Panamá</strong> (First Quantum, ~1 % de l'offre mondiale) reste suspendue à l'audit indépendant en cours.</p>
+    <div class="sig-bq" id="s1-quote">Le marché du cuivre entre dans le mois de mai 2026 à l'un des niveaux techniques les plus contestés de l'année. La question de la semaine est claire : cette consolidation est-elle la pause avant un nouveau sommet, ou le début d'un retour à la moyenne ? — Metal Sentinel, 4 mai 2026</div>
+    <p class="sig-p" id="s1-p3">Pour les acheteurs industriels, Goldman Sachs maintient une fourchette cible 2026 à $10 000–$11 000/t — impliquant que les niveaux actuels surpassent de 18 à 25 % leur scénario de base. Mais les inventaires visibles à l'échelle mondiale atteignent 1,5 million de tonnes (+540 kt depuis le début de l'année), suggérant un marché physique hors États-Unis plus souple que les prix headlines ne l'indiquent. La volatilité à court terme reste élevée : les 60 % de probabilité de consolidation entre $12 800 et $13 200/t constituent le scénario central des desks de trading pour les prochaines semaines.</p>
+    <div class="sig-tags">
+      <span class="sig-tag">Cuivre</span><span class="sig-tag">COMEX</span><span class="sig-tag">LME</span><span class="sig-tag">Acide sulfurique</span><span class="sig-tag">Chili</span><span class="sig-tag">Section 232</span><span class="sig-tag">Data centers</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 02 — FOCUS METAL : LITHIUM -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--amber)">02</span>
+      <span id="s2-label">Focus métal — Lithium</span>
+    </div>
+    <div class="sig-h2" id="s2-title">Lithium : retournement spectaculaire — +197 % en glissement annuel</div>
+    <p class="sig-p" id="s2-p1">Le lithium carbonate a atteint <span class="hl">CNY 194 000/t</span> au 8 mai 2026, soit une progression de <span class="hl">+197 % en glissement annuel</span> — un retournement radical après deux années de déflation post-cycle. Plusieurs catalyseurs convergent pour expliquer cette accélération :</p>
+    <div class="sig-focus">
+      <div class="sig-focus-tag" id="s2-focus-tag">Quatre moteurs du rally lithium 2026</div>
+      <ul class="sig-list" id="s2-list">
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li1h">Demande ESS & data centers :</strong> <span id="s2-li1">la croissance de la demande lithium issue du stockage stationnaire d'énergie (ESS) dépasse les prévisions. Les data centers IA en Chine et dans le monde nécessitent des systèmes de stockage qui consomment plus de lithium par GWh que les véhicules électriques. BYD prévoit 1,5 million de ventes à l'export en 2026 (vs 1,3 million estimé en janvier).</span></div></li>
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li2h">Zimbabwe — ban des exports :</strong> <span id="s2-li2">le Zimbabwe a suspendu le 25 février 2026 tous les exports de concentrés lithium et minéraux bruts, anticipant son plan de 2027. Le pays représentait ~7 % de la production mondiale (124 000 t LCE) et 15 % des imports de spodumène de la Chine. Le spodumène a bondi à $2 430–$2 500/t fin février.</span></div></li>
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li3h">Suppression des remboursements TVA chinois :</strong> <span id="s2-li3">la Chine a supprimé les remboursements TVA export sur les batteries lithium-ion à compter du 1er avril 2026, entraînant un front-loading massif de la production et des exports en T1, épuisant les stocks de matière première.</span></div></li>
+        <li><div class="sig-dot-g"></div><div><strong id="s2-li4h">Capacité d'Australie sous contrainte :</strong> <span id="s2-li4">les prix élevés rendent économiques les redémarrages des mines australiennes suspendues sous $900/t, mais les délais opérationnels (6–12 mois) signifient qu'aucun soulagement de l'offre ne peut intervenir avant début 2027 au mieux. Morgan Stanley projette un déficit de 80 000 t LCE en 2026.</span></div></li>
+      </ul>
+    </div>
+    <p class="sig-p" id="s2-p2">Pour les acheteurs de batteries NMC et NCA, la fenêtre de couverture court terme reste très étroite. Pékin a également annoncé un doublement de la capacité nationale de recharge VE à 180 GW d'ici 2027, consolidant la demande structurelle. La question centrale pour les équipes sourcing : jusqu'où les fabricants d'EV chinois — déjà passés à plus de 50 % de chimies LFP — vont-ils accélérer cette transition pour échapper à la contrainte lithium hydroxide ?</p>
+    <div class="sig-tags">
+      <span class="sig-tag">Lithium</span><span class="sig-tag">Zimbabwe</span><span class="sig-tag">ESS</span><span class="sig-tag">Data centers</span><span class="sig-tag">Spodumène</span><span class="sig-tag">LFP</span><span class="sig-tag">NMC</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 03 — CORRIDORS : TERRES RARES / SOMMET TRUMP-XI -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--mid)">03</span>
+      <span id="s3-label">Corridors & Origines — Terres rares · Sommet Trump-Xi</span>
+    </div>
+    <div class="sig-h2" id="s3-title">Pékin, 14-15 mai : terres rares, tarifs et asymétrie sino-américaine</div>
+    <p class="sig-p" id="s3-p1">Le sommet Trump-Xi des 14-15 mai à Pékin — premier déplacement d'un président américain en Chine depuis 2017 — constitue le signal géopolitique le plus scruté du T2 2026 pour les marchés des métaux critiques. L'agenda est dense : Iran-Ormuz, Taiwan, intelligence artificielle, tarifs, et surtout <strong>l'extension du trêve commerciale sur les terres rares</strong> — conclue en octobre 2025 à Busan, qui a permis le maintien des flux de REE vers les États-Unis en échange d'une réduction tarifaire partielle (de 57 % à 47 %).</p>
+    <p class="sig-p" id="s3-p2">Les analystes de CNBC et du WEF convergent : la guerre en Iran risque d'accaparer l'agenda au détriment des avancées commerciales structurelles. La Chine a suspendu les exports d'une large gamme de terres rares et d'aimants permanents depuis avril, désorganisant les chaînes automobiles en Europe, au Japon et en Corée. <span class="hl-red">Un accord d'accès préférentiel pour les entreprises américaines</span> aux licences MOFCOM — sans contrepartie pour l'Europe ou le Japon — créerait une asymétrie de sourcing critique pour les industriels non-américains.</p>
+    <div class="sig-bq" id="s3-quote">La guerre en Iran va probablement occuper le devant de la scène au sommet Trump-Xi, laissant moins de place pour résoudre les questions tarifaires et d'approvisionnement en terres rares. — CNBC, 8 mai 2026</div>
+    <p class="sig-p" id="s3-p3">Pour les chaînes d'approvisionnement européennes et asiatiques, la variable-clé est la suivante : Pékin maintiendra-t-il la suspension tactique des contrôles export REE comme monnaie d'échange, ou les réactivera-t-il comme levier de pression en cas de durcissement tarifaire post-sommet ? Poutine est attendu à Pékin la semaine suivant le départ de Trump — un signal géopolitique de premier ordre pour les équipes sourcing qui opèrent sur des corridors eurasiatiques.</p>
+    <div class="sig-tags">
+      <span class="sig-tag">Terres rares</span><span class="sig-tag">Trump-Xi</span><span class="sig-tag">MOFCOM</span><span class="sig-tag">NdFeB</span><span class="sig-tag">Tarifs</span><span class="sig-tag">Europe</span><span class="sig-tag">Géopolitique</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 04 — POINT OPERATIONNEL : NICKEL -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--dark)">04</span>
+      <span id="s4-label">Point opérationnel — Nickel</span>
+    </div>
+    <div class="sig-h2" id="s4-title">Nickel : déficit structurel en 2026 — Indonésie réécrit l'équilibre</div>
+    <p class="sig-p" id="s4-p1">Le nickel LME a atteint <span class="hl">$19 143/t</span> le 7 mai — son plus haut depuis juin 2024, avec une progression de <span class="hl">+22 % AA</span>. Après deux années de surplus lié à l'explosion de la production NPI/HPAL indonésienne, le marché opère un retournement structurel. L'Indonésie a réduit son quota RKAB 2026 à <span class="hl-red">260–270 millions de tonnes</span> d'extraction de minerai de nickel — contre 379 millions en 2025, soit une coupe de ~34 %. La mine Weda Bay, la plus grande au monde (joint-venture Eramet/Tsingshan), a reçu un quota initial réduit de 32 Mt à 12 Mt pour 2026.</p>
+    <p class="sig-p" id="s4-p2">Deux tensions additionnelles amplifient cette contrainte. Le nouveau <strong>HPM benchmark</strong> (Harga Patokan Mineral), en vigueur au 15 avril 2026, relève le prix plancher du minerai vendu sur le marché domestique — matérialisant une hausse des coûts pour les opérations HPAL, dont l'impact se répercutera sur les prix du sulfate de nickel et du MHP d'ici T3. Par ailleurs, la <strong>pénurie de soufre</strong> liée à Ormuz renchérit directement le coût de traitement HPAL, créant un double choc offre-coût sur le nickel battering grade. BigMint prévoit que le marché mondial du nickel passera en déficit en 2026 — une première depuis 2022.</p>
+    <div class="sig-tags">
+      <span class="sig-tag">Nickel</span><span class="sig-tag">Indonésie</span><span class="sig-tag">RKAB</span><span class="sig-tag">HPM</span><span class="sig-tag">HPAL</span><span class="sig-tag">Weda Bay</span><span class="sig-tag">Sulfate</span>
+    </div>
+  </div>
+
+  <hr class="sig-divider">
+
+  <!-- SECTION 05 — RADAR -->
+  <div class="sig-section">
+    <div class="sig-label">
+      <span class="sig-label-num" style="background:var(--red)">05</span>
+      <span id="s5-label">Radar — À surveiller en juillet 2026</span>
+    </div>
+    <ul class="sig-list sig-radar" id="s5-list">
+      <li><div class="sig-dot-g"></div><div id="s5-li1"><strong>Négociations Ormuz (Pakistan, juin–juillet) :</strong> le cessez-le-feu du 8 avril — étendu à plusieurs reprises — tient. Les discussions portent sur la liberté de navigation, le nucléaire iranien et les sanctions. Tout accord de réouverture durable détendrait immédiatement les prix du soufre, de l'acide sulfurique, du cuivre et du nickel. Tout retour au blocus dual (Iran + blockade US) les ferait repartir à la hausse.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li2"><strong>Résultats du sommet Trump-Xi (post-14 mai) :</strong> les annonces sur l'extension de la trêve REE, les achats Boeing/agri et les mécanismes de Board of Trade/Investment seront le baromètre de désescalade commerciale pour H2. Surveiller si les terres rares lourdes (terbium, dysprosium) restent sous contrôle asymétrique ou reviennent dans un cadre multilatéral.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li3"><strong>Cuivre : décision Section 232 affinée (juin 2026) :</strong> le secrétaire au Commerce américain doit finaliser sa recommandation sur les tarifs cuivre raffiné à la Maison Blanche. Goldman Sachs anticipe un tarif d'au moins 25 % avec effet immédiat. Une dislocation additionnelle Comex/LME est probable, créant des opportunités et des contraintes selon votre géographie d'achat.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li4"><strong>Lithium : redémarrages australiens (T3 2026) :</strong> le niveau de $2 000+/t spodumène rend économiques plusieurs mines suspendues. Les délais opérationnels situent tout volume additionnel au mieux en T3 2026 — surveiller les annonces de Pilbara Minerals, Core Lithium et IGO sur leurs calendriers de redémarrage. Tout signal anticipé créerait une pression baissière sur le prix.</div></li>
+      <li><div class="sig-dot-g"></div><div id="s5-li5"><strong>Visite Poutine-Xi (post-15 mai) :</strong> Moscou-Pékin post-sommet Trump-Xi. Un renforcement de la coopération russo-chinoise sur les corridors de transit des métaux critiques (nickel, palladium, platine) aurait des implications directes sur les chaînes d'approvisionnement des acheteurs européens. La Russie reste le 2e producteur mondial de nickel.</div></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="signal-cta">
+    <div class="signal-cta-line"></div>
+    <div class="signal-cta-inner">
+      <h3 id="cta-title">Recevoir AYYS Signal</h3>
+      <p id="cta-sub">La prochaine édition paraît en juillet 2026.<br>Réservée aux acheteurs industriels, équipes sourcing et directions achats qualifiés.</p>
+      <div class="signal-cta-btns">
+        <a href="index.html#contact" class="btn-gold" id="cta-btn1">S'abonner via le formulaire</a>
+        <a href="index.html#intel" class="btn-ghost" id="cta-btn2">← Retour Intelligence</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Archive -->
+<div class="signal-archive">
+  <span class="sa-label" id="archive-label">Archive · AYYS Signal</span>
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:12px;color:var(--light)" id="archive-current">N°003 · Juin 2026 — Numéro actuel</span>
+    <a href="signal-002.html" class="sa-link">N°002 · Mai 2026</a>
+    <a href="signal-001.html" class="sa-link">N°001 · Avril 2026</a>
+    <a href="index.html#intel" class="sa-link" id="archive-link">Voir toutes les éditions →</a>
+  </div>
+</div>
+
+<!-- === FOOTER === -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="flogo">AYYS<span>.</span></div>
+      <div class="ftag" id="footer-tag">Sourcing de métaux stratégiques pour industriels internationaux.</div>
+      <div class="freg">AYYS Commodities · 3 place Jussieu, 75005 Paris, France<br>SIRET 102 790 375 00012 · KYC/AML/Sanctions screening</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:14px" id="footer-nav-label">Navigation</div>
+      <div class="flinks">
+        <a href="index.html#services" id="fn-services">Services</a>
+        <a href="index.html#metals" id="fn-markets">Marchés</a>
+        <a href="index.html#intel" id="fn-intel">Intelligence</a>
+        <a href="signal-003.html">AYYS Signal</a>
+        <a href="index.html#about" id="fn-about">À propos</a>
+        <a href="index.html#contact" id="fn-contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:14px">Contact</div>
+      <div class="flinks">
+        <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a>
+        <a href="mailto:trading@ayys-group.fr">trading@ayys-group.fr</a>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.28);margin-top:16px;line-height:1.8" id="footer-disclaimer">Données indicatives uniquement.<br>Non destinées au trading.</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="fcopy">© 2026 AYYS Commodities. All rights reserved.</span>
+    <div class="flegal"><a href="index.html#about">Legal</a><a href="mailto:contact@ayys-group.fr?subject=AYYS%20privacy%20request">Privacy</a><a href="mailto:contact@ayys-group.fr?subject=AYYS%20compliance%20request">Compliance</a></div>
+  </div>
+</footer>
+
+<script>
+const T = {
+  FR: {
+    dir:'ltr', htmlLang:'fr',
+    navBack:'← Intelligence', navCta:'Demander un mandat',
+    heroTitle:'Cuivre record, lithium <em>en feu</em>',
+    heroSub:'N°003 — Juin 2026 · Édition pivot',
+    metaScope:'Périmètre : <strong>Cuivre · Nickel · Cobalt · Lithium · Terres rares</strong>',
+    metaFreq:'Fréquence : <strong>Bimensuelle</strong>',
+    tickerLabel:'LIVE · JUIN 2026',
+    intro:'Cette édition de juin 2026 paraît à un moment charnière : le cuivre a frôlé son record historique à $6,23/lb, le lithium a bondi de 197 % en glissement annuel, le nickel atteint son plus haut depuis deux ans, et les négociations sur Ormuz — médiatisées par le Pakistan — ouvrent une première fenêtre de désescalade. Pendant ce temps, le sommet Trump-Xi des 14-15 mai à Pékin place l\'accès aux terres rares et la question des tarifs au centre de l\'agenda mondial.',
+    s0:'Tableau de bord · Semaine du 11 mai 2026',
+    t1:'Cuivre LME', t2:'Nickel LME', t3:'Cobalt LME', t4:'Lithium carb.',
+    t1badge:'+35% AA', t2badge:'+22% AA · 2 ans de haut', t3badge:'+67% AA', t4badge:'+197% AA',
+    source:'Sources : LME, Fastmarkets, Trading Economics, SMM — données indicatives, non destinées au trading · 8 mai 2026',
+    s1:'Macro-signal',
+    s1t:'Cuivre : vers le record historique, cinq forces convergentes',
+    s1p1:'Le cuivre a imprimé <span class="hl">$6,23/lb ($13 730/t)</span> le 8 mai 2026 sur le COMEX, approchant le record absolu atteint fin janvier. La progression sur un an atteint désormais <span class="hl">+35 %</span>. Deux vecteurs se superposent : la demande long-terme des data centers IA et des réseaux électriques d\'un côté ; les contraintes d\'offre accumulées depuis début 2026 de l\'autre.',
+    s1p2:'La Chine a banni ses exports d\'acide sulfurique de mai à au moins décembre 2026, supprimant ~3 millions de tonnes du marché maritime mondial. La production chilienne avait déjà reculé de <span class="hl-red">6 % au T1 2026</span>. La dislocation Section 232 continue de drainer le métal vers les US. Grasberg reste en sous-capacité. Et la réouverture de Cobre Panamá reste suspendue à l\'audit indépendant.',
+    s1q:'Le marché du cuivre entre dans le mois de mai 2026 à l\'un des niveaux techniques les plus contestés de l\'année. — Metal Sentinel, 4 mai 2026',
+    s1p3:'Goldman Sachs maintient une fourchette cible 2026 à $10 000–$11 000/t — impliquant que les niveaux actuels surpassent de 18 à 25 % leur scénario de base. Les inventaires visibles mondiaux atteignent 1,5 Mt (+540 kt YTD), suggérant un marché physique hors US plus souple qu\'il n\'y paraît.',
+    s2:'Focus métal — Lithium',
+    s2t:'Lithium : retournement spectaculaire — +197 % en glissement annuel',
+    s2p1:'Le lithium carbonate a atteint <span class="hl">CNY 194 000/t</span> au 8 mai 2026, soit +<span class="hl">197 % en glissement annuel</span>. Quatre catalyseurs convergent :',
+    s2ft:'Quatre moteurs du rally lithium 2026',
+    s2li1h:'Demande ESS & data centers :', s2li1:'la croissance du stockage stationnaire dépasse les prévisions. BYD prévoit 1,5 million de ventes export en 2026. Pékin va doubler la capacité de recharge VE à 180 GW d\'ici 2027.',
+    s2li2h:'Zimbabwe — ban des exports :', s2li2:'suspension le 25 fév. 2026 de tous les exports de concentrés lithium. Le pays représentait ~7 % de la production mondiale et 15 % des imports de spodumène de la Chine. Spodumène à $2 430–$2 500/t.',
+    s2li3h:'Suppression des remboursements TVA chinois :', s2li3:'fin des remboursements TVA export sur batteries Li-ion au 1er avril 2026, entraînant un front-loading massif en T1 qui a épuisé les stocks de matière première.',
+    s2li4h:'Capacité australienne sous contrainte :', s2li4:'les redémarrages de mines ne peuvent intervenir avant début 2027 au mieux. Morgan Stanley projette un déficit de 80 000 t LCE en 2026.',
+    s2p2:'Pour les acheteurs de batteries NMC et NCA, la fenêtre de couverture court terme reste très étroite. La question centrale : jusqu\'où les fabricants d\'EV chinois — déjà à plus de 50 % LFP — accéléreront-ils cette transition pour échapper à la contrainte lithium hydroxide ?',
+    s3:'Corridors & Origines — Terres rares · Sommet Trump-Xi',
+    s3t:'Pékin, 14-15 mai : terres rares, tarifs et asymétrie sino-américaine',
+    s3p1:'Le sommet Trump-Xi des 14-15 mai — premier déplacement d\'un président américain en Chine depuis 2017 — est le signal géopolitique le plus scruté du T2 2026 pour les métaux critiques. L\'agenda central : extension de la trêve REE conclue à Busan en octobre 2025, qui maintient les flux vers les US contre une réduction tarifaire partielle (57 % → 47 %).',
+    s3p2:'La Chine a suspendu les exports d\'une large gamme de terres rares et d\'aimants permanents depuis avril, désorganisant les chaînes automobiles en Europe, Japon et Corée. <span class="hl-red">Un accord d\'accès préférentiel pour les entreprises américaines</span> aux licences MOFCOM — sans contrepartie pour l\'Europe ou le Japon — créerait une asymétrie de sourcing critique.',
+    s3q:'La guerre en Iran va probablement occuper le devant de la scène au sommet Trump-Xi, laissant moins de place pour résoudre les questions tarifaires et d\'approvisionnement en terres rares. — CNBC, 8 mai 2026',
+    s3p3:'Variable-clé : Pékin maintiendra-t-il la suspension tactique des contrôles export REE comme monnaie d\'échange, ou les réactivera-t-il post-sommet ? Poutine arrive à Pékin la semaine suivant le départ de Trump — un signal géopolitique de premier ordre pour les corridors eurasiatiques.',
+    s4:'Point opérationnel — Nickel',
+    s4t:'Nickel : déficit structurel en 2026 — Indonésie réécrit l\'équilibre',
+    s4p1:'Le nickel LME a atteint <span class="hl">$19 143/t</span> le 7 mai — son plus haut depuis juin 2024, +22 % AA. L\'Indonésie a réduit son quota RKAB 2026 à <span class="hl-red">260–270 millions de tonnes</span> (−34 % vs 2025). La mine Weda Bay, la plus grande au monde, a vu son quota passer de 32 Mt à 12 Mt.',
+    s4p2:'Le nouveau HPM benchmark (15 avril 2026) relève le prix plancher du minerai domestique, renchérissant les coûts HPAL. La pénurie de soufre liée à Ormuz crée un double choc offre-coût sur le nickel battery grade. BigMint prévoit que le marché mondial du nickel passe en déficit en 2026 — une première depuis 2022.',
+    s5:'Radar — À surveiller en juillet 2026',
+    s5li1:'<strong>Négociations Ormuz (Pakistan, juin–juillet) :</strong> le cessez-le-feu du 8 avril tient. Tout accord de réouverture durable détendrait immédiatement les prix du soufre, de l\'acide sulfurique, du cuivre et du nickel.',
+    s5li2:'<strong>Résultats du sommet Trump-Xi (post-14 mai) :</strong> surveiller l\'extension de la trêve REE, les achats Boeing/agri et les mécanismes de Board of Trade. Les terres rares lourdes (terbium, dysprosium) resteront-elles sous contrôle asymétrique ?',
+    s5li3:'<strong>Cuivre : décision Section 232 (juin 2026) :</strong> Goldman Sachs anticipe un tarif ≥ 25 % sur le cuivre raffiné. Une dislocation additionnelle Comex/LME est probable selon votre géographie d\'achat.',
+    s5li4:'<strong>Lithium : redémarrages australiens (T3 2026) :</strong> surveiller les annonces de Pilbara, Core Lithium et IGO. Tout signal anticipé créerait une pression baissière sur le prix.',
+    s5li5:'<strong>Visite Poutine-Xi (post-15 mai) :</strong> un renforcement de la coopération russo-chinoise sur les corridors de transit des métaux critiques aurait des implications directes pour les acheteurs européens. La Russie reste le 2e producteur mondial de nickel.',
+    ctaTitle:'Recevoir AYYS Signal',
+    ctaSub:'La prochaine édition paraît en juillet 2026.<br>Réservée aux acheteurs industriels, équipes sourcing et directions achats qualifiés.',
+    ctaBtn1:'S\'abonner via le formulaire', ctaBtn2:'← Retour Intelligence',
+    archiveLabel:'Archive · AYYS Signal',
+    archiveCurrent:'N°003 · Juin 2026 — Numéro actuel',
+    archiveLink:'Voir toutes les éditions →',
+    footerTag:'Sourcing de métaux stratégiques pour industriels internationaux.',
+    footerNavLabel:'Navigation',
+    fnServices:'Services', fnMarkets:'Marchés', fnIntel:'Intelligence', fnAbout:'À propos', fnContact:'Contact',
+    footerDisclaimer:'Données indicatives uniquement.<br>Non destinées au trading.',
+    bcIntel:'Intelligence'
+  },
+
+  EN: {
+    dir:'ltr', htmlLang:'en',
+    navBack:'← Intelligence', navCta:'Request a mandate',
+    heroTitle:'Copper record, lithium <em>on fire</em>',
+    heroSub:'N°003 — June 2026 · Pivot edition',
+    metaScope:'Scope: <strong>Copper · Nickel · Cobalt · Lithium · Rare Earths</strong>',
+    metaFreq:'Frequency: <strong>Bimonthly</strong>',
+    tickerLabel:'LIVE · JUNE 2026',
+    intro:'This June 2026 edition comes at a pivotal moment: copper approached its all-time record at $6.23/lb on May 8, lithium surged 197% year-on-year, nickel hit a two-year high, and Pakistan-mediated Hormuz negotiations have opened the first de-escalation window since February 28. Meanwhile, the May 14-15 Trump-Xi summit in Beijing puts rare earth access and tariffs at the centre of the global agenda.',
+    s0:'Market dashboard · Week of May 11, 2026',
+    t1:'Copper LME', t2:'Nickel LME', t3:'Cobalt LME', t4:'Lithium carb.',
+    t1badge:'+35% YoY', t2badge:'+22% YoY · 2yr high', t3badge:'+67% YoY', t4badge:'+197% YoY',
+    source:'Sources: LME, Fastmarkets, Trading Economics, SMM — indicative data, not for trading purposes · May 8, 2026',
+    s1:'Macro-signal',
+    s1t:'Copper: approaching the all-time record — five converging forces',
+    s1p1:'Copper printed <span class="hl">$6.23/lb ($13,730/t)</span> on May 8, 2026 on COMEX, approaching the all-time high set in late January. Year-on-year gains now stand at <span class="hl">+35%</span>. Two structural vectors overlap: long-term demand from AI data centres and power grid infrastructure on one side; mounting supply constraints since early 2026 on the other.',
+    s1p2:'China formally banned sulphuric acid exports from May through at least December 2026, removing ~3 million tonnes from the global seaborne market — directly impacting Chile, Indonesia, and India. Chilean copper output had already fallen <span class="hl-red">6% in Q1 2026</span> before this constraint fully materialised. Section 232 dislocation continues to drain metal to US warehouses. Grasberg remains in force majeure. Cobre Panamá reopening is pending the independent audit conclusion.',
+    s1q:'The copper market enters May 2026 at one of the most technically contested levels of the year. — Metal Sentinel, May 4, 2026',
+    s1p3:'Goldman Sachs maintains a 2026 LME target range of $10,000–$11,000/t — implying current levels are 18–25% above their base case. Global visible inventories stand at 1.5Mt (+540kt YTD), suggesting the physical market outside the US is softer than headline prices imply.',
+    s2:'Metal focus — Lithium',
+    s2t:'Lithium: spectacular reversal — +197% year-on-year',
+    s2p1:'Lithium carbonate reached <span class="hl">CNY 194,000/t</span> on May 8, 2026, a gain of <span class="hl">+197% year-on-year</span> — a radical reversal following two years of post-cycle deflation. Four catalysts converge:',
+    s2ft:'Four drivers behind the 2026 lithium rally',
+    s2li1h:'ESS & data centre demand:', s2li1:'stationary energy storage growth is exceeding forecasts. BYD projects 1.5M export sales in 2026. Beijing plans to double national EV charging capacity to 180GW by 2027.',
+    s2li2h:'Zimbabwe export ban:', s2li2:'on February 25, Zimbabwe suspended all exports of lithium concentrates, representing ~7% of global output and 15% of China\'s spodumene imports. Spodumene surged to $2,430–$2,500/t.',
+    s2li3h:'China VAT export rebate removal:', s2li3:'removal of VAT export rebates on lithium-ion batteries from April 1, 2026 triggered massive Q1 front-loading, depleting raw material inventories.',
+    s2li4h:'Australian supply constrained:', s2li4:'mine restarts require 6–12 months, meaning no meaningful new supply before early 2027. Morgan Stanley forecasts an 80,000t LCE deficit in 2026.',
+    s2p2:'For NMC and NCA battery buyers, near-term hedging windows remain very tight. The central question: how rapidly will Chinese EV manufacturers — already above 50% LFP — accelerate their transition to escape lithium hydroxide constraints?',
+    s3:'Corridors & Origins — Rare Earths · Trump-Xi Summit',
+    s3t:'Beijing, May 14-15: rare earths, tariffs and Sino-American asymmetry',
+    s3p1:'The May 14-15 Trump-Xi summit — the first US presidential visit to China since 2017 — is the most closely watched geopolitical signal of Q2 2026 for critical metals. Central agenda: extending the REE truce struck in Busan in October 2025, which has maintained rare earth flows to the US in exchange for a partial tariff reduction (57% → 47%).',
+    s3p2:'China suspended exports of a broad range of rare earths and permanent magnets from April, disrupting automotive supply chains across Europe, Japan, and South Korea. <span class="hl-red">A preferential access agreement for US companies</span> on MOFCOM licences — without equivalent for Europe or Japan — would create a critical sourcing asymmetry for non-US industrials.',
+    s3q:'The Iran war is likely to take centre stage at the Trump-Xi summit, leaving less scope to resolve issues like tariffs and rare earth supplies. — CNBC, May 8, 2026',
+    s3p3:'The key variable: will Beijing maintain the tactical suspension of REE export controls as bargaining currency, or reactivate them as leverage in a post-summit tariff hardening? Putin visits Beijing the week after Trump\'s departure — a first-order geopolitical signal for Eurasian corridor procurement teams.',
+    s4:'Operational point — Nickel',
+    s4t:'Nickel: structural deficit in 2026 — Indonesia rewrites the balance',
+    s4p1:'LME nickel reached <span class="hl">$19,143/t</span> on May 7 — its highest since June 2024, up 22% YoY. Indonesia cut its 2026 RKAB quota to <span class="hl-red">260–270 million tonnes</span> (−34% vs 2025). Weda Bay, the world\'s largest nickel mine, saw its quota slashed from 32Mt to 12Mt.',
+    s4p2:'The new HPM benchmark (effective April 15, 2026) raises the floor price for domestically sold ore, materially increasing HPAL operation costs. The Hormuz-linked sulphur shortage creates a double supply-cost shock on battery-grade nickel. BigMint forecasts the global nickel market will swing into deficit in 2026 — the first time since 2022.',
+    s5:'Radar — Watch in July 2026',
+    s5li1:'<strong>Hormuz negotiations (Pakistan, June–July):</strong> the April 8 ceasefire holds. Any durable reopening agreement would immediately ease sulphur, sulphuric acid, copper and nickel prices. A return to dual blockade would push them back up.',
+    s5li2:'<strong>Trump-Xi summit outcomes (post-May 14):</strong> monitor REE truce extension, Boeing/agri purchases and Board of Trade mechanisms. Will heavy rare earths (terbium, dysprosium) remain under asymmetric controls?',
+    s5li3:'<strong>Copper: Section 232 decision (June 2026):</strong> Goldman Sachs anticipates a tariff of at least 25% on refined copper. An additional Comex/LME dislocation is likely depending on your procurement geography.',
+    s5li4:'<strong>Lithium: Australian mine restarts (Q3 2026):</strong> monitor announcements from Pilbara Minerals, Core Lithium, and IGO. Any early signal would create downward price pressure.',
+    s5li5:'<strong>Putin-Xi visit (post-May 15):</strong> a strengthening of Russia-China cooperation on critical metal transit corridors (nickel, palladium, platinum) would have direct implications for European buyers. Russia remains the world\'s second-largest nickel producer.',
+    ctaTitle:'Subscribe to AYYS Signal',
+    ctaSub:'The next issue is due in July 2026.<br>Reserved for qualified industrial buyers, sourcing teams and procurement directors.',
+    ctaBtn1:'Subscribe via the contact form', ctaBtn2:'← Back to Intelligence',
+    archiveLabel:'Archive · AYYS Signal',
+    archiveCurrent:'N°003 · June 2026 — Current issue',
+    archiveLink:'View all issues →',
+    footerTag:'Strategic metal sourcing for international industrial offtakers.',
+    footerNavLabel:'Navigation',
+    fnServices:'Services', fnMarkets:'Markets', fnIntel:'Intelligence', fnAbout:'About', fnContact:'Contact',
+    footerDisclaimer:'Indicative data only.<br>Not for trading purposes.',
+    bcIntel:'Intelligence'
+  },
+
+  RU: {
+    dir:'ltr', htmlLang:'ru',
+    navBack:'← Аналитика', navCta:'Запросить мандат',
+    heroTitle:'Рекорд меди, литий <em>в огне</em>',
+    heroSub:'№003 — Июнь 2026 · Переломный выпуск',
+    metaScope:'Охват: <strong>Медь · Никель · Кобальт · Литий · Редкоземельные металлы</strong>',
+    metaFreq:'Периодичность: <strong>Два раза в месяц</strong>',
+    tickerLabel:'LIVE · ИЮНЬ 2026',
+    intro:'Этот выпуск за июнь 2026 года выходит в переломный момент: медь приближалась к историческому рекорду $6,23/фунт, литий вырос на 197% в годовом выражении, никель достиг двухлетнего максимума, а переговоры по Ормузу — при посредничестве Пакистана — открыли первое окно деэскалации с 28 февраля. Тем временем саммит Трамп-Си 14-15 мая в Пекине ставит доступ к редкоземельным металлам и тарифный вопрос в центр глобальной повестки.',
+    s0:'Рыночный обзор · Неделя 11 мая 2026',
+    t1:'Медь LME', t2:'Никель LME', t3:'Кобальт LME', t4:'Карбонат лития',
+    t1badge:'+35% г/г', t2badge:'+22% г/г · 2-летний max', t3badge:'+67% г/г', t4badge:'+197% г/г',
+    source:'Источники: LME, Fastmarkets, Trading Economics, SMM — индикативные данные · 8 мая 2026',
+    s1:'Макросигнал', s1t:'Медь: к историческому рекорду — пять сходящихся сил',
+    s1p1:'Медь достигла <span class="hl">$6,23/фунт ($13 730/т)</span> 8 мая 2026 года, приближаясь к абсолютному рекорду конца января. Рост за год составил <span class="hl">+35%</span>.',
+    s1p2:'Китай официально запретил экспорт серной кислоты с мая по декабрь 2026 года, убрав с морского рынка ~3 млн тонн. Чилийское производство уже сократилось на <span class="hl-red">6% в I квартале 2026 года</span>.',
+    s1q:'Рынок меди входит в май 2026 на одном из самых технически оспариваемых уровней года. — Metal Sentinel, 4 мая 2026',
+    s1p3:'Goldman Sachs сохраняет целевой диапазон на 2026 год $10 000–$11 000/т — текущие уровни превышают их базовый сценарий на 18–25%. Мировые видимые запасы достигают 1,5 млн т (+540 тыс. т с начала года).',
+    s2:'Фокус на металле — Литий', s2t:'Литий: впечатляющий разворот — +197% в годовом выражении',
+    s2p1:'Карбонат лития достиг <span class="hl">CNY 194 000/т</span> 8 мая 2026 года — <span class="hl">+197% в годовом выражении</span>. Четыре катализатора сходятся:',
+    s2ft:'Четыре движущие силы ралли лития 2026',
+    s2li1h:'Спрос ESS и дата-центров:', s2li1:'рост стационарного хранения энергии превышает прогнозы. BYD планирует 1,5 млн продаж на экспорт в 2026 году.',
+    s2li2h:'Зимбабве — запрет экспорта:', s2li2:'25 февраля 2026 года Зимбабве приостановило все экспорты литиевых концентратов. Страна обеспечивала ~7% мирового производства и 15% импорта сподумена в Китай.',
+    s2li3h:'Отмена возврата НДС в Китае:', s2li3:'отмена возврата НДС на экспорт литий-ионных батарей с 1 апреля 2026 года вызвала массовое накопление в I квартале, истощив запасы сырья.',
+    s2li4h:'Австралийские мощности под ограничениями:', s2li4:'перезапуск шахт займёт 6–12 месяцев. Morgan Stanley прогнозирует дефицит 80 000 т LCE в 2026 году.',
+    s2p2:'Для покупателей батарей NMC и NCA окно краткосрочного хеджирования остаётся очень узким.',
+    s3:'Коридоры и источники — Редкоземельные металлы · Саммит Трамп-Си',
+    s3t:'Пекин, 14-15 мая: редкоземельные металлы, тарифы и американо-китайская асимметрия',
+    s3p1:'Саммит Трамп-Си 14-15 мая — первый визит президента США в Китай с 2017 года — является наиболее пристально отслеживаемым геополитическим сигналом II квартала 2026 года. Центральная повестка: продление перемирия по редкоземельным металлам, заключённого в Пусане в октябре 2025 года.',
+    s3p2:'Китай приостановил экспорт широкого спектра редкоземельных металлов и постоянных магнитов с апреля, нарушив автомобильные цепочки поставок в Европе, Японии и Корее. <span class="hl-red">Соглашение о преференциальном доступе для американских компаний</span> к лицензиям MOFCOM создаст критическую асимметрию для не-американских промышленников.',
+    s3q:'Война в Иране, вероятно, займёт центральное место на саммите Трамп-Си, оставляя меньше возможностей для решения тарифных вопросов и поставок редкоземельных металлов. — CNBC, 8 мая 2026',
+    s3p3:'Ключевая переменная: сохранит ли Пекин тактическую приостановку контроля экспорта РЗМ как валюту обмена, или активирует её снова? Путин прибывает в Пекин на следующей неделе после отъезда Трампа.',
+    s4:'Операционный момент — Никель', s4t:'Никель: структурный дефицит в 2026 году — Индонезия переписывает баланс',
+    s4p1:'Никель LME достиг <span class="hl">$19 143/т</span> 7 мая — максимум с июня 2024 года, +22% г/г. Индонезия сократила квоту RKAB 2026 до <span class="hl-red">260–270 млн тонн</span> (−34% против 2025 года). Weda Bay получила квоту 12 млн т вместо 32 млн т.',
+    s4p2:'Новый бенчмарк HPM (с 15 апреля 2026) повышает минимальную цену руды, существенно увеличивая затраты HPAL. Нехватка серы из-за Ормуза создаёт двойной шок предложения и затрат для никеля батарейного класса.',
+    s5:'Радар — Следить в июле 2026',
+    s5li1:'<strong>Переговоры по Ормузу (Пакистан, июнь–июль):</strong> перемирие от 8 апреля держится. Любое соглашение о долгосрочном открытии немедленно снизит цены на серу, серную кислоту, медь и никель.',
+    s5li2:'<strong>Итоги саммита Трамп-Си (после 14 мая):</strong> следить за продлением перемирия по РЗМ и механизмами торговых советов.',
+    s5li3:'<strong>Медь: решение по Section 232 (июнь 2026):</strong> Goldman Sachs ожидает тариф ≥25% на рафинированную медь. Вероятна дополнительная дислокация Comex/LME.',
+    s5li4:'<strong>Литий: австралийские перезапуски (III кв. 2026):</strong> следить за Pilbara, Core Lithium и IGO. Любой ранний сигнал создаст понижательное давление на цену.',
+    s5li5:'<strong>Визит Путина-Си (после 15 мая):</strong> усиление российско-китайского сотрудничества по коридорам транзита критических металлов затронет европейских покупателей. Россия остаётся 2-м производителем никеля в мире.',
+    ctaTitle:'Подписаться на AYYS Signal',
+    ctaSub:'Следующий выпуск выйдет в июле 2026 года.<br>Для квалифицированных промышленных закупщиков.',
+    ctaBtn1:'Подписаться через форму', ctaBtn2:'← Назад к аналитике',
+    archiveLabel:'Архив · AYYS Signal', archiveCurrent:'№003 · Июнь 2026 — Текущий выпуск',
+    archiveLink:'Просмотреть все выпуски →',
+    footerTag:'Стратегическое снабжение металлами для международных промышленников.',
+    footerNavLabel:'Навигация', fnServices:'Услуги', fnMarkets:'Рынки', fnIntel:'Аналитика', fnAbout:'О нас', fnContact:'Контакт',
+    footerDisclaimer:'Только индикативные данные.<br>Не для торговых операций.', bcIntel:'Аналитика'
+  },
+
+  AR: {
+    dir:'rtl', htmlLang:'ar',
+    navBack:'الاستخبارات ←', navCta:'طلب تفويض',
+    heroTitle:'النحاس يكسر الأرقام القياسية، الليثيوم <em>يشتعل</em>',
+    heroSub:'العدد 003 — يونيو 2026 · إصدار محوري',
+    metaScope:'النطاق: <strong>النحاس · النيكل · الكوبالت · الليثيوم · العناصر الأرضية النادرة</strong>',
+    metaFreq:'التكرار: <strong>نصف شهري</strong>',
+    tickerLabel:'مباشر · يونيو 2026',
+    intro:'يصدر هذا العدد لشهر يونيو 2026 في لحظة محورية: اقترب النحاس من رقمه القياسي التاريخي عند $6.23/رطل، وارتفع الليثيوم 197% على أساس سنوي، وسجّل النيكل أعلى مستوياته منذ عامين، وفتحت مفاوضات هرمز — بوساطة باكستانية — أول نافذة لخفض التصعيد منذ 28 فبراير.',
+    s0:'لوحة أسعار السوق · أسبوع 11 مايو 2026',
+    t1:'نحاس LME', t2:'نيكل LME', t3:'كوبالت LME', t4:'كربونات ليثيوم',
+    t1badge:'+35% سنوياً', t2badge:'+22% سنوياً · أعلى منذ عامين', t3badge:'+67% سنوياً', t4badge:'+197% سنوياً',
+    source:'المصادر: LME, Fastmarkets, Trading Economics, SMM — بيانات إرشادية · 8 مايو 2026',
+    s1:'الإشارة الكلية', s1t:'النحاس: نحو الرقم القياسي التاريخي — خمس قوى متقاربة',
+    s1p1:'سجّل النحاس <span class="hl">$6.23/رطل ($13,730/طن)</span> في 8 مايو 2026 على COMEX، مقترباً من الرقم القياسي المطلق في أواخر يناير. ارتفع النمو السنوي إلى <span class="hl">+35%</span>.',
+    s1p2:'حظرت الصين صادرات حامض الكبريتيك من مايو حتى ديسمبر 2026 على الأقل، مزيلةً ~3 ملايين طن من السوق البحرية. كان إنتاج النحاس الشيلي قد انخفض بالفعل بنسبة <span class="hl-red">6% في الربع الأول 2026</span>.',
+    s1q:'يدخل سوق النحاس شهر مايو 2026 عند أحد أكثر المستويات التقنية تنازعاً في العام. — Metal Sentinel، 4 مايو 2026',
+    s1p3:'تحتفظ Goldman Sachs بنطاق مستهدف لعام 2026 عند $10,000–$11,000/طن، مما يعني أن المستويات الحالية تتجاوز سيناريوهها الأساسي بنسبة 18-25%.',
+    s2:'تركيز المعادن — الليثيوم', s2t:'الليثيوم: انعكاس مذهل — +197% على أساس سنوي',
+    s2p1:'وصل كربونات الليثيوم إلى <span class="hl">CNY 194,000/طن</span> في 8 مايو 2026 — <span class="hl">+197% على أساس سنوي</span>. تتقاطع أربعة محركات:',
+    s2ft:'أربعة محركات لارتفاع الليثيوم في 2026',
+    s2li1h:'طلب ESS ومراكز البيانات:', s2li1:'تتجاوز نمو تخزين الطاقة الثابتة التوقعات. BYD تتوقع 1.5 مليون مبيعات تصدير في 2026.',
+    s2li2h:'زيمبابوي — حظر الصادرات:', s2li2:'علّقت زيمبابوي في 25 فبراير 2026 جميع صادرات تركيزات الليثيوم. البلاد مثّلت ~7% من الإنتاج العالمي.',
+    s2li3h:'إلغاء مزايا ضريبة القيمة المضافة الصينية:', s2li3:'إلغاء استرداد ضريبة القيمة المضافة على صادرات بطاريات الليثيوم منذ 1 أبريل 2026.',
+    s2li4h:'القدرة الأسترالية مقيّدة:', s2li4:'تستغرق إعادة تشغيل المناجم 6-12 أشهر. تتوقع Morgan Stanley عجزاً بـ 80,000 طن LCE في 2026.',
+    s2p2:'نافذة التحوط قصير الأجل لمشتري بطاريات NMC وNCA ضيقة جداً.',
+    s3:'الممرات والمصادر — العناصر الأرضية النادرة · قمة ترامب-شي',
+    s3t:'بكين، 14-15 مايو: العناصر النادرة والتعريفات والتماثل غير المتكافئ',
+    s3p1:'تُعدّ قمة ترامب-شي 14-15 مايو أبرز إشارة جيوسياسية في الربع الثاني لأسواق المعادن الحيوية. المحور الرئيسي: تمديد هدنة REE المبرمة في بوسان أكتوبر 2025.',
+    s3p2:'علّقت الصين صادرات طيف واسع من العناصر الأرضية النادرة والمغناطيسات الدائمة منذ أبريل. <span class="hl-red">أي اتفاق بوصول تفضيلي للشركات الأمريكية</span> دون مقابل لأوروبا أو اليابان سيخلق تفاوتاً حرجاً.',
+    s3q:'من المرجح أن تتصدر حرب إيران قمة ترامب-شي، مما يترك مجالاً أقل لحل قضايا التعريفات والعناصر الأرضية النادرة. — CNBC، 8 مايو 2026',
+    s3p3:'المتغير الرئيسي: هل ستحتفظ بكين بتعليق ضوابط تصدير العناصر النادرة ورقة ضغط، أم ستعيد تفعيلها بعد القمة؟',
+    s4:'النقطة التشغيلية — النيكل', s4t:'النيكل: عجز هيكلي في 2026 — إندونيسيا تعيد كتابة التوازن',
+    s4p1:'وصل نيكل LME إلى <span class="hl">$19,143/طن</span> في 7 مايو — أعلى مستوى منذ يونيو 2024، +22% سنوياً. خفّضت إندونيسيا حصة RKAB 2026 إلى <span class="hl-red">260-270 مليون طن</span> (−34% مقارنة بـ 2025).',
+    s4p2:'يرفع مرجع HPM الجديد (15 أبريل 2026) الحد الأدنى لأسعار الخام، مما يرفع تكاليف HPAL. تخلق ندرة الكبريت المرتبطة بهرمز صدمة مزدوجة على النيكل الصناعي.',
+    s5:'الرادار — المراقبة في يوليو 2026',
+    s5li1:'<strong>مفاوضات هرمز (باكستان، يونيو–يوليو):</strong> هدنة 8 أبريل صامدة. أي اتفاق فتح دائم سيخفف فوراً أسعار الكبريت والنحاس والنيكل.',
+    s5li2:'<strong>نتائج قمة ترامب-شي (بعد 14 مايو):</strong> مراقبة تمديد هدنة REE وآليات مجالس التجارة.',
+    s5li3:'<strong>النحاس: قرار Section 232 (يونيو 2026):</strong> تتوقع Goldman Sachs رسماً ≥25% على النحاس المكرر.',
+    s5li4:'<strong>الليثيوم: إعادة تشغيل المناجم الأسترالية (الربع الثالث 2026):</strong> مراقبة إعلانات Pilbara وCore Lithium وIGO.',
+    s5li5:'<strong>زيارة بوتين-شي (بعد 15 مايو):</strong> تعميق التعاون الروسي الصيني على ممرات عبور المعادن الحيوية سيؤثر على المشترين الأوروبيين.',
+    ctaTitle:'الاشتراك في AYYS Signal', ctaSub:'يصدر العدد التالي في يوليو 2026.<br>مخصص للمشترين الصناعيين المؤهلين.',
+    ctaBtn1:'الاشتراك عبر النموذج', ctaBtn2:'← العودة إلى الاستخبارات',
+    archiveLabel:'أرشيف · AYYS Signal', archiveCurrent:'العدد 003 · يونيو 2026 — العدد الحالي',
+    archiveLink:'عرض جميع الإصدارات →',
+    footerTag:'توريد المعادن الاستراتيجية للصناعيين الدوليين.',
+    footerNavLabel:'التنقل', fnServices:'الخدمات', fnMarkets:'الأسواق', fnIntel:'الاستخبارات', fnAbout:'من نحن', fnContact:'اتصل بنا',
+    footerDisclaimer:'بيانات إرشادية فقط.<br>غير مخصصة للتداول.', bcIntel:'الاستخبارات'
+  },
+
+  ZH: {
+    dir:'ltr', htmlLang:'zh',
+    navBack:'← 市场情报', navCta:'申请委托',
+    heroTitle:'铜价创纪录，锂价<em>燃起来了</em>',
+    heroSub:'第003期 — 2026年6月 · 关键转折版',
+    metaScope:'范围：<strong>铜 · 镍 · 钴 · 锂 · 稀土</strong>',
+    metaFreq:'频率：<strong>每月两次</strong>',
+    tickerLabel:'实时 · 2026年6月',
+    intro:'本期2026年6月刊在关键时刻发布：铜价5月8日逼近历史纪录$6.23/磅，锂价同比大涨197%，镍价创两年新高，巴基斯坦斡旋的霍尔木兹谈判自2月28日以来首次打开降级窗口。与此同时，5月14-15日特朗普-习近平北京峰会将稀土获取和关税问题置于全球议程中心。',
+    s0:'市场概览 · 2026年5月11日当周',
+    t1:'铜LME', t2:'镍LME', t3:'钴LME', t4:'碳酸锂',
+    t1badge:'+35%同比', t2badge:'+22%同比·两年高位', t3badge:'+67%同比', t4badge:'+197%同比',
+    source:'数据来源：LME、Fastmarkets、Trading Economics、SMM · 2026年5月8日',
+    s1:'宏观信号', s1t:'铜价：逼近历史纪录——五大力量汇聚',
+    s1p1:'铜价5月8日在COMEX录得<span class="hl">$6.23/磅（$13,730/吨）</span>，接近1月底的历史最高位。年度涨幅已达<span class="hl">+35%</span>。',
+    s1p2:'中国正式禁止硫酸出口，期限从5月至少持续到12月2026年，从全球海运市场抹去约300万吨。智利铜产量在这一约束完全生效前，<span class="hl-red">2026年一季度已下降6%</span>。',
+    s1q:'铜市进入2026年5月时处于年内最具争议的技术关口之一。——Metal Sentinel，2026年5月4日',
+    s1p3:'高盛维持2026年LME目标区间$10,000–$11,000/吨——意味着当前价格比其基础情景高出18-25%。全球可见库存达到150万吨（年初至今+54万吨）。',
+    s2:'重点金属——锂', s2t:'锂：惊天逆转——同比+197%',
+    s2p1:'碳酸锂5月8日达到<span class="hl">CNY 194,000/吨</span>，同比<span class="hl">+197%</span>。四大催化剂汇聚：',
+    s2ft:'2026年锂价上涨的四大驱动力',
+    s2li1h:'ESS及数据中心需求：', s2li1:'固定储能增长超出预期。比亚迪预计2026年出口销售150万辆。北京计划到2027年将全国电动汽车充电能力翻倍至180GW。',
+    s2li2h:'津巴布韦出口禁令：', s2li2:'2026年2月25日，津巴布韦暂停所有锂精矿出口。该国约占全球产量的7%和中国锂辉石进口的15%。',
+    s2li3h:'中国取消增值税出口退税：', s2li3:'从2026年4月1日起取消锂离子电池的增值税出口退税，引发一季度大量前置生产，耗尽原材料库存。',
+    s2li4h:'澳大利亚产能受限：', s2li4:'矿山重启需要6-12个月，最早也要到2027年初才有新增供应。摩根士丹利预测2026年将出现8万吨LCE缺口。',
+    s2p2:'对于NMC和NCA电池买家，短期对冲窗口仍然非常有限。核心问题：已转向50%以上LFP的中国电动车制造商将以多快的速度加速这一转型？',
+    s3:'供应走廊与来源地——稀土·特朗普-习近平峰会',
+    s3t:'北京，5月14-15日：稀土、关税与中美不对称',
+    s3p1:'5月14-15日特朗普-习近平峰会——2017年以来美国总统首次访华——是2026年二季度关键金属市场最受关注的地缘政治信号。核心议程：延续2025年10月釜山达成的稀土休战协议。',
+    s3p2:'中国4月起暂停大量稀土和永磁体出口，扰乱了欧洲、日本和韩国的汽车供应链。<span class="hl-red">向美国企业提供MOFCOM许可证优先获取权的协议</span>——而不给欧洲或日本同等待遇——将为非美国工业企业造成严重的采购不对称。',
+    s3q:'伊朗战争可能在特朗普-习近平峰会上占据中心位置，留给解决关税和稀土供应问题的空间更少。——CNBC，2026年5月8日',
+    s3p3:'关键变量：北京将把战术性暂停稀土出口管制维持为谈判筹码，还是会在峰会后重新激活？普京在特朗普离京后抵达北京。',
+    s4:'操作要点——镍', s4t:'镍：2026年结构性赤字——印度尼西亚重写平衡',
+    s4p1:'LME镍5月7日达到<span class="hl">$19,143/吨</span>——2024年6月以来最高，同比+22%。印度尼西亚将2026年RKAB配额削减至<span class="hl-red">2.6-2.7亿吨</span>（较2025年减少34%）。全球最大镍矿Weda Bay配额从3200万吨骤降至1200万吨。',
+    s4p2:'2026年4月15日生效的新HPM基准提高了国内矿石底价，显著增加HPAL运营成本。与霍尔木兹相关的硫磺短缺对电池级镍造成双重供应-成本冲击。BigMint预测全球镍市场2026年将转入赤字——这是2022年以来首次。',
+    s5:'雷达——2026年7月重点关注',
+    s5li1:'<strong>霍尔木兹谈判（巴基斯坦，6月–7月）：</strong>4月8日停火协议维持。任何持久开放协议都将立即缓解硫磺、硫酸、铜和镍价格。',
+    s5li2:'<strong>特朗普-习近平峰会成果（5月14日后）：</strong>关注稀土休战延续和贸易委员会机制。重稀土（铽、镝）会否继续处于不对称管控下？',
+    s5li3:'<strong>铜：232条款决定（2026年6月）：</strong>高盛预计精炼铜关税至少25%。根据您的采购地理位置，可能出现额外的COMEX/LME错位。',
+    s5li4:'<strong>锂：澳大利亚矿山重启（2026年三季度）：</strong>关注Pilbara、Core Lithium和IGO的公告。任何提前信号都将对价格造成下行压力。',
+    s5li5:'<strong>普京-习近平会面（5月15日后）：</strong>俄中在关键金属运输走廊（镍、钯、铂）上合作的加强将直接影响欧洲买家。俄罗斯仍是全球第二大镍生产国。',
+    ctaTitle:'订阅 AYYS Signal', ctaSub:'下一期将于2026年7月发布。<br>仅面向合格工业采购商和采购总监。',
+    ctaBtn1:'通过联系表格订阅', ctaBtn2:'← 返回市场情报',
+    archiveLabel:'存档 · AYYS Signal', archiveCurrent:'第003期 · 2026年6月 — 当期',
+    archiveLink:'查看所有期刊 →',
+    footerTag:'为全球工业采购商提供战略金属采购服务。',
+    footerNavLabel:'导航', fnServices:'服务', fnMarkets:'市场', fnIntel:'情报', fnAbout:'关于我们', fnContact:'联系',
+    footerDisclaimer:'仅供参考数据。<br>非交易用途。', bcIntel:'情报'
+  }
+};
+
+let currentLang = 'FR';
+
+function applyLang(lang) {
+  const d = T[lang];
+  if (!d) return;
+  currentLang = lang;
+  document.documentElement.lang = d.htmlLang;
+  document.documentElement.dir = d.dir;
+  document.getElementById('nav-back-link').textContent = d.navBack;
+  document.getElementById('nav-cta').textContent = d.navCta;
+  document.getElementById('lc-cur').textContent = lang;
+  document.getElementById('hero-title').innerHTML = d.heroTitle;
+  document.getElementById('hero-sub').textContent = d.heroSub;
+  document.getElementById('meta-scope').innerHTML = d.metaScope;
+  document.getElementById('meta-freq').innerHTML = d.metaFreq;
+  document.getElementById('ticker-label').textContent = d.tickerLabel;
+  document.getElementById('bc-intel').textContent = d.bcIntel;
+  document.getElementById('intro-text').textContent = d.intro;
+  document.getElementById('s0-label').textContent = d.s0;
+  document.getElementById('t1-name').textContent = d.t1;
+  document.getElementById('t2-name').textContent = d.t2;
+  document.getElementById('t3-name').textContent = d.t3;
+  document.getElementById('t4-name').textContent = d.t4;
+  document.getElementById('t1-badge').textContent = d.t1badge;
+  document.getElementById('t2-badge').textContent = d.t2badge;
+  document.getElementById('t3-badge').textContent = d.t3badge;
+  document.getElementById('t4-badge').textContent = d.t4badge;
+  document.getElementById('source-note').textContent = d.source;
+  document.getElementById('s1-label').textContent = d.s1;
+  document.getElementById('s1-title').textContent = d.s1t;
+  document.getElementById('s1-p1').innerHTML = d.s1p1;
+  document.getElementById('s1-p2').innerHTML = d.s1p2;
+  document.getElementById('s1-quote').textContent = d.s1q;
+  document.getElementById('s1-p3').innerHTML = d.s1p3;
+  document.getElementById('s2-label').textContent = d.s2;
+  document.getElementById('s2-title').textContent = d.s2t;
+  document.getElementById('s2-p1').innerHTML = d.s2p1;
+  document.getElementById('s2-focus-tag').textContent = d.s2ft;
+  document.getElementById('s2-li1h').textContent = d.s2li1h;
+  document.getElementById('s2-li1').textContent = d.s2li1;
+  document.getElementById('s2-li2h').textContent = d.s2li2h;
+  document.getElementById('s2-li2').textContent = d.s2li2;
+  document.getElementById('s2-li3h').textContent = d.s2li3h;
+  document.getElementById('s2-li3').textContent = d.s2li3;
+  document.getElementById('s2-li4h').textContent = d.s2li4h;
+  document.getElementById('s2-li4').textContent = d.s2li4;
+  document.getElementById('s2-p2').innerHTML = d.s2p2;
+  document.getElementById('s3-label').textContent = d.s3;
+  document.getElementById('s3-title').textContent = d.s3t;
+  document.getElementById('s3-p1').innerHTML = d.s3p1;
+  document.getElementById('s3-p2').innerHTML = d.s3p2;
+  document.getElementById('s3-quote').textContent = d.s3q;
+  document.getElementById('s3-p3').textContent = d.s3p3;
+  document.getElementById('s4-label').textContent = d.s4;
+  document.getElementById('s4-title').textContent = d.s4t;
+  document.getElementById('s4-p1').innerHTML = d.s4p1;
+  document.getElementById('s4-p2').innerHTML = d.s4p2;
+  document.getElementById('s5-label').textContent = d.s5;
+  document.getElementById('s5-li1').innerHTML = d.s5li1;
+  document.getElementById('s5-li2').innerHTML = d.s5li2;
+  document.getElementById('s5-li3').innerHTML = d.s5li3;
+  document.getElementById('s5-li4').innerHTML = d.s5li4;
+  document.getElementById('s5-li5').innerHTML = d.s5li5;
+  document.getElementById('cta-title').textContent = d.ctaTitle;
+  document.getElementById('cta-sub').innerHTML = d.ctaSub;
+  document.getElementById('cta-btn1').textContent = d.ctaBtn1;
+  document.getElementById('cta-btn2').textContent = d.ctaBtn2;
+  document.getElementById('archive-label').textContent = d.archiveLabel;
+  document.getElementById('archive-current').textContent = d.archiveCurrent;
+  document.getElementById('archive-link').textContent = d.archiveLink;
+  document.getElementById('footer-tag').textContent = d.footerTag;
+  document.getElementById('footer-nav-label').textContent = d.footerNavLabel;
+  document.getElementById('fn-services').textContent = d.fnServices;
+  document.getElementById('fn-markets').textContent = d.fnMarkets;
+  document.getElementById('fn-intel').textContent = d.fnIntel;
+  document.getElementById('fn-about').textContent = d.fnAbout;
+  document.getElementById('fn-contact').textContent = d.fnContact;
+  document.getElementById('footer-disclaimer').innerHTML = d.footerDisclaimer;
+  document.querySelectorAll('.lang-opt').forEach(el => {
+    el.classList.toggle('sel', el.dataset.lang === lang);
+  });
+  try { localStorage.setItem('ayys_lang', lang); } catch(e) {}
+}
+
+function toggleLangDrop() {
+  document.getElementById('lang-btn').classList.toggle('open');
+  document.getElementById('lang-drop').classList.toggle('open');
+}
+
+function setLang(lang) {
+  applyLang(lang);
+  document.getElementById('lang-btn').classList.remove('open');
+  document.getElementById('lang-drop').classList.remove('open');
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-wrap')) {
+    document.getElementById('lang-btn').classList.remove('open');
+    document.getElementById('lang-drop').classList.remove('open');
+  }
+});
+
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('nav').classList.toggle('scrolled', s.scrollTop > 40);
+});
+
+(function() {
+  const supported = ['FR','EN','RU','AR','ZH'];
+  let urlLang = null;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const p = (params.get('lang') || '').toUpperCase();
+    if (supported.includes(p)) urlLang = p;
+  } catch(e) {}
+  let stored = null;
+  try { stored = localStorage.getItem('ayys_lang'); } catch(e) {}
+  const browserLang = (navigator.language || '').toUpperCase().split('-')[0];
+  const langMap = { FR:'FR', EN:'EN', RU:'RU', AR:'AR', ZH:'ZH' };
+  const detected = urlLang || stored || langMap[browserLang] || 'FR';
+  const initial = supported.includes(detected) ? detected : 'FR';
+  applyLang(initial);
+})();
+</script>
+</body>
+</html>
