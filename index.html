@@ -67,6 +67,19 @@
     .nav-links{display:flex;gap:2px}
     .nav-links a{font-size:13px;color:var(--mid);text-decoration:none;cursor:pointer;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap}
     .nav-links a:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
+    /* ===== NAV DROPDOWN — restored clickable menus ===== */
+    .nav-item{position:relative;display:flex;align-items:center}
+    .nav-item>a{display:flex;align-items:center;gap:4px}
+    .nav-item>a .nav-caret{display:inline-block;width:8px;height:8px;position:relative;flex-shrink:0}
+    .nav-item>a .nav-caret::after{content:'';display:block;width:5px;height:5px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+    .nav-item:hover>a .nav-caret::after,.nav-item:focus-within>a .nav-caret::after,.nav-item.open>a .nav-caret::after{transform:rotate(-135deg) translateY(-2px)}
+    .nav-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);padding-top:10px;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:300}
+    .nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop,.nav-item.open .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-inner{background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:6px;min-width:200px;box-shadow:0 12px 36px rgba(0,0,0,0.10),0 3px 8px rgba(0,0,0,0.06);position:relative;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .nav-drop-inner::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-bottom:none;border-right:none}
+    .nd-item{display:block;padding:8px 12px;border-radius:7px;text-decoration:none;font-size:12px;color:var(--mid);transition:background .14s,color .14s;white-space:nowrap}
+    .nd-item:hover,.nd-item:focus{background:rgba(29,158,117,0.07);color:var(--g);outline:none}
+
     .nav-right{display:flex;align-items:center;gap:8px}
     .lang-wrap{position:relative;display:flex;align-items:center}
     .lang-sel{appearance:none;-webkit-appearance:none;-moz-appearance:none;height:34px;padding:0 32px 0 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.18);background-color:rgba(12,18,16,0.94);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,255,255,0.6)' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;color:rgba(255,255,255,0.88);font-size:10px;font-weight:700;letter-spacing:1.35px;cursor:pointer;font-family:inherit;transition:border-color .18s,background-color .18s;outline:none}
@@ -674,12 +687,40 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </div>
       </div>
     </a>
-    <nav class="nav-links">
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#metals" data-i18n="nav_markets">Markets</a>
-      <a href="#intel" data-i18n="nav_intel">Intelligence</a>
-      <a href="#about" data-i18n="nav_about">About</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#nav-wrap" data-i18n="nav_home">Home</a>
+      <div class="nav-item" role="none">
+        <a href="#metals" data-i18n="nav_markets" aria-haspopup="true" aria-expanded="false">Markets <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Markets submenu"><div class="nav-drop-inner">
+            <a class="nd-item" href="copper.html" role="menuitem">Copper</a>
+            <a class="nd-item" href="cobalt.html" role="menuitem">Cobalt</a>
+            <a class="nd-item" href="lithium.html" role="menuitem">Lithium</a>
+            <a class="nd-item" href="nickel.html" role="menuitem">Nickel</a>
+            <a class="nd-item" href="rare-earths.html" role="menuitem">Rare Earths</a>
+            <a class="nd-item" href="precious-metals.html" role="menuitem">Precious Metals</a>
+        </div></div>
+      </div>
+      <div class="nav-item" role="none">
+        <a href="#services" data-i18n="nav_services" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Services submenu"><div class="nav-drop-inner">
+            <a class="nd-item" href="services.html#sourcing" role="menuitem">Sourcing & Trading</a>
+            <a class="nd-item" href="services.html#finance" role="menuitem">Trade Finance</a>
+            <a class="nd-item" href="services.html#logistics" role="menuitem">Logistics & Transport</a>
+            <a class="nd-item" href="services.html#advisory" role="menuitem">Advisory & Intelligence</a>
+        </div></div>
+      </div>
+      <div class="nav-item" role="none">
+        <a href="#intel" data-i18n="nav_intel" aria-haspopup="true" aria-expanded="false">Intelligence <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Intelligence submenu"><div class="nav-drop-inner">
+            <a class="nd-item" href="intelligence.html#signal" role="menuitem">AYYS Signal</a>
+            <a class="nd-item" href="intelligence.html#briefs" role="menuitem">Market Briefs</a>
+            <a class="nd-item" href="intelligence.html#geopolitics" role="menuitem">Geopolitics</a>
+            <a class="nd-item" href="intelligence.html#supply-chain" role="menuitem">Supply-chain Analysis</a>
+        </div></div>
+      </div>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </nav>
     <div class="nav-right">
       <div class="vert-wrap" id="vw">
@@ -713,12 +754,12 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </div>
       </div>
       <div class="lang-wrap" id="lw">
-        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="pickLangSel(this.value)">
-          <option value="EN">EN</option>
-          <option value="FR">FR</option>
-          <option value="RU">RU</option>
-          <option value="AR">AR</option>
-          <option value="ZH">ZH</option>
+        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="goLang(this)">
+          <option value="EN" data-href="index.html" selected>EN</option>
+          <option value="FR" data-href="index-fr.html">FR</option>
+          <option value="RU" data-href="index-ru.html">RU</option>
+          <option value="AR" data-href="index-ar.html">AR</option>
+          <option value="ZH" data-href="index-zh.html">ZH</option>
         </select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
@@ -732,15 +773,21 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
   </div>
   <div class="bar"><div class="prog" id="prog"></div></div>
   <div class="mobile-menu" id="mmenu">
-    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#nav-wrap" onclick="closeMenu()">Home</a>
     <a href="#metals" onclick="closeMenu()">Markets</a>
-    <a href="#intel" onclick="closeMenu()">Intelligence</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="copper.html" onclick="closeMenu()">Copper</a>
+      <a href="cobalt.html" onclick="closeMenu()">Cobalt</a>
+      <a href="lithium.html" onclick="closeMenu()">Lithium</a>
+      <a href="nickel.html" onclick="closeMenu()">Nickel</a>
+      <a href="rare-earths.html" onclick="closeMenu()">Rare Earths</a>
+      <a href="precious-metals.html" onclick="closeMenu()">Precious Metals</a>
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="intelligence.html" onclick="closeMenu()">Intelligence</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="compliance.html" onclick="closeMenu()">Compliance</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
     <div class="mobile-menu-bottom">
-      <a href="#contact" class="ncta" style="font-size:13px">
-        <span class="cdot"></span>Request a sourcing mandate
-      </a>
+      <a href="contact.html" class="ncta" style="font-size:13px"><span class="cdot"></span>Request a sourcing mandate</a>
       <a id="mobile-brochure-btn" class="mobile-brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" data-brochure-cta>Open corporate presentation</a>
     </div>
   </div>
@@ -2321,6 +2368,40 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     if(video.readyState < 2) showFallback();
   }, 2500);
+})();
+</script>
+
+
+<script>
+/* AYYS NAV FIX — dropdowns + language redirection */
+(function(){
+  function langUrl(code){
+    var map={EN:'index.html',FR:'index-fr.html',RU:'index-ru.html',AR:'index-ar.html',ZH:'index-zh.html'};
+    return map[String(code||'EN').toUpperCase()] || 'index.html';
+  }
+  window.goLang=function(sel){
+    var opt=sel && sel.options ? sel.options[sel.selectedIndex] : null;
+    var href=(opt && opt.getAttribute('data-href')) || langUrl(sel && sel.value);
+    if(href) window.location.href=href;
+  };
+  window.pickLangSel=function(code){ window.location.href=langUrl(code); };
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.nav-item > a').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var item=a.closest('.nav-item');
+        var hasDrop=item && item.querySelector('.nav-drop');
+        if(!hasDrop) return;
+        if(window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches){
+          e.preventDefault();
+          document.querySelectorAll('.nav-item.open').forEach(function(x){ if(x!==item) x.classList.remove('open'); });
+          item.classList.toggle('open');
+        }
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.nav-item')) document.querySelectorAll('.nav-item.open').forEach(function(x){x.classList.remove('open');});
+    });
+  });
 })();
 </script>
 

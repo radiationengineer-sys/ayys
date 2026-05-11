@@ -127,6 +127,19 @@
     .nav-links{display:flex;gap:2px}
     .nav-links a{font-size:13px;color:var(--mid);text-decoration:none;cursor:pointer;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap}
     .nav-links a:hover{color:var(--dark);background:rgba(0,0,0,0.05)}
+    /* ===== NAV DROPDOWN — restored clickable menus ===== */
+    .nav-item{position:relative;display:flex;align-items:center}
+    .nav-item>a{display:flex;align-items:center;gap:4px}
+    .nav-item>a .nav-caret{display:inline-block;width:8px;height:8px;position:relative;flex-shrink:0}
+    .nav-item>a .nav-caret::after{content:'';display:block;width:5px;height:5px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+    .nav-item:hover>a .nav-caret::after,.nav-item:focus-within>a .nav-caret::after,.nav-item.open>a .nav-caret::after{transform:rotate(-135deg) translateY(-2px)}
+    .nav-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-4px);padding-top:10px;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:300}
+    .nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop,.nav-item.open .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-inner{background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:6px;min-width:200px;box-shadow:0 12px 36px rgba(0,0,0,0.10),0 3px 8px rgba(0,0,0,0.06);position:relative;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .nav-drop-inner::before{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:rgba(252,250,247,0.98);border:0.5px solid rgba(0,0,0,0.09);border-bottom:none;border-right:none}
+    .nd-item{display:block;padding:8px 12px;border-radius:7px;text-decoration:none;font-size:12px;color:var(--mid);transition:background .14s,color .14s;white-space:nowrap}
+    .nd-item:hover,.nd-item:focus{background:rgba(29,158,117,0.07);color:var(--g);outline:none}
+
 
     /* ===== NAV DROPDOWN ===== */
     .nav-item{position:relative;display:flex;align-items:center}
@@ -769,63 +782,39 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
       </div>
     </a>
     <nav class="nav-links" aria-label="Main navigation">
-
-      <!-- Home -->
-      <a href="#nav-wrap" class="nav-links" style="font-size:13px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap" data-i18n="nav_home">الرئيسية</a>
-
-      <!-- Markets dropdown -->
+      <a href="#nav-wrap" data-i18n="nav_home">الرئيسية</a>
       <div class="nav-item" role="none">
-        <a href="#metals" data-i18n="nav_markets" aria-haspopup="true" aria-expanded="false">الأسواق <span class="nav-caret" aria-hidden="true"></span>
-        </a>
-        <div class="nav-drop" role="menu" aria-label="Markets submenu">
-          <div class="nav-drop-inner">
+        <a href="#metals" data-i18n="nav_markets" aria-haspopup="true" aria-expanded="false">الأسواق <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Markets submenu"><div class="nav-drop-inner">
             <a class="nd-item" href="copper-ar.html" role="menuitem">النحاس</a>
             <a class="nd-item" href="cobalt-ar.html" role="menuitem">الكوبالت</a>
             <a class="nd-item" href="lithium-ar.html" role="menuitem">الليثيوم</a>
             <a class="nd-item" href="nickel-ar.html" role="menuitem">النيكل</a>
-            <a class="nd-item" href="rare-earths-ar.html" role="menuitem">الأتربة النادرة</a>
+            <a class="nd-item" href="rare-earths-ar.html" role="menuitem">العناصر النادرة</a>
             <a class="nd-item" href="precious-metals-ar.html" role="menuitem">المعادن الثمينة</a>
-          </div>
-        </div>
+        </div></div>
       </div>
-
-      <!-- Services dropdown -->
       <div class="nav-item" role="none">
-        <a href="#services" data-i18n="nav_services" aria-haspopup="true" aria-expanded="false">الخدمات <span class="nav-caret" aria-hidden="true"></span>
-        </a>
-        <div class="nav-drop" role="menu" aria-label="Services submenu">
-          <div class="nav-drop-inner">
-            <a class="nd-item" href="services-ar.html#sourcing" role="menuitem">التوريد &amp; التداول</a>
+        <a href="#services" data-i18n="nav_services" aria-haspopup="true" aria-expanded="false">الخدمات <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Services submenu"><div class="nav-drop-inner">
+            <a class="nd-item" href="services-ar.html#sourcing" role="menuitem">التوريد والتداول</a>
             <a class="nd-item" href="services-ar.html#finance" role="menuitem">تمويل التجارة</a>
-            <a class="nd-item" href="services-ar.html#logistics" role="menuitem">اللوجستيات &amp; الشحن</a>
-            <a class="nd-item" href="services-ar.html#advisory" role="menuitem">الاستشارات &amp; المعلومات</a>
-          </div>
-        </div>
+            <a class="nd-item" href="services-ar.html#logistics" role="menuitem">اللوجستيات والنقل</a>
+            <a class="nd-item" href="services-ar.html#advisory" role="menuitem">الاستشارات والاستخبارات</a>
+        </div></div>
       </div>
-
-      <!-- Intelligence dropdown -->
       <div class="nav-item" role="none">
-        <a href="#intel" data-i18n="nav_intel" aria-haspopup="true" aria-expanded="false">الاستخبارات <span class="nav-caret" aria-hidden="true"></span>
-        </a>
-        <div class="nav-drop" role="menu" aria-label="Intelligence submenu">
-          <div class="nav-drop-inner">
+        <a href="#intel" data-i18n="nav_intel" aria-haspopup="true" aria-expanded="false">الاستخبارات <span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-drop" role="menu" aria-label="Intelligence submenu"><div class="nav-drop-inner">
             <a class="nd-item" href="intelligence-ar.html#signal" role="menuitem">AYYS Signal</a>
-            <a class="nd-item" href="intelligence-ar.html#briefs" role="menuitem">نشرات السوق</a>
-            <a class="nd-item" href="intelligence-ar.html#geopolitics" role="menuitem">الجيوسياسة</a>
-            <a class="nd-item" href="intelligence-ar.html#supply-chain" role="menuitem">تحليل سلاسل التوريد</a>
-          </div>
-        </div>
+            <a class="nd-item" href="intelligence-ar.html#briefs" role="menuitem">موجزات السوق</a>
+            <a class="nd-item" href="intelligence-ar.html#geopolitics" role="menuitem">الجغرافيا السياسية</a>
+            <a class="nd-item" href="intelligence-ar.html#supply-chain" role="menuitem">تحليل سلاسل الإمداد</a>
+        </div></div>
       </div>
-
-      <!-- About -->
-      <a href="#about" style="font-size:13px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap" data-i18n="nav_about">من نحن</a>
-
-      <!-- Compliance -->
-      <a href="#contact" style="font-size:13px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap">الامتثال</a>
-
-      <!-- Contact -->
-      <a href="#contact" style="font-size:13px;color:var(--mid);text-decoration:none;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap" data-i18n="nav_contact">تواصل</a>
-
+      <a href="about-ar.html" data-i18n="nav_about">من نحن</a>
+      <a href="compliance-ar.html">الامتثال</a>
+      <a href="contact-ar.html" data-i18n="nav_contact">اتصال</a>
     </nav>
     <div class="nav-right">
       <div class="vert-wrap" id="vw">
@@ -859,13 +848,13 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
         </div>
       </div>
       <div class="lang-wrap" id="lw">
-        <select class="lang-sel" id="lang-sel" aria-label="اللغة" onchange="goLang(this)">
-<option value="EN" data-href="index.html">EN</option>
-<option value="FR" data-href="index-fr.html">FR</option>
-<option value="RU" data-href="index-ru.html">RU</option>
-<option value="AR" data-href="index-ar.html" selected>AR</option>
-<option value="ZH" data-href="index-zh.html">ZH</option>
-</select>
+        <select class="lang-sel" id="lang-sel" aria-label="Langue" onchange="goLang(this)">
+          <option value="EN" data-href="index.html">EN</option>
+          <option value="FR" data-href="index-fr.html">FR</option>
+          <option value="RU" data-href="index-ru.html">RU</option>
+          <option value="AR" data-href="index-ar.html" selected>AR</option>
+          <option value="ZH" data-href="index-zh.html">ZH</option>
+        </select>
       </div>
       <div style="width:1px;height:18px;background:rgba(0,0,0,0.1);flex-shrink:0"></div>
       <a class="ncta" href="#contact">
@@ -880,16 +869,20 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
   <div class="mobile-menu" id="mmenu">
     <a href="#nav-wrap" onclick="closeMenu()">الرئيسية</a>
     <a href="#metals" onclick="closeMenu()">الأسواق</a>
-    <a href="#services" onclick="closeMenu()">الخدمات</a>
-    <a href="#intel" onclick="closeMenu()">الاستخبارات</a>
-    <a href="about-ar.html" href="about-ar.html" onclick="closeMenu()">من نحن</a>
-    <a href="#contact" href="compliance-ar.html" onclick="closeMenu()">الامتثال</a>
-    <a href="contact-ar.html" href="contact-ar.html" onclick="closeMenu()">تواصل</a>
+      <a href="copper-ar.html" onclick="closeMenu()">النحاس</a>
+      <a href="cobalt-ar.html" onclick="closeMenu()">الكوبالت</a>
+      <a href="lithium-ar.html" onclick="closeMenu()">الليثيوم</a>
+      <a href="nickel-ar.html" onclick="closeMenu()">النيكل</a>
+      <a href="rare-earths-ar.html" onclick="closeMenu()">العناصر النادرة</a>
+      <a href="precious-metals-ar.html" onclick="closeMenu()">المعادن الثمينة</a>
+    <a href="services-ar.html" onclick="closeMenu()">الخدمات</a>
+    <a href="intelligence-ar.html" onclick="closeMenu()">الاستخبارات</a>
+    <a href="about-ar.html" onclick="closeMenu()">من نحن</a>
+    <a href="compliance-ar.html" onclick="closeMenu()">الامتثال</a>
+    <a href="contact-ar.html" onclick="closeMenu()">اتصال</a>
     <div class="mobile-menu-bottom">
-      <a href="#contact" class="ncta" style="font-size:13px">
-        <span class="cdot"></span>Request a sourcing mandate
-      </a>
-      <a id="mobile-brochure-btn" class="mobile-brochure-btn" href="ayys_ar.html" target="_blank" rel="noopener" data-brochure-cta>Open corporate presentation</a>
+      <a href="contact-ar.html" class="ncta" style="font-size:13px"><span class="cdot"></span>طلب تفويض توريد</a>
+      <a id="mobile-brochure-btn" class="mobile-brochure-btn" href="ayys_en.html" target="_blank" rel="noopener" data-brochure-cta>Open corporate presentation</a>
     </div>
   </div>
 </div>
@@ -2670,13 +2663,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Override pickLangSel to patch links AND redirect to index-{lc}
   var _orig=window.pickLangSel;
-  window.pickLangSel=function(code){
-    if(_orig)_orig(code);
-    patchLinks(code||'EN');
-    if(code&&code!=='EN'){
-      window.location.href='index-'+code.toLowerCase()+'.html';
-    }
-  };
+  window.pickLangSel=function(code){ window.location.href=({EN:'index.html',FR:'index-fr.html',RU:'index-ru.html',AR:'index-ar.html',ZH:'index-zh.html'}[String(code||'EN').toUpperCase()]||'index.html'); };
 
   // goLang used by sub-pages selector — same behaviour
   window.goLang=function(sel){
@@ -2697,6 +2684,39 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
+
+<script>
+/* AYYS NAV FIX — dropdowns + language redirection */
+(function(){
+  function langUrl(code){
+    var map={EN:'index.html',FR:'index-fr.html',RU:'index-ru.html',AR:'index-ar.html',ZH:'index-zh.html'};
+    return map[String(code||'EN').toUpperCase()] || 'index.html';
+  }
+  window.goLang=function(sel){
+    var opt=sel && sel.options ? sel.options[sel.selectedIndex] : null;
+    var href=(opt && opt.getAttribute('data-href')) || langUrl(sel && sel.value);
+    if(href) window.location.href=href;
+  };
+  window.pickLangSel=function(code){ window.location.href=langUrl(code); };
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.nav-item > a').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var item=a.closest('.nav-item');
+        var hasDrop=item && item.querySelector('.nav-drop');
+        if(!hasDrop) return;
+        if(window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches){
+          e.preventDefault();
+          document.querySelectorAll('.nav-item.open').forEach(function(x){ if(x!==item) x.classList.remove('open'); });
+          item.classList.toggle('open');
+        }
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.nav-item')) document.querySelectorAll('.nav-item.open').forEach(function(x){x.classList.remove('open');});
+    });
+  });
+})();
+</script>
 
 <script>
 /* AYYS MARKET DATA — single local feed renderer
