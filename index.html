@@ -1597,7 +1597,7 @@ requestAnimationFrame(animate);
 <div class="stitle" id="intel-title" style="margin-bottom:6px">AYYS Signal — The flows that matter</div>
 <div class="ssub" id="intel-sub" style="margin-bottom:0;max-width:480px">The strategic intelligence letter on critical metals. Copper, nickel, cobalt, lithium, rare earths — fortnightly, for industrial buyers who need structured information, not noise.</div>
 </div>
-<a href="signal-003.html" id="intel-all-btn" onmouseout="this.style.background='#2f3431';this.style.transform='none'" onmouseover="this.style.background='#1D9E75';this.style.transform='translateY(-1px)'" style="display:inline-flex;align-items:center;gap:7px;background:var(--dark);color:#fff;border-radius:9px;padding:12px 22px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,transform .15s">
+<a href="signal-004.html" id="intel-all-btn" onmouseout="this.style.background='#2f3431';this.style.transform='none'" onmouseover="this.style.background='#1D9E75';this.style.transform='translateY(-1px)'" style="display:inline-flex;align-items:center;gap:7px;background:var(--dark);color:#fff;border-radius:9px;padding:12px 22px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,transform .15s">
 <span id="intel-all-label">View all editions →</span>
 </a>
 </div>
@@ -2156,7 +2156,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Instrumentaliser les liens vers signal-001.html et signal-002.html pour passer la langue active
   // (redondant avec localStorage mais garantit la sync même en navigation privée)
-  document.querySelectorAll('a[href*="signal-001.html"], a[href*="signal-002.html"], a[href*="signal-003.html"]').forEach(a => {
+  document.querySelectorAll('a[href*="signal-001.html"], a[href*="signal-002.html"], a[href*="signal-003.html"], a[href*="signal-004.html"]').forEach(a => {
     a.addEventListener('click', () => {
       const _s=document.getElementById('lang-sel'); const lang=_s?_s.value:'EN';
       const base = a.getAttribute('href').split('?')[0];
