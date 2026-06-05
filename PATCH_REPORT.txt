@@ -1,0 +1,18 @@
+AYYS-SITE patch report
+
+Corrections applied:
+- Fixed AYYS Energy / AYYS Agri desktop dropdown labels, icons and href targets.
+- Fixed Energy mobile menu: AYYS ENERGY now points to ayys-energy.html, AYYS AGRI to ayys-agri.html.
+- Removed obsolete construction / soon badges for Energy and Agri across the visible navigation set, including localized pages.
+- Reduced Energy and Agri header logo sizing from 84px to 56px desktop and from 66px to 44px mobile; added max-width constraints.
+- Added missing assets/hero-premium.jpg so index pages no longer reference a missing homepage image.
+- Updated README-prices.md to make the market-data reliability policy explicit: indicative references unless a licensed/validated feed is connected.
+
+Validation:
+- Local HTML files checked: 81
+- Missing local links/resources: 0
+- Missing local anchors: 0
+- Visible construction badge spans remaining: 0
+
+Note:
+- The word SOON can still appear inside embedded base64 image data; it is not visible UI text.
