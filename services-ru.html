@@ -439,5 +439,14 @@ function toggleMenu(){document.getElementById('mmenu').classList.toggle('open');
 function closeMenu(){document.getElementById('mmenu').classList.remove('open');document.getElementById('ham').classList.remove('open')}
 function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)window.location.href=o.dataset.href;}
 </script>
+
+<style id="ayys-brochure-access-style">
+.ayys-brochure-access{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;gap:8px;flex-wrap:wrap;max-width:360px}
+.ayys-brochure-access a{font:600 12px/1.2 Arial,sans-serif;text-decoration:none;padding:10px 12px;border-radius:999px;background:#1D9E75;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.ayys-brochure-access a:nth-child(2){background:#B08A49}
+@media(max-width:720px){.ayys-brochure-access{left:12px;right:12px;bottom:12px}.ayys-brochure-access a{flex:1;text-align:center}}
+@media print{.ayys-brochure-access{display:none!important}}
+</style>
+<div class="ayys-brochure-access" aria-label="Brochure access"><a href="ayys_ru.html">Смотреть брошюру онлайн</a><a href="assets/brochures/ayys-brochure-ru.pdf">Скачать PDF-брошюру</a></div>
 </body>
 </html>

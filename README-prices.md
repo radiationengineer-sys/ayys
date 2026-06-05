@@ -18,3 +18,8 @@ Why this is safer:
 - one source rendered consistently across language pages;
 - clear freshness/source labels;
 - no fake 5-second price animation.
+
+
+## Publication rule added after audit
+
+The market data displayed by the website must be presented as indicative unless a licensed real-time data provider is connected and validated. Each public price block must display the source, the currency/unit and the last update date. Copper may be updated automatically by the current script; cobalt, lithium, nickel, rare earths and precious metals require either a licensed data source or manual validation before publication.
