@@ -362,6 +362,11 @@
 .logo img, .brand img, header img[alt*="AYYS"], nav img[alt*="AYYS"]{max-height:56px!important;width:auto!important;object-fit:contain!important;}
 @media(max-width:768px){.logo img,.brand img,header img[alt*="AYYS"],nav img[alt*="AYYS"]{max-height:44px!important;}}
 </style>
+
+<style id="ayys-display-safety-fallback">
+/* Ensures full page content remains visible even if scroll-reveal JS is delayed or blocked. */
+.reveal,.reveal.revealed,.reveal-left,.reveal-right,.reveal-left.visible,.reveal-right.visible,.supply-stage.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
+</style>
 </head>
 <body>
 <!-- ===== NAV ===== -->
