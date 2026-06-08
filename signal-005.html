@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AYYS Signal N°005 · Flash géopolitique 8 juin 2026 — Iran, Ormuz, Cuivre en alerte</title>
+<meta name="description" content="Iran rompt le cessez-le-feu : missiles balistiques sur Israël ce matin. Brent $96+. Cuivre COMEX $6.54. Section 232 entrée en vigueur aujourd'hui. KOSPI circuit-breaker. 3 scénarios chiffrés pour H2 2026."/>
+<meta property="og:title" content="AYYS Signal N°005 · Flash géopolitique · 8 juin 2026"/>
+<meta property="og:description" content="Iran brise le cessez-le-feu · missiles sur Israël · Brent $96 · Cuivre $6.54 · Section 232 en vigueur aujourd'hui · 3 scénarios H2 2026"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#1e2520;--mid:#5a6057;--light:#9a9690;
+  --bg:#f0ece4;--white:#fffdf8;--mist:#e8e2d8;
+  --red:#c0392b;--red2:#9b2335;--red-bg:#fdf0ef;
+  --amber:#b87a2a;--amber-bg:#fdf5e6;
+  --g:#1d9e75;--g-bg:#e8f5ef;
+  --war:#100806;--war2:#1a0c09;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--dark)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(238,233,224,.96);backdrop-filter:blur(14px);border-bottom:.5px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:62px;transition:height .25s}
+.nav.scrolled{height:52px}
+.logo{display:flex;align-items:baseline;gap:5px;text-decoration:none}
+.logo-m{font-size:17px;font-weight:600;letter-spacing:4px;color:var(--dark)}
+.logo-m span{color:var(--g)}
+.logo-s{font-size:9px;letter-spacing:1.4px;color:var(--light);text-transform:uppercase}
+.nav-r{display:flex;align-items:center;gap:10px}
+.nav-back{font-size:12px;color:var(--mid);text-decoration:none;padding:6px 12px;border-radius:7px;transition:background .2s}
+.nav-back:hover{background:rgba(0,0,0,.05);color:var(--dark)}
+.nav-cta{background:var(--red2);color:#fff;border:none;border-radius:22px;padding:8px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--red)}
+.bar{height:2px;background:rgba(0,0,0,.04)}
+.prog{height:100%;background:var(--red);width:0;transition:width .1s}
+/* HERO */
+.hero{background:var(--war);padding:108px 52px 60px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(192,57,43,.10),transparent);pointer-events:none}
+.hero-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red) 25%,#e74c3c 55%,var(--amber) 80%,transparent)}
+.hero-inner{position:relative;z-index:2;max-width:780px;margin:0 auto}
+.flash-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(231,76,60,.15);border:.5px solid rgba(231,76,60,.5);border-radius:5px;padding:4px 11px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e74c3c;margin-bottom:18px}
+.flash-dot{width:7px;height:7px;border-radius:50%;background:#e74c3c;animation:pls 1.1s infinite}
+@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+.breadcrumb{display:flex;align-items:center;gap:7px;margin-bottom:18px;flex-wrap:wrap}
+.breadcrumb a{font-size:11px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:rgba(255,255,255,.7)}
+.breadcrumb span{font-size:11px;color:rgba(255,255,255,.18)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#e74c3c;margin-bottom:12px}
+.h1{font-size:40px;font-weight:600;color:#f5f0eb;line-height:1.1;letter-spacing:-.8px;margin-bottom:10px}
+.h1 em{color:#e74c3c;font-style:normal}
+.h1 strong{color:var(--amber);font-weight:600}
+.h1-sub{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:30px}
+.meta{display:flex;gap:22px;flex-wrap:wrap}
+.meta-i{display:flex;align-items:center;gap:7px;font-size:11px;color:rgba(255,255,255,.4)}
+.meta-dot{width:4px;height:4px;border-radius:50%;background:#e74c3c;flex-shrink:0}
+.meta-i strong{color:rgba(255,255,255,.7);font-weight:500}
+/* TICKER */
+.ticker{background:#0c0503;border-bottom:.5px solid rgba(192,57,43,.25);overflow:hidden;position:relative}
+.tick-label{position:absolute;left:0;top:0;bottom:0;background:rgba(192,57,43,.9);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.6px;padding:0 14px;display:flex;align-items:center;z-index:2;white-space:nowrap}
+.tick-track{display:flex;animation:ticker 40s linear infinite;width:max-content;padding:0 200px 0 160px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tick-item{display:flex;align-items:center;gap:9px;padding:10px 22px;border-right:.5px solid rgba(255,255,255,.05);white-space:nowrap}
+.ts{font-size:11px;font-weight:700;color:rgba(255,255,255,.8)}
+.tv{font-size:11px;color:rgba(255,255,255,.45)}
+.up{font-size:10px;color:#27ae60}
+.dn{font-size:10px;color:#e74c3c}
+.fl{font-size:10px;color:#f39c12;font-weight:700}
+/* BODY */
+.body{max-width:780px;margin:0 auto;padding:60px 52px}
+/* intro box */
+.intro-box{background:var(--white);border-left:3px solid var(--red);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:52px;font-size:14px;line-height:1.85;color:var(--mid);font-style:italic;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+/* section */
+.sec{margin-bottom:52px}
+.sec-label{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding-bottom:11px;border-bottom:.5px solid rgba(0,0,0,.08);margin-bottom:22px;display:flex;align-items:center;gap:9px}
+.sec-label.red{color:var(--red)}
+.sec-label.amber{color:var(--amber)}
+.sec-label.green{color:var(--g)}
+.sec-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;color:#fff;font-size:8px;font-weight:700;letter-spacing:0;flex-shrink:0}
+.h2{font-size:24px;font-weight:600;color:var(--dark);line-height:1.28;margin-bottom:16px;letter-spacing:-.3px}
+p{font-size:14px;line-height:1.85;color:#4a4f4b;margin-bottom:14px}
+p:last-child{margin-bottom:0}
+em.r{background:#fde9e8;color:var(--red);border-radius:4px;padding:1px 6px;font-style:normal;font-weight:600;font-size:13.5px}
+em.a{background:var(--amber-bg);color:var(--amber);border-radius:4px;padding:1px 6px;font-style:normal;font-weight:600;font-size:13.5px}
+em.g{background:var(--g-bg);color:var(--g);border-radius:4px;padding:1px 6px;font-style:normal;font-weight:600;font-size:13.5px}
+/* dashboard */
+.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+.dash-tile{background:var(--white);border-radius:13px;padding:15px 16px;border-top:2px solid var(--red);box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.dash-tile.amber{border-top-color:var(--amber)}
+.dash-tile.green{border-top-color:var(--g)}
+.dash-tile.grey{border-top-color:#ccc}
+.dt-name{font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--light);margin-bottom:5px}
+.dt-val{font-size:17px;font-weight:600;color:var(--dark);margin-bottom:3px}
+.dt-val.r{color:var(--red)}
+.dt-val.g{color:#27ae60}
+.dt-chg{font-size:10px;font-weight:600;padding:2px 7px;border-radius:5px;display:inline-block}
+.dt-chg.r{background:#fde9e8;color:var(--red)}
+.dt-chg.g{background:var(--g-bg);color:var(--g)}
+.dt-chg.a{background:var(--amber-bg);color:var(--amber)}
+.dt-note{font-size:10px;color:var(--light);margin-top:3px}
+/* bq */
+.bq{border-left:2px solid var(--red);padding:10px 18px;margin:20px 0;font-size:14px;font-style:italic;color:var(--mid);line-height:1.75;background:var(--white);border-radius:0 8px 8px 0}
+/* focus card */
+.focus{background:var(--white);border-radius:14px;padding:24px;margin:20px 0;box-shadow:0 1px 8px rgba(0,0,0,.06)}
+.focus-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.focus-tag.r{color:var(--red)}
+.focus-tag.a{color:var(--amber)}
+.focus-tag.g{color:var(--g)}
+ul.flist{list-style:none}
+ul.flist li{display:flex;gap:13px;font-size:13.5px;line-height:1.75;color:#4a4f4b;padding:11px 0;border-bottom:.5px solid rgba(0,0,0,.06)}
+ul.flist li:last-child{border-bottom:none;padding-bottom:0}
+.fd{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.fd.r{background:var(--red)}
+.fd.a{background:var(--amber)}
+.fd.g{background:var(--g)}
+/* scénarios */
+.scen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.scen{border-radius:14px;padding:20px}
+.scen.bear{background:#fef8f7;border-top:3px solid var(--red)}
+.scen.base{background:#fefcf5;border-top:3px solid var(--amber)}
+.scen.bull{background:#f7fefb;border-top:3px solid var(--g)}
+.scen-lbl{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px}
+.scen-lbl.r{color:var(--red)}
+.scen-lbl.a{color:var(--amber)}
+.scen-lbl.g{color:var(--g)}
+.scen-name{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.3}
+.scen-prob{font-size:11px;color:var(--light);margin-bottom:12px}
+.scen-row{font-size:12px;line-height:1.65;color:#4a4f4b;padding:5px 0;border-bottom:.5px dashed rgba(0,0,0,.07)}
+.scen-row:last-child{border-bottom:none}
+.scen-row strong{font-weight:600;color:var(--dark)}
+/* radar */
+ul.radar{list-style:none}
+ul.radar li{display:flex;gap:13px;font-size:13.5px;line-height:1.78;color:#4a4f4b;padding:12px 0;border-bottom:.5px solid rgba(0,0,0,.06)}
+ul.radar li:last-child{border-bottom:none}
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bg);border:.5px solid rgba(0,0,0,.1);border-radius:5px;padding:3px 8px;color:var(--light)}
+hr.div{border:none;border-top:.5px solid rgba(0,0,0,.07);margin:0 0 52px}
+/* CTA */
+.cta-box{background:var(--war);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(192,57,43,.08),transparent)}
+.cta-line{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(192,57,43,.5) 40%,rgba(184,122,42,.4) 60%,transparent)}
+.cta-inner{position:relative;z-index:1}
+.cta-inner h3{font-size:22px;font-weight:600;color:#f5f0eb;margin-bottom:8px;letter-spacing:-.2px}
+.cta-inner p{font-size:13px;color:rgba(255,255,255,.48);margin-bottom:26px;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-r{background:var(--red2);color:#fff;border:none;border-radius:9px;padding:13px 26px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:opacity .2s}
+.btn-r:hover{opacity:.88}
+.btn-g{background:transparent;color:rgba(255,255,255,.55);border:.5px solid rgba(255,255,255,.18);border-radius:9px;padding:13px 26px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-g:hover{border-color:rgba(255,255,255,.4);color:#fff}
+/* archive bar */
+.arch{background:var(--white);border-top:.5px solid rgba(0,0,0,.07);border-bottom:.5px solid rgba(0,0,0,.07);padding:22px 52px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:64px}
+.arch-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light)}
+.arch-links{display:flex;gap:18px;flex-wrap:wrap}
+.arch-links a{font-size:12px;color:var(--g);font-weight:600;text-decoration:none;transition:opacity .2s}
+.arch-links a:hover{opacity:.7}
+/* footer */
+footer{background:linear-gradient(180deg,#414540,#363b37)}
+.ft{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding:52px;border-bottom:.5px solid rgba(255,255,255,.06)}
+.flogo{font-size:19px;font-weight:600;letter-spacing:4px;color:#fff;margin-bottom:9px}
+.flogo span{color:var(--g)}
+.ftag{font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:15px}
+.freg{font-size:11px;color:rgba(255,255,255,.3);line-height:1.9}
+.flinks{display:flex;flex-direction:column;gap:1px}
+.flinks a{font-size:12px;color:rgba(255,255,255,.48);text-decoration:none;padding:4px 0;transition:color .2s}
+.flinks a:hover{color:var(--g)}
+.fhl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:12px}
+.fb{display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(0,0,0,.12)}
+.fcopy{font-size:11px;color:rgba(255,255,255,.28)}
+.flegal{display:flex;gap:14px}
+.flegal a{font-size:11px;color:rgba(255,255,255,.3);text-decoration:none}
+@media(max-width:760px){
+  .hero{padding:96px 22px 48px}
+  .h1{font-size:28px}
+  .body{padding:40px 22px}
+  .dash{grid-template-columns:1fr 1fr}
+  .scen-grid{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr;padding:36px 22px}
+  .fb{padding:14px 22px;flex-direction:column;gap:8px}
+  .arch{padding:18px 22px}
+  .nav{padding:0 18px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html">
+    <span class="logo-m">AYYS<span>.</span></span>
+    <span class="logo-s">Commodities</span>
+  </a>
+  <div class="nav-r">
+    <a class="nav-back" href="index.html#intel">← Intelligence</a>
+    <a class="nav-cta" href="index.html#contact">Demander un mandat</a>
+  </div>
+</nav>
+<div class="bar"><div class="prog" id="prog"></div></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">ayys-group.com</a><span>/</span>
+      <a href="index.html#intel">Intelligence</a><span>/</span>
+      <span style="color:rgba(255,255,255,.45)">AYYS Signal N°005</span>
+    </div>
+    <div class="flash-badge"><span class="flash-dot"></span>⚡ FLASH GÉOPOLITIQUE · 8 JUIN 2026</div>
+    <div class="eyebrow">AYYS Signal · Édition d'urgence N°005</div>
+    <div class="h1">L'escalade reprend : <em>Iran tire sur Israël</em>,<br>Hormuz sous <strong>tension maximale</strong></div>
+    <div class="h1-sub">Cessez-le-feu brisé · Brent $96.47 · Cuivre COMEX $6.54 · Section 232 en vigueur aujourd'hui · KOSPI circuit-breaker</div>
+    <div class="meta">
+      <div class="meta-i"><div class="meta-dot"></div><span>Périmètre&nbsp;: <strong>Géopolitique · Cuivre · Or · Pétrole · Section 232 · Hormuz</strong></span></div>
+      <div class="meta-i"><div class="meta-dot"></div><span>Édition flash&nbsp;: <strong>8 juin 2026 — mise à jour continue</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tick-label">⚡ FLASH · 8 JUIN 2026</div>
+  <div class="tick-track">
+    <div class="tick-item"><span class="ts">Brent</span><span class="tv">$96.47/bbl</span><span class="dn">▲+3.6% Iran missiles</span></div>
+    <div class="tick-item"><span class="ts">WTI</span><span class="tv">$93.45/bbl</span><span class="dn">▲+3.0% Hormuz risque</span></div>
+    <div class="tick-item"><span class="ts">Cu COMEX</span><span class="tv">$6.54/lb ouverture</span><span class="up">▲ Section 232 en vigueur</span></div>
+    <div class="tick-item"><span class="ts">Cu LME</span><span class="tv">~$13 400/t</span><span class="up">+30% AA · déficit 600k t</span></div>
+    <div class="tick-item"><span class="ts">Or</span><span class="tv">~$4 336/oz</span><span class="fl">↑ safe-haven rebond</span></div>
+    <div class="tick-item"><span class="ts">KOSPI</span><span class="tv">-8.37%</span><span class="dn">⚠ CIRCUIT BREAKER</span></div>
+    <div class="tick-item"><span class="ts">Nikkei</span><span class="tv">-3.4% · 64 099</span><span class="dn">Samsung/SK Hynix -10%</span></div>
+    <div class="tick-item"><span class="ts">Iran → Israël</span><span class="tv">3+ vagues missiles</span><span class="dn">⚡ 1er tir depuis cessez-le-feu avril</span></div>
+    <div class="tick-item"><span class="ts">Section 232</span><span class="tv">25% tarif cuivre</span><span class="fl">EFFECTIF AUJOURD'HUI</span></div>
+    <div class="tick-item"><span class="ts">OPEC+</span><span class="tv">+188 000 bpd juillet</span><span class="fl">4e hausse depuis fermeture Hormuz</span></div>
+    <!-- double pour boucle -->
+    <div class="tick-item"><span class="ts">Brent</span><span class="tv">$96.47/bbl</span><span class="dn">▲+3.6% Iran missiles</span></div>
+    <div class="tick-item"><span class="ts">WTI</span><span class="tv">$93.45/bbl</span><span class="dn">▲+3.0% Hormuz risque</span></div>
+    <div class="tick-item"><span class="ts">Cu COMEX</span><span class="tv">$6.54/lb ouverture</span><span class="up">▲ Section 232 en vigueur</span></div>
+    <div class="tick-item"><span class="ts">Cu LME</span><span class="tv">~$13 400/t</span><span class="up">+30% AA · déficit 600k t</span></div>
+    <div class="tick-item"><span class="ts">Or</span><span class="tv">~$4 336/oz</span><span class="fl">↑ safe-haven rebond</span></div>
+    <div class="tick-item"><span class="ts">KOSPI</span><span class="tv">-8.37%</span><span class="dn">⚠ CIRCUIT BREAKER</span></div>
+    <div class="tick-item"><span class="ts">Nikkei</span><span class="tv">-3.4% · 64 099</span><span class="dn">Samsung/SK Hynix -10%</span></div>
+    <div class="tick-item"><span class="ts">Iran → Israël</span><span class="tv">3+ vagues missiles</span><span class="dn">⚡ 1er tir depuis cessez-le-feu avril</span></div>
+    <div class="tick-item"><span class="ts">Section 232</span><span class="tv">25% tarif cuivre</span><span class="fl">EFFECTIF AUJOURD'HUI</span></div>
+    <div class="tick-item"><span class="ts">OPEC+</span><span class="tv">+188 000 bpd juillet</span><span class="fl">4e hausse depuis fermeture Hormuz</span></div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    Ce 8 juin 2026 cumule deux chocs simultanés : l'Iran brise le cessez-le-feu d'avril en tirant des missiles balistiques sur Israël pour la première fois depuis deux mois, et la Section 232 sur le cuivre entre en vigueur aujourd'hui même. Les marchés repricient en urgence le risque géopolitique — KOSPI en circuit-breaker, Brent à $96+, or sous pression double d'un NFP fort et d'une demande de refuge. Cette édition flash présente les faits, les impacts directs sur les chaînes de métaux critiques, et trois scénarios chiffrés pour orienter les décisions sourcing H2 2026.
+  </div>
+
+  <!-- TABLEAU DE BORD -->
+  <div class="sec">
+    <div class="sec-label red"><span class="sec-num" style="background:var(--red)">◆</span>Tableau de bord · 8 juin 2026 — ouverture marchés asiatiques</div>
+    <div class="dash">
+      <div class="dash-tile">
+        <div class="dt-name">Brent crude</div>
+        <div class="dt-val r">$96.47</div>
+        <span class="dt-chg r">+3.6% ce matin</span>
+        <div class="dt-note">Iran missiles — Hormuz risque</div>
+      </div>
+      <div class="dash-tile">
+        <div class="dt-name">WTI crude</div>
+        <div class="dt-val r">$93.45</div>
+        <span class="dt-chg r">+3.0% ce matin</span>
+        <div class="dt-note">Risk-off Moyen-Orient</div>
+      </div>
+      <div class="dash-tile amber">
+        <div class="dt-name">Cu COMEX ouverture</div>
+        <div class="dt-val">$6.54/lb</div>
+        <span class="dt-chg a">S232 effectif aujourd'hui</span>
+        <div class="dt-note">+30% AA · Déficit 600k t MS</div>
+      </div>
+      <div class="dash-tile amber">
+        <div class="dt-name">Cu LME 3M</div>
+        <div class="dt-val">~$13 400/t</div>
+        <span class="dt-chg a">Record jan. $13 952</span>
+        <div class="dt-note">Chili -9% · Grasberg reporté</div>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="dash-tile green">
+        <div class="dt-name">Or spot</div>
+        <div class="dt-val">~$4 336/oz</div>
+        <span class="dt-chg a">↑ safe-haven rebond</span>
+        <div class="dt-note">Bas 2026 vendredi sur NFP fort</div>
+      </div>
+      <div class="dash-tile">
+        <div class="dt-name">KOSPI (Séoul)</div>
+        <div class="dt-val r">-8.37%</div>
+        <span class="dt-chg r">⚠ Circuit breaker déclenché</span>
+        <div class="dt-note">Samsung -11% · SK Hynix -10%</div>
+      </div>
+      <div class="dash-tile">
+        <div class="dt-name">Nikkei 225</div>
+        <div class="dt-val r">-3.4% · 64 099</div>
+        <span class="dt-chg r">Bas intraday 63 987</span>
+        <div class="dt-note">Tech & semiconducteurs en chute</div>
+      </div>
+      <div class="dash-tile grey">
+        <div class="dt-name">Cobalt LME</div>
+        <div class="dt-val">~$55 900/t</div>
+        <span class="dt-chg a">DRC quotas pression</span>
+        <div class="dt-note">Acide sulfurique Kamoa limité</div>
+      </div>
+    </div>
+    <p style="font-size:10px;color:var(--light);margin-top:8px">Sources indicatives : TradingKey, OilPrice.com, CNBC, TradingEconomics · 8 juin 2026 · données non destinées au trading</p>
+  </div>
+
+  <hr class="div">
+
+  <!-- 01 — FLASH GÉOPO -->
+  <div class="sec">
+    <div class="sec-label red"><span class="sec-num" style="background:var(--red)">01</span>Flash géopolitique · Iran–Israël · Liban · Cessez-le-feu brisé</div>
+    <div class="h2">Iran tire des missiles balistiques sur Israël — première attaque directe depuis le cessez-le-feu du 8 avril</div>
+    <p>Dans la nuit du 7 au 8 juin 2026, <em class="r">l'Iran a lancé au moins trois vagues de missiles balistiques sur le territoire israélien</em>, marquant la rupture formelle du cessez-le-feu conclu le 8 avril. La séquence : Israël frappe les faubourgs sud de Beyrouth (Hezbollah) et des installations militaires et pétrochimiques dans l'ouest et le centre de l'Iran → l'IRGC riposte avec des missiles balistiques ciblant notamment la base aérienne de Ramat David. Une 2e vague est confirmée peu après par le porte-parole de l'IDF.</p>
+    <div class="bq">«&nbsp;L'IDF a identifié des missiles tirés depuis l'Iran vers le territoire de l'État d'Israël. Les systèmes de défense sont en opération pour intercepter la menace.&nbsp;» — Communiqué IDF, 8 juin 2026. Aucune victime civile confirmée à l'heure de publication.</div>
+    <div class="focus">
+      <div class="focus-tag r">Chronologie · 7–8 juin 2026</div>
+      <ul class="flist">
+        <li><div class="fd r"></div><div><strong>7 juin, fin d'après-midi :</strong> Israël frappe les faubourgs sud de Beyrouth (Hezbollah, 2 morts, 20 blessés) et des cibles militaires et pétrochimiques dans l'ouest et le centre de l'Iran.</div></li>
+        <li><div class="fd r"></div><div><strong>7 juin ~22h00 heure locale :</strong> Iran lance la 1re vague de missiles balistiques. IRGC confirme viser la base de Ramat David en représailles aux «&nbsp;massacres de la population du Liban du Sud&nbsp;». Sirènes dans le nord et le centre d'Israël.</div></li>
+        <li><div class="fd r"></div><div><strong>8 juin matin :</strong> 2e puis 3e vagues identifiées. Hôpitaux (Ichilov Tel Aviv) basculent en mode souterrain. Écoles fermées. L'IDF confirme interception de tous les missiles — aucune victime directe confirmée à ce stade.</div></li>
+        <li><div class="fd r"></div><div><strong>Réaction US :</strong> Trump appelle Netanyahou pour lui demander de ne <strong>pas riposter</strong> immédiatement — «&nbsp;un accord avec l'Iran serait très proche&nbsp;». Un officiel iranien déclare en revanche&nbsp;: «&nbsp;Un deal avec le président Trump n'est plus envisageable à ce stade.&nbsp;»</div></li>
+        <li><div class="fd a"></div><div><strong>OPEC+ :</strong> Approuve +188&nbsp;000 bpd pour juillet — 4e hausse depuis la fermeture de facto d'Hormuz, indépendamment de l'escalade du jour.</div></li>
+      </ul>
+    </div>
+    <div class="tags"><span class="tag">Iran</span><span class="tag">Israël</span><span class="tag">IRGC</span><span class="tag">Liban</span><span class="tag">Cessez-le-feu</span><span class="tag">Trump</span><span class="tag">Hormuz</span></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- 02 — CUIVRE + S232 -->
+  <div class="sec">
+    <div class="sec-label amber"><span class="sec-num" style="background:var(--amber)">02</span>Cuivre · Section 232 effective aujourd'hui · Flambée structurelle</div>
+    <div class="h2">Double catalyseur : Section 232 en vigueur le 8 juin, déficit 2026 de 600 000 t selon Morgan Stanley</div>
+    <p>Le cuivre cumule aujourd'hui deux chocs simultanés. <em class="a">La Section 232 du Trade Expansion Act entre en vigueur ce 8 juin 2026</em> (proclamation signée le 1er juin) : tarif de 25% sur les importations de cuivre raffiné aux États-Unis. Résultat immédiat prévisible&nbsp;: les primes COMEX/LME vont s'élargir, les importateurs américains accélèrent leurs constitutions de stocks. Sur le LME, les acheteurs hors-US bénéficient d'une fenêtre d'arbitrage structurelle.</p>
+    <p>Sur le fond, <em class="a">Morgan Stanley projette un déficit de 600&nbsp;000 tonnes de cuivre raffiné en 2026, le plus large depuis plus de 20 ans</em>. JPMorgan estime 330&nbsp;000 t. L'ICSG a révisé de 209&nbsp;000 t excédent (octobre 2025) à 150&nbsp;000 t déficit (mai 2026). Les fondamentaux d'offre s'aggravent de façon synchronisée sur trois géographies majeures.</p>
+    <div class="focus">
+      <div class="focus-tag a">Offre cuivre 2026 — perturbations structurelles confirmées</div>
+      <ul class="flist">
+        <li><div class="fd a"></div><div><strong>Chili :</strong> <em class="r">Production -9.04% YoY en mars 2026 (Cochilco)</em>. Codelco -10%, Escondida (BHP) -15.75%, Collahuasi (Glencore-Anglo American) -10.80%. Dégradation des grades miniers + pression sur l'acide sulfurique (ban export Chine).</div></li>
+        <li><div class="fd a"></div><div><strong>Indonésie — Grasberg (Freeport) :</strong> Redémarrage complet reporté de 2027 à 2028. Perte d'environ 200&nbsp;000 t/an de capacité attendue. Expansion El Abra annoncée (+300&nbsp;000 t/an) mais non-opérationnelle avant 2028.</div></li>
+        <li><div class="fd a"></div><div><strong>RDC — Kamoa-Kakula (Ivanhoe) :</strong> Reprise freinée par la pénurie d'acide sulfurique — critique pour les procédés HPAL. Le ban chinois sur l'export d'acide sulfurique, en vigueur depuis mai 2026, ampute ~15% de la production mondiale de cuivre par électrochimie.</div></li>
+        <li><div class="fd a"></div><div><strong>TC/RC fondeurs :</strong> Accord annuel Jiangxi Copper / Antofagasta à zéro dollar la tonne (vs $21/t en 2025) — signal sans précédent de tension extrême sur les concentrés. Goldman Sachs prévoyait un tarif S232 ≥25% avant la mi-juin&nbsp;: confirmation aujourd'hui.</div></li>
+        <li><div class="fd a"></div><div><strong>Impact huile sur cuivre (JPMorgan) :</strong> Si le Brent se maintient à $110/bbl, la croissance de la demande cuivre 2026 serait amputée de 1,4 point de pourcentage. Avec Brent à $96+ ce matin, ce risque devient concret si l'escalade se prolonge.</div></li>
+      </ul>
+    </div>
+    <div class="tags"><span class="tag">Cuivre</span><span class="tag">Section 232</span><span class="tag">Chili -9%</span><span class="tag">Grasberg 2028</span><span class="tag">Kamoa-Kakula</span><span class="tag">TC/RC $0</span><span class="tag">Déficit 600k t</span></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- 03 — HORMUZ & ÉNERGIE -->
+  <div class="sec">
+    <div class="sec-label red"><span class="sec-num" style="background:var(--red)">03</span>Hormuz & énergie — La fermeture effective se prolonge</div>
+    <div class="h2">Brent $96.47, Hormuz toujours sous menace directe : les chaînes aluminium, soufre et gaz exposées</div>
+    <p>Brent grimpe à <em class="r">$96.47/bbl (+3.6%)</em> ce matin, WTI à $93.45 (+3.0%). Le différentiel avec les niveaux pré-guerre (Brent ~$72/bbl fin février) représente une prime de risque géopolitique de ~$24/bbl. L'OPEC+ a approuvé un 4e relèvement d'un total de 188&nbsp;000 bpd pour juillet, insuffisant pour compenser l'absence de ~14,5 millions de bpd de capacité du Golfe bloquée depuis mars.</p>
+    <p>La rupture du cessez-le-feu ce matin remet en question les efforts diplomatiques de ces dernières semaines. L'OilPrice.com note&nbsp;: «&nbsp;La question clé est maintenant de savoir si les frappes iraniennes représentent un revers temporaire ou le début d'un effondrement plus large des efforts de paix.&nbsp;»</p>
+    <div class="focus">
+      <div class="focus-tag r">Impacts directs sur les chaînes de métaux critiques</div>
+      <ul class="flist">
+        <li><div class="fd r"></div><div><strong>Aluminium :</strong> Les smelters UAE (EMAL, Dubal) et Bahreïn (Alba) sont restés fragilisés depuis les attaques iraniennes de mars 2026. Toute nouvelle escalade réactive les primes de transport et d'assurance war-risk. Aluminium Europe ~+8-12% depuis le début du conflit.</div></li>
+        <li><div class="fd r"></div><div><strong>Soufre & acide sulfurique :</strong> Le ban d'export chinois conjugué aux perturbations du Golfe maintient l'acide sulfurique à des niveaux élevés (>$400/t). Impact direct sur la production chilienne de cuivre par électrochimie SX-EW et sur les opérations HPAL de nickel-cobalt.</div></li>
+        <li><div class="fd a"></div><div><strong>Gaz naturel liquéfié (GNL) :</strong> Le Qatar, 3e exportateur mondial, reste menacé. Les volumes GNL via Hormuz représentent ~25% du commerce mondial de GNL. Prix gaz Europe structurellement élevés = coût de fabrication des fonderies de cuivre, zinc et aluminium en Europe sous pression.</div></li>
+        <li><div class="fd a"></div><div><strong>Pétrole et coûts de transport :</strong> Le contournement par le Cap de Bonne Espérance ajoute 10-14 jours aux délais de livraison pour l'Asie. Coûts de fret vrac sec et liquide en hausse. Impact sur les marges de trading de métaux en transit.</div></li>
+      </ul>
+    </div>
+    <div class="tags"><span class="tag">Hormuz</span><span class="tag">Brent $96</span><span class="tag">Aluminium UAE</span><span class="tag">Soufre ban Chine</span><span class="tag">GNL Qatar</span><span class="tag">OPEC+ juillet</span></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- 04 — OR & MARCHÉS -->
+  <div class="sec">
+    <div class="sec-label amber"><span class="sec-num" style="background:var(--amber)">04</span>Or & marchés · Tension entre NFP et safe-haven</div>
+    <div class="h2">L'or à $4 336 (bas 2026 vendredi), aujourd'hui rebond de safe-haven face aux missiles iraniens</div>
+    <p>L'or avait chuté à <em class="r">$4&nbsp;336/oz vendredi 5 juin</em>, son plus bas niveau de 2026, après un rapport NFP américain de mai exceptionnellement fort&nbsp;: 172&nbsp;000 créations d'emplois contre 85&nbsp;000 attendus. Ce chiffre a renforcé les paris sur une hausse des taux Fed d'ici la fin 2026, pénalisant l'or par anticipation de taux réels plus élevés.</p>
+    <p>Ce matin, le contexte se retourne partiellement&nbsp;: <em class="a">les missiles iraniens activent la demande de refuge</em>. L'or devrait s'orienter vers $4&nbsp;400-4&nbsp;500/oz intraday. La tension est double — NFP pousse vers le bas (hausses Fed), risque géopolitique pousse vers le haut. Ce duel définira la direction sur les deux prochaines semaines.</p>
+    <div class="focus">
+      <div class="focus-tag a">Marchés actions et obligataires — réaction du 8 juin</div>
+      <ul class="flist">
+        <li><div class="fd r"></div><div><strong>KOSPI (Séoul) :</strong> -8.37% à l'ouverture, <em class="r">circuit-breaker déclenché (pause 20 min)</em>. Samsung Electronics -11%, SK Hynix -10%. Triple catalyseur&nbsp;: attaque iranienne + Broadcom guidance miss AI (-12.59% après-bourse vendredi) + NFP fort → Paris sur hausse Fed. Le won coréen tombe à son plus bas depuis 2009.</div></li>
+        <li><div class="fd r"></div><div><strong>Nikkei 225 :</strong> -3.4% intraday, bas à 63&nbsp;987 (sous le seuil psychologique 64&nbsp;000). Taiwan Weighted Index -5.4%, TSMC -5.7%. Rotation hors IA & semiconducteurs amplifiée par le risque géopolitique.</div></li>
+        <li><div class="fd a"></div><div><strong>Nasdaq (session précédente) :</strong> -4.18% vendredi sur le NFP fort. Les marchés US ouvrent en territoire mitigé à négatif ce 8 juin, avec des futures Dow Jones &gt;-0.27%, S&amp;P 500 &gt;-0.2%.</div></li>
+        <li><div class="fd a"></div><div><strong>US Treasuries :</strong> Les rendements 10 ans restent sous pression des deux côtés — NFP pousse les taux vers le haut, risque géopolitique attire les flux obligataires. Equilibre tendu autour de 4.5%.</div></li>
+      </ul>
+    </div>
+    <div class="tags"><span class="tag">Or $4 336</span><span class="tag">NFP 172k</span><span class="tag">Fed hausse taux</span><span class="tag">KOSPI circuit-breaker</span><span class="tag">Nikkei -3.4%</span><span class="tag">Nasdaq -4.18%</span></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- 05 — PRÉVISIONS -->
+  <div class="sec">
+    <div class="sec-label green"><span class="sec-num" style="background:var(--g)">05</span>Prévisions rigoureuses · 3 scénarios H2 2026</div>
+    <div class="h2">Trois trajectoires quantifiées pour calibrer votre politique de couverture et d'approvisionnement</div>
+    <p>Les probabilités reflètent les dynamiques observées au 8 juin 2026. Elles sont indicatives et seront révisées à chaque édition. La variable principale est le <strong>devenir du cessez-le-feu et d'Hormuz</strong> d'ici 48-72 heures.</p>
+    <div class="scen-grid">
+      <div class="scen bear">
+        <div class="scen-lbl r">⬇ SCÉNARIO 1 — BEAR</div>
+        <div class="scen-name">Escalade · Hormuz refermé · Riposte israelienne</div>
+        <div class="scen-prob">Probabilité indicative : 30–40%</div>
+        <div class="scen-row"><strong>Brent :</strong> $100–115/bbl</div>
+        <div class="scen-row"><strong>Cuivre LME :</strong> $12 000–12 800/t (-8 à -12%)</div>
+        <div class="scen-row"><strong>COMEX Cu :</strong> $5.90–6.20/lb</div>
+        <div class="scen-row"><strong>Or :</strong> $4 550–4 800/oz (refuge)</div>
+        <div class="scen-row"><strong>Aluminium :</strong> primes Gulf +10-15%</div>
+        <div class="scen-row"><strong>Fed :</strong> pause forcée — inflation energie</div>
+        <div class="scen-row"><strong>Sourcing :</strong> Déclencher couvertures cuivre LME H2 · Sécuriser soufre/acide hors Chine · Arbitrage COMEX/LME si prime >$1 500/t</div>
+      </div>
+      <div class="scen base">
+        <div class="scen-lbl a">→ SCÉNARIO 2 — BASE</div>
+        <div class="scen-name">Statu quo fragile · Diplomatie active · Hormuz partiel</div>
+        <div class="scen-prob">Probabilité indicative : 40–50%</div>
+        <div class="scen-row"><strong>Brent :</strong> $88–97/bbl</div>
+        <div class="scen-row"><strong>Cuivre LME :</strong> $13 200–14 000/t</div>
+        <div class="scen-row"><strong>COMEX Cu :</strong> $6.30–6.70/lb</div>
+        <div class="scen-row"><strong>Or :</strong> $4 300–4 550/oz</div>
+        <div class="scen-row"><strong>S232 impact :</strong> prime COMEX/LME $400–700/t</div>
+        <div class="scen-row"><strong>Fed :</strong> 1 hausse 25bp probable Q4</div>
+        <div class="scen-row"><strong>Sourcing :</strong> Achats LME sur correction · Contrats fermes concentrés Chili Q3 · Veille S232 arbitrage</div>
+      </div>
+      <div class="scen bull">
+        <div class="scen-lbl g">⬆ SCÉNARIO 3 — BULL</div>
+        <div class="scen-name">Deal US–Iran · Hormuz réouvert · Détente géopolitique</div>
+        <div class="scen-prob">Probabilité indicative : 15–25%</div>
+        <div class="scen-row"><strong>Brent :</strong> $82–90/bbl (correction rapide)</div>
+        <div class="scen-row"><strong>Cuivre LME :</strong> $14 200–15 000/t (rebond fort)</div>
+        <div class="scen-row"><strong>COMEX Cu :</strong> $6.80–7.20/lb</div>
+        <div class="scen-row"><strong>Or :</strong> $4 100–4 350/oz (rotation risque)</div>
+        <div class="scen-row"><strong>Aluminium :</strong> correction primes -5-8%</div>
+        <div class="scen-row"><strong>Soufre/acide :</strong> détente partielle H2</div>
+        <div class="scen-row"><strong>Sourcing :</strong> Fenêtre LME avant rebond · Sécuriser nickel/lithium pour VE H2 · Acide sulfurique Maroc/Thaïlande</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--light);margin-top:16px">⚠ Prévisions indicatives basées sur données publiques au 8 juin 2026. Ne constituent pas un conseil d'investissement ni une offre commerciale. Probabilités révisées à chaque édition de Signal.</p>
+  </div>
+
+  <hr class="div">
+
+  <!-- 06 — RADAR -->
+  <div class="sec">
+    <div class="sec-label red"><span class="sec-num" style="background:var(--red)">06</span>Radar signaux clés · 48h à 21 jours</div>
+    <ul class="radar">
+      <li><div class="fd r"></div><div><strong>Riposte israélienne (48h) :</strong> Trump demande l'abstention. Si Israël frappe des sites nucléaires ou pétroliers iraniens → Brent $100-115 quasi-certain, Hormuz refermé, cuivre -8-12% sur demande. C'est LE pivot binaire du moment.</div></li>
+      <li><div class="fd r"></div><div><strong>Section 232 — impact prime COMEX/LME (semaine du 9 juin) :</strong> Entrée en vigueur ce jour. Observer le spread COMEX/LME : si >$1 000/t → arbitrage actif. Les importateurs US vont accélérer les constitutions de stocks, tirant le LME vers le bas et le COMEX vers le haut. Fenêtre d'achat LME pour non-résidents US.</div></li>
+      <li><div class="fd a"></div><div><strong>Négociations US–Iran (Qatar/Islamabad) :</strong> Un accord de principe est mentionné par Trump comme "très proche". L'officiel iranien contredit ce soir. La prochaine session de négociation (timing non confirmé) est le signal de désescalade le plus attendu par les marchés.</div></li>
+      <li><div class="fd a"></div><div><strong>CPI & PPI américains (10–11 juin) :</strong> Données inflation mai publiées cette semaine. Si CPI >+0.3% m/m → Fed hausse Q4 quasi-certaine → or sous pression → dollar fort → cuivre hors-dollar pénalisé. Impact à surveiller pour la stratégie de couverture change.</div></li>
+      <li><div class="fd a"></div><div><strong>Cobalt DRC — quotas T2 :</strong> Les livraisons effectives T2 de la RDC sont en dessous des quotas officiels (96&nbsp;600 t). Pénurie d'acide sulfurique (Kamoa-Kakula) + tensions logistiques. Surveiller les primes MHP en Asie.</div></li>
+      <li><div class="fd a"></div><div><strong>Hormuz — trafic supertankers (semaine du 9 juin) :</strong> Le signal AIS du trafic pétrolier dans le détroit est le meilleur indicateur de la désescalade réelle. 3 supertankers / 6 millions de barils sont sortis le 5 juin. Ce flux va-t-il se poursuivre ou stopper ?</div></li>
+      <li><div class="fd a"></div><div><strong>SpaceX IPO (12 juin) :</strong> Catalyseur potentiel de réallocation de capitaux vers l'économie réelle, bénéficiant indirectement aux ETF cuivre & métaux. Surveiller les flux institutionnels.</div></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-line"></div>
+    <div class="cta-inner">
+      <h3>Prochaine édition — mi-juin 2026</h3>
+      <p>AYYS Signal est publié deux fois par mois, avec éditions flash lors d'événements géopolitiques majeurs.<br>Réservé aux acheteurs industriels, responsables sourcing et directions achats qualifiés.</p>
+      <div class="cta-btns">
+        <a class="btn-r" href="index.html#contact">S'abonner via le formulaire</a>
+        <a class="btn-g" href="index.html#intel">← Retour Intelligence</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE BAR -->
+<div class="arch">
+  <span class="arch-lbl">Archive · AYYS Signal</span>
+  <div class="arch-links">
+    <span style="font-size:12px;color:var(--light)">N°005 · 8 juin 2026 — Numéro actuel</span>
+    <a href="signal-004.html">N°004 · Fin mai 2026</a>
+    <a href="signal-003.html">N°003 · Mi-mai 2026</a>
+    <a href="signal-002.html">N°002 · Guerre & soufre</a>
+    <a href="signal-001.html">N°001 · Avril 2026</a>
+    <a href="index.html#intel">Toutes les éditions →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="flogo">AYYS<span>.</span></div>
+      <div class="ftag">Sourcing de métaux stratégiques pour industriels internationaux.</div>
+      <div class="freg">AYYS Commodities · 3 place Jussieu, 75005 Paris<br>SIRET 102 790 375 00012 · KYC/AML/Sanctions screening</div>
+    </div>
+    <div>
+      <div class="fhl">Navigation</div>
+      <div class="flinks">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#metals">Marchés</a>
+        <a href="index.html#intel">Intelligence</a>
+        <a href="signal-005.html">Signal N°005</a>
+        <a href="index.html#about">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="fhl">Contact</div>
+      <div class="flinks">
+        <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a>
+        <a href="mailto:trading@ayys-group.fr">trading@ayys-group.fr</a>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.24);margin-top:16px;line-height:1.8">Données indicatives uniquement — non destinées au trading.</div>
+    </div>
+  </div>
+  <div class="fb">
+    <span class="fcopy">© 2026 AYYS Commodities. All rights reserved.</span>
+    <div class="flegal"><a href="index.html#about">Legal</a><a href="compliance.html">Compliance</a></div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  document.getElementById('prog').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('scrolled',d.scrollTop>50);
+});
+</script>
+</body>
+</html>
