@@ -1412,6 +1412,12 @@ function applyLang(lang) {
 
   // Save preference
   try { localStorage.setItem('ayys_agri_lang', lang); } catch(e){}
+  // Update division brochure link
+  var bl = document.getElementById('agri-brochure-link');
+  if(bl){
+    if(lang === 'EN'){ bl.href='ayys-agri-brochure-en.html'; bl.textContent='View AGRI brochure'; }
+    else { bl.href='ayys-agri-brochure-fr.html'; bl.textContent='Voir la plaquette AGRI'; }
+  }
 }
 
 function pickLang(lang) {
@@ -1434,6 +1440,25 @@ window.addEventListener('DOMContentLoaded', () => {
 @media(max-width:720px){.ayys-brochure-access{left:12px;right:12px;bottom:12px}.ayys-brochure-access a{flex:1;text-align:center}}
 @media print{.ayys-brochure-access{display:none!important}}
 </style>
-<div aria-label="Brochure access" class="ayys-brochure-access"><a href="ayys_en.html">Online brochure</a><a href="assets/brochures/ayys-brochure-en.pdf">Download PDF</a></div>
+<div aria-label="Brochure access" class="ayys-brochure-access" id="agri-brochure-access"><a href="ayys-agri-brochure-fr.html" id="agri-brochure-link">Voir la plaquette AGRI</a><a href="ayys-agri.html" id="back-to-agri">← Retour à AYYS AGRI</a></div>
+<script>
+(function(){
+  var lang = 'FR';
+  try{ lang = localStorage.getItem('ayys_agri_lang') || 'FR'; }catch(e){}
+  if(lang !== 'FR' && lang !== 'EN') lang = 'FR';
+  var link = document.getElementById('agri-brochure-link');
+  if(link){
+    if(lang === 'EN'){
+      link.href = 'ayys-agri-brochure-en.html';
+      link.textContent = 'View AGRI brochure';
+    } else {
+      link.href = 'ayys-agri-brochure-fr.html';
+      link.textContent = 'Voir la plaquette AGRI';
+    }
+  }
+  var back = document.getElementById('back-to-agri');
+  if(back){ back.style.display='none'; }
+})();
+</script>
 </body>
 </html>
