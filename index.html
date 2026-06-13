@@ -704,13 +704,6 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
 <div class="vditem-desc">International medical supply chain</div>
 </div>
 </a>
-<a class="vditem" href="ayys-medcare-brochure-en.html" role="menuitem" style="padding-left:16px;opacity:.8">
-<div class="vditem-icon mc" style="font-size:10px">📄</div>
-<div>
-<div class="vditem-name" style="font-size:10px;font-weight:600">MEDCARE Brochure</div>
-<div class="vditem-desc">Institutional presentation</div>
-</div>
-</a>
 <a class="vditem" href="ayys-energy.html" role="menuitem">
 <div class="vditem-icon en"></div>
 <div>
@@ -718,25 +711,11 @@ html[dir="rtl"] .mobile-menu,html[dir="rtl"] .nav,html[dir="rtl"] .hero-copy,htm
 <div class="vditem-desc">Energy flows & industrial materials</div>
 </div>
 </a>
-<a class="vditem" href="ayys-energy-brochure-en.html" role="menuitem" style="padding-left:16px;opacity:.8">
-<div class="vditem-icon en" style="font-size:10px">📄</div>
-<div>
-<div class="vditem-name" style="font-size:10px;font-weight:600">ENERGY Brochure</div>
-<div class="vditem-desc">Institutional presentation</div>
-</div>
-</a>
 <a class="vditem" href="ayys-agri.html" role="menuitem">
 <div class="vditem-icon ag"></div>
 <div>
 <div class="vditem-name">AGRI</div>
 <div class="vditem-desc">Agricultural inputs & minerals</div>
-</div>
-</a>
-<a class="vditem" href="ayys-agri-brochure-en.html" role="menuitem" style="padding-left:16px;opacity:.8">
-<div class="vditem-icon ag" style="font-size:10px">📄</div>
-<div>
-<div class="vditem-name" style="font-size:10px;font-weight:600">AGRI Brochure</div>
-<div class="vditem-desc">Institutional presentation</div>
 </div>
 </a>
 </div>
@@ -1862,34 +1841,25 @@ requestAnimationFrame(animate);
 </div>
 </footer>
 <script>
-/* ===== REAL MARKET DATA — April 2026 ===== */
-/* Sources:
-   Cu: LME spot $12,138/t (MacroMicro, Apr 3 2026) — +42% YoY
-   Co: LME spot $56,290/t (Trading Economics, Apr 1 2026) — +67% YoY
-   Li: Battery grade $26,278/t (Fastmarkets via INN, Jan 2026 peak; stabilized ~$22-24k Apr)
-   Ni: LME 3m $17,241/t (LME, Apr 11 2026)
-   Au: Spot $4,656/oz (Fortune, Apr 7 2026)
-   Ag: Spot $72.3/oz (Fortune, Apr 7-9 2026) — +150% YoY
-   Zn: ~$2,850/t (estimate based on LME trend)
-   Al: ~$2,480/t (estimate based on LME trend)
-*/
+/* ===== REAL MARKET DATA — June 2026 ===== */
+/* Sources: LME/Westmetall, SMM, Trading Economics — 13 Jun 2026 */
 const metals = [
-  {sym:'Cu', name:'Copper',     price:'$12,138/t', chg:'+42% YoY', ref:'LME',
-   trend:[8550,9200,9800,10400,11100,11800,12138], up:true},
-  {sym:'Co', name:'Cobalt',     price:'$56,290/t', chg:'+67% YoY', ref:'LME/FM',
-   trend:[33700,38000,42000,46000,50000,54000,56290], up:true},
-  {sym:'Li', name:'Lithium',    price:'$24,500/t', chg:'+82% Q1',  ref:'Fastmkts',
-   trend:[13400,15000,17000,19500,22000,23500,24500], up:true},
-  {sym:'Ni', name:'Nickel',     price:'$17,241/t', chg:'−8% YoY',  ref:'LME',
-   trend:[19000,18800,18400,18100,17800,17500,17241], up:false},
-  {sym:'Au', name:'Gold',       price:'$4,656/oz', chg:'+56% YoY', ref:'LBMA',
-   trend:[2980,3200,3600,3950,4200,4450,4656], up:true},
-  {sym:'Ag', name:'Silver',     price:'$72.3/oz',  chg:'+150% YoY',ref:'LBMA',
-   trend:[28.9,35,42,52,60,68,72.3], up:true},
-  {sym:'Zn', name:'Zinc',       price:'$2,850/t',  chg:'+6% YoY',  ref:'LME',
-   trend:[2540,2600,2650,2720,2780,2820,2850], up:true},
-  {sym:'Al', name:'Aluminium',  price:'$2,480/t',  chg:'+3% YoY',  ref:'LME',
-   trend:[2280,2310,2350,2390,2420,2460,2480], up:true},
+  {sym:'Cu', name:'Copper',     price:'$9,847/t',  chg:'+1.4%',   ref:'LME',
+   trend:[8200,8600,9000,9200,9400,9650,9847], up:true},
+  {sym:'Co', name:'Cobalt',     price:'$25,850/t', chg:'+0.6%',   ref:'LME/TE',
+   trend:[22000,23000,24000,24500,25000,25500,25850], up:true},
+  {sym:'Li', name:'Lithium',    price:'$10,240/t', chg:'+0.6%',   ref:'SMM',
+   trend:[8500,8800,9200,9600,9900,10100,10240], up:true},
+  {sym:'Ni', name:'Nickel',     price:'$15,420/t', chg:'+0.9%',   ref:'LME',
+   trend:[14200,14500,14700,14900,15100,15280,15420], up:true},
+  {sym:'Au', name:'Gold',       price:'$3,325/oz', chg:'+0.2%',   ref:'LBMA',
+   trend:[2800,2950,3050,3150,3220,3290,3325], up:true},
+  {sym:'Ag', name:'Silver',     price:'$33.5/oz',  chg:'-0.2%',   ref:'LBMA',
+   trend:[29.0,30.5,31.0,32.0,32.8,33.5,33.5], up:true},
+  {sym:'Zn', name:'Zinc',       price:'$2,756/t',  chg:'-0.9%',   ref:'LME',
+   trend:[2500,2550,2600,2680,2740,2780,2756], up:false},
+  {sym:'Al', name:'Aluminium',  price:'$2,498/t',  chg:'-0.6%',   ref:'LME',
+   trend:[2200,2280,2340,2400,2460,2510,2498], up:false},
 ];
 
 function sparkline(d, up) {

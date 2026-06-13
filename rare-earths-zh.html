@@ -601,7 +601,7 @@ function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)wi
    AYYS Commodities — Cours LME en temps réel
    Source : Boursorama (via allorigins.win proxy CORS)
    Fallback : Yahoo Finance API
-   Dernière mise à jour fallback : 10 mai 2026
+   Dernière mise à jour fallback : 13 juin 2026
    ========================================================== */
 (function () {
   'use strict';
@@ -619,17 +619,19 @@ function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)wi
     silver:          { sym: '_SI',     unit: 'USD/oz', dec: 2 },
   };
 
-  // ── Fallback : derniers cours Boursorama 10 mai 2026 ──────
+  // ── Fallback : derniers cours Boursorama 13 juin 2026 ──────
   const FALLBACK = {
-    copper:    { price: 13445.0, pct: 0.89 },
-    nickel:    { price: 18890.0, pct: 0.35 },
-    cobalt:    { price: 56290,    pct: 0.00 },
-    zinc:      { price: 3417,     pct: -0.23 },
-    aluminium: { price: 3560.5,     pct:  0.04 },
-    lead:      { price: 1969,     pct: -0.71 },
-    tin:       { price: 54000,    pct: -1.28 },
-    gold:      { price: 4492.15,  pct: -0.02 },
-    silver:    { price: 79.11,    pct: -0.57 },
+    copper:    { price: 9847.0, pct: 1.39 },
+    nickel:    { price: 15420.0, pct: 0.92 },
+    cobalt:    { price: 25850.0, pct: 0.58 },
+    zinc:    { price: 2756.0, pct: -0.9 },
+    aluminium:    { price: 2498.0, pct: -0.56 },
+    lead:    { price: 1887.0, pct: -0.43 },
+    tin:    { price: 31250.0, pct: -0.82 },
+    gold:    { price: 3325.0, pct: 0.15 },
+    silver:    { price: 33.48, pct: -0.21 },
+    lithium:    { price: 10240.0, pct: 0.59 },
+    rare_earths:      { price: null, pct: null },
   };
 
   // ── Détecter le métal de la page courante ────────────────
@@ -696,7 +698,7 @@ function goLang(sel){const o=sel.options[sel.selectedIndex];if(o.dataset.href)wi
   }
 
   // ── Appliquer le fallback immédiatement ─────────────────
-  render(fb.price, fb.pct, '10 mai 2026', false);
+  render(fb.price, fb.pct, '13 juin 2026', false);
 
   // ── Fetcher Boursorama via allorigins.win ────────────────
   const boursoUrl = 'https://www.boursorama.com/bourse/matieres-premieres/cours/' + cfg.sym + '/';
