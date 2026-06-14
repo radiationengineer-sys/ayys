@@ -39,7 +39,7 @@
     [dir="rtl"] .signal-intro{border-left:none;border-right:3px solid var(--gold)}
 
     /* === NAV === */
-    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100}
+    .nav-wrap{position:fixed;top:36px;left:0;right:0;z-index:100}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(245,243,238,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
     .nav.scrolled{height:54px;background:rgba(245,243,238,0.98)}
     .logo{display:flex;align-items:baseline;gap:5px;cursor:pointer;text-decoration:none}
@@ -194,8 +194,22 @@
 /* Ensures full page content remains visible even if scroll-reveal JS is delayed or blocked. */
 .reveal,.reveal.revealed,.reveal-left,.reveal-right,.reveal-left.visible,.reveal-right.visible,.supply-stage.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://ayys-group.com/#organization","name":"AYYS Group","url":"https://ayys-group.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}}
+</script>
 </head>
 <body>
+<div id="ayys-group-bar" style="background:#1a1a18;color:#888;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 40px;display:flex;align-items:center;gap:8px;position:relative;z-index:200">
+<a href="https://ayys-group.com" style="color:#aaa;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#aaa'">AYYS Group</a>
+<span style="color:#444">·</span>
+<a href="index.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Commodities</a>
+<span style="color:#444">·</span>
+<a href="ayys-energy.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Energy</a>
+<span style="color:#444">·</span>
+<a href="ayys-agri.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Agri</a>
+<span style="color:#444">·</span>
+<a href="ayys-medcare.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Medcare</a>
+</div>
 <!-- === NAV === -->
 <div class="nav-wrap">
 <nav class="nav" id="nav">
