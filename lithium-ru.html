@@ -21,7 +21,7 @@
 :root{--g:#1D9E75;--gd:#0F6E56;--bg:#f2eee7;--white:#fffdf9;--dark:#2f3431;--mid:#66625d;--light:#9c958c;--red:#D85B57;--amber:#B08A49;--mist:#ebe5dc;--accent:#7F77DD;--accent-dark:#3C3489;}
 html{scroll-behavior:smooth}
 body{font-family:var(--page-font);background:var(--bg);color:var(--dark)}
-.nav-wrap{position:fixed;top:36px;left:0;right:0;z-index:100}
+.nav-wrap{position:fixed;top:32px;left:0;right:0;z-index:100}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:70px;background:rgba(245,243,238,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
 .nav.scrolled{height:60px;background:rgba(245,243,238,0.97)}
 .logo{display:flex;align-items:center;cursor:pointer;text-decoration:none}
@@ -209,21 +209,27 @@ h1.hero-h1 em{color:var(--accent);font-style:normal}
 .reveal,.reveal.revealed,.reveal-left,.reveal-right,.reveal-left.visible,.reveal-right.visible,.supply-stage.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","@id":"https://ayys-group.com/#organization","name":"AYYS Group","url":"https://ayys-group.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}}
+{"@context":"https://schema.org","@graph":[
+  {"@type":"Organization","@id":"https://ayys-group.com/#organization","name":"AYYS Group","url":"https://ayys-group.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}},
+  {"@type":"WebSite","name":"AYYS Commodities","url":"https://ayysc.com","isPartOf":{"@id":"https://ayys-group.com/#organization"}}
+]}
 </script>
+<style>
+/* ── AYYS Group navigation bar ── */
+#ayys-group-bar{position:fixed;top:0;left:0;right:0;z-index:300;background:#111110;
+  color:#666;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:10.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;
+  padding:0 40px;height:32px;display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.04)}
+#ayys-group-bar a{color:#777;text-decoration:none;transition:color .15s}
+#ayys-group-bar a:hover{color:#d4c9b8}
+#ayys-group-bar .gb-sep{color:#333;font-weight:300}
+#ayys-group-bar .gb-current{color:#aaa}
+@media(max-width:600px){#ayys-group-bar{padding:0 20px;gap:7px;font-size:9.5px}}
+</style>
 </head>
 <body>
-<div id="ayys-group-bar" style="background:#1a1a18;color:#888;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 40px;display:flex;align-items:center;gap:8px;position:relative;z-index:200">
-<a href="https://ayys-group.com" style="color:#aaa;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#aaa'">AYYS Group</a>
-<span style="color:#444">·</span>
-<a href="index.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Commodities</a>
-<span style="color:#444">·</span>
-<a href="ayys-energy.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Energy</a>
-<span style="color:#444">·</span>
-<a href="ayys-agri.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Agri</a>
-<span style="color:#444">·</span>
-<a href="ayys-medcare.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Medcare</a>
-</div>
+<div id="ayys-group-bar"><a href="https://ayys-group.com" style="color:#555">AYYS Group</a><span class="gb-sep">—</span><span class="gb-current">Commodities</span><span class="gb-sep">·</span><a href="ayys-energy.html">Energy</a><span class="gb-sep">·</span><a href="ayys-agri.html">Agri</a><span class="gb-sep">·</span><a href="ayys-medcare.html">Medcare</a></div>
 <div class="nav-wrap" id="nav-wrap">
 <div class="nav" id="nav">
 <a aria-label="AYYS Commodities — Home" class="logo" href="index-ru.html">

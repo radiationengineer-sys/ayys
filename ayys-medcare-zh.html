@@ -38,7 +38,7 @@
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--dark)}
 
     /* ===== NAV ===== */
-    .nav-wrap{position:fixed;top:36px;left:0;right:0;z-index:100}
+    .nav-wrap{position:fixed;top:32px;left:0;right:0;z-index:100}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(245,243,238,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(0,0,0,0.07);transition:height .3s,background .3s}
     .nav.scrolled{height:54px;background:rgba(245,243,238,0.97);border-bottom:0.5px solid rgba(0,0,0,0.1)}
     .logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
@@ -369,27 +369,33 @@
 .reveal,.reveal.revealed,.reveal-left,.reveal-right,.reveal-left.visible,.reveal-right.visible,.supply-stage.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","@id":"https://ayys-group.com/#organization","name":"AYYS Group","url":"https://ayys-group.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}}
+{"@context":"https://schema.org","@graph":[
+  {"@type":"Organization","@id":"https://ayys-group.com/#organization","name":"AYYS Group","url":"https://ayys-group.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}},
+  {"@type":"WebPage","name":"AYYS MEDCARE","url":"https://ayys-group.com/medcare","isPartOf":{"@id":"https://ayys-group.com/#organization"}}
+]}
 </script>
+<style>
+/* ── AYYS Group navigation bar ── */
+#ayys-group-bar{position:fixed;top:0;left:0;right:0;z-index:300;background:#111110;
+  color:#666;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:10.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;
+  padding:0 40px;height:32px;display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.04)}
+#ayys-group-bar a{color:#777;text-decoration:none;transition:color .15s}
+#ayys-group-bar a:hover{color:#d4c9b8}
+#ayys-group-bar .gb-sep{color:#333;font-weight:300}
+#ayys-group-bar .gb-current{color:#aaa}
+@media(max-width:600px){#ayys-group-bar{padding:0 20px;gap:7px;font-size:9.5px}}
+</style>
 </head>
 <body>
-<div id="ayys-group-bar" style="background:#1a1a18;color:#888;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 40px;display:flex;align-items:center;gap:8px;position:relative;z-index:200">
-<a href="https://ayys-group.com" style="color:#aaa;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#aaa'">AYYS Group</a>
-<span style="color:#444">·</span>
-<a href="index.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Commodities</a>
-<span style="color:#444">·</span>
-<a href="ayys-energy.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Energy</a>
-<span style="color:#444">·</span>
-<a href="ayys-agri.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Agri</a>
-<span style="color:#444">·</span>
-<a href="ayys-medcare.html" style="color:#888;text-decoration:none" onmouseover="this.style.color='#e8dcc8'" onmouseout="this.style.color='#888'">Medcare</a>
-</div>
+<div id="ayys-group-bar"><a href="https://ayys-group.com" style="color:#555">AYYS Group</a><span class="gb-sep">—</span><a href="index.html">Commodities</a><span class="gb-sep">·</span><a href="ayys-energy.html">Energy</a><span class="gb-sep">·</span><a href="ayys-agri.html">Agri</a><span class="gb-sep">·</span><span class="gb-current">Medcare</span></div>
 <div style="background:#1a2620;border-bottom:1px solid rgba(29,158,117,0.3);padding:12px 24px;text-align:center;font-size:13px;color:rgba(255,255,255,0.7)">本页面仅提供英文版本</div>
 <!-- ===== NAV ===== -->
 <div class="nav-wrap" id="nav-wrap">
 <div class="nav" id="nav">
 <a aria-label="AYYS MEDCARE — Accueil" class="logo" href="index-zh.html">
-<img alt="AYYS MEDCARE" class="logo-img" id="logo-img-nav" onerror="this.style.display='none';document.getElementById('logo-fallback-nav').style.display='flex'" src="assets/images/ayys_medcare_zh_01.webp"/>
+<img alt="AYYS MEDCARE" class="logo-img" id="logo-img-nav" onerror="this.style.display='none';document.getElementById('logo-fallback-nav').style.display='flex'" src="assets/images/medcare_zh_01.webp"/>
 <div class="logo-img-fallback" id="logo-fallback-nav" style="display:none">
 <div class="logo-mark">AY<span>Y</span>S</div>
 <div class="logo-sub">MEDCARE</div>
@@ -486,7 +492,7 @@
 <!-- ===== HERO ===== -->
 <div class="hero hero-premium" id="hero">
 <div aria-hidden="true" class="hero-media">
-<img alt="Infrastructure hospitalière internationale — AYYS MEDCARE" onerror="this.parentElement.style.background='linear-gradient(135deg,#0b1814 0%,#112b20 40%,#0d2018 100%)';this.style.display='none'" src="assets/images/ayys_medcare_zh_02.webp"/>
+<img alt="Infrastructure hospitalière internationale — AYYS MEDCARE" onerror="this.parentElement.style.background='linear-gradient(135deg,#0b1814 0%,#112b20 40%,#0d2018 100%)';this.style.display='none'" src="assets/images/medcare_zh_02.webp"/>
 </div>
 <!-- Texture tissée médicale SVG -->
 <div aria-hidden="true" class="hero-weave">
@@ -570,16 +576,16 @@
 <!-- ===== VISUAL GRID ===== -->
 <div class="vgrid" id="visual-grid">
 <div class="vmain" style="background:linear-gradient(135deg,#1a3328 0%,#0e2219 100%)">
-<img alt="Infrastructure hospitalière moderne" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/ayys_medcare_zh_03.webp"/>
+<img alt="Infrastructure hospitalière moderne" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/medcare_zh_03.webp"/>
 <div class="vcap"><span id="vcap1">Infrastructure hospitalière</span></div>
 </div>
 <div class="vstack">
 <div class="vside" style="background:linear-gradient(135deg,#0f2e22 0%,#162b20 100%)">
-<img alt="Diagnostics de laboratoire" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/ayys_medcare_zh_04.webp"/>
+<img alt="Diagnostics de laboratoire" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/medcare_zh_04.webp"/>
 <div class="vcap"><span id="vcap2">Diagnostics de laboratoire</span></div>
 </div>
 <div class="vside" style="background:linear-gradient(135deg,#1e3b2c 0%,#0d2418 100%)">
-<img alt="Vaccination terrain" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/ayys_medcare_zh_05.webp"/>
+<img alt="Vaccination terrain" class="vimg" loading="lazy" onerror="this.style.display='none'" src="assets/images/medcare_zh_05.webp"/>
 <div class="vcap"><span id="vcap3">Vaccination terrain</span></div>
 </div>
 </div>
@@ -721,7 +727,7 @@
 <!-- ===== SPLIT — SOURCING TO DEPLOYMENT ===== -->
 <div class="split" id="platform">
 <div class="simg reveal-left" style="background:linear-gradient(135deg,#0e2219 0%,#1a3328 100%)">
-<img alt="Logistique médicale internationale" loading="lazy" onerror="this.style.display='none'" src="assets/images/ayys_medcare_zh_06.webp"/>
+<img alt="Logistique médicale internationale" loading="lazy" onerror="this.style.display='none'" src="assets/images/medcare_zh_06.webp"/>
 <div class="simg-ov"></div>
 </div>
 <div class="sbody white reveal-right">
@@ -752,7 +758,7 @@
 <div class="ssub" id="sc-sub">Un réseau structuré de sourcing, qualification, consolidation et déploiement médical à travers les corridors internationaux.</div>
 </div>
 <section aria-label="Animated medical supply chain from sourcing to deployment" class="supply-stage reveal">
-<img alt="Diagramme de la chaîne d'approvisionnement médicale AYYS MEDCARE" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#f2eee7,#e8e4dd)';this.style.minHeight='300px';this.style.display='block'" src="assets/images/ayys_medcare_zh_07.webp"/>
+<img alt="Diagramme de la chaîne d'approvisionnement médicale AYYS MEDCARE" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#f2eee7,#e8e4dd)';this.style.minHeight='300px';this.style.display='block'" src="assets/images/medcare_zh_07.webp"/>
 <svg aria-hidden="true" class="route-overlay" preserveaspectratio="none" viewbox="0 0 1655 927">
 <!-- Routes principales -->
 <path class="route" d="M310 300 C420 350, 500 420, 640 430"></path>
@@ -851,7 +857,7 @@
 </ul>
 </div>
 <div class="simg reveal-right" style="background:linear-gradient(135deg,#1e3b2c 0%,#0d2418 100%)">
-<img alt="Vaccination et déploiement terrain" loading="lazy" onerror="this.style.display='none'" src="assets/images/ayys_medcare_zh_08.webp"/>
+<img alt="Vaccination et déploiement terrain" loading="lazy" onerror="this.style.display='none'" src="assets/images/medcare_zh_08.webp"/>
 <div class="simg-ov"></div>
 </div>
 </div>
@@ -934,7 +940,7 @@
 <div class="footer-top">
 <div>
 <div class="footer-logo-wrap" style="margin-bottom:12px">
-<img loading="lazy" alt="AYYS MEDCARE" id="logo-img-footer" onerror="this.style.display='none';document.getElementById('logo-fallback-footer').style.display='block'" src="assets/images/ayys_medcare_zh_09.webp" style="height:64px;width:auto;display:block;opacity:.92"/>
+<img loading="lazy" alt="AYYS MEDCARE" id="logo-img-footer" onerror="this.style.display='none';document.getElementById('logo-fallback-footer').style.display='block'" src="assets/images/medcare_zh_09.webp" style="height:64px;width:auto;display:block;opacity:.92"/>
 <div id="logo-fallback-footer" style="display:none">
 <div class="flogo">AY<span>Y</span>S MEDCARE</div>
 </div>
