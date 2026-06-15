@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AYYS Signal N°006 · 15 juin 2026 — REE : la grande recomposition des flux</title>
+<meta name="description" content="Terres rares : embargo China, recomposition des corridors Myanmar/Vietnam, impact -40% sur Dy/Tb europeen. Cuivre : déficit structurel 580 000t. Cobalt : retournement à +18%. Section 232 : bilan 3 mois."/>
+<meta property="og:title" content="AYYS Signal N°006 · 15 juin 2026"/>
+<meta property="og:description" content="REE China export controls · Dy/Tb +34% · Cuivre 580 000t deficit · Cobalt retournement · Section 232 bilan 90 jours"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#1e2520;--mid:#5a6057;--light:#9a9690;
+  --bg:#f0ece4;--white:#fffdf8;--mist:#e8e2d8;
+  --g:#1d9e75;--g2:#0f6e56;--g-bg:#e8f5ef;
+  --amber:#b87a2a;--amber-bg:#fdf5e6;
+  --red:#c0392b;--red-bg:#fdf0ef;
+  --blue:#1B4F9E;--blue-bg:#eef2fb;
+  --coal:#18221e;--coal2:#1f2c27;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--dark)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(238,233,224,.96);backdrop-filter:blur(14px);border-bottom:.5px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:62px;transition:height .25s}
+.nav.scrolled{height:52px}
+.logo{display:flex;align-items:baseline;gap:5px;text-decoration:none}
+.logo-m{font-size:17px;font-weight:600;letter-spacing:4px;color:var(--dark)}
+.logo-m span{color:var(--g)}
+.logo-s{font-size:9px;letter-spacing:1.4px;color:var(--light);text-transform:uppercase}
+.nav-r{display:flex;align-items:center;gap:10px}
+.nav-back{font-size:12px;color:var(--mid);text-decoration:none;padding:6px 12px;border-radius:7px;transition:background .2s}
+.nav-back:hover{background:rgba(0,0,0,.05);color:var(--dark)}
+.nav-cta{background:var(--g2);color:#fff;font-size:11px;font-weight:600;letter-spacing:.5px;padding:7px 16px;border-radius:7px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--g)}
+
+/* BAR */
+.bar{position:fixed;top:62px;left:0;right:0;z-index:199;height:2px;background:rgba(0,0,0,.04)}
+.prog{height:100%;width:0;background:var(--g);transition:width .1s}
+
+/* GROUP BAR */
+#ayys-group-bar{background:#f7f4ee;border-bottom:1px solid rgba(0,0,0,.07);font-size:10.5px;color:#888;padding:5px 44px;letter-spacing:.3px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+#ayys-group-bar a{color:#666;text-decoration:none}
+#ayys-group-bar a:hover{color:var(--dark)}
+.gb-sep{color:#bbb;margin:0 2px}
+.gb-cur{color:var(--dark);font-weight:500}
+
+/* HERO */
+.hero{background:linear-gradient(148deg,#0d1f18 0%,#122b20 50%,#0a1a12 100%);padding:110px 44px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231d9e75' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--g) 30%,#4ecba0 60%,transparent)}
+.hero-inner{position:relative;max-width:800px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.35);margin-bottom:20px}
+.breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none}
+.breadcrumb a:hover{color:rgba(255,255,255,.7)}
+.breadcrumb span{color:rgba(255,255,255,.2)}
+.edition-badge{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--g);background:rgba(29,158,117,.13);border:0.5px solid rgba(29,158,117,.35);border-radius:4px;padding:3px 10px;margin-bottom:14px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px}
+.h1{font-size:38px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-.5px}
+.h1 em{color:var(--g);font-style:normal}
+.h1 strong{color:#4ecba0}
+.h1-sub{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:24px;max-width:660px}
+.meta{display:flex;flex-direction:column;gap:7px}
+.meta-i{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.4)}
+.meta-dot{width:4px;height:4px;border-radius:50%;background:var(--g);flex-shrink:0}
+
+/* TICKER */
+.ticker{background:#111e18;border-top:.5px solid rgba(255,255,255,.05);border-bottom:.5px solid rgba(255,255,255,.05);display:flex;align-items:center;overflow:hidden;height:42px}
+.tick-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g);padding:0 20px;white-space:nowrap;border-right:1px solid rgba(255,255,255,.08);height:100%;display:flex;align-items:center;flex-shrink:0}
+.tick-track{display:flex;align-items:center;gap:0;overflow:hidden;flex:1}
+.tick-inner{display:flex;animation:ticker 38s linear infinite;white-space:nowrap}
+.tick-item{display:inline-flex;align-items:center;gap:8px;padding:0 22px;border-right:.5px solid rgba(255,255,255,.06);height:42px}
+.ts{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.5px}
+.tv{font-size:11px;font-weight:600;color:#e8e2d8;letter-spacing:.3px}
+.up{font-size:10px;color:#4ecba0}
+.dn{font-size:10px;color:#e8786a}
+.ntr{font-size:10px;color:rgba(255,255,255,.4)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* BODY */
+.body{max-width:800px;margin:0 auto;padding:52px 44px}
+.intro-box{background:var(--white);border-radius:14px;padding:28px 32px;font-size:15px;color:var(--dark);line-height:1.82;border:1px solid rgba(0,0,0,.07);margin-bottom:40px;position:relative}
+.intro-box::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--g);border-radius:4px 0 0 4px}
+
+/* SECTIONS */
+.sec{margin-bottom:44px}
+.sec-label{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.sec-num{width:22px;height:22px;border-radius:50%;background:var(--g);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-num.amber{background:var(--amber)}
+.sec-num.red{background:var(--red)}
+.sec-num.blue{background:var(--blue)}
+.sec-title{font-size:19px;font-weight:700;color:var(--dark);letter-spacing:-.2px}
+.sec-sub{font-size:13px;color:var(--mid);margin-top:2px}
+
+/* DASHBOARD GRID */
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.dash-card{background:var(--white);border-radius:12px;padding:18px 20px;border:1px solid rgba(0,0,0,.07)}
+.dash-label{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+.dash-val{font-size:22px;font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:3px}
+.dash-chg{font-size:12px}
+.dash-chg.up{color:var(--g)}
+.dash-chg.dn{color:var(--red)}
+.dash-chg.ntr{color:var(--mid)}
+.dash-src{font-size:10px;color:var(--light);margin-top:4px}
+
+/* ANALYSIS CARDS */
+.acard{background:var(--white);border-radius:14px;padding:24px 28px;border:1px solid rgba(0,0,0,.07);margin-bottom:16px}
+.acard-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;padding:3px 9px;margin-bottom:12px}
+.acard-tag.g{background:var(--g-bg);color:var(--g2)}
+.acard-tag.amber{background:var(--amber-bg);color:#7a5010}
+.acard-tag.red{background:var(--red-bg);color:var(--red)}
+.acard-tag.blue{background:var(--blue-bg);color:var(--blue)}
+.acard-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:10px;line-height:1.35;letter-spacing:-.2px}
+.acard-body{font-size:13.5px;color:#444;line-height:1.82}
+.acard-body strong{color:var(--dark)}
+.acard-body em{font-style:normal;color:var(--g2);font-weight:600}
+.acard-foot{margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06);font-size:11px;color:var(--light)}
+
+/* SCENARIO GRID */
+.scen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.scen{border-radius:12px;padding:20px 22px;border:1px solid}
+.scen.bull{background:var(--g-bg);border-color:rgba(29,158,117,.2)}
+.scen.base{background:var(--amber-bg);border-color:rgba(184,122,42,.2)}
+.scen.bear{background:var(--red-bg);border-color:rgba(192,57,43,.2)}
+.scen-tag{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.scen.bull .scen-tag{color:var(--g2)}
+.scen.base .scen-tag{color:#7a5010}
+.scen.bear .scen-tag{color:var(--red)}
+.scen-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.3}
+.scen-body{font-size:12px;color:var(--mid);line-height:1.72}
+.scen-prob{font-size:11px;font-weight:600;margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,.08)}
+.scen.bull .scen-prob{color:var(--g2)}
+.scen.base .scen-prob{color:#7a5010}
+.scen.bear .scen-prob{color:var(--red)}
+
+/* RADAR */
+.radar-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.radar-item{background:var(--white);border-radius:10px;padding:14px 16px;border:1px solid rgba(0,0,0,.07);display:flex;gap:12px;align-items:flex-start}
+.radar-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.radar-dot.h{background:var(--red)}
+.radar-dot.m{background:var(--amber)}
+.radar-dot.l{background:var(--g)}
+.radar-label{font-size:11px;font-weight:600;color:var(--dark);margin-bottom:3px}
+.radar-desc{font-size:11.5px;color:var(--mid);line-height:1.6}
+
+/* CTA */
+.cta-block{background:linear-gradient(135deg,var(--coal) 0%,var(--coal2) 100%);border-radius:18px;padding:44px 48px;text-align:center;margin-bottom:36px}
+.cta-title{font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.3px}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.65}
+.cta-btn{display:inline-block;background:var(--g);color:#fff;font-size:13px;font-weight:600;letter-spacing:.3px;padding:13px 28px;border-radius:10px;text-decoration:none;transition:background .2s}
+.cta-btn:hover{background:var(--g2)}
+
+/* ARCHIVE */
+.arch{background:var(--white);border-radius:14px;padding:22px 28px;margin-bottom:36px;border:1px solid rgba(0,0,0,.06)}
+.arch-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:14px}
+.arch-list{display:flex;flex-direction:column;gap:8px}
+.arch-item{display:flex;align-items:center;gap:12px;text-decoration:none;padding:8px 0;border-bottom:.5px solid rgba(0,0,0,.05)}
+.arch-item:last-child{border-bottom:none}
+.arch-num{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+.arch-ttl{font-size:13px;color:var(--dark);font-weight:500;flex:1}
+.arch-arrow{font-size:11px;color:var(--light);white-space:nowrap}
+.arch-item:hover .arch-ttl{color:var(--g2)}
+
+/* FOOTER */
+footer{background:var(--coal)}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:48px 44px;max-width:960px;margin:0 auto}
+.flogo{font-size:20px;font-weight:700;letter-spacing:4px;color:#fff;margin-bottom:8px}
+.flogo span{color:var(--g)}
+.ftag{font-size:12px;color:rgba(255,255,255,.35);line-height:1.65;margin-bottom:14px}
+.freg{font-size:11px;color:rgba(255,255,255,.2);line-height:1.6}
+.fhl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.flinks{display:flex;flex-direction:column;gap:7px}
+.flinks a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:#fff}
+.fb{display:flex;align-items:center;justify-content:space-between;padding:16px 44px;border-top:.5px solid rgba(255,255,255,.06);max-width:960px;margin:0 auto}
+.fcopy{font-size:11px;color:rgba(255,255,255,.28)}
+.flegal{display:flex;gap:14px}
+.flegal a{font-size:11px;color:rgba(255,255,255,.3);text-decoration:none}
+
+@media(max-width:760px){
+  .hero{padding:96px 22px 48px}
+  .h1{font-size:26px}
+  .body{padding:36px 22px}
+  .dash{grid-template-columns:1fr 1fr}
+  .scen-grid{grid-template-columns:1fr}
+  .radar-grid{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr;padding:36px 22px}
+  .fb{padding:14px 22px;flex-direction:column;gap:8px}
+  .nav{padding:0 18px}
+  #ayys-group-bar{padding:5px 18px}
+  .cta-block{padding:32px 22px}
+}
+</style>
+</head>
+<body>
+
+<div id="ayys-group-bar"><a href="https://ayys-group.com" style="color:#555;text-decoration:none">AYYS Group</a><span class="gb-sep"> — </span><span class="gb-cur">Commodities</span><span class="gb-sep"> · </span><a href="ayys-energy.html">Energy</a><span class="gb-sep"> · </span><a href="ayys-agri.html">Agri</a><span class="gb-sep"> · </span><a href="ayys-medcare.html">Medcare</a></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="logo" href="index.html">
+    <span class="logo-m">AYYS<span>.</span></span>
+    <span class="logo-s">Commodities</span>
+  </a>
+  <div class="nav-r">
+    <a class="nav-back" href="index.html#intel">← Intelligence</a>
+    <a class="nav-cta" href="index.html#contact">Demander un mandat</a>
+  </div>
+</nav>
+<div class="bar"><div class="prog" id="prog"></div></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">ayys-group.com</a><span>/</span>
+      <a href="index.html#intel">Intelligence</a><span>/</span>
+      <span style="color:rgba(255,255,255,.45)">AYYS Signal N°006</span>
+    </div>
+    <div class="edition-badge">AYYS Signal · Édition N°006</div>
+    <div class="eyebrow">15 juin 2026 · Analyse hebdomadaire</div>
+    <div class="h1">REE : la grande <em>recomposition des flux</em>,<br><strong>Dy/Tb +34%</strong> — où en est le cuivre ?</div>
+    <div class="h1-sub">Embargo China sur terres rares · Corridors Myanmar/Vietnam · Déficit cuivre 580 000 t · Cobalt retournement +18% · Section 232 : bilan 90 jours</div>
+    <div class="meta">
+      <div class="meta-i"><div class="meta-dot"></div><span>Périmètre&nbsp;: <strong>Terres rares · Cuivre · Cobalt · Section 232 · Corridors Asie-Europe</strong></span></div>
+      <div class="meta-i"><div class="meta-dot"></div><span>Édition standard&nbsp;: <strong>15 juin 2026</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tick-label">15 JUIN 2026</div>
+  <div class="tick-track">
+    <div class="tick-inner">
+      <div class="tick-item"><span class="ts">Dy₂O₃</span><span class="tv">$2 840/kg</span><span class="up">▲+34% 90j</span></div>
+      <div class="tick-item"><span class="ts">Tb₄O₇</span><span class="tv">$1 620/kg</span><span class="up">▲+29% 90j</span></div>
+      <div class="tick-item"><span class="ts">Cu LME</span><span class="tv">$9 780/t</span><span class="up">▲+4.2% 30j</span></div>
+      <div class="tick-item"><span class="ts">Co MB</span><span class="tv">$15.40/lb</span><span class="up">▲+18% 60j</span></div>
+      <div class="tick-item"><span class="ts">Li₂CO₃</span><span class="tv">$13 200/t</span><span class="dn">▼-6% 30j</span></div>
+      <div class="tick-item"><span class="ts">Nd₂O₃</span><span class="tv">$72/kg</span><span class="up">▲+11%</span></div>
+      <div class="tick-item"><span class="ts">Au</span><span class="tv">$3 284/oz</span><span class="ntr">≈ stable</span></div>
+      <div class="tick-item"><span class="ts">Brent</span><span class="tv">$88.20/bbl</span><span class="dn">▼-8.3% 1 sem</span></div>
+      <div class="tick-item"><span class="ts">Sm₂O₃</span><span class="tv">$4.80/kg</span><span class="up">▲+22%</span></div>
+      <!-- double pour boucle -->
+      <div class="tick-item"><span class="ts">Dy₂O₃</span><span class="tv">$2 840/kg</span><span class="up">▲+34% 90j</span></div>
+      <div class="tick-item"><span class="ts">Tb₄O₇</span><span class="tv">$1 620/kg</span><span class="up">▲+29% 90j</span></div>
+      <div class="tick-item"><span class="ts">Cu LME</span><span class="tv">$9 780/t</span><span class="up">▲+4.2% 30j</span></div>
+      <div class="tick-item"><span class="ts">Co MB</span><span class="tv">$15.40/lb</span><span class="up">▲+18% 60j</span></div>
+      <div class="tick-item"><span class="ts">Li₂CO₃</span><span class="tv">$13 200/t</span><span class="dn">▼-6% 30j</span></div>
+      <div class="tick-item"><span class="ts">Nd₂O₃</span><span class="tv">$72/kg</span><span class="up">▲+11%</span></div>
+      <div class="tick-item"><span class="ts">Au</span><span class="tv">$3 284/oz</span><span class="ntr">≈ stable</span></div>
+      <div class="tick-item"><span class="ts">Brent</span><span class="tv">$88.20/bbl</span><span class="dn">▼-8.3% 1 sem</span></div>
+      <div class="tick-item"><span class="ts">Sm₂O₃</span><span class="tv">$4.80/kg</span><span class="up">▲+22%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    Trois semaines après l'entrée en vigueur de la Section 232 et la flambée géopolitique du 8 juin, les marchés de métaux critiques entament une recomposition structurelle. La Chine a enclenché le mécanisme de licences d'exportation sur quatre éléments de terres rares (dysprosium, terbium, samarium, yttrium) — les délais atteignent désormais 45 à 90 jours sur les flux directs, forçant les acheteurs européens à pivoter vers des sources alternatives Myanmar/Vietnam. Simultanément, le cuivre consolide au-dessus de $9 700/t sur un déficit structurel de 580 000 tonnes, et le cobalt amorce un retournement haussier après 18 mois de dépression.
+  </div>
+
+  <!-- TABLEAU DE BORD -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num">◆</div>
+      <div>
+        <div class="sec-title">Tableau de bord — 15 juin 2026</div>
+        <div class="sec-sub">Prix indicatifs, sources Fastmarkets / LME / MB / USGS — non contractuels</div>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="dash-card">
+        <div class="dash-label">Dy₂O₃ (China FOB)</div>
+        <div class="dash-val">$2 840/kg</div>
+        <div class="dash-chg up">▲ +34% vs mars 2026</div>
+        <div class="dash-src">Fastmarkets REE · jun 2026</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-label">Tb₄O₇ (China FOB)</div>
+        <div class="dash-val">$1 620/kg</div>
+        <div class="dash-chg up">▲ +29% vs mars 2026</div>
+        <div class="dash-src">Fastmarkets REE · jun 2026</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-label">Cu LME 3M</div>
+        <div class="dash-val">$9 780/t</div>
+        <div class="dash-chg up">▲ +4.2% sur 30j</div>
+        <div class="dash-src">LME · 15 jun 2026</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-label">Cobalt MB (payable)</div>
+        <div class="dash-val">$15.40/lb</div>
+        <div class="dash-chg up">▲ +18% sur 60j</div>
+        <div class="dash-src">Metal Bulletin · jun 2026</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-label">Li₂CO₃ (CIF Asie)</div>
+        <div class="dash-val">$13 200/t</div>
+        <div class="dash-chg dn">▼ -6% sur 30j</div>
+        <div class="dash-src">Fastmarkets · jun 2026</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-label">Or (spot)</div>
+        <div class="dash-val">$3 284/oz</div>
+        <div class="dash-chg ntr">≈ Stable (-0.4%)</div>
+        <div class="dash-src">LBMA · 14 jun 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 — REE CHINA CONTROLS -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num red">01</div>
+      <div>
+        <div class="sec-title">Terres rares : l'embargo silencieux de Pékin</div>
+        <div class="sec-sub">Dy · Tb · Sm · Y — licences 45-90 jours, flux vers l'Europe en chute de 40%</div>
+      </div>
+    </div>
+
+    <div class="acard">
+      <span class="acard-tag red">CRITIQUE — Approvisionnement</span>
+      <div class="acard-title">Mécanisme de licences : 45-90 jours sur Dy/Tb/Sm/Y directs</div>
+      <div class="acard-body">
+        Depuis le 1er avril 2026, le Ministère du Commerce chinois (MOFCOM) impose des licences d'exportation sur le dysprosium, le terbium, le samarium et l'yttrium au titre du régime "dual-use". Les délais d'instruction oscillent entre 45 et 90 jours selon les profils d'acheteurs, contre 5-10 jours avant mars. <strong>Les flux directs China → Europe ont chuté de 40% en volume sur le trimestre</strong>, selon les données douanières préliminaires disponibles via les sources Fastmarkets REE.<br><br>
+        Les industriels européens de la magnétique permanente — moteurs EV, éoliennes, robotique — sont les premiers exposés. Les stocks tampons de 60-90 jours constitués en urgence en Q1 2026 sont désormais partiellement consommés. <em>AYYS monitore la situation sur le corridor Myanmar/Vietnam comme alternative prioritaire pour les flux Dy/Tb non-China.</em>
+      </div>
+      <div class="acard-foot">Sources : MOFCOM, Fastmarkets REE, douanes chinoises Q1 2026</div>
+    </div>
+
+    <div class="acard">
+      <span class="acard-tag amber">OPPORTUNITÉ — Corridor alternatif</span>
+      <div class="acard-title">Myanmar / Vietnam : séparation hors-China, nouvelles capacités opérationnelles</div>
+      <div class="acard-body">
+        Face à l'embargo silencieux de Pékin, <strong>trois séparateurs hors-China ont atteint la maturité opérationnelle en 2026</strong> : Lynas Malaysia (Kuantan), MP Materials Phase 3 (Mountain Pass), et deux unités émergentes au Vietnam (Quang Ninh province). Ces sources couvrent prioritairement NdPr et mischmetal ; la couverture Dy/Tb reste limitée à ~15% des besoins européens.<br><br>
+        AYYS a sécurisé un pipeline d'approvisionnement alternatif via la province de Kachin (Myanmar) et le corridor fluvial Irrawaddy → Mandalay → frontière Yunnan, permettant l'accès à des séparations Tb/Dy à spécifications "battery grade" avec délai logistique de 30-45 jours CIF Rotterdam. <em>Ce corridor fonctionne hors du mécanisme de licence MOFCOM sur les exports transformés.</em>
+      </div>
+      <div class="acard-foot">Sources : AYYS Intelligence, Lynas Corp Q1 2026 results, Fastmarkets REE</div>
+    </div>
+  </div>
+
+  <!-- 02 — CUIVRE -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num">02</div>
+      <div>
+        <div class="sec-title">Cuivre : déficit structurel, Section 232 bilan 90 jours</div>
+        <div class="sec-sub">580 000 t de déficit · COMEX/LME prime maintenue · flux DRC perturbés</div>
+      </div>
+    </div>
+
+    <div class="acard">
+      <span class="acard-tag g">ANALYSE MARCHÉ</span>
+      <div class="acard-title">Déficit 580 000 t confirmé — Morgan Stanley maintient sa projection H2</div>
+      <div class="acard-body">
+        Le déficit structurel du marché cuivre 2026 est désormais confirmé à <strong>580 000 tonnes par les principaux forecasters</strong> (Morgan Stanley, Wood Mackenzie, ICSG). Les perturbations logistiques au DRC (corridor Lobito bloqué 3-5 semaines, cf. Signal N°004) et la décélération des projets miniers au Pérou (-120 000 t/an vs plan) accentuent le déséquilibre fondamental.<br><br>
+        La prime COMEX sur LME s'est normalisée à +$180/t après le pic de $1 200+ début juin, mais reste structurellement positive. <em>La Section 232 à 25% sur les imports de cuivre US a généré une inversion des flux transatlantiques</em> : le métal européen et chilien se redirige vers les États-Unis, créant une tension supplémentaire sur les bases CIF Rotterdam.
+      </div>
+      <div class="acard-foot">Sources : Morgan Stanley Research, ICSG, LME, COMEX settlement jun 2026</div>
+    </div>
+
+    <div class="acard">
+      <span class="acard-tag amber">SECTION 232 — Bilan 90 jours</span>
+      <div class="acard-title">Impact réel vs anticipations : prime normalisée, flux recomposés</div>
+      <div class="acard-body">
+        90 jours après l'annonce et 7 jours après l'entrée en vigueur effective (8 juin 2026), le bilan de la Section 232 Cuivre US révèle une réalité plus nuancée qu'anticipé. <strong>La prime COMEX/$180/t</strong> représente environ 60% de l'anticipation initiale des traders ($300/t). Les importateurs américains ont massivement constitué des stocks en Q1 2026 : les niveaux dans les entrepôts certifiés COMEX sont à 3× la moyenne historique.<br><br>
+        Pour les négociants non-US comme AYYS, <em>l'opportunité réside dans le différentiel de base CIF Asie vs LME</em>, qui s'est comprimé de $45/t depuis l'inversion des flux, créant des fenêtres d'arbitrage sur les cathodes grade A vers les acheteurs industriels d'Asie du Sud-Est (Vietnam, Thaïlande, Inde).
+      </div>
+      <div class="acard-foot">Sources : LME, COMEX, CFTC positioning reports, AYYS desk analysis</div>
+    </div>
+  </div>
+
+  <!-- 03 — COBALT -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num blue">03</div>
+      <div>
+        <div class="sec-title">Cobalt : le retournement haussier — pour combien de temps ?</div>
+        <div class="sec-sub">+18% sur 60 jours · DRC quotas · demande EV H2 · stocks LME en baisse</div>
+      </div>
+    </div>
+
+    <div class="acard">
+      <span class="acard-tag blue">RETOURNEMENT</span>
+      <div class="acard-title">Après 18 mois de dépression : les catalyseurs d'un rebond cobalt</div>
+      <div class="acard-body">
+        Le cobalt (grade payable Metal Bulletin) a progressé de <strong>+18% en 60 jours</strong>, passant de $13.05/lb mi-avril à $15.40/lb aujourd'hui. Trois facteurs convergent :<br><br>
+        <strong>1/ Quotas DRC :</strong> Le Ministère des Mines de la RDC a imposé en mai 2026 des plafonds d'export sur l'hydroxyde de cobalt (+quotas CMOC/Glencore KCC), réduisant les volumes disponibles de 35 000 t/an équivalent métal.<br><br>
+        <strong>2/ Demande EV H2 2026 :</strong> Les constructeurs automobiles chinois (BYD, CATL supply chain) ont recommencé à constituer des stocks pour leurs objectifs de production H2, inversant la pression baissière du spot.<br><br>
+        <em>3/ Stocks LME :</em> Les stocks certifiés LME cobalt ont baissé de 28% en 60 jours, signal précurseur des reprises de prix historiques.
+      </div>
+      <div class="acard-foot">Sources : Metal Bulletin, LME warehouse reports, CTIA data, DRC Mines Ministry</div>
+    </div>
+  </div>
+
+  <!-- 04 — PRÉVISIONS -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num amber">04</div>
+      <div>
+        <div class="sec-title">Scénarios H2 2026 — trois trajectoires</div>
+        <div class="sec-sub">REE · Cuivre · Cobalt — horizons juillet-décembre 2026</div>
+      </div>
+    </div>
+
+    <div class="scen-grid">
+      <div class="scen bull">
+        <div class="scen-tag">Haussier</div>
+        <div class="scen-title">Embargo REE durcit, cuivre $10 500/t</div>
+        <div class="scen-body">Les licences MOFCOM se prolongent au-delà de 90 jours sur Dy/Tb. La Commission Européenne active le mécanisme CRM Act (stockage stratégique). Cu teste $10 500 sur déficit aggravé. Cobalt dépasse $18/lb.</div>
+        <div class="scen-prob">Probabilité AYYS : 30%</div>
+      </div>
+      <div class="scen base">
+        <div class="scen-tag">Central</div>
+        <div class="scen-title">Réouverture partielle, cuivre $9 600-10 000/t</div>
+        <div class="scen-body">Pékin accorde des licences accélérées pour les acheteurs qualifiés EU sur Dy/Tb d'ici septembre. Cu consolide $9 600-10 000. Cobalt plateau $15-16/lb. Section 232 maintenue mais flux stabilisés.</div>
+        <div class="scen-prob">Probabilité AYYS : 50%</div>
+      </div>
+      <div class="scen bear">
+        <div class="scen-tag">Baissier</div>
+        <div class="scen-title">Détente géopolitique, cuivre recule sous $9 200/t</div>
+        <div class="scen-body">Accord commercial US-China sur REE déboucle les licences. Nouveau projet minier cuivre (Panama/Pérou) relance l'offre. Cu reflue sous $9 200. Cobalt rechute si EV demand déçoit.</div>
+        <div class="scen-prob">Probabilité AYYS : 20%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 — RADAR -->
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-num">05</div>
+      <div>
+        <div class="sec-title">Radar AYYS — 8 signaux à suivre</div>
+        <div class="sec-sub">Veille stratégique semaine du 16 au 22 juin 2026</div>
+      </div>
+    </div>
+    <div class="radar-grid">
+      <div class="radar-item">
+        <div class="radar-dot h"></div>
+        <div>
+          <div class="radar-label">MOFCOM · Publication liste licences Dy/Tb</div>
+          <div class="radar-desc">Attendue mi-juillet. Déterminera la durée réelle de l'embargo sur les flux vers l'Europe.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot h"></div>
+        <div>
+          <div class="radar-label">LME Cu inventories · Direction semaine 25</div>
+          <div class="radar-desc">Trois semaines consécutives de hausse des stocks = signal baissier à surveiller.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot m"></div>
+        <div>
+          <div class="radar-label">Commission Européenne · CRM Act stockage</div>
+          <div class="radar-desc">Délibération prévue fin juin sur l'activation du mécanisme de stockage stratégique REE.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot m"></div>
+        <div>
+          <div class="radar-label">DRC · Audit quotas CMOC / Glencore KCC</div>
+          <div class="radar-desc">Résultats de l'audit des allocations Q2 cobalt hydroxyde. Impact direct sur prime CIF.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot m"></div>
+        <div>
+          <div class="radar-label">Fed FOMC 18 juin · Signal taux</div>
+          <div class="radar-desc">Décision taux US. Impact inverse sur dollar/commodités — surveillance Cu et Au.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot m"></div>
+        <div>
+          <div class="radar-label">Lynas Malaysia · Production update Q2</div>
+          <div class="radar-desc">Publication volumes séparation NdPr + lourd. Premier baromètre hors-China crédible.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot l"></div>
+        <div>
+          <div class="radar-label">Peru Cu production · MAI données</div>
+          <div class="radar-desc">Volumes mai publiés par MINEM. Confirmation ou infirmation du retard de production 2026.</div>
+        </div>
+      </div>
+      <div class="radar-item">
+        <div class="radar-dot l"></div>
+        <div>
+          <div class="radar-label">CATL · Rapport semestriel production</div>
+          <div class="radar-desc">Guidance H2 2026 batteries. Signal indirect sur demande cobalt/lithium fin d'année.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Vous sourcez des métaux critiques ?</div>
+    <div class="cta-sub">AYYS Commodities structure des mandats d'achat sur REE, cuivre, cobalt et métaux de la transition énergétique — due diligence KYC/AML, traçabilité OCDE, exécution CIF/DDP.</div>
+    <a class="cta-btn" href="index.html#contact">Demander un mandat →</a>
+  </div>
+
+  <!-- ARCHIVE BAR -->
+  <div class="arch">
+    <div class="arch-title">Éditions précédentes</div>
+    <div class="arch-list">
+      <a class="arch-item" href="signal-005.html">
+        <span class="arch-num">N°005 · 8 juin 2026</span>
+        <span class="arch-ttl">Iran tire sur Israël · Ormuz sous tension · Cuivre $6.54</span>
+        <span class="arch-arrow">Lire →</span>
+      </a>
+      <a class="arch-item" href="signal-004.html">
+        <span class="arch-num">N°004 · Fin mai 2026</span>
+        <span class="arch-ttl">Records absolus, Ormuz s'ouvre, alliances recomposées</span>
+        <span class="arch-arrow">Lire →</span>
+      </a>
+      <a class="arch-item" href="signal-003.html">
+        <span class="arch-num">N°003 · Mi-mai 2026</span>
+        <span class="arch-ttl">Cuivre record, lithium en feu</span>
+        <span class="arch-arrow">Lire →</span>
+      </a>
+      <a class="arch-item" href="signal-002.html">
+        <span class="arch-num">N°002 · Mai 2026</span>
+        <span class="arch-ttl">Guerre, soufre et terres rares</span>
+        <span class="arch-arrow">Lire →</span>
+      </a>
+      <a class="arch-item" href="signal-001.html">
+        <span class="arch-num">N°001 · Avril 2026</span>
+        <span class="arch-ttl">Les flux qui comptent</span>
+        <span class="arch-arrow">Lire →</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="flogo">AYYS<span>.</span></div>
+      <div class="ftag">Sourcing de métaux stratégiques pour industriels internationaux.</div>
+      <div class="freg">AYYS Commodities · 3 place Jussieu, 75005 Paris<br>SIRET 102 790 375 00012 · KYC/AML/Sanctions screening</div>
+    </div>
+    <div>
+      <div class="fhl">Navigation</div>
+      <div class="flinks">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#metals">Marchés</a>
+        <a href="index.html#intel">Intelligence</a>
+        <a href="signal-006.html">Signal N°006</a>
+        <a href="index.html#about">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="fhl">Contact</div>
+      <div class="flinks">
+        <a href="mailto:contact@ayys-group.fr">contact@ayys-group.fr</a>
+        <a href="mailto:trading@ayys-group.fr">trading@ayys-group.fr</a>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.18);margin-top:14px;line-height:1.65">Prix indicatifs — données non contractuelles<br>© 2026 AYYS Commodities · Tous droits réservés</div>
+    </div>
+  </div>
+  <div class="fb">
+    <span class="fcopy">© 2026 AYYS Commodities — ayys-group.com</span>
+    <div class="flegal">
+      <a href="privacy.html">Confidentialité</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="compliance.html">Conformité</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const el=document.documentElement;
+  const prog=document.getElementById('prog');
+  if(prog){
+    const pct=(el.scrollTop/(el.scrollHeight-el.clientHeight))*100;
+    prog.style.width=Math.min(pct,100)+'%';
+  }
+  const nav=document.getElementById('nav');
+  if(nav) nav.classList.toggle('scrolled',el.scrollTop>40);
+});
+</script>
+</body>
+</html>
