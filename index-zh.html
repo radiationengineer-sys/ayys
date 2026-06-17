@@ -2443,8 +2443,9 @@ document.getElementById('cform')?.addEventListener('submit', function(e){
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = ayysNormalizeLang((() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN');
+  const saved = ayysNormalizeLang('ZH');
   applyLang(saved);
+  try { localStorage.setItem('ayys_lang', 'ZH'); } catch(e){} // AYYS page-language lock
 
   // Instrumentaliser les liens vers signal-001.html et signal-002.html pour passer la langue active
   // (redondant avec localStorage mais garantit la sync même en navigation privée)
@@ -2610,7 +2611,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // On DOMContentLoaded, apply saved lang to all links (no redirect)
   document.addEventListener('DOMContentLoaded',function(){
     var lc=(function(){
-      try{return localStorage.getItem('ayys_lang')||'EN';}catch(e){return'EN';}
+      try{return 'ZH';}catch(e){return'ZH';}
     })();
     // sync selector
     var s=document.getElementById('lang-sel');

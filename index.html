@@ -2154,7 +2154,7 @@ function pickLang(code,label,el){ pickLangSel(code); }
 
 const ayysLangSelect = document.getElementById('lang-sel');
 if (ayysLangSelect) {
-  ayysLangSelect.addEventListener('change', function(){ pickLangSel(this.value); });
+  ayysLangSelect.addEventListener('change', function(){ if (typeof window.goLang === 'function') { window.goLang(this); } else { pickLangSel(this.value); } });
 }
 
 document.getElementById('cform')?.addEventListener('submit', function(e){
@@ -2163,8 +2163,9 @@ document.getElementById('cform')?.addEventListener('submit', function(e){
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = ayysNormalizeLang((() => { try { return localStorage.getItem('ayys_lang'); } catch(e) { return null; } })() || 'EN');
+  const saved = ayysNormalizeLang('EN');
   applyLang(saved);
+  try { localStorage.setItem('ayys_lang', 'EN'); } catch(e){} // AYYS page-language lock
 
   // Instrumentaliser les liens vers signal-001.html et signal-002.html pour passer la langue active
   // (redondant avec localStorage mais garantit la sync même en navigation privée)
